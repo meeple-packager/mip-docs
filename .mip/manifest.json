@@ -1,0 +1,277 @@
+{
+  "@docmd/core": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/core/0.8.8",
+    "installed": 1782462521275
+  },
+  "ws": {
+    "version": "8.21.0",
+    "path": "/home/zshx/.mip/store/ws/8.21.0",
+    "installed": 1782462521804
+  },
+  "esbuild": {
+    "version": "0.28.1",
+    "path": "/home/zshx/.mip/store/esbuild/0.28.1",
+    "installed": 1782462521990
+  },
+  "@docmd/api": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/api/0.8.8",
+    "installed": 1782462522700
+  },
+  "@docmd/utils": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/utils/0.8.8",
+    "installed": 1782462523197
+  },
+  "@docmd/plugin-git": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-git/0.8.8",
+    "installed": 1782462522791
+  },
+  "@docmd/plugin-llms": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-llms/0.8.8",
+    "installed": 1782462522810
+  },
+  "@docmd/tui": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/tui/0.8.8",
+    "installed": 1782462523066
+  },
+  "@docmd/plugin-pwa": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-pwa/0.8.8",
+    "installed": 1782462522860
+  },
+  "@docmd/plugin-openapi": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-openapi/0.8.8",
+    "installed": 1782462522880
+  },
+  "@docmd/plugin-mermaid": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-mermaid/0.8.8",
+    "installed": 1782462522898
+  },
+  "@docmd/plugin-installer": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-installer/0.8.8",
+    "installed": 1782462522971
+  },
+  "@docmd/plugin-analytics": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-analytics/0.8.8",
+    "installed": 1782462522991
+  },
+  "@docmd/plugin-seo": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-seo/0.8.8",
+    "installed": 1782462523028
+  },
+  "@docmd/plugin-sitemap": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-sitemap/0.8.8",
+    "installed": 1782462523045
+  },
+  "@docmd/themes": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/themes/0.8.8",
+    "installed": 1782462523089
+  },
+  "chalk": {
+    "version": "4.1.2",
+    "path": "/home/zshx/.mip/store/chalk/4.1.2",
+    "installed": 1782462523172
+  },
+  "@docmd/plugin-okf": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-okf/0.8.8",
+    "installed": 1782462523140
+  },
+  "@docmd/plugin-search": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-search/0.8.8",
+    "installed": 1782462523187
+  },
+  "ansi-styles": {
+    "version": "4.3.0",
+    "path": "/home/zshx/.mip/store/ansi-styles/4.3.0",
+    "installed": 1782462523273
+  },
+  "@docmd/deployer": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/deployer/0.8.8",
+    "installed": 1782462523284
+  },
+  "supports-color": {
+    "version": "7.2.0",
+    "path": "/home/zshx/.mip/store/supports-color/7.2.0",
+    "installed": 1782462523331
+  },
+  "color-convert": {
+    "version": "2.0.1",
+    "path": "/home/zshx/.mip/store/color-convert/2.0.1",
+    "installed": 1782462523389
+  },
+  "has-flag": {
+    "version": "4.0.0",
+    "path": "/home/zshx/.mip/store/has-flag/4.0.0",
+    "installed": 1782462523425
+  },
+  "color-name": {
+    "version": "1.1.4",
+    "path": "/home/zshx/.mip/store/color-name/1.1.4",
+    "installed": 1782462523507
+  },
+  "@docmd/ui": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/ui/0.8.8",
+    "installed": 1782462523485
+  },
+  "@docmd/parser": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/parser/0.8.8",
+    "installed": 1782462523601
+  },
+  "@docmd/live": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/live/0.8.8",
+    "installed": 1782462523723
+  },
+  "markdown-it-abbr": {
+    "version": "1.0.4",
+    "path": "/home/zshx/.mip/store/markdown-it-abbr/1.0.4",
+    "installed": 1782462524192
+  },
+  "markdown-it-footnote": {
+    "version": "3.0.3",
+    "path": "/home/zshx/.mip/store/markdown-it-footnote/3.0.3",
+    "installed": 1782462524254
+  },
+  "markdown-it-deflist": {
+    "version": "2.1.0",
+    "path": "/home/zshx/.mip/store/markdown-it-deflist/2.1.0",
+    "installed": 1782462524210
+  },
+  "markdown-it-attrs": {
+    "version": "4.5.0",
+    "path": "/home/zshx/.mip/store/markdown-it-attrs/4.5.0",
+    "installed": 1782462524291
+  },
+  "buffer": {
+    "version": "6.0.3",
+    "path": "/home/zshx/.mip/store/buffer/6.0.3",
+    "installed": 1782462524268
+  },
+  "ieee754": {
+    "version": "1.2.1",
+    "path": "/home/zshx/.mip/store/ieee754/1.2.1",
+    "installed": 1782462524422
+  },
+  "lite-matter": {
+    "version": "0.1.1",
+    "path": "/home/zshx/.mip/store/lite-matter/0.1.1",
+    "installed": 1782462524510
+  },
+  "base64-js": {
+    "version": "1.5.1",
+    "path": "/home/zshx/.mip/store/base64-js/1.5.1",
+    "installed": 1782462524540
+  },
+  "lite-template": {
+    "version": "0.1.2",
+    "path": "/home/zshx/.mip/store/lite-template/0.1.2",
+    "installed": 1782462524578
+  },
+  "lite-hl": {
+    "version": "0.1.2",
+    "path": "/home/zshx/.mip/store/lite-hl/0.1.2",
+    "installed": 1782462524617
+  },
+  "markdown-it-emoji": {
+    "version": "2.0.2",
+    "path": "/home/zshx/.mip/store/markdown-it-emoji/2.0.2",
+    "installed": 1782462524729
+  },
+  "markdown-it-task-lists": {
+    "version": "2.1.1",
+    "path": "/home/zshx/.mip/store/markdown-it-task-lists/2.1.1",
+    "installed": 1782462524752
+  },
+  "markdown-it-texmath": {
+    "version": "1.0.0",
+    "path": "/home/zshx/.mip/store/markdown-it-texmath/1.0.0",
+    "installed": 1782462524846
+  },
+  "@docmd/plugin-math": {
+    "version": "0.8.8",
+    "path": "/home/zshx/.mip/store/@docmd/plugin-math/0.8.8",
+    "installed": 1782462525012
+  },
+  "minisearch": {
+    "version": "7.2.0",
+    "path": "/home/zshx/.mip/store/minisearch/7.2.0",
+    "installed": 1782462525034
+  },
+  "embed-lite": {
+    "version": "0.1.4",
+    "path": "/home/zshx/.mip/store/embed-lite/0.1.4",
+    "installed": 1782462525090
+  },
+  "markdown-it": {
+    "version": "14.2.0",
+    "path": "/home/zshx/.mip/store/markdown-it/14.2.0",
+    "installed": 1782462525262
+  },
+  "argparse": {
+    "version": "2.0.1",
+    "path": "/home/zshx/.mip/store/argparse/2.0.1",
+    "installed": 1782462525563
+  },
+  "uc.micro": {
+    "version": "2.1.0",
+    "path": "/home/zshx/.mip/store/uc.micro/2.1.0",
+    "installed": 1782462526041
+  },
+  "punycode.js": {
+    "version": "2.3.1",
+    "path": "/home/zshx/.mip/store/punycode.js/2.3.1",
+    "installed": 1782462525989
+  },
+  "mdurl": {
+    "version": "2.0.0",
+    "path": "/home/zshx/.mip/store/mdurl/2.0.0",
+    "installed": 1782462525963
+  },
+  "linkify-it": {
+    "version": "5.0.1",
+    "path": "/home/zshx/.mip/store/linkify-it/5.0.1",
+    "installed": 1782462526017
+  },
+  "entities": {
+    "version": "4.5.0",
+    "path": "/home/zshx/.mip/store/entities/4.5.0",
+    "installed": 1782462527042
+  },
+  "katex": {
+    "version": "0.17.0",
+    "path": "/home/zshx/.mip/store/katex/0.17.0",
+    "installed": 1782462527566
+  },
+  "yaml": {
+    "version": "2.9.0",
+    "path": "/home/zshx/.mip/store/yaml/2.9.0",
+    "installed": 1782462527530
+  },
+  "commander": {
+    "version": "8.3.0",
+    "path": "/home/zshx/.mip/store/commander/8.3.0",
+    "installed": 1782462527894
+  },
+  "lucide-static": {
+    "version": "0.577.0",
+    "path": "/home/zshx/.mip/store/lucide-static/0.577.0",
+    "installed": 1782462533156
+  }
+}
