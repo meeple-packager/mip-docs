@@ -39,7 +39,10 @@
       { "title": "why", "path": "/commands/why.md" },
       { "title": "workspaces", "path": "/commands/workspaces.md" },
       { "title": "pe", "path": "/commands/pe.md" },
-      { "title": "plugin", "path": "/commands/plugin.md" }
+      { "title": "plugin", "path": "/commands/plugin.md" },
+      { "title": "registry", "path": "/commands/registry.md" },
+      { "title": "config", "path": "/commands/config.md" },
+      { "title": "server", "path": "/commands/server.md" }
     ]
   },
   {
