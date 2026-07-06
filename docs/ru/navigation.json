@@ -42,7 +42,8 @@
       { "title": "plugin", "path": "/commands/plugin.md" },
       { "title": "registry", "path": "/commands/registry.md" },
       { "title": "config", "path": "/commands/config.md" },
-      { "title": "server", "path": "/commands/server.md" }
+      { "title": "server", "path": "/commands/server.md" },
+      { "title": "alias", "path": "/commands/alias.md" }
     ]
   },
   {
@@ -51,7 +52,8 @@
     "children": [
       { "title": "Создание проекта", "path": "/setup/index.md" },
       { "title": "Быстрый старт", "path": "/setup/quick-start.md" },
-      { "title": "Конфигурация", "path": "/setup/configuration.md" }
+      { "title": "Конфигурация", "path": "/setup/configuration.md" },
+      { "title": "Функции конфиг-файла", "path": "/setup/features.md" }
     ]
   },
   {

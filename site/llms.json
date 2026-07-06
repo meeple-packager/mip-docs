@@ -3,6 +3,12 @@
   "description": "",
   "pages": [
     {
+      "title": "mip alias",
+      "url": "https://mip.fwh.is/commands/alias/",
+      "description": "",
+      "priority": "medium"
+    },
+    {
       "title": "mip audit — dependency security check",
       "url": "https://mip.fwh.is/commands/audit/",
       "description": "The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes.",
@@ -18,6 +24,12 @@
       "title": "mip ci — install for CI/CD environments",
       "url": "https://mip.fwh.is/commands/ci/",
       "description": "The ci command is designed for fast and reliable dependency installation in CI/CD environments using a lockfile and verifying its integrity.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip config — manage MIP configuration",
+      "url": "https://mip.fwh.is/commands/config/",
+      "description": "The config command allows you to view, modify, and manage MIP project configuration directly from the command line.",
       "priority": "medium"
     },
     {
@@ -129,6 +141,12 @@
       "priority": "medium"
     },
     {
+      "title": "mip registry — manage package registries",
+      "url": "https://mip.fwh.is/commands/registy/",
+      "description": "The registry command allows you to add, remove, list, and manage custom package registries for private packages and alternative package sources.",
+      "priority": "medium"
+    },
+    {
       "title": "mip repo — interactive TUI for GitHub repositories",
       "url": "https://mip.fwh.is/commands/repo/",
       "description": "The repo command opens a TUI file manager for browsing GitHub repositories, viewing contents, and downloading files.",
@@ -144,6 +162,12 @@
       "title": "mip search — search for packages in the registry",
       "url": "https://mip.fwh.is/commands/search/",
       "description": "The search command searches the npm registry for packages matching a keyword, showing the name, version, and description.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip server — web dashboard for MIP",
+      "url": "https://mip.fwh.is/commands/server/",
+      "description": "The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.",
       "priority": "medium"
     },
     {
@@ -261,6 +285,12 @@
       "priority": "medium"
     },
     {
+      "title": "mip alias",
+      "url": "https://mip.fwh.is/ru/commands/alias/",
+      "description": "",
+      "priority": "medium"
+    },
+    {
       "title": "mip audit — проверка безопасности зависимостей",
       "url": "https://mip.fwh.is/ru/commands/audit/",
       "description": "Команда audit анализирует дерево зависимостей на наличие известных уязвимостей, сообщает о проблемах и предлагает автоматические исправления.",
@@ -276,6 +306,12 @@
       "title": "mip ci — установка для CI/CD окружений",
       "url": "https://mip.fwh.is/ru/commands/ci/",
       "description": "Команда ci предназначена для быстрой и надёжной установки зависимостей в CI/CD средах, используя lock-файл и проверяя его целостность.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip config — управление конфигурацией MIP",
+      "url": "https://mip.fwh.is/ru/commands/config/",
+      "description": "Команда config позволяет просматривать, изменять и управлять конфигурацией проекта MIP прямо из командной строки.",
       "priority": "medium"
     },
     {
@@ -387,6 +423,18 @@
       "priority": "medium"
     },
     {
+      "title": "mip registry — управление реестрами пакетов",
+      "url": "https://mip.fwh.is/ru/commands/registry/",
+      "description": "Команда registry позволяет добавлять, удалять, выводить список и управлять пользовательскими реестрами пакетов для приватных пакетов и альтернативных источников.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip registry — manage package registries",
+      "url": "https://mip.fwh.is/ru/commands/registy/",
+      "description": "The registry command allows you to add, remove, list, and manage custom package registries for private packages and alternative package sources.",
+      "priority": "medium"
+    },
+    {
       "title": "mip repo — интерактивный просмотр GitHub-репозиториев",
       "url": "https://mip.fwh.is/ru/commands/repo/",
       "description": "Команда repo открывает TUI-файловый менеджер для навигации по GitHub-репозиториям, просмотра содержимого и скачивания файлов.",
@@ -402,6 +450,12 @@
       "title": "mip search — поиск пакетов в реестре",
       "url": "https://mip.fwh.is/ru/commands/search/",
       "description": "Команда search ищет пакеты в реестре npm по ключевому слову, показывая название, версию и описание.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip server — веб-дашборд для MIP",
+      "url": "https://mip.fwh.is/ru/commands/server/",
+      "description": "Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.",
       "priority": "medium"
     },
     {

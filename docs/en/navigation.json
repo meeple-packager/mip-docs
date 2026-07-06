@@ -42,7 +42,8 @@
       { "title": "plugin", "path": "/commands/plugin.md" },
       { "title": "registry", "path": "/commands/registry.md" },
       { "title": "config", "path": "/commands/config.md" },
-      { "title": "server", "path": "/commands/server.md" }
+      { "title": "server", "path": "/commands/server.md" },
+      { "title": "alias", "path": "/commands/alias.md" }
     ]
   },
   {
@@ -51,7 +52,8 @@
     "children": [
       { "title": "Creating a Project", "path": "/setup/index.md" },
       { "title": "Quick Start", "path": "/setup/quick-start.md" },
-      { "title": "Configuration", "path": "/setup/configuration.md" }
+      { "title": "Configuration", "path": "/setup/configuration.md" },
+      { "title": "Config Features", "path": "/setup/features.md" }
     ]
   },
   {

@@ -1,0 +1,2409 @@
+<!--
+  ---------------------------------------------------------------
+  docmd : the zero-config documentation engine.
+  @website https://docmd.io
+  [docmd-source] - Please do not remove this header.
+  ---------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="docmd v0.8.7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value — the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+    <style>
+      html {
+        visibility: hidden;
+      }
+    </style>
+    
+    <script>
+      var root = "../../../";
+      if (root && !root.endsWith('/')) root += '/';
+      if (root === '') root = './';
+      window.DOCMD_ROOT = root;
+
+      var siteRoot = "../../../";
+      if (siteRoot && !siteRoot.endsWith('/')) siteRoot += '/';
+      if (siteRoot === '') siteRoot = './';
+      window.DOCMD_SITE_ROOT = siteRoot;
+
+      window.DOCMD_APPEARANCE = "system";
+      window.DOCMD_VERSION_ROOT = "/ru/";
+      window.DOCMD_BASE = "/";
+      window.DOCMD_LOCALE = "ru";
+      window.DOCMD_DEFAULT_LOCALE = "en";
+    </script>
+    <title>
+      mip server — веб-дашборд для MIP : MIP - Modern Package Manager
+    </title>
+    
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    
+    
+<meta name="description" content="Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.">
+<link rel="canonical" href="https://mip.fwh.is/ru/commands/server/">
+<meta property="og:title" content="mip server — веб-дашборд для MIP - MIP - Modern Package Manager">
+<meta property="og:description" content="Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.">
+<meta property="og:url" content="https://mip.fwh.is/ru/commands/server/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="mip server — веб-дашборд для MIP - MIP - Modern Package Manager">
+<meta name="twitter:description" content="Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.">
+
+
+
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="alternate" hreflang="ru" href="/ru/commands/server/">
+<link rel="alternate" hreflang="en" href="/commands/server/">
+<link rel="alternate" hreflang="x-default" href="/commands/server/">
+    
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value — the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+  </head>
+  <body
+    class="sidebar-collapsible"
+    data-default-collapsed="false"
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/ru/commands/server.md">
+
+    <a href="#main-content" class="skip-link">skipToContent</a>
+
+    
+    
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          
+            <h1><a href="../../../">
+                MIP - Modern Package Manager
+              </a></h1>
+          
+          <span class="mobile-view sidebar-menu-button float-right">
+            
+<svg class="lucide-icon icon-menu " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-menu"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
+
+          </span>
+        </div>
+        <div class="sidebar-top-group">
+          
+          
+            <div class="sidebar-options-wrapper">
+              
+
+
+<div class="docmd-options-menu">
+    
+    <button class="docmd-search-trigger" aria-label="search">
+        
+<svg class="lucide-icon icon-search " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-search"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" />
+</svg>
+
+        <span class="search-label">search</span>
+        <span class="search-keys"><kbd class="docmd-kbd">⌘</kbd><kbd class="docmd-kbd">K</kbd></span>
+    </button>
+    
+
+    
+
+    
+    <div class="options-menu-language">
+        
+
+
+<div class="docmd-language-switcher language-compact">
+  <button class="language-switcher-toggle" aria-expanded="false" aria-label="selectLanguage">
+    
+<svg class="lucide-icon icon-globe language-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-globe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" />
+</svg>
+
+    
+  </button>
+  <ul class="language-switcher-menu">
+    
+    <li>
+      <a href="/ru/commands/server" 
+        class="language-switcher-item active" 
+        data-spa-ignore
+        data-locale-id="ru"
+        lang="ru"
+        dir="ltr"
+        >
+        Русский
+        
+          
+<svg class="lucide-icon icon-check language-check" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>
+
+        
+        
+      </a>
+    </li>
+    
+    <li>
+      <a href="/commands/server" 
+        class="language-switcher-item " 
+        data-spa-ignore
+        data-locale-id="en"
+        lang="en"
+        dir="ltr"
+        >
+        English
+        
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+    </div>
+    
+
+    
+    <button class="theme-toggle-button" aria-label="toggleTheme">
+        
+<svg class="lucide-icon icon-sun icon-sun" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-sun"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+ 
+<svg class="lucide-icon icon-moon icon-moon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-moon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+</svg>
+
+    </button>
+    
+
+    
+</div>
+
+            </div>
+          
+          
+          
+        </div>
+        
+
+<nav class="sidebar-nav" aria-label="mainNavigation">
+  <ul>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-home " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-house"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Введение
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Добро пожаловать
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/qna/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Быстрые Q&amp;A
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-terminal " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-terminal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 19h8" />
+  <path d="m4 17 6-6-6-6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Команды
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/commands/audit/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            audit
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/cache/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            cache
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/ci/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            ci
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/create/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            create
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/dedupe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            dedupe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/doctor/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            doctor
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/exec/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exec
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/exports/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exports
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/genlock/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            genlock
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/global/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            global
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/info/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            info
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/init/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            init
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/language/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            language
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/legacy/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            legacy
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/link/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            link
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/list/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            list
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/oldrepo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            oldrepo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/outdated/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            outdated
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/repo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            repo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commandsn/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            run
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/search/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            search
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/super-install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            super-install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/uninstall/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            uninstall
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/update/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            update
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/why/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            why
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/workspaces/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            workspaces
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/pe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            pe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/plugin/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            plugin
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/registry/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            registry
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/config/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            config
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active" >
+      
+        <a href="../../../ru/commands/server/" class="active "
+          >
+          
+          <span class="nav-item-title">
+            server
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-cog " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 10.27 7 3.34" />
+  <path d="m11 13.73-4 6.93" />
+  <path d="M12 22v-2" />
+  <path d="M12 2v2" />
+  <path d="M14 12h8" />
+  <path d="m17 20.66-1-1.73" />
+  <path d="m17 3.34-1 1.73" />
+  <path d="M2 12h2" />
+  <path d="m20.66 17-1.73-1" />
+  <path d="m20.66 7-1.73 1" />
+  <path d="m3.34 17 1.73-1" />
+  <path d="m3.34 7 1.73 1" />
+  <circle cx="12" cy="12" r="2" />
+  <circle cx="12" cy="12" r="8" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Настройка
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/setup/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Создание проекта
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/setup/quick-start/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Быстрый старт
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/setup/configuration/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Конфигурация
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-star " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-star"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Для профи
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Обзор
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/performance/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Производительность
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/ci-cd/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-code " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-code"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 18 6-6-6-6" />
+  <path d="m8 6-6 6 6 6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Разработчикам
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/dev/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Главное
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/dev/architecture/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Архитектурой
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/dev/adding-commands/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Добавление команд
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/dev/testing/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Тестирование
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/dev/all-plugins/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Все о плагинах
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/dev/hooks/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Хуки и плагины
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-bug " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-bug"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20v-9" />
+  <path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z" />
+  <path d="M14.12 3.88 16 2" />
+  <path d="M21 21a4 4 0 0 0-3.81-4" />
+  <path d="M21 5a4 4 0 0 1-3.55 3.97" />
+  <path d="M22 13h-4" />
+  <path d="M3 21a4 4 0 0 1 3.81-4" />
+  <path d="M3 5a4 4 0 0 0 3.55 3.97" />
+  <path d="M6 13H2" />
+  <path d="m8 2 1.88 1.88" />
+  <path d="M9 7.13V6a3 3 0 1 1 6 0v1.13" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Решение проблем
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/troubleshooting/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Общий список
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/troubleshooting/installation/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Ошибки установки
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/troubleshooting/network/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Сеть и регистры
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/troubleshooting/lockfile/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Lock-файлы
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-archive " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-archive"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+  <path d="M10 12h4" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Прочее
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../../ru/other/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Обзор
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/other/glossary/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Глоссарий
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/other/faq/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Расширенный FAQ
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+        <div class="sidebar-bottom-group mt-auto">
+          
+          
+          
+          
+        </div>
+      </aside>
+      
+      
+      
+      <div class="main-content-wrapper">
+        
+        
+          <header class="page-header">
+            <div class="header-left">
+              
+                <button id="sidebar-toggle-button" class="sidebar-toggle-button"
+                  aria-label="toggleSidebar">
+                  
+<svg class="lucide-icon icon-chevron-left " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 18-6-6 6-6" />
+</svg>
+
+                </button>
+              
+              <div class="header-titles-wrapper">
+                <span class="header-title">
+                  mip server — веб-дашборд для MIP
+                </span>
+              </div>
+            </div>
+            <div class="header-right">
+              
+            </div>
+          </header>
+        
+        <div class="content-theme-cover">
+          <main class="content-area" id="main-content">
+            <div class="content-layout">
+              <div class="main-content">
+                <div class="docmd-breadcrumbs-row">
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20server%20%E2%80%94%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%20%D0%B4%D0%BB%D1%8F%20MIP%22%0Adescription%3A%20%22%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20server%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20%D0%B2%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BE%20%D0%B2%D0%B0%D1%88%D0%B5%D0%BC%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%2C%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%D1%85%2C%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%2C%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0%D1%85%2C%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0%D1%85%20%D0%B8%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B8%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B.%22%0A---%0A%0A%23%20mip%20server%0A%0A%3A%3A%3A%20callout%20info%20%22%D0%A7%D1%82%D0%BE%20%D1%8D%D1%82%D0%BE%3F%22%20icon%3A%F0%9F%8C%90%0A%60mip%20server%60%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D1%8B%D0%B9%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%20%D0%B2%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20MIP-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0.%20%D0%9E%D0%BD%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%BE%D0%B1%D0%B7%D0%BE%D1%80%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%2C%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0%2C%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%BE%D0%B2%2C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D1%85%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%20%D0%B8%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%E2%80%94%20%D0%B2%D1%81%D1%91%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D0%BC%D0%B5%D1%81%D1%82%D0%B5%20%D1%81%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC.%0A%3A%3A%3A%0A%0A%23%23%20%D0%A1%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81%0A%0A%60%60%60bash%0Amip%20server%20%3C%D0%BF%D0%BE%D0%B4%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%3E%20%5B%D0%BE%D0%BF%D1%86%D0%B8%D0%B8%5D%0A%60%60%60%0A%0A%23%23%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%0A%0A%7C%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%7C%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%7C%0A%7C------------%7C----------%7C%0A%7C%20%60start%20%5B%D0%BF%D0%BE%D1%80%D1%82%5D%60%20%7C%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%B2%D0%B5%D0%B1-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20(%D0%BF%D0%BE%D1%80%D1%82%20%D0%BF%D0%BE%20%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E%3A%203000)%20%7C%0A%7C%20%60stop%60%20%7C%20%D0%9E%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%89%D0%B8%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%7C%0A%7C%20%60status%60%20%7C%20%D0%9F%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%20(%D0%B7%D0%B0%D0%BF%D1%83%D1%89%D0%B5%D0%BD%2F%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD)%20%7C%0A%0A%23%23%20%D0%9E%D0%BF%D1%86%D0%B8%D0%B8%0A%0A%7C%20%D0%A4%D0%BB%D0%B0%D0%B3%20%7C%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%7C%0A%7C------%7C----------%7C%0A%7C%20%60--open%60%2C%20%60-o%60%20%7C%20%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D1%8C%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%20%D0%B2%20%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B5%20%7C%0A%7C%20%60--host%60%20%7C%20%D0%A1%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%81%D0%B5%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%D1%85%20(0.0.0.0)%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20localhost%20%7C%0A%0A%23%23%20%D0%92%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%D0%B0%0A%0A%23%23%23%20%F0%9F%93%8A%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%9E%D0%B1%D0%B7%D0%BE%D1%80%C2%BB%0A-%20**%D0%A1%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2**%20%E2%80%94%20%D0%BE%D0%B1%D1%89%D0%B5%D0%B5%20%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%0A-%20**%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0**%20%E2%80%94%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0%0A-%20**%D0%A0%D0%B0%D0%B7%D0%B1%D0%B8%D0%B2%D0%BA%D0%B0%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9**%20%E2%80%94%20production%20vs%20development%0A-%20**%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2**%20%E2%80%94%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D1%8B%D0%B5%20npm-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B%0A-%20**%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%BE%D0%B2**%20%E2%80%94%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%0A-%20**%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20workspace**%20%E2%80%94%20%D0%BC%D0%BE%D0%BD%D0%BE%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B5%20workspace%0A-%20**%D0%A2%D0%BE%D0%BF-5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2**%20%E2%80%94%20%D1%81%D0%B0%D0%BC%D1%8B%D0%B5%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%D0%BF%D0%BE%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D1%83%0A-%20**%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%BE%D0%B2**%20%E2%80%94%20%D0%B2%D1%81%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%20%D1%81%D0%BE%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%BE%D0%BC%0A%0A%23%23%23%20%F0%9F%93%A6%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%C2%BB%0A-%20%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%0A-%20%D0%98%D0%BC%D1%8F%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%2C%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%2C%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%B8%20%D0%BF%D1%83%D1%82%D1%8C%0A-%20%D0%98%D0%BD%D0%B4%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%20(%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%2F%D0%BE%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%20%D0%B2%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5)%0A-%20%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D1%83%20(%D1%81%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B0%20%D1%81%D0%B0%D0%BC%D1%8B%D0%B5%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%B8%D0%B5)%0A%0A%23%23%23%20%F0%9F%92%BE%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%A5%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%C2%BB%0A-%20%D0%9E%D0%B1%D1%89%D0%B8%D0%B9%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0%0A-%20%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B2%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%0A-%20%D0%9F%D1%83%D1%82%D1%8C%20%D0%BA%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D1%83%0A-%20%D0%A2%D0%BE%D0%BF-50%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%20%D0%BF%D0%BE%20%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%D1%83%20%D0%B2%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D0%BA%D0%B5%D1%88%D0%B5%0A%0A%23%23%23%20%F0%9F%94%97%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%A0%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%C2%BB%0A-%20%D0%92%D1%81%D0%B5%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%20%D1%81%20URL%0A-%20%D0%A1%D1%82%D0%B0%D1%82%D1%83%D1%81%20%D1%82%D0%BE%D0%BA%D0%B5%D0%BD%D0%B0%20(%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%2F%D0%BE%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82)%0A-%20%D0%98%D0%BD%D0%B4%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0%20%D0%BF%D0%BE%20%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E%0A-%20%D0%92%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%20(npm)%20%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%BE%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82%D1%81%D1%8F%0A%0A%23%23%23%20%F0%9F%93%9C%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B%C2%BB%0A-%20%D0%92%D1%81%D0%B5%20npm-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B%2C%20%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D1%91%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B2%20%60mip.yml%60%20%D0%B8%D0%BB%D0%B8%20%60mip.json%60%0A-%20%D0%98%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2%20%D0%B8%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%0A-%20%D0%91%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%BD%D0%BE%D0%B9%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%0A%0A%23%23%23%20%E2%9A%99%EF%B8%8F%20%D0%92%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%20%C2%AB%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%C2%BB%0A-%20%D0%92%D0%B5%D1%80%D1%81%D0%B8%D1%8F%20Node.js%0A-%20%D0%92%D0%B5%D1%80%D1%81%D0%B8%D1%8F%20MIP%0A-%20%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%B8%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%0A-%20%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%B8%20(%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%BE%2F%D0%B2%D1%81%D0%B5%D0%B3%D0%BE)%0A-%20%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%20%D1%8F%D0%B4%D0%B5%D1%80%20CPU%0A-%20%D0%92%D1%80%D0%B5%D0%BC%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%20(uptime)%0A-%20%D0%A1%D1%80%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F%20%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0%20(load%20average)%0A-%20%D0%A2%D0%B5%D0%BA%D1%83%D1%89%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B0%D1%8F%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8F%0A-%20%D0%94%D0%BE%D0%BC%D0%B0%D1%88%D0%BD%D1%8F%D1%8F%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8F%0A%0A%23%23%20%D0%9A%D0%B0%D0%BA%20%D1%8D%D1%82%D0%BE%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%0A%0A1.%20**%D0%9F%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0**%20%E2%80%94%20MIP%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D0%BB%D0%B5%D0%B3%D0%BA%D0%BE%D0%B2%D0%B5%D1%81%D0%BD%D1%8B%D0%B9%20HTTP-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%2C%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F%20%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C%20Node.js%20%60http%60.%0A%0A2.%20**API%20%D1%8D%D0%BD%D0%B4%D0%BF%D0%BE%D0%B8%D0%BD%D1%82%D1%8B**%20%E2%80%94%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%20RESTful%20%D1%8D%D0%BD%D0%B4%D0%BF%D0%BE%D0%B8%D0%BD%D1%82%D1%8B%3A%0A%20%20%20-%20%60%2Fapi%2Fproject%60%20%E2%80%94%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%0A%20%20%20-%20%60%2Fapi%2Fpackages%60%20%E2%80%94%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%0A%20%20%20-%20%60%2Fapi%2Fstore%60%20%E2%80%94%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%20%D0%B3%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%BC%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%0A%20%20%20-%20%60%2Fapi%2Fregistries%60%20%E2%80%94%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%BE%D0%B2%0A%20%20%20-%20%60%2Fapi%2Fsystem%60%20%E2%80%94%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%B0%D1%8F%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%0A%20%20%20-%20%60%2Fapi%2Fhealth%60%20%E2%80%94%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0%20%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%0A%0A3.%20**%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%D0%B0**%20%E2%80%94%20%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%BE%D0%B5%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B8%D0%B7%20API%20%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B5%203%20%D1%81%D0%B5%D0%BA%D1%83%D0%BD%D0%B4%D1%8B.%0A%0A4.%20**%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0%D0%BC%D0%B8**%20%E2%80%94%20PID%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%20%D1%81%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%B2%20%60~%2F.mip%2Fserver.pid%60%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8F%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0.%0A%0A5.%20**%D0%90%D0%B2%D1%82%D0%BE%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5**%20%E2%80%94%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B5%203%20%D1%81%D0%B5%D0%BA%D1%83%D0%BD%D0%B4%D1%8B%2C%20%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D1%8F%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9.%0A%0A%23%23%20%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%22%0A%60%60%60bash%0Amip%20server%20start%0A%60%60%60%0A%0A**%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%3A**%0A%60%60%60%0A%F0%9F%8C%90%20MIP%20Server%20running%20at%20http%3A%2F%2Flocalhost%3A3000%0A%F0%9F%93%8A%20Dashboard%3A%20http%3A%2F%2Flocalhost%3A3000%2F%0A%F0%9F%93%81%20Project%3A%20%2Fhome%2Fuser%2Fmy-project%0A%F0%9F%94%A7%20Press%20Ctrl%2BC%20to%20stop%0A%60%60%60%0A%0A%D0%9E%D1%82%D0%BA%D1%80%D0%BE%D0%B9%D1%82%D0%B5%20%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B9%D0%B4%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%20%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83%20%60http%3A%2F%2Flocalhost%3A3000%60%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D1%83%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%BD%D0%B0%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%BC%20%D0%BF%D0%BE%D1%80%D1%82%D1%83%22%0A%60%60%60bash%0Amip%20server%20start%208080%0A%60%60%60%0A%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D1%80%D1%82%D1%83%208080%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D0%BF%D0%BE%D1%80%D1%82%D0%B0%20%D0%BF%D0%BE%20%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E%203000.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%81%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D0%B5%D0%BC%20%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0%22%0A%60%60%60bash%0Amip%20server%20start%20--open%0A%60%60%60%0A%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%D0%B5%D1%82%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B8%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%20%D0%B2%20%D0%B2%D0%B0%D1%88%D0%B5%D0%BC%20%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B5%20%D0%BF%D0%BE%20%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%BD%D0%B0%20%D0%B2%D1%81%D0%B5%D1%85%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%D1%85%22%0A%60%60%60bash%0Amip%20server%20start%20--host%0A%60%60%60%0A%D0%9F%D0%BE%D0%B7%D0%B2%D0%BE%D0%BB%D1%8F%D0%B5%D1%82%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D1%81%20%D0%B4%D1%80%D1%83%D0%B3%D0%B8%D1%85%20%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%20%D0%B2%20%D1%81%D0%B5%D1%82%D0%B8%20(%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%D0%B0%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B3%D0%B0%D0%BC).%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22%D0%9E%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%22%0A%60%60%60bash%0Amip%20server%20stop%0A%60%60%60%0A%0A**%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20stopped%20(PID%3A%2012345)%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D0%B0%22%0A%60%60%60bash%0Amip%20server%20status%0A%60%60%60%0A%0A**%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20is%20running%20(PID%3A%2012345)%0A%20%20%20To%20stop%3A%20mip%20server%20stop%0A%60%60%60%0A%0A%D0%98%D0%BB%D0%B8%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D0%B7%D0%B0%D0%BF%D1%83%D1%89%D0%B5%D0%BD%3A%0A%60%60%60%0A%E2%84%B9%EF%B8%8F%20Server%20is%20not%20running%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20%D0%9F%D1%80%D0%B5%D0%B4%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%D0%B0%0A%0A%60%60%60%0A%F0%9F%93%8A%20MIP%20Dashboard%0A%0A%F0%9F%93%A6%20%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%3A%2017%0A%F0%9F%92%BE%20%D0%A0%D0%B0%D0%B7%D0%BC%D0%B5%D1%80%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0%3A%20273%20MB%0A%F0%9F%93%8B%20%D0%97%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%3A%2017%20(6%20prod%20%C2%B7%2011%20dev)%0A%F0%9F%93%9C%20%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B%3A%2013%0A%F0%9F%94%97%20%D0%A0%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%3A%202%0A%F0%9F%93%81%20Workspace%3A%200%0A%0A%E2%94%8C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%90%0A%E2%94%82%20%20%D0%9E%D0%B1%D0%B7%D0%BE%D1%80%20%20%E2%94%82%20%20%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%20%E2%94%82%20%20%D0%A5%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B5%20%20%E2%94%82%20%20%D0%A0%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%20%20%E2%94%82%20%20%D0%A1%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B%20%20%E2%94%82%0A%E2%94%9C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%A4%0A%E2%94%82%20%20%D0%A2%D0%BE%D0%BF-5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%3A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%20%20%D0%A0%D0%B5%D0%B5%D1%81%D1%82%D1%80%D1%8B%3A%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20lodash%20%20%20%204.17.21%20%202.3%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%9C%E2%94%80%20npm%20(%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9)%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20express%20%20%204.18.2%20%20%201.8%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%94%E2%94%80%20github%20(%D0%BA%D0%B0%D1%81%D1%82%D0%BE%D0%BC)%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20axios%20%20%20%20%201.6.0%20%20%20%201.2%20MB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20react%20%20%20%20%2018.2.0%20%20%20850%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%94%E2%94%80%20vue%20%20%20%20%20%20%203.3.0%20%20%20%20720%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%94%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%98%0A%60%60%60%0A%0A%23%23%20%D0%A7%D0%B0%D1%81%D1%82%D1%8B%D0%B5%20%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_PORT_IN_USE%22%20icon%3Aalert-triangle%0A**%D0%9F%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0%3A**%20%D0%9F%D0%BE%D1%80%D1%82%203000%20(%D0%B8%D0%BB%D0%B8%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D1%80%D1%82)%20%D1%83%D0%B6%D0%B5%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F.%0A%0A**%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B9%D1%82%D0%B5%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B9%20%D0%BF%D0%BE%D1%80%D1%82%3A%20%60mip%20server%20start%208080%60%0A2.%20%D0%9E%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%20%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D1%8E%D1%89%D0%B8%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%3A%20%60mip%20server%20stop%60%0A3.%20%D0%98%D0%BB%D0%B8%20%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B8%D1%82%D0%B5%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%20%D0%B2%D1%80%D1%83%D1%87%D0%BD%D1%83%D1%8E%2C%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F%20PID%2C%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%B2%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BE%D0%B1%20%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B5.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_SERVER_ALREADY_RUNNING%22%20icon%3Askull%0A**%D0%9F%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0%3A**%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D1%83%D0%B6%D0%B5%20%D0%B7%D0%B0%D0%BF%D1%83%D1%89%D0%B5%D0%BD.%0A%0A**%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%8C%D1%82%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%3A%20%60mip%20server%20status%60%0A2.%20%D0%A1%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D0%B0%20%D0%BE%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%3A%20%60mip%20server%20stop%60%0A3.%20%D0%97%D0%B0%D1%82%D0%B5%D0%BC%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D0%B5%20%D1%81%D0%BD%D0%BE%D0%B2%D0%B0%3A%20%60mip%20server%20start%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_NO_CONFIG%22%20icon%3Aalert-circle%0A**%D0%9F%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0%3A**%20%D0%9D%D0%B5%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%20%60mip.yml%60%20%D0%B8%D0%BB%D0%B8%20%60mip.json%60%20%D0%B2%20%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B5%D0%B9%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B8.%0A%0A**%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%A3%D0%B1%D0%B5%D0%B4%D0%B8%D1%82%D0%B5%D1%81%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D0%B2%D1%8B%20%D0%BD%D0%B0%D1%85%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D1%81%D1%8C%20%D0%B2%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20MIP-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0.%0A2.%20%D0%92%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%20%60mip%20init%60%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0.%0A3.%20%D0%98%D0%BB%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B9%D0%B4%D0%B8%D1%82%D0%B5%20%D0%B2%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8E%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%20%D1%81%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%BC%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B8.%0A%3A%3A%3A%0A%0A%23%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%0A%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20%D0%B4%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%20(CLI)%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20%E2%80%94%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B5%D0%B9%0A-%20%5Bmip%20registry%5D(%2Fcommands%2Fregistry)%20%E2%80%94%20%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0%D0%BC%D0%B8%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20%D0%9A%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BF%D0%BE%D0%B4%20%D0%BA%D0%B0%D0%BF%D0%BE%D1%82%D0%BE%D0%BC%22%0A%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D1%84%D0%B0%D0%B9%D0%BB%D0%B5%20%D1%81%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8F%20Node.js%20%60http%60%20(%D0%B1%D0%B5%D0%B7%20%D0%B2%D0%BD%D0%B5%D1%88%D0%BD%D0%B8%D1%85%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9).%0A%0A**%D0%9F%D0%BE%D1%82%D0%BE%D0%BA%20%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F%3A**%0A1.%20%D0%9F%D1%80%D0%B8%20%D0%B2%D1%8B%D0%B7%D0%BE%D0%B2%D0%B5%20%60mip%20server%20start%60%20MIP%3A%0A%20%20%20-%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%8F%D0%B5%D1%82%2C%20%D0%BD%D0%B5%20%D0%B7%D0%B0%D0%BF%D1%83%D1%89%D0%B5%D0%BD%20%D0%BB%D0%B8%20%D1%83%D0%B6%D0%B5%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20(%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F%20%60~%2F.mip%2Fserver.pid%60)%0A%20%20%20-%20%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D1%91%D1%82%20HTTP-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%0A%20%20%20-%20%D0%9D%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%82%20%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D1%80%D1%82%0A%20%20%20-%20%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20PID%20%D0%B2%20%60~%2F.mip%2Fserver.pid%60%0A%20%20%20-%20%D0%9E%D0%BF%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%3A%20%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%0A%0A2.%20**%D0%9E%D1%82%D0%B2%D0%B5%D1%82%D1%8B%20API**%20%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B8%D1%80%D1%83%D1%8E%D1%82%D1%81%D1%8F%20%D0%BF%D0%BE%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D1%83%20%D0%BF%D1%83%D1%82%D1%91%D0%BC%20%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D1%8F%3A%0A%20%20%20-%20%D0%9A%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%20%D0%B8%D0%B7%20%60mip.yml%60%20%D0%B8%D0%BB%D0%B8%20%60mip.json%60%0A%20%20%20-%20%D0%9C%D0%B0%D0%BD%D0%B8%D1%84%D0%B5%D1%81%D1%82%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%20%D0%B8%D0%B7%20%60.mip%2Fmanifest.json%60%0A%20%20%20-%20%D0%93%D0%BB%D0%BE%D0%B1%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%85%D1%80%D0%B0%D0%BD%D0%B8%D0%BB%D0%B8%D1%89%D0%B0%20%D0%B8%D0%B7%20%60~%2F.mip%2Fstore%2F%60%0A%20%20%20-%20%D0%A1%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D0%BE%D0%B9%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B8%D0%B7%20%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8F%20Node.js%20%60os%60%0A%0A3.%20**%D0%94%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4**%20%D0%BE%D1%82%D0%B4%D0%B0%D1%91%D1%82%D1%81%D1%8F%20%D0%BA%D0%B0%D0%BA%20%D0%BE%D0%B4%D0%B8%D0%BD%20HTML-%D1%84%D0%B0%D0%B9%D0%BB%20%D1%81%D0%BE%20%D0%B2%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20CSS%20%D0%B8%20JavaScript.%20JavaScript%3A%0A%20%20%20-%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B8%D0%B7%20API-%D1%8D%D0%BD%D0%B4%D0%BF%D0%BE%D0%B8%D0%BD%D1%82%D0%BE%D0%B2%20%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B5%203%20%D1%81%D0%B5%D0%BA%D1%83%D0%BD%D0%B4%D1%8B%0A%20%20%20-%20%D0%9E%D1%82%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B2%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B5%20%D1%81%20%D0%B2%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0%D0%BC%D0%B8%0A%20%20%20-%20%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82%20%D0%B3%D0%BE%D1%80%D1%8F%D1%87%D0%B8%D0%B5%20%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D1%88%D0%B8%20(Ctrl%2BR%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F)%0A%0A4.%20**%D0%9A%D0%BE%D1%80%D1%80%D0%B5%D0%BA%D1%82%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%B8%D0%B5**%20%E2%80%94%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%20%D1%81%D0%B8%D0%B3%D0%BD%D0%B0%D0%BB%D1%8B%20SIGINT%20%D0%B8%20SIGTERM%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B8%20PID-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%3A%20%D0%9F%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D0%B5%D1%81%D1%8C%20%D1%81%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BE%D0%B9%22%20icon%3Alightbulb%0A%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B9%D1%82%D0%B5%20%60mip%20server%20start%20--host%60%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D1%80%D0%B0%D0%B7%D1%80%D0%B5%D1%88%D0%B8%D1%82%D1%8C%20%D0%B4%D1%80%D1%83%D0%B3%D0%B8%D0%BC%20%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0%D0%BC%20%D0%B2%20%D0%B2%D0%B0%D1%88%D0%B5%D0%B9%20%D1%81%D0%B5%D1%82%D0%B8%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BA%20%D0%B4%D0%B0%D1%88%D0%B1%D0%BE%D1%80%D0%B4%D1%83.%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B1%D1%83%D0%B4%D0%B5%D1%82%20%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%B2%D1%81%D0%B5%D1%85%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%D1%85%2C%20%D0%B8%20%D0%B2%D1%8B%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B8%D0%BC%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%20IP-%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%BE%D0%BC%20%D1%81%20%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%B3%D0%B0%D0%BC%D0%B8%3A%0A%0A%60%60%60bash%0A%23%20%D0%97%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%BD%D0%B0%20%D0%B2%D1%81%D0%B5%D1%85%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0%D1%85%0Amip%20server%20start%20--host%0A%0A%23%20%D0%92%D0%B0%D1%88%D0%B0%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%D0%BC%D0%BE%D0%B6%D0%B5%D1%82%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%20%D0%BF%D0%BE%20%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83%3A%0A%23%20http%3A%2F%2F192.168.1.100%3A3000%20%20(%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D0%B5%20%D0%BD%D0%B0%20%D0%B2%D0%B0%D1%88%20IP)%0A%60%60%60%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  
+                    <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
+                      <ol>
+                        
+                        
+                          <li class="breadcrumb-item " >
+                            
+                              <span>Команды</span>
+                            
+                            
+                              <span class="breadcrumb-separator">
+<svg class="lucide-icon icon-chevron-right " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+                            
+                          </li>
+                        
+                          <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
+                            
+                              <span>server</span>
+                            
+                            
+                          </li>
+                        
+                      </ol>
+                    </nav>
+                  
+
+                  
+                    <div class="docmd-copy-widgets">
+                      
+                        <button class="docmd-copy-btn docmd-copy-raw-btn" data-copied="copiedToClipboard" title="copyMarkdown" aria-label="copyMarkdown">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-copy " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-copy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+</svg>
+</span>
+                        </button>
+                      
+                      
+                        <button class="docmd-copy-btn docmd-copy-context-btn" data-copied="copiedToClipboard" title="copyContext">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-message-square " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</svg>
+</span>
+                          <span class="docmd-btn-text">copyContext</span>
+                        </button>
+                      
+                    </div>
+                  
+                </div>
+                
+                <h1 id="mip-server" class="docmd-heading"><a href="#mip-server" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip server</h1>
+<div class="docmd-container callout callout-info"><div class="callout-title">Что это?</div><div class="callout-content">
+<p><code>mip server</code> запускает красивый веб-дашборд в реальном времени для вашего MIP-проекта. Он предоставляет визуальный обзор зависимостей проекта, глобального хранилища, настроенных реестров, доступных скриптов и системной информации — всё в одном месте с автоматическим обновлением.</p>
+</div></div>
+<h2 id="mip-server-синтаксис" class="docmd-heading"><a href="#mip-server-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
+<pre class="hljs"><code class="language-bash">mip server <span class="hljs-punctuation">&lt;</span>подкоманда<span class="hljs-punctuation">&gt;</span> [опции]
+</code></pre>
+<h2 id="mip-server-подкоманды" class="docmd-heading"><a href="#mip-server-подкоманды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Подкоманды</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Подкоманда</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start [порт]</code></td>
+<td>Запустить веб-сервер (порт по умолчанию: 3000)</td>
+</tr>
+<tr>
+<td><code>stop</code></td>
+<td>Остановить работающий сервер</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>Показать статус сервера (запущен/остановлен)</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="mip-server-опции" class="docmd-heading"><a href="#mip-server-опции" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Опции</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Флаг</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--open</code>, <code>-o</code></td>
+<td>Автоматически открыть дашборд в браузере</td>
+</tr>
+<tr>
+<td><code>--host</code></td>
+<td>Слушать на всех сетевых интерфейсах (0.0.0.0) вместо localhost</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="mip-server-возможности-дашборда" class="docmd-heading"><a href="#mip-server-возможности-дашборда" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Возможности дашборда</h2>
+<h3 id="mip-server-возможности-дашборда-вкладка-обзор" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-обзор" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📊 Вкладка «Обзор»</h3>
+<ul>
+<li><strong>Статистика пакетов</strong> — общее количество установленных пакетов</li>
+<li><strong>Размер хранилища</strong> — использование глобального хранилища</li>
+<li><strong>Разбивка зависимостей</strong> — production vs development</li>
+<li><strong>Количество скриптов</strong> — доступные npm-скрипты</li>
+<li><strong>Количество реестров</strong> — настроенные реестры</li>
+<li><strong>Количество workspace</strong> — монорепозиторные workspace</li>
+<li><strong>Топ-5 пакетов</strong> — самые большие пакеты по размеру</li>
+<li><strong>Быстрый просмотр реестров</strong> — все настроенные реестры со статусом</li>
+</ul>
+<h3 id="mip-server-возможности-дашборда-вкладка-пакеты" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-пакеты" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📦 Вкладка «Пакеты»</h3>
+<ul>
+<li>Полный список всех установленных пакетов</li>
+<li>Имя пакета, версия, размер и путь</li>
+<li>Индикатор статуса (существует/отсутствует в глобальном хранилище)</li>
+<li>Сортировка по размеру (сначала самые большие)</li>
+</ul>
+<h3 id="mip-server-возможности-дашборда-вкладка-хранилище" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-хранилище" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>💾 Вкладка «Хранилище»</h3>
+<ul>
+<li>Общий размер глобального хранилища</li>
+<li>Количество пакетов в хранилище</li>
+<li>Путь к хранилищу</li>
+<li>Топ-50 пакетов по размеру в глобальном кеше</li>
+</ul>
+<h3 id="mip-server-возможности-дашборда-вкладка-реестры" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-реестры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>🔗 Вкладка «Реестры»</h3>
+<ul>
+<li>Все настроенные реестры с URL</li>
+<li>Статус токена (установлен/отсутствует)</li>
+<li>Индикатор реестра по умолчанию</li>
+<li>Встроенный реестр (npm) всегда отображается</li>
+</ul>
+<h3 id="mip-server-возможности-дашборда-вкладка-скрипты" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-скрипты" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📜 Вкладка «Скрипты»</h3>
+<ul>
+<li>Все npm-скрипты, определённые в <code>mip.yml</code> или <code>mip.json</code></li>
+<li>Имена скриптов и команды</li>
+<li>Быстрый доступ к доступной автоматизации</li>
+</ul>
+<h3 id="mip-server-возможности-дашборда-вкладка-система" class="docmd-heading"><a href="#mip-server-возможности-дашборда-вкладка-система" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>⚙️ Вкладка «Система»</h3>
+<ul>
+<li>Версия Node.js</li>
+<li>Версия MIP</li>
+<li>Платформа и архитектура</li>
+<li>Использование памяти (свободно/всего)</li>
+<li>Количество ядер CPU</li>
+<li>Время работы системы (uptime)</li>
+<li>Средняя нагрузка (load average)</li>
+<li>Текущая рабочая директория</li>
+<li>Домашняя директория</li>
+</ul>
+<h2 id="mip-server-как-это-работает" class="docmd-heading"><a href="#mip-server-как-это-работает" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Как это работает</h2>
+<ol>
+<li><p><strong>Процесс сервера</strong> — MIP запускает легковесный HTTP-сервер, используя встроенный модуль Node.js <code>http</code>.</p>
+</li>
+<li><p><strong>API эндпоинты</strong> — сервер предоставляет RESTful эндпоинты:</p>
+<ul>
+<li><code>/api/project</code> — конфигурация проекта</li>
+<li><code>/api/packages</code> — установленные пакеты</li>
+<li><code>/api/store</code> — информация о глобальном хранилище</li>
+<li><code>/api/registries</code> — конфигурация реестров</li>
+<li><code>/api/system</code> — системная информация</li>
+<li><code>/api/health</code> — проверка состояния</li>
+</ul>
+</li>
+<li><p><strong>Интерфейс дашборда</strong> — одностраничное приложение с вкладками, которое получает данные из API каждые 3 секунды.</p>
+</li>
+<li><p><strong>Управление процессами</strong> — PID сервера сохраняется в <code>~/.mip/server.pid</code> для контроля процесса.</p>
+</li>
+<li><p><strong>Автообновление</strong> — дашборд автоматически обновляется каждые 3 секунды, поддерживая информацию актуальной.</p>
+</li>
+</ol>
+<h2 id="mip-server-примеры" class="docmd-heading"><a href="#mip-server-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
+<div class="docmd-tabs">
+<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Запуск сервера</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip server start
+</code></pre>
+<p><strong>Вывод:</strong></p>
+<pre class="hljs"><code>🌐 MIP Server running at http<span class="hljs-punctuation">://</span>localhost<span class="hljs-punctuation">:</span><span class="hljs-number">3000</span>
+📊 Dashboard<span class="hljs-punctuation">:</span> http<span class="hljs-punctuation">://</span>localhost<span class="hljs-punctuation">:</span><span class="hljs-number">3000</span><span class="hljs-punctuation">/</span>
+📁 Project<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">/</span>home<span class="hljs-punctuation">/</span>user<span class="hljs-punctuation">/</span>my<span class="hljs-punctuation">-</span>project
+🔧 Press Ctrl<span class="hljs-punctuation">+</span>C to stop
+</code></pre>
+<p>Откройте браузер и перейдите по адресу <code>http://localhost:3000</code>, чтобы увидеть дашборд.</p>
+</div></div></div><p>== tab “Запуск на другом порту”</p>
+<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-number">8080</span>
+</code></pre>
+<p>Запускает сервер на порту 8080 вместо порта по умолчанию 3000.<br>
+:::</p>
+<p>== tab “Запуск с открытием браузера”</p>
+<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-punctuation">--</span>open
+</code></pre>
+<p>Запускает сервер и автоматически открывает дашборд в вашем браузере по умолчанию.<br>
+:::</p>
+<p>== tab “Запуск на всех интерфейсах”</p>
+<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-punctuation">--</span>host
+</code></pre>
+<p>Позволяет получить доступ с других устройств в сети (полезно для демонстрации дашборда коллегам).<br>
+:::</p>
+<p>== tab “Остановка сервера”</p>
+<pre class="hljs"><code class="language-bash">mip server stop
+</code></pre>
+<p><strong>Вывод:</strong></p>
+<pre class="hljs"><code>✅ Server <span class="hljs-title function_">stopped</span> (PID<span class="hljs-punctuation">:</span> <span class="hljs-number">12345</span>)
+</code></pre>
+<p>:::</p>
+<p>== tab “Проверка статуса”</p>
+<pre class="hljs"><code class="language-bash">mip server status
+</code></pre>
+<p><strong>Вывод:</strong></p>
+<pre class="hljs"><code>✅ Server is <span class="hljs-title function_">running</span> (PID<span class="hljs-punctuation">:</span> <span class="hljs-number">12345</span>)
+   To stop<span class="hljs-punctuation">:</span> mip server stop
+</code></pre>
+<p>Или если не запущен:</p>
+<pre class="hljs"><code>ℹ️ Server is not running
+</code></pre>
+<p>:::<br>
+:::</p>
+<h2 id="mip-server-предпросмотр-дашборда" class="docmd-heading"><a href="#mip-server-предпросмотр-дашборда" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Предпросмотр дашборда</h2>
+<pre class="hljs"><code>📊 MIP Dashboard
+
+📦 Пакеты<span class="hljs-punctuation">:</span> <span class="hljs-number">17</span>
+💾 Размер хранилища<span class="hljs-punctuation">:</span> <span class="hljs-number">273</span> MB
+📋 Зависимости<span class="hljs-punctuation">:</span> <span class="hljs-number">17</span> (<span class="hljs-number">6</span> prod · <span class="hljs-number">11</span> dev)
+📜 Скрипты<span class="hljs-punctuation">:</span> <span class="hljs-number">13</span>
+🔗 Реестры<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>
+📁 Workspace<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+
+┌─────────────────────────────────────────────────────────────┐
+│  Обзор  │  Пакеты  │  Хранилище  │  Реестры  │  Скрипты  │
+├─────────────────────────────────────────────────────────────┤
+│  Топ<span class="hljs-punctuation">-</span><span class="hljs-number">5</span> пакетов<span class="hljs-punctuation">:</span>                      │  Реестры<span class="hljs-punctuation">:</span>          │
+│  ├─ lodash    <span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>  <span class="hljs-number">2.3</span> MB      │  ├─ <span class="hljs-keyword">npm</span> (встроенный)│
+│  ├─ express   <span class="hljs-number">4.18</span>.<span class="hljs-number">2</span>   <span class="hljs-number">1.8</span> MB      │  └─ <span class="hljs-title function_">github</span> (кастом) │
+│  ├─ axios     <span class="hljs-number">1.6</span>.<span class="hljs-number">0</span>    <span class="hljs-number">1.2</span> MB      │                     │
+│  ├─ react     <span class="hljs-number">18.2</span>.<span class="hljs-number">0</span>   <span class="hljs-number">850</span> KB      │                     │
+│  └─ vue       <span class="hljs-number">3.3</span>.<span class="hljs-number">0</span>    <span class="hljs-number">720</span> KB      │                     │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<h2 id="mip-server-частые-ошибки" class="docmd-heading"><a href="#mip-server-частые-ошибки" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Частые ошибки</h2>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-triangle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+❌ ERR_PORT_IN_USE</div><div class="callout-content">
+<p><strong>Причина:</strong> Порт 3000 (или указанный порт) уже используется.</p>
+<p><strong>Решение:</strong></p>
+<ol>
+<li>Используйте другой порт: <code>mip server start 8080</code></li>
+<li>Остановите существующий сервер: <code>mip server stop</code></li>
+<li>Или завершите процесс вручную, используя PID, указанный в сообщении об ошибке.</li>
+</ol>
+</div></div>
+<div class="docmd-container callout callout-danger"><div class="callout-title">
+<svg class="lucide-icon icon-skull callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-skull"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.5 17-.5-1-.5 1h1z" />
+  <path d="M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z" />
+  <circle cx="15" cy="12" r="1" />
+  <circle cx="9" cy="12" r="1" />
+</svg>
+❌ ERR_SERVER_ALREADY_RUNNING</div><div class="callout-content">
+<p><strong>Причина:</strong> Сервер уже запущен.</p>
+<p><strong>Решение:</strong></p>
+<ol>
+<li>Проверьте статус: <code>mip server status</code></li>
+<li>Сначала остановите: <code>mip server stop</code></li>
+<li>Затем запустите снова: <code>mip server start</code></li>
+</ol>
+</div></div>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+⚠️ ERR_NO_CONFIG</div><div class="callout-content">
+<p><strong>Причина:</strong> Не найден <code>mip.yml</code> или <code>mip.json</code> в текущей директории.</p>
+<p><strong>Решение:</strong></p>
+<ol>
+<li>Убедитесь, что вы находитесь в директории MIP-проекта.</li>
+<li>Выполните <code>mip init</code> для создания нового проекта.</li>
+<li>Или перейдите в директорию проекта с файлом конфигурации.</li>
+</ol>
+</div></div>
+<h2 id="mip-server-связанные-команды" class="docmd-heading"><a href="#mip-server-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
+<ul>
+<li><a href="/commands/doctor/">mip doctor</a> — диагностика системы</li>
+<li><a href="/commands/list/">mip list</a> — список установленных пакетов (CLI)</li>
+<li><a href="/commands/config/">mip config</a> — управление конфигурацией</li>
+<li><a href="/commands/registry/">mip registry</a> — управление реестрами</li>
+</ul>
+<details class="docmd-container collapsible">
+        <summary class="collapsible-summary">
+            <span class="collapsible-title">🔧 Как работает сервер под капотом</span>
+            <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </summary>
+        <div class="collapsible-content">
+<p>Сервер реализован в одном файле с использованием встроенного модуля Node.js <code>http</code> (без внешних зависимостей).</p>
+<p><strong>Поток выполнения:</strong></p>
+<ol>
+<li><p>При вызове <code>mip server start</code> MIP:</p>
+<ul>
+<li>Проверяет, не запущен ли уже сервер (используя <code>~/.mip/server.pid</code>)</li>
+<li>Создаёт HTTP-сервер</li>
+<li>Начинает слушать указанный порт</li>
+<li>Записывает PID в <code>~/.mip/server.pid</code></li>
+<li>Опционально: открывает браузер</li>
+</ul>
+</li>
+<li><p><strong>Ответы API</strong> генерируются по запросу путём чтения:</p>
+<ul>
+<li>Конфигурации проекта из <code>mip.yml</code> или <code>mip.json</code></li>
+<li>Манифеста пакетов из <code>.mip/manifest.json</code></li>
+<li>Глобального хранилища из <code>~/.mip/store/</code></li>
+<li>Системной информации из модуля Node.js <code>os</code></li>
+</ul>
+</li>
+<li><p><strong>Дашборд</strong> отдаётся как один HTML-файл со встроенными CSS и JavaScript. JavaScript:</p>
+<ul>
+<li>Получает данные из API-эндпоинтов каждые 3 секунды</li>
+<li>Отображает данные в интерфейсе с вкладками</li>
+<li>Поддерживает горячие клавиши (Ctrl+R для обновления)</li>
+</ul>
+</li>
+<li><p><strong>Корректное завершение</strong> — сервер обрабатывает сигналы SIGINT и SIGTERM для очистки PID-файла.</p>
+</li>
+</ol>
+</div></details>
+<div class="docmd-container callout callout-tip"><div class="callout-title">
+<svg class="lucide-icon icon-lightbulb callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-lightbulb"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" />
+</svg>
+💡 Совет: Поделитесь с командой</div><div class="callout-content">
+<p>Используйте <code>mip server start --host</code>, чтобы разрешить другим устройствам в вашей сети доступ к дашборду. Сервер будет слушать на всех интерфейсах, и вы можете поделиться своим локальным IP-адресом с коллегами:</p>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Запуск на всех интерфейсах</span>
+mip server start <span class="hljs-punctuation">--</span>host
+
+<span class="hljs-comment"># Ваша команда может получить доступ по адресу:</span>
+<span class="hljs-comment"># http://192.168.1.100:3000  (замените на ваш IP)</span>
+</code></pre>
+</div></div>
+
+                
+                  <div class="page-navigation">
+                    
+                      <a href="../../../ru/commands/config/" class="prev-page">
+                        
+<svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+
+                        <span><small>previous</small><strong>
+                            config
+                          </strong></span>
+                      </a>
+                    
+                    
+                      <a href="../../../ru/setup/" class="next-page">
+                        <span><small>next</small>
+                          <strong>
+                            Создание проекта
+                          </strong></span>
+                        
+<svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="toc-sidebar">
+                
+
+
+  <div class="toc-container">
+    <h2 class="toc-title">onThisPage<span class="mobile-view toc-menu-button float-right">
+<svg class="lucide-icon icon-chevron-down " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg>
+</span></h2>
+    <ul class="toc-list">
+      
+        <li class="toc-item toc-level-1">
+          <a href="#mip-server" class="toc-link">mip server</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-синтаксис" class="toc-link">Синтаксис</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-подкоманды" class="toc-link">Подкоманды</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-опции" class="toc-link">Опции</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-возможности-дашборда" class="toc-link">Возможности дашборда</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-обзор" class="toc-link">📊 Вкладка «Обзор»</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-пакеты" class="toc-link">📦 Вкладка «Пакеты»</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-хранилище" class="toc-link">💾 Вкладка «Хранилище»</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-реестры" class="toc-link">🔗 Вкладка «Реестры»</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-скрипты" class="toc-link">📜 Вкладка «Скрипты»</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-server-возможности-дашборда-вкладка-система" class="toc-link">⚙️ Вкладка «Система»</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-как-это-работает" class="toc-link">Как это работает</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-примеры" class="toc-link">Примеры</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-предпросмотр-дашборда" class="toc-link">Предпросмотр дашборда</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-частые-ошибки" class="toc-link">Частые ошибки</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-server-связанные-команды" class="toc-link">Связанные команды</a>
+        </li>
+      
+    </ul>
+  </div>
+
+              </div>
+            </div>
+            <div class="page-footer-actions">
+              
+              
+                <span class="git-last-updated" data-timestamp="1782567375000">
+                  <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <span class="git-label">Last updated:</span>
+                  <span class="git-time" data-timestamp="1782567375000"></span>
+                  
+                  <div class="git-commit-tooltip" role="tooltip">
+                    <div class="git-tooltip-title">Recent commits</div>
+                    <ul class="git-commit-list">
+                      
+                        <li class="git-commit-item">
+                          <div class="git-commit-avatar" title="kiwinatra">
+                            
+                              <img src="https://www.gravatar.com/avatar/f845c810c2b6b1e48a071167704b05b3?d=mp&amp;s=64" alt="kiwinatra">
+                            
+                          </div>
+                          <div class="git-commit-details">
+                            <div class="git-commit-message" title="qol update">qol update</div>
+                            <div class="git-commit-meta">
+                              <span class="git-commit-author">kiwinatra</span>
+                              <span class="git-commit-date" data-timestamp="1782567375000"></span>
+                            </div>
+                          </div>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                  
+                </span>
+              
+              <span class="git-spacer"></span>
+              
+            </div>
+          </main>
+          
+
+
+<footer class="page-footer">
+  <div class="footer-content">
+    <div class="user-footer">© 2026 MIP. Open-source MIT.</div>
+    
+      <div class="branding-footer">
+        builtWith <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg> <a href="https://docmd.io" target="_blank" rel="noopener">docmd.</a>
+      </div>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+      
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      
+      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      
+      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
+<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+
+  <!-- Search Modal (Injected by @docmd/plugin-search) -->
+  <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
+       data-search-placeholder="Search documentation..."
+       data-search-no-results="No results found."
+       data-search-error="Failed to load search index."
+       data-search-initial="Type to start searching..."
+       data-search-navigate="to navigate"
+       data-search-escape="to close">
+      <div class="docmd-search-box">
+          <div class="docmd-search-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <input type="text" id="docmd-search-input" placeholder="Search documentation..." autocomplete="off" spellcheck="false">
+              <button onclick="window.closeDocmdSearch()" class="docmd-search-close" aria-label="Close search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+              </button>
+          </div>
+          <div id="docmd-search-results" class="docmd-search-results"></div>
+          <div class="docmd-search-footer">
+              <span><kbd class="docmd-kbd">↑</kbd> <kbd class="docmd-kbd">↓</kbd> to navigate</span>
+              <span><kbd class="docmd-kbd">ESC</kbd> to close</span>
+          </div>
+      </div>
+  </div>
+
+    <script>
+      (function() {
+        var searchDebounceTimer;
+
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link || !window.gtag) return;
+          
+          var url = link.href;
+          var hostname = window.location.hostname;
+          var isExternal = link.hostname && link.hostname !== hostname;
+          var isDownload = link.hasAttribute('download') || url.match(/\.(pdf|zip|tar|gz|exe|pkg)$/i);
+          
+          if (isExternal) {
+            gtag('event', 'click_external', { 'url': url, 'link_text': link.innerText.trim() });
+          } else if (isDownload) {
+            gtag('event', 'download', { 'file_name': url.split('/').pop(), 'url': url });
+          }
+
+          // TOC tracking
+          if (link.classList.contains('toc-link')) {
+            gtag('event', 'toc_click', { 'target_id': link.getAttribute('href'), 'title': link.innerText.trim() });
+          }
+
+          // Permalink tracking
+          if (link.classList.contains('heading-anchor')) {
+            gtag('event', 'permalink_click', { 'url': url });
+          }
+        });
+
+        
+        // Search Keyword Tracking
+        document.addEventListener('input', function(e) {
+          if (e.target.id === 'docmd-search-input' && window.gtag) {
+            var query = e.target.value.trim();
+            if (query.length < 3) return;
+            
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(function() {
+              gtag('event', 'search', { 'search_term': query });
+            }, 1000);
+          }
+        });
+        
+      })();
+    </script>
+
+<script>window.__git_config={"repo":null,"branch":"main","editLink":false,"lastUpdated":true,"commitHistory":true,"maxCommits":5,"dateFormat":"relative"};window.__git_i18n={"lastUpdated":"Last updated","recentCommits":"Recent commits","viewCommitHistory":"View commit history","editOnGitHub":"Edit on GitHub","editOnGitLab":"Edit on GitLab","editOnBitbucket":"Edit on Bitbucket","editThisPage":"Edit this page","justNow":"just now","minutesAgo":"{n}m ago","hoursAgo":"{n}h ago","daysAgo":"{n}d ago"}</script>
+      
+      
+      
+  </body>
+</html>

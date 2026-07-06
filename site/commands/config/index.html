@@ -1,0 +1,2445 @@
+<!--
+  ---------------------------------------------------------------
+  docmd : the zero-config documentation engine.
+  @website https://docmd.io
+  [docmd-source] - Please do not remove this header.
+  ---------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="docmd v0.8.7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value — the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+    <style>
+      html {
+        visibility: hidden;
+      }
+    </style>
+    
+    <script>
+      var root = "../../";
+      if (root && !root.endsWith('/')) root += '/';
+      if (root === '') root = './';
+      window.DOCMD_ROOT = root;
+
+      var siteRoot = "../../";
+      if (siteRoot && !siteRoot.endsWith('/')) siteRoot += '/';
+      if (siteRoot === '') siteRoot = './';
+      window.DOCMD_SITE_ROOT = siteRoot;
+
+      window.DOCMD_APPEARANCE = "system";
+      window.DOCMD_VERSION_ROOT = "/";
+      window.DOCMD_BASE = "/";
+      window.DOCMD_LOCALE = "en";
+      window.DOCMD_DEFAULT_LOCALE = "en";
+    </script>
+    <title>
+      mip config — manage MIP configuration : MIP - Modern Package Manager
+    </title>
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    
+    
+<meta name="description" content="The config command allows you to view, modify, and manage MIP project configuration directly from the command line.">
+<link rel="canonical" href="https://mip.fwh.is/commands/config/">
+<meta property="og:title" content="mip config — manage MIP configuration - MIP - Modern Package Manager">
+<meta property="og:description" content="The config command allows you to view, modify, and manage MIP project configuration directly from the command line.">
+<meta property="og:url" content="https://mip.fwh.is/commands/config/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="mip config — manage MIP configuration - MIP - Modern Package Manager">
+<meta name="twitter:description" content="The config command allows you to view, modify, and manage MIP project configuration directly from the command line.">
+
+
+
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="alternate" hreflang="ru" href="/ru/commands/config/">
+<link rel="alternate" hreflang="en" href="/commands/config/">
+<link rel="alternate" hreflang="x-default" href="/commands/config/">
+    
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value — the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+  </head>
+  <body
+    class="sidebar-collapsible"
+    data-default-collapsed="false"
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/en/commands/config.md">
+
+    <a href="#main-content" class="skip-link">skipToContent</a>
+
+    
+    
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          
+            <h1><a href="../../">
+                MIP - Modern Package Manager
+              </a></h1>
+          
+          <span class="mobile-view sidebar-menu-button float-right">
+            
+<svg class="lucide-icon icon-menu " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-menu"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
+
+          </span>
+        </div>
+        <div class="sidebar-top-group">
+          
+          
+            <div class="sidebar-options-wrapper">
+              
+
+
+<div class="docmd-options-menu">
+    
+    <button class="docmd-search-trigger" aria-label="search">
+        
+<svg class="lucide-icon icon-search " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-search"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" />
+</svg>
+
+        <span class="search-label">search</span>
+        <span class="search-keys"><kbd class="docmd-kbd">⌘</kbd><kbd class="docmd-kbd">K</kbd></span>
+    </button>
+    
+
+    
+
+    
+    <div class="options-menu-language">
+        
+
+
+<div class="docmd-language-switcher language-compact">
+  <button class="language-switcher-toggle" aria-expanded="false" aria-label="selectLanguage">
+    
+<svg class="lucide-icon icon-globe language-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-globe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" />
+</svg>
+
+    
+  </button>
+  <ul class="language-switcher-menu">
+    
+    <li>
+      <a href="/ru/commands/config" 
+        class="language-switcher-item " 
+        data-spa-ignore
+        data-locale-id="ru"
+        lang="ru"
+        dir="ltr"
+        >
+        Русский
+        
+        
+      </a>
+    </li>
+    
+    <li>
+      <a href="/commands/config" 
+        class="language-switcher-item active" 
+        data-spa-ignore
+        data-locale-id="en"
+        lang="en"
+        dir="ltr"
+        >
+        English
+        
+          
+<svg class="lucide-icon icon-check language-check" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>
+
+        
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+    </div>
+    
+
+    
+    <button class="theme-toggle-button" aria-label="toggleTheme">
+        
+<svg class="lucide-icon icon-sun icon-sun" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-sun"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+ 
+<svg class="lucide-icon icon-moon icon-moon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-moon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+</svg>
+
+    </button>
+    
+
+    
+</div>
+
+            </div>
+          
+          
+          
+        </div>
+        
+
+<nav class="sidebar-nav" aria-label="mainNavigation">
+  <ul>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-home " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-house"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Introduction
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Welcome
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../qna/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Quick Q&amp;A
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-terminal " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-terminal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 19h8" />
+  <path d="m4 17 6-6-6-6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Commands
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../commands/audit/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            audit
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/cache/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            cache
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/ci/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            ci
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/create/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            create
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/dedupe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            dedupe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/doctor/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            doctor
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/exec/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exec
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/exports/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exports
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/genlock/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            genlock
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/global/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            global
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/info/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            info
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/init/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            init
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/language/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            language
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/legacy/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            legacy
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/link/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            link
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/list/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            list
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/oldrepo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            oldrepo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/outdated/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            outdated
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/repo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            repo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/run/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            run
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/search/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            search
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/super-install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            super-install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/uninstall/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            uninstall
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/update/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            update
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/why/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            why
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/workspaces/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            workspaces
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/pe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            pe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/plugin/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            plugin
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/registry/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            registry
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active" >
+      
+        <a href="../../commands/config/" class="active "
+          >
+          
+          <span class="nav-item-title">
+            config
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/server/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            server
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-cog " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 10.27 7 3.34" />
+  <path d="m11 13.73-4 6.93" />
+  <path d="M12 22v-2" />
+  <path d="M12 2v2" />
+  <path d="M14 12h8" />
+  <path d="m17 20.66-1-1.73" />
+  <path d="m17 3.34-1 1.73" />
+  <path d="M2 12h2" />
+  <path d="m20.66 17-1.73-1" />
+  <path d="m20.66 7-1.73 1" />
+  <path d="m3.34 17 1.73-1" />
+  <path d="m3.34 7 1.73 1" />
+  <circle cx="12" cy="12" r="2" />
+  <circle cx="12" cy="12" r="8" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Setup
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../setup/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Creating a Project
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../setup/quick-start/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Quick Start
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../setup/configuration/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Configuration
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-star " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-star"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            For Pros
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../pro-users/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/performance/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Performance
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/ci-cd/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-code " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-code"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 18 6-6-6-6" />
+  <path d="m8 6-6 6 6 6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            For Developers
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../dev/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/architecture/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Architecture
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/adding-commands/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Adding Commands
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/testing/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Testing
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/all-plugins/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            All About Plugins
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/hooks/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Hooks &amp; Plugins
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-bug " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-bug"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20v-9" />
+  <path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z" />
+  <path d="M14.12 3.88 16 2" />
+  <path d="M21 21a4 4 0 0 0-3.81-4" />
+  <path d="M21 5a4 4 0 0 1-3.55 3.97" />
+  <path d="M22 13h-4" />
+  <path d="M3 21a4 4 0 0 1 3.81-4" />
+  <path d="M3 5a4 4 0 0 0 3.55 3.97" />
+  <path d="M6 13H2" />
+  <path d="m8 2 1.88 1.88" />
+  <path d="M9 7.13V6a3 3 0 1 1 6 0v1.13" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Troubleshooting
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../troubleshooting/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            General List
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../troubleshooting/network/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Network &amp; Registries
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../troubleshooting/lockfile/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Lock Files
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-archive " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-archive"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+  <path d="M10 12h4" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Other
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../other/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../other/glossary/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Glossary
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../other/faq/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Extended FAQ
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+        <div class="sidebar-bottom-group mt-auto">
+          
+          
+          
+          
+        </div>
+      </aside>
+      
+      
+      
+      <div class="main-content-wrapper">
+        
+        
+          <header class="page-header">
+            <div class="header-left">
+              
+                <button id="sidebar-toggle-button" class="sidebar-toggle-button"
+                  aria-label="toggleSidebar">
+                  
+<svg class="lucide-icon icon-chevron-left " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 18-6-6 6-6" />
+</svg>
+
+                </button>
+              
+              <div class="header-titles-wrapper">
+                <span class="header-title">
+                  mip config — manage MIP configuration
+                </span>
+              </div>
+            </div>
+            <div class="header-right">
+              
+            </div>
+          </header>
+        
+        <div class="content-theme-cover">
+          <main class="content-area" id="main-content">
+            <div class="content-layout">
+              <div class="main-content">
+                <div class="docmd-breadcrumbs-row">
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20config%20%E2%80%94%20manage%20MIP%20configuration%22%0Adescription%3A%20%22The%20config%20command%20allows%20you%20to%20view%2C%20modify%2C%20and%20manage%20MIP%20project%20configuration%20directly%20from%20the%20command%20line.%22%0A---%0A%0A%23%20mip%20config%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Agear%0A%60mip%20config%60%20provides%20a%20convenient%20CLI%20interface%20for%20managing%20your%20MIP%20project%20configuration.%20Instead%20of%20manually%20editing%20%60mip.yml%60%20or%20%60mip.json%60%2C%20you%20can%20view%2C%20set%2C%20delete%2C%20and%20reset%20configuration%20values%20directly%20from%20the%20terminal.%20Perfect%20for%20quick%20tweaks%2C%20CI%2FCD%20automation%2C%20and%20scripting.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20config%20%3Csubcommand%3E%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Subcommands%0A%0A%7C%20Subcommand%20%7C%20Description%20%7C%0A%7C------------%7C-------------%7C%0A%7C%20%60list%60%20%7C%20Show%20all%20configuration%20in%20a%20formatted%20output%20%7C%0A%7C%20%60get%20%3Ckey%3E%60%20%7C%20Get%20a%20specific%20configuration%20value%20%7C%0A%7C%20%60set%20%3Ckey%3E%20%3Cvalue%3E%60%20%7C%20Set%20a%20configuration%20value%20%7C%0A%7C%20%60delete%20%3Ckey%3E%60%20%7C%20Delete%20a%20configuration%20value%20%7C%0A%7C%20%60reset%60%20%7C%20Reset%20configuration%20to%20defaults%20%7C%0A%7C%20%60edit%60%20%7C%20Open%20configuration%20in%20your%20editor%20%7C%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--json%60%20%7C%20Output%20in%20JSON%20format%20%7C%0A%7C%20%60--yaml%60%20%7C%20Output%20in%20YAML%20format%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Configuration%20detection**%20%E2%80%94%20MIP%20automatically%20detects%20your%20config%20file%20(%60mip.yml%60%2C%20%60mip.json%60%2C%20or%20%60package.json%60).%0A%0A2.%20**Value%20resolution**%20%E2%80%94%20supports%20nested%20keys%20using%20dot%20notation%20(e.g.%2C%20%60registries.github.url%60).%0A%0A3.%20**Type%20detection**%20%E2%80%94%20values%20are%20automatically%20parsed%20(strings%2C%20numbers%2C%20JSON%20objects%2C%20arrays).%0A%0A4.%20**File%20migration**%20%E2%80%94%20if%20you&#039;re%20using%20a%20legacy%20config%20format%2C%20MIP%20will%20automatically%20migrate%20to%20%60mip.yml%60.%0A%0A5.%20**Editor%20integration**%20%E2%80%94%20uses%20%60%24EDITOR%60%20or%20%60%24VISUAL%60%20environment%20variables%20for%20the%20%60edit%60%20subcommand.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22View%20all%20configuration%22%0A%60%60%60bash%0Amip%20config%20list%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%8B%20MIP%20Configuration%0A%0A%20%20%20File%3A%20mip.yml%0A%20%20%20Path%3A%20%2Fhome%2Fuser%2Fmy-project%2Fmip.yml%0A%0A%F0%9F%93%A6%20Project%3A%0A%20%20%20name%3A%20my-awesome-app%0A%20%20%20version%3A%202.0.0%0A%0A%F0%9F%93%A6%20Dependencies%3A%0A%20%20%20dependencies%3A%2017%20package(s)%0A%20%20%20devDependencies%3A%205%20package(s)%0A%0A%F0%9F%93%9C%20Scripts%3A%0A%20%20%20build%3A%20webpack%20--mode%20production%0A%20%20%20dev%3A%20webpack%20serve%0A%20%20%20test%3A%20jest%0A%0A%F0%9F%93%A6%20Registries%3A%0A%20%20%20default%3A%20npm%0A%20%20%20github%3A%0A%20%20%20%20%20url%3A%20https%3A%2F%2Fnpm.pkg.github.com%2F%0A%20%20%20%20%20token%3A%20%E2%9C%93%20ghp_xxx%E2%80%A6%0A%0A%F0%9F%92%A1%20Use%20%22mip%20config%20get%20%3Ckey%3E%22%20to%20view%20specific%20values%0A%20%20%20%22mip%20config%20set%20%3Ckey%3E%20%3Cvalue%3E%22%20to%20update%20values%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Get%20a%20specific%20value%22%0A%60%60%60bash%0Amip%20config%20get%20version%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A2.0.0%0A%60%60%60%0A%0A%60%60%60bash%0Amip%20config%20get%20scripts.build%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0Awebpack%20--mode%20production%0A%60%60%60%0A%0A%60%60%60bash%0Amip%20config%20get%20registries.github%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%7B%0A%20%20%22url%22%3A%20%22https%3A%2F%2Fnpm.pkg.github.com%2F%22%2C%0A%20%20%22token%22%3A%20%22ghp_xxx%22%0A%7D%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Set%20a%20value%22%0A%60%60%60bash%0Amip%20config%20set%20version%202.1.0%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Config%20updated%3A%20version%0A%20%20%20Old%3A%20%222.0.0%22%0A%20%20%20New%3A%20%222.1.0%22%0A%60%60%60%0A%0A%60%60%60bash%0Amip%20config%20set%20defaultRegistry%20github%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Config%20updated%3A%20defaultRegistry%0A%20%20%20Old%3A%20%22npm%22%0A%20%20%20New%3A%20%22github%22%0A%60%60%60%0A%0A%60%60%60bash%0Amip%20config%20set%20registries.github.token%20ghp_new_token%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Config%20updated%3A%20registries.github.token%0A%20%20%20Old%3A%20%22ghp_xxx%22%0A%20%20%20New%3A%20%22ghp_new_token%22%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Delete%20a%20value%22%0A%60%60%60bash%0Amip%20config%20delete%20registries.github.token%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Deleted%3A%20registries.github.token%0A%20%20%20Old%20value%3A%20%22ghp_xxx%22%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Edit%20in%20editor%22%0A%60%60%60bash%0Amip%20config%20edit%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%9D%20Opening%20mip.yml%20in%20vim...%0A%E2%9C%85%20Config%20edited%20successfully%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Reset%20to%20defaults%22%0A%60%60%60bash%0Amip%20config%20reset%0A%60%60%60%0A**Output%3A**%0A%60%60%60%0A%E2%9A%A0%EF%B8%8F%20This%20will%20reset%20all%20configuration%20to%20default%20values%0A%20%20%20All%20custom%20settings%20will%20be%20lost!%0A%20%20%20Are%20you%20sure%3F%20(yes%2Fno)%20yes%0A%E2%9C%85%20Config%20reset%20to%20defaults%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Common%20use%20cases%0A%0A%23%23%23%20Quick%20version%20bump%0A%60%60%60bash%0A%23%20Before%20publishing%0Amip%20config%20set%20version%202.1.0%0Amip%20config%20get%20version%20%20%23%20Verify%0A%60%60%60%0A%0A%23%23%23%20Registry%20management%0A%60%60%60bash%0A%23%20Set%20default%20registry%0Amip%20config%20set%20defaultRegistry%20github%0A%0A%23%20Update%20registry%20token%0Amip%20config%20set%20registries.github.token%20ghp_new_token%0A%0A%23%20Add%20a%20new%20registry%0Amip%20config%20set%20registries.gitlab.url%20https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fpackages%2Fnpm%2F%0A%60%60%60%0A%0A%23%23%23%20Script%20management%0A%60%60%60bash%0A%23%20Add%20a%20new%20script%0Amip%20config%20set%20scripts.deploy%20%22npm%20run%20build%20%26%26%20rsync%20-avz%20dist%2F%20server%3A%2Fapp%22%0A%0A%23%20Update%20an%20existing%20script%0Amip%20config%20set%20scripts.test%20%22jest%20--coverage%22%0A%60%60%60%0A%0A%23%23%23%20Workspace%20management%0A%60%60%60bash%0A%23%20Set%20workspaces%0Amip%20config%20set%20workspaces%20&#039;%5B%22packages%2F*%22%2C%20%22apps%2F*%22%5D&#039;%0A%60%60%60%0A%0A%23%23%20Supported%20keys%0A%0A%7C%20Key%20%7C%20Type%20%7C%20Description%20%7C%0A%7C-----%7C------%7C-------------%7C%0A%7C%20%60name%60%20%7C%20string%20%7C%20Project%20name%20%7C%0A%7C%20%60version%60%20%7C%20string%20%7C%20Project%20version%20%7C%0A%7C%20%60description%60%20%7C%20string%20%7C%20Project%20description%20%7C%0A%7C%20%60dependencies%60%20%7C%20object%20%7C%20Production%20dependencies%20%7C%0A%7C%20%60devDependencies%60%20%7C%20object%20%7C%20Development%20dependencies%20%7C%0A%7C%20%60scripts%60%20%7C%20object%20%7C%20NPM%20scripts%20%7C%0A%7C%20%60workspaces%60%20%7C%20array%20%7C%20Monorepo%20workspaces%20%7C%0A%7C%20%60registries%60%20%7C%20object%20%7C%20Package%20registries%20%7C%0A%7C%20%60defaultRegistry%60%20%7C%20string%20%7C%20Default%20registry%20name%20%7C%0A%7C%20%60language%60%20%7C%20string%20%7C%20UI%20language%20(en%2Fru%2Fetc)%20%7C%0A%0A%23%23%23%20Nested%20keys%0AYou%20can%20access%20nested%20values%20using%20dot%20notation%3A%0A%0A%60%60%60bash%0Amip%20config%20get%20registries.github.url%0Amip%20config%20set%20registries.github.token%20ghp_xxx%0Amip%20config%20delete%20registries.github.token%0A%60%60%60%0A%0A%23%23%20Output%20formats%0A%0A%23%23%23%20JSON%20format%0A%60%60%60bash%0Amip%20config%20list%20--json%0A%60%60%60%0AUseful%20for%20scripting%20and%20programmatic%20access.%0A%0A%23%23%23%20YAML%20format%0A%60%60%60bash%0Amip%20config%20list%20--yaml%0A%60%60%60%0AShows%20the%20raw%20YAML%20configuration.%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_NO_CONFIG%22%20icon%3Aalert-triangle%0A**Cause%3A**%20No%20config%20file%20found%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%0A1.%20Make%20sure%20you&#039;re%20in%20a%20MIP%20project%20directory.%0A2.%20Run%20%60mip%20init%60%20to%20create%20a%20new%20project.%0A3.%20Or%20run%20%60mip%20config%60%20from%20the%20project%20root.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_KEY_NOT_FOUND%22%20icon%3Askull%0A**Cause%3A**%20The%20specified%20key%20doesn&#039;t%20exist%20in%20the%20configuration.%0A%0A**Resolution%3A**%0A1.%20Check%20the%20key%20name%3A%20%60mip%20config%20list%60%20to%20see%20all%20keys.%0A2.%20Use%20dot%20notation%20for%20nested%20keys%3A%20%60registries.github.url%60.%0A3.%20Make%20sure%20the%20key%20exists%20before%20accessing%20it.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_INVALID_VALUE%22%20icon%3Aalert-circle%0A**Cause%3A**%20The%20provided%20value%20has%20an%20invalid%20format.%0A%0A**Resolution%3A**%0A1.%20For%20objects%2C%20use%20valid%20JSON%3A%20%60&#039;%7B%22key%22%3A%22value%22%7D&#039;%60%0A2.%20For%20arrays%2C%20use%20valid%20JSON%3A%20%60&#039;%5B%22item1%22%2C%22item2%22%5D&#039;%60%0A3.%20For%20strings%2C%20no%20quotes%20needed%3A%20%60mip%20config%20set%20name%20my-project%60%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20registry%5D(%2Fcommands%2Fregistry)%20%E2%80%94%20manage%20package%20registries%0A-%20%5Bmip%20init%5D(%2Fcommands%2Finit)%20%E2%80%94%20create%20a%20new%20project%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20check%20project%20health%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20How%20configuration%20resolution%20works%22%0AMIP%20follows%20a%20specific%20order%20when%20resolving%20configuration%3A%0A%0A1.%20**%60mip.yml%60**%20%E2%80%94%20primary%20configuration%20file%20(recommended)%0A2.%20**%60mip.json%60**%20%E2%80%94%20legacy%20JSON%20format%20(will%20be%20migrated)%0A3.%20**%60package.json%60**%20%E2%80%94%20npm%20compatibility%20(will%20be%20migrated)%0A%0AWhen%20you%20run%20%60mip%20config%20set%60%2C%20MIP%20automatically%3A%0A-%20Detects%20the%20active%20config%20file%0A-%20Updates%20the%20value%0A-%20Saves%20back%20to%20%60mip.yml%60%0A%0AIf%20your%20project%20uses%20%60package.json%60%20or%20%60mip.json%60%2C%20MIP%20will%20automatically%20migrate%20to%20%60mip.yml%60%20on%20the%20first%20write%20operation.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Pro%20tip%3A%20Configuration%20as%20code%22%20icon%3Alightbulb%0AUse%20%60mip%20config%60%20in%20your%20CI%2FCD%20pipelines%20for%20dynamic%20configuration%3A%0A%0A%60%60%60bash%0A%23%20Set%20environment-specific%20config%0Amip%20config%20set%20apiUrl%20https%3A%2F%2Fapi.production.com%0Amip%20config%20set%20logLevel%20info%0A%0A%23%20Then%20run%20your%20build%0Amip%20run%20build%0A%60%60%60%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  
+                    <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
+                      <ol>
+                        
+                        
+                          <li class="breadcrumb-item " >
+                            
+                              <span>Commands</span>
+                            
+                            
+                              <span class="breadcrumb-separator">
+<svg class="lucide-icon icon-chevron-right " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+                            
+                          </li>
+                        
+                          <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
+                            
+                              <span>config</span>
+                            
+                            
+                          </li>
+                        
+                      </ol>
+                    </nav>
+                  
+
+                  
+                    <div class="docmd-copy-widgets">
+                      
+                        <button class="docmd-copy-btn docmd-copy-raw-btn" data-copied="copiedToClipboard" title="copyMarkdown" aria-label="copyMarkdown">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-copy " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-copy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+</svg>
+</span>
+                        </button>
+                      
+                      
+                        <button class="docmd-copy-btn docmd-copy-context-btn" data-copied="copiedToClipboard" title="copyContext">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-message-square " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</svg>
+</span>
+                          <span class="docmd-btn-text">copyContext</span>
+                        </button>
+                      
+                    </div>
+                  
+                </div>
+                
+                <h1 id="mip-config" class="docmd-heading"><a href="#mip-config" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip config</h1>
+<div class="docmd-container callout callout-info"><div class="callout-title">What is this?</div><div class="callout-content">
+<p><code>mip config</code> provides a convenient CLI interface for managing your MIP project configuration. Instead of manually editing <code>mip.yml</code> or <code>mip.json</code>, you can view, set, delete, and reset configuration values directly from the terminal. Perfect for quick tweaks, CI/CD automation, and scripting.</p>
+</div></div>
+<h2 id="mip-config-syntax" class="docmd-heading"><a href="#mip-config-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-punctuation">&lt;</span>subcommand<span class="hljs-punctuation">&gt;</span> [options]
+</code></pre>
+<h2 id="mip-config-subcommands" class="docmd-heading"><a href="#mip-config-subcommands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Subcommands</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Subcommand</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list</code></td>
+<td>Show all configuration in a formatted output</td>
+</tr>
+<tr>
+<td><code>get &lt;key&gt;</code></td>
+<td>Get a specific configuration value</td>
+</tr>
+<tr>
+<td><code>set &lt;key&gt; &lt;value&gt;</code></td>
+<td>Set a configuration value</td>
+</tr>
+<tr>
+<td><code>delete &lt;key&gt;</code></td>
+<td>Delete a configuration value</td>
+</tr>
+<tr>
+<td><code>reset</code></td>
+<td>Reset configuration to defaults</td>
+</tr>
+<tr>
+<td><code>edit</code></td>
+<td>Open configuration in your editor</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="mip-config-options" class="docmd-heading"><a href="#mip-config-options" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Options</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--json</code></td>
+<td>Output in JSON format</td>
+</tr>
+<tr>
+<td><code>--yaml</code></td>
+<td>Output in YAML format</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="mip-config-how-it-works" class="docmd-heading"><a href="#mip-config-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
+<ol>
+<li><p><strong>Configuration detection</strong> — MIP automatically detects your config file (<code>mip.yml</code>, <code>mip.json</code>, or <code>package.json</code>).</p>
+</li>
+<li><p><strong>Value resolution</strong> — supports nested keys using dot notation (e.g., <code>registries.github.url</code>).</p>
+</li>
+<li><p><strong>Type detection</strong> — values are automatically parsed (strings, numbers, JSON objects, arrays).</p>
+</li>
+<li><p><strong>File migration</strong> — if you’re using a legacy config format, MIP will automatically migrate to <code>mip.yml</code>.</p>
+</li>
+<li><p><strong>Editor integration</strong> — uses <code>$EDITOR</code> or <code>$VISUAL</code> environment variables for the <code>edit</code> subcommand.</p>
+</li>
+</ol>
+<h2 id="mip-config-examples" class="docmd-heading"><a href="#mip-config-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
+<div class="docmd-tabs">
+<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>View all configuration</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip config list
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>📋 MIP Configuration
+
+   File<span class="hljs-punctuation">:</span> mip.<span class="hljs-attr">yml</span>
+   Path<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">/</span>home<span class="hljs-punctuation">/</span>user<span class="hljs-punctuation">/</span>my<span class="hljs-punctuation">-</span>project<span class="hljs-punctuation">/</span>mip.<span class="hljs-attr">yml</span>
+
+📦 Project<span class="hljs-punctuation">:</span>
+   name<span class="hljs-punctuation">:</span> my<span class="hljs-punctuation">-</span>awesome<span class="hljs-punctuation">-</span>app
+   version<span class="hljs-punctuation">:</span> <span class="hljs-number">2.0</span>.<span class="hljs-number">0</span>
+
+📦 Dependencies<span class="hljs-punctuation">:</span>
+   dependencies<span class="hljs-punctuation">:</span> <span class="hljs-number">17</span> <span class="hljs-title function_">package</span>(s)
+   devDependencies<span class="hljs-punctuation">:</span> <span class="hljs-number">5</span> <span class="hljs-title function_">package</span>(s)
+
+📜 Scripts<span class="hljs-punctuation">:</span>
+   build<span class="hljs-punctuation">:</span> webpack <span class="hljs-punctuation">--</span>mode production
+   dev<span class="hljs-punctuation">:</span> webpack serve
+   test<span class="hljs-punctuation">:</span> jest
+
+📦 Registries<span class="hljs-punctuation">:</span>
+   <span class="hljs-keyword">default</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span>
+   github<span class="hljs-punctuation">:</span>
+     url<span class="hljs-punctuation">:</span> https<span class="hljs-punctuation">://</span><span class="hljs-keyword">npm</span>.<span class="hljs-keyword">pkg</span>.<span class="hljs-attr">github</span>.<span class="hljs-attr">com</span><span class="hljs-punctuation">/</span>
+     token<span class="hljs-punctuation">:</span> ✓ ghp_xxx…
+
+💡 Use <span class="hljs-string">&quot;mip config get &lt;key&gt;&quot;</span> to view specific values
+   <span class="hljs-string">&quot;mip config set &lt;key&gt; &lt;value&gt;&quot;</span> to update values
+</code></pre>
+</div></div></div><p>== tab “Get a specific value”</p>
+<pre class="hljs"><code class="language-bash">mip config get version
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code><span class="hljs-number">2.0</span>.<span class="hljs-number">0</span>
+</code></pre>
+<pre class="hljs"><code class="language-bash">mip config get scripts.<span class="hljs-attr">build</span>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>webpack <span class="hljs-punctuation">--</span>mode production
+</code></pre>
+<pre class="hljs"><code class="language-bash">mip config get registries.<span class="hljs-attr">github</span>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>{
+  <span class="hljs-string">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;https://npm.pkg.github.com/&quot;</span>,
+  <span class="hljs-string">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ghp_xxx&quot;</span>
+}
+</code></pre>
+<p>:::</p>
+<p>== tab “Set a value”</p>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> version <span class="hljs-number">2.1</span>.<span class="hljs-number">0</span>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>✅ Config updated<span class="hljs-punctuation">:</span> version
+   Old<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2.0.0&quot;</span>
+   New<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2.1.0&quot;</span>
+</code></pre>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> defaultRegistry github
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>✅ Config updated<span class="hljs-punctuation">:</span> defaultRegistry
+   Old<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;npm&quot;</span>
+   New<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;github&quot;</span>
+</code></pre>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span> ghp_new_token
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>✅ Config updated<span class="hljs-punctuation">:</span> registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span>
+   Old<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ghp_xxx&quot;</span>
+   New<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ghp_new_token&quot;</span>
+</code></pre>
+<p>:::</p>
+<p>== tab “Delete a value”</p>
+<pre class="hljs"><code class="language-bash">mip config delete registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span>
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>✅ Deleted<span class="hljs-punctuation">:</span> registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span>
+   Old value<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ghp_xxx&quot;</span>
+</code></pre>
+<p>:::</p>
+<p>== tab “Edit in editor”</p>
+<pre class="hljs"><code class="language-bash">mip config edit
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>📝 Opening mip.<span class="hljs-attr">yml</span> <span class="hljs-keyword">in</span> vim...
+✅ Config edited successfully
+</code></pre>
+<p>:::</p>
+<p>== tab “Reset to defaults”</p>
+<pre class="hljs"><code class="language-bash">mip config reset
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>⚠️ This will reset all configuration to <span class="hljs-keyword">default</span> values
+   All custom settings will be lost<span class="hljs-punctuation">!</span>
+   Are you sure<span class="hljs-punctuation">?</span> (yes<span class="hljs-punctuation">/</span>no) yes
+✅ Config reset to defaults
+</code></pre>
+<p>:::<br>
+:::</p>
+<h2 id="mip-config-common-use-cases" class="docmd-heading"><a href="#mip-config-common-use-cases" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common use cases</h2>
+<h3 id="mip-config-common-use-cases-quick-version-bump" class="docmd-heading"><a href="#mip-config-common-use-cases-quick-version-bump" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Quick version bump</h3>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Before publishing</span>
+mip config <span class="hljs-keyword">set</span> version <span class="hljs-number">2.1</span>.<span class="hljs-number">0</span>
+mip config get version  <span class="hljs-comment"># Verify</span>
+</code></pre>
+<h3 id="mip-config-common-use-cases-registry-management" class="docmd-heading"><a href="#mip-config-common-use-cases-registry-management" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Registry management</h3>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Set default registry</span>
+mip config <span class="hljs-keyword">set</span> defaultRegistry github
+
+<span class="hljs-comment"># Update registry token</span>
+mip config <span class="hljs-keyword">set</span> registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span> ghp_new_token
+
+<span class="hljs-comment"># Add a new registry</span>
+mip config <span class="hljs-keyword">set</span> registries.<span class="hljs-attr">gitlab</span>.<span class="hljs-attr">url</span> https<span class="hljs-punctuation">://</span>gitlab.<span class="hljs-attr">com</span><span class="hljs-punctuation">/</span>api<span class="hljs-punctuation">/</span>v4<span class="hljs-punctuation">/</span>packages<span class="hljs-punctuation">/</span><span class="hljs-keyword">npm</span><span class="hljs-punctuation">/</span>
+</code></pre>
+<h3 id="mip-config-common-use-cases-script-management" class="docmd-heading"><a href="#mip-config-common-use-cases-script-management" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Script management</h3>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Add a new script</span>
+mip config <span class="hljs-keyword">set</span> scripts.<span class="hljs-attr">deploy</span> <span class="hljs-string">&quot;npm run build &amp;&amp; rsync -avz dist/ server:/app&quot;</span>
+
+<span class="hljs-comment"># Update an existing script</span>
+mip config <span class="hljs-keyword">set</span> scripts.<span class="hljs-attr">test</span> <span class="hljs-string">&quot;jest --coverage&quot;</span>
+</code></pre>
+<h3 id="mip-config-common-use-cases-workspace-management" class="docmd-heading"><a href="#mip-config-common-use-cases-workspace-management" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Workspace management</h3>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Set workspaces</span>
+mip config <span class="hljs-keyword">set</span> workspaces <span class="hljs-string">&#039;[&quot;packages/*&quot;, &quot;apps/*&quot;]&#039;</span>
+</code></pre>
+<h2 id="mip-config-supported-keys" class="docmd-heading"><a href="#mip-config-supported-keys" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Supported keys</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Project name</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>string</td>
+<td>Project version</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Project description</td>
+</tr>
+<tr>
+<td><code>dependencies</code></td>
+<td>object</td>
+<td>Production dependencies</td>
+</tr>
+<tr>
+<td><code>devDependencies</code></td>
+<td>object</td>
+<td>Development dependencies</td>
+</tr>
+<tr>
+<td><code>scripts</code></td>
+<td>object</td>
+<td>NPM scripts</td>
+</tr>
+<tr>
+<td><code>workspaces</code></td>
+<td>array</td>
+<td>Monorepo workspaces</td>
+</tr>
+<tr>
+<td><code>registries</code></td>
+<td>object</td>
+<td>Package registries</td>
+</tr>
+<tr>
+<td><code>defaultRegistry</code></td>
+<td>string</td>
+<td>Default registry name</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>string</td>
+<td>UI language (en/ru/etc)</td>
+</tr>
+</tbody>
+</table>
+</div><h3 id="mip-config-supported-keys-nested-keys" class="docmd-heading"><a href="#mip-config-supported-keys-nested-keys" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Nested keys</h3>
+<p>You can access nested values using dot notation:</p>
+<pre class="hljs"><code class="language-bash">mip config get registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">url</span>
+mip config <span class="hljs-keyword">set</span> registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span> ghp_xxx
+mip config delete registries.<span class="hljs-attr">github</span>.<span class="hljs-attr">token</span>
+</code></pre>
+<h2 id="mip-config-output-formats" class="docmd-heading"><a href="#mip-config-output-formats" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Output formats</h2>
+<h3 id="mip-config-output-formats-json-format" class="docmd-heading"><a href="#mip-config-output-formats-json-format" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>JSON format</h3>
+<pre class="hljs"><code class="language-bash">mip config list <span class="hljs-punctuation">--</span>json
+</code></pre>
+<p>Useful for scripting and programmatic access.</p>
+<h3 id="mip-config-output-formats-yaml-format" class="docmd-heading"><a href="#mip-config-output-formats-yaml-format" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>YAML format</h3>
+<pre class="hljs"><code class="language-bash">mip config list <span class="hljs-punctuation">--</span>yaml
+</code></pre>
+<p>Shows the raw YAML configuration.</p>
+<h2 id="mip-config-common-errors" class="docmd-heading"><a href="#mip-config-common-errors" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common errors</h2>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-triangle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+❌ ERR_NO_CONFIG</div><div class="callout-content">
+<p><strong>Cause:</strong> No config file found in the current directory.</p>
+<p><strong>Resolution:</strong></p>
+<ol>
+<li>Make sure you’re in a MIP project directory.</li>
+<li>Run <code>mip init</code> to create a new project.</li>
+<li>Or run <code>mip config</code> from the project root.</li>
+</ol>
+</div></div>
+<div class="docmd-container callout callout-danger"><div class="callout-title">
+<svg class="lucide-icon icon-skull callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-skull"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.5 17-.5-1-.5 1h1z" />
+  <path d="M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z" />
+  <circle cx="15" cy="12" r="1" />
+  <circle cx="9" cy="12" r="1" />
+</svg>
+❌ ERR_KEY_NOT_FOUND</div><div class="callout-content">
+<p><strong>Cause:</strong> The specified key doesn’t exist in the configuration.</p>
+<p><strong>Resolution:</strong></p>
+<ol>
+<li>Check the key name: <code>mip config list</code> to see all keys.</li>
+<li>Use dot notation for nested keys: <code>registries.github.url</code>.</li>
+<li>Make sure the key exists before accessing it.</li>
+</ol>
+</div></div>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+⚠️ ERR_INVALID_VALUE</div><div class="callout-content">
+<p><strong>Cause:</strong> The provided value has an invalid format.</p>
+<p><strong>Resolution:</strong></p>
+<ol>
+<li>For objects, use valid JSON: <code>'{&quot;key&quot;:&quot;value&quot;}'</code></li>
+<li>For arrays, use valid JSON: <code>'[&quot;item1&quot;,&quot;item2&quot;]'</code></li>
+<li>For strings, no quotes needed: <code>mip config set name my-project</code></li>
+</ol>
+</div></div>
+<h2 id="mip-config-related-commands" class="docmd-heading"><a href="#mip-config-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
+<ul>
+<li><a href="/commands/registry/">mip registry</a> — manage package registries</li>
+<li><a href="/commands/init/">mip init</a> — create a new project</li>
+<li><a href="/commands/doctor/">mip doctor</a> — check project health</li>
+</ul>
+<details class="docmd-container collapsible">
+        <summary class="collapsible-summary">
+            <span class="collapsible-title">🔧 How configuration resolution works</span>
+            <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </summary>
+        <div class="collapsible-content">
+<p>MIP follows a specific order when resolving configuration:</p>
+<ol>
+<li><strong><code>mip.yml</code></strong> — primary configuration file (recommended)</li>
+<li><strong><code>mip.json</code></strong> — legacy JSON format (will be migrated)</li>
+<li><strong><code>package.json</code></strong> — npm compatibility (will be migrated)</li>
+</ol>
+<p>When you run <code>mip config set</code>, MIP automatically:</p>
+<ul>
+<li>Detects the active config file</li>
+<li>Updates the value</li>
+<li>Saves back to <code>mip.yml</code></li>
+</ul>
+<p>If your project uses <code>package.json</code> or <code>mip.json</code>, MIP will automatically migrate to <code>mip.yml</code> on the first write operation.</p>
+</div></details>
+<div class="docmd-container callout callout-tip"><div class="callout-title">
+<svg class="lucide-icon icon-lightbulb callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-lightbulb"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" />
+</svg>
+💡 Pro tip: Configuration as code</div><div class="callout-content">
+<p>Use <code>mip config</code> in your CI/CD pipelines for dynamic configuration:</p>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Set environment-specific config</span>
+mip config <span class="hljs-keyword">set</span> apiUrl https<span class="hljs-punctuation">://</span>api.<span class="hljs-attr">production</span>.<span class="hljs-attr">com</span>
+mip config <span class="hljs-keyword">set</span> logLevel info
+
+<span class="hljs-comment"># Then run your build</span>
+mip run build
+</code></pre>
+</div></div>
+
+                
+                  <div class="page-navigation">
+                    
+                      <a href="../../commands/registry/" class="prev-page">
+                        
+<svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+
+                        <span><small>previous</small><strong>
+                            registry
+                          </strong></span>
+                      </a>
+                    
+                    
+                      <a href="../../commands/server/" class="next-page">
+                        <span><small>next</small>
+                          <strong>
+                            server
+                          </strong></span>
+                        
+<svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="toc-sidebar">
+                
+
+
+  <div class="toc-container">
+    <h2 class="toc-title">onThisPage<span class="mobile-view toc-menu-button float-right">
+<svg class="lucide-icon icon-chevron-down " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg>
+</span></h2>
+    <ul class="toc-list">
+      
+        <li class="toc-item toc-level-1">
+          <a href="#mip-config" class="toc-link">mip config</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-syntax" class="toc-link">Syntax</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-subcommands" class="toc-link">Subcommands</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-options" class="toc-link">Options</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-how-it-works" class="toc-link">How it works</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-examples" class="toc-link">Examples</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-common-use-cases" class="toc-link">Common use cases</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-common-use-cases-quick-version-bump" class="toc-link">Quick version bump</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-common-use-cases-registry-management" class="toc-link">Registry management</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-common-use-cases-script-management" class="toc-link">Script management</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-common-use-cases-workspace-management" class="toc-link">Workspace management</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-supported-keys" class="toc-link">Supported keys</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-supported-keys-nested-keys" class="toc-link">Nested keys</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-output-formats" class="toc-link">Output formats</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-output-formats-json-format" class="toc-link">JSON format</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-config-output-formats-yaml-format" class="toc-link">YAML format</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-common-errors" class="toc-link">Common errors</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-config-related-commands" class="toc-link">Related commands</a>
+        </li>
+      
+    </ul>
+  </div>
+
+              </div>
+            </div>
+            <div class="page-footer-actions">
+              
+              
+              <span class="git-spacer"></span>
+              
+            </div>
+          </main>
+          
+
+
+<footer class="page-footer">
+  <div class="footer-content">
+    <div class="user-footer">© 2026 MIP. Open-source MIT.</div>
+    
+      <div class="branding-footer">
+        builtWith <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg> <a href="https://docmd.io" target="_blank" rel="noopener">docmd.</a>
+      </div>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+      
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      
+      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      
+      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
+<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
+<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+
+  <!-- Search Modal (Injected by @docmd/plugin-search) -->
+  <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
+       data-search-placeholder="Search documentation..."
+       data-search-no-results="No results found."
+       data-search-error="Failed to load search index."
+       data-search-initial="Type to start searching..."
+       data-search-navigate="to navigate"
+       data-search-escape="to close">
+      <div class="docmd-search-box">
+          <div class="docmd-search-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <input type="text" id="docmd-search-input" placeholder="Search documentation..." autocomplete="off" spellcheck="false">
+              <button onclick="window.closeDocmdSearch()" class="docmd-search-close" aria-label="Close search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+              </button>
+          </div>
+          <div id="docmd-search-results" class="docmd-search-results"></div>
+          <div class="docmd-search-footer">
+              <span><kbd class="docmd-kbd">↑</kbd> <kbd class="docmd-kbd">↓</kbd> to navigate</span>
+              <span><kbd class="docmd-kbd">ESC</kbd> to close</span>
+          </div>
+      </div>
+  </div>
+
+    <script>
+      (function() {
+        var searchDebounceTimer;
+
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link || !window.gtag) return;
+          
+          var url = link.href;
+          var hostname = window.location.hostname;
+          var isExternal = link.hostname && link.hostname !== hostname;
+          var isDownload = link.hasAttribute('download') || url.match(/\.(pdf|zip|tar|gz|exe|pkg)$/i);
+          
+          if (isExternal) {
+            gtag('event', 'click_external', { 'url': url, 'link_text': link.innerText.trim() });
+          } else if (isDownload) {
+            gtag('event', 'download', { 'file_name': url.split('/').pop(), 'url': url });
+          }
+
+          // TOC tracking
+          if (link.classList.contains('toc-link')) {
+            gtag('event', 'toc_click', { 'target_id': link.getAttribute('href'), 'title': link.innerText.trim() });
+          }
+
+          // Permalink tracking
+          if (link.classList.contains('heading-anchor')) {
+            gtag('event', 'permalink_click', { 'url': url });
+          }
+        });
+
+        
+        // Search Keyword Tracking
+        document.addEventListener('input', function(e) {
+          if (e.target.id === 'docmd-search-input' && window.gtag) {
+            var query = e.target.value.trim();
+            if (query.length < 3) return;
+            
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(function() {
+              gtag('event', 'search', { 'search_term': query });
+            }, 1000);
+          }
+        });
+        
+      })();
+    </script>
+
+<script>window.__git_config={"repo":null,"branch":"main","editLink":false,"lastUpdated":true,"commitHistory":true,"maxCommits":5,"dateFormat":"relative"};window.__git_i18n={"lastUpdated":"Last updated","recentCommits":"Recent commits","viewCommitHistory":"View commit history","editOnGitHub":"Edit on GitHub","editOnGitLab":"Edit on GitLab","editOnBitbucket":"Edit on Bitbucket","editThisPage":"Edit this page","justNow":"just now","minutesAgo":"{n}m ago","hoursAgo":"{n}h ago","daysAgo":"{n}d ago"}</script>
+      
+      
+      
+  </body>
+</html>
