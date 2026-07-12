@@ -62,7 +62,8 @@
     "children": [
       { "title": "Overview", "path": "/pro-users/index.md" },
       { "title": "Performance", "path": "/pro-users/performance.md" },
-      { "title": "CI/CD", "path": "/pro-users/ci-cd.md" }
+      { "title": "CI/CD", "path": "/pro-users/ci-cd.md" },
+      { "title": "Features / Config", "path": "/pro-users/features.md" }
     ]
   },
   {

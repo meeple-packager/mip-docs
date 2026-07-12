@@ -62,7 +62,8 @@
     "children": [
       { "title": "Обзор", "path": "/pro-users/index.md" },
       { "title": "Производительность", "path": "/pro-users/performance.md" },
-      { "title": "CI/CD", "path": "/pro-users/ci-cd.md" }
+      { "title": "CI/CD", "path": "/pro-users/ci-cd.md" },
+      { "title": "Настройка конфига", "path": "/pro-users/features.md" }
     ]
   },
   {
