@@ -38,9 +38,9 @@ async function myCommand(arg, options = {}) {
 module.exports = { myCommand };
 ```
 
-### 2. Добавь в `bin/mip.js`
+### 2. Добавь в `bin/mip-commands.js`
 
-В `switch (command)` добавь новый `case`:
+Роутер built-in команд находится в `handleCommand()` (файл `bin/mip-commands.js`). Добавь новый `case` там:
 
 ```javascript
 case 'my-command': {
@@ -117,6 +117,10 @@ mip my-command test --verbose
 ```bash
 mip plugin create my-plugin
 ```
+
+> В этом репозитории плагин может регистрировать команды двумя способами:
+> - через `commands: { ... }` (сразу в module export)
+> - через `init({ api })` / `api.registerCommand()` (динамически)
 
 ### 2. Отредактируй `plugins/my-plugin/index.js`
 

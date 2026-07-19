@@ -22,6 +22,13 @@ Only suitable for commands that should be part of MIP itself. For example, `inst
 // lib/commands/my-command.js
 const { loadLangForCwd, getI18n } = require('../i18n');
 
+/**
+ * NOTE: built-in commands are invoked by the CLI router.
+ * For most commands:
+ *   - `arg` is the first positional argument
+ *   - `options` are derived from process.argv flags
+ */
+
 async function myCommand(arg, options = {}) {
   const { t } = getI18n(loadLangForCwd(process.cwd()));
   
@@ -38,9 +45,9 @@ async function myCommand(arg, options = {}) {
 module.exports = { myCommand };
 ```
 
-### 2. Add to `bin/mip.js`
+### 2. Add to `bin/mip-commands.js`
 
-Add a new `case` in `switch (command)`:
+In this repo, the router for built-in commands is implemented in `handleCommand()` (file: `bin/mip-commands.js`). Add a new `case` there:
 
 ```javascript
 case 'my-command': {
@@ -103,6 +110,10 @@ Suitable for all user-defined commands. Commands are registered dynamically via 
 ```bash
 mip plugin create my-plugin
 ```
+
+> In this repository a plugin can register commands in two ways:
+> - via `commands: { ... }` (directly in the exported module)
+> - via `init({ api })` / `api.registerCommand()` (dynamic registration)
 
 ### 2. Edit `plugins/my-plugin/index.js`
 

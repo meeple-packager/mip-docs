@@ -43,7 +43,8 @@
       { "title": "registry", "path": "/commands/registry.md" },
       { "title": "config", "path": "/commands/config.md" },
       { "title": "server", "path": "/commands/server.md" },
-      { "title": "alias", "path": "/commands/alias.md" }
+      { "title": "alias", "path": "/commands/alias.md" },
+      { "title": "hello", "path": "/commands/hello.md" }
     ]
   },
   {
