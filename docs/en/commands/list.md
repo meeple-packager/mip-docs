@@ -1,5 +1,5 @@
 ---
-title: "mip list — list installed packages"
+title: "mip list - list installed packages"
 description: "The list command shows all packages installed in the current project with their versions, source (global cache or local), and status."
 ---
 
@@ -17,18 +17,18 @@ mip list
 
 ## How it works
 
-1. **Check `mip.yml`** — if the file is missing, the command outputs an error message.
+1. **Check `mip.yml`** - if the file is missing, the command outputs an error message.
 
-2. **Read manifest** — all installed packages are extracted from `.mip/manifest.json`.
+2. **Read manifest** - all installed packages are extracted from `.mip/manifest.json`.
 
-3. **Determine source** — for each package, the following is shown:
-   - 🌍 — package from the global cache `~/.mip/store/`
-   - 🔗 — package linked via `mip link`
-   - 📁 — local package (for backward compatibility)
+3. **Determine source** - for each package, the following is shown:
+   - 🌍 - package from the global cache `~/.mip/store/`
+   - 🔗 - package linked via `mip link`
+   - 📁 - local package (for backward compatibility)
 
-4. **Display versions and paths** — for each package, the version and path in the global cache are shown.
+4. **Display versions and paths** - for each package, the version and path in the global cache are shown.
 
-5. **Total count** — total number of packages.
+5. **Total count** - total number of packages.
 
 ## Examples
 
@@ -100,7 +100,7 @@ mip list
 **Solution:**
 1. Navigate to the project folder: `cd /path/to/project`
 2. Make sure `mip.yml` exists there.
-3. If not — create it: `mip init`
+3. If not - create it: `mip init`
 :::
 
 ::: callout tip "💡 Tip" icon:lightbulb
@@ -114,6 +114,6 @@ Use `mip list` before `mip outdated` to understand what you have installed.
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages.
-- [mip outdated](/commands/outdated) — check for outdated packages.
-- [mip doctor](/commands/doctor) — project diagnostics.
+- [mip install](/commands/install) - install packages.
+- [mip outdated](/commands/outdated) - check for outdated packages.
+- [mip doctor](/commands/doctor) - project diagnostics.

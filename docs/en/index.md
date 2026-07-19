@@ -1,5 +1,5 @@
 ---
-title: "MIP — a fast and modern package manager"
+title: "MIP - a fast and modern package manager"
 description: "MIP is a lightweight and fast package manager for Node.js written in JavaScript. Easy to use, works without node_modules, and supports YAML configuration."
 ---
 
@@ -13,15 +13,15 @@ MIP is an alternative to npm, pnpm, and yarn. It’s faster, simpler, and requir
 
 ## 🎯 Key features
 
-- **🚀 Speed** — installs packages several times faster thanks to parallel downloads, HTTP/2, and a three-level cache.
-- **📦 Global cache** — packages are stored once in `~/.mip/store/` and used by all projects. Saves space and speeds up installs.
-- **🔌 Plugins** — extend MIP functionality with plugins. Create your own commands, subscribe to events, and integrate with external services.
-- **📝 YAML configuration** — instead of `mip.json`, use `mip.yml` and `mip-lock.yml`. Human-readable, supports comments, and is pleasant for manual editing.
-- **🔒 Security** — built-in dependency auditing and vulnerability checks.
-- **🌍 Multilingual UI** — supports 10 interface languages.
-- **📁 Monorepos** — built-in workspaces support.
-- **🔧 Flexibility** — works with both global and local packages, supports `package.json` for npm compatibility.
-- **🧩 Your own registry** — publish and install packages from your own registry.
+- **🚀 Speed** - installs packages several times faster thanks to parallel downloads, HTTP/2, and a three-level cache.
+- **📦 Global cache** - packages are stored once in `~/.mip/store/` and used by all projects. Saves space and speeds up installs.
+- **🔌 Plugins** - extend MIP functionality with plugins. Create your own commands, subscribe to events, and integrate with external services.
+- **📝 YAML configuration** - instead of `mip.json`, use `mip.yml` and `mip-lock.yml`. Human-readable, supports comments, and is pleasant for manual editing.
+- **🔒 Security** - built-in dependency auditing and vulnerability checks.
+- **🌍 Multilingual UI** - supports 10 interface languages.
+- **📁 Monorepos** - built-in workspaces support.
+- **🔧 Flexibility** - works with both global and local packages, supports `package.json` for npm compatibility.
+- **🧩 Your own registry** - publish and install packages from your own registry.
 
 ## ⚡ Quick start
 
@@ -50,7 +50,7 @@ MIP uses a **global cache** (`~/.mip/store/`) where it stores all package versio
 - Working without the internet if the package is already in the cache.
 - Saving up to 90% of disk space.
 
-**No `node_modules/`** — instead, MIP uses symlinks to the global cache and a `.mip/manifest.json` manifest to track installed packages.
+**No `node_modules/`** - instead, MIP uses symlinks to the global cache and a `.mip/manifest.json` manifest to track installed packages.
 
 For more details, see [Architecture](/dev/architecture).
 

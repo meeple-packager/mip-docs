@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip workspaces — manage monorepositories : MIP - Modern Package Manager
+      mip workspaces - manage monorepositories : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The workspaces command allows you to manage multiple packages in a single repository, executing commands across all workspaces simultaneously.">
 <link rel="canonical" href="https://mip.fwh.is/commands/workspaces/">
-<meta property="og:title" content="mip workspaces — manage monorepositories - MIP - Modern Package Manager">
+<meta property="og:title" content="mip workspaces - manage monorepositories - MIP - Modern Package Manager">
 <meta property="og:description" content="The workspaces command allows you to manage multiple packages in a single repository, executing commands across all workspaces simultaneously.">
 <meta property="og:url" content="https://mip.fwh.is/commands/workspaces/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip workspaces — manage monorepositories - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip workspaces - manage monorepositories - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The workspaces command allows you to manage multiple packages in a single repository, executing commands across all workspaces simultaneously.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/workspaces/">
 <link rel="alternate" hreflang="en" href="/commands/workspaces/">
 <link rel="alternate" hreflang="x-default" href="/commands/workspaces/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip workspaces — manage monorepositories
+                  mip workspaces - manage monorepositories
                 </span>
               </div>
             </div>
@@ -1849,26 +1913,26 @@ workspaces<span class="hljs-punctuation">:</span>
 </code></pre>
 <p><strong>Supported patterns:</strong></p>
 <ul>
-<li><code>packages/*</code> — all folders inside <code>packages/</code>.</li>
-<li><code>apps/*</code> — all folders inside <code>apps/</code>.</li>
-<li><code>libs/shared</code> — a specific folder.</li>
+<li><code>packages/*</code> - all folders inside <code>packages/</code>.</li>
+<li><code>apps/*</code> - all folders inside <code>apps/</code>.</li>
+<li><code>libs/shared</code> - a specific folder.</li>
 </ul>
 <h2 id="mip-workspaces-how-it-works" class="docmd-heading"><a href="#mip-workspaces-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Read root <code>mip.yml</code></strong> — loads the list of workspace patterns.</p>
+<li><p><strong>Read root <code>mip.yml</code></strong> - loads the list of workspace patterns.</p>
 </li>
-<li><p><strong>Find workspaces</strong> — for each pattern:</p>
+<li><p><strong>Find workspaces</strong> - for each pattern:</p>
 <ul>
-<li>If it contains <code>*</code> — scans all subfolders for <code>mip.yml</code>.</li>
-<li>If no <code>*</code> — checks the specific folder.</li>
+<li>If it contains <code>*</code> - scans all subfolders for <code>mip.yml</code>.</li>
+<li>If no <code>*</code> - checks the specific folder.</li>
 </ul>
 </li>
-<li><p><strong>Execute action</strong> — depending on <code>action</code>:</p>
+<li><p><strong>Execute action</strong> - depending on <code>action</code>:</p>
 <ul>
-<li><strong><code>list</code></strong> — outputs the list of found workspaces.</li>
-<li><strong><code>run</code></strong> — executes <code>mip run &lt;script&gt;</code> in each workspace.</li>
-<li><strong><code>install</code></strong> — executes <code>mip install</code> in each workspace.</li>
-<li><strong><code>exec</code></strong> — executes an arbitrary command in each workspace.</li>
+<li><strong><code>list</code></strong> - outputs the list of found workspaces.</li>
+<li><strong><code>run</code></strong> - executes <code>mip run &lt;script&gt;</code> in each workspace.</li>
+<li><strong><code>install</code></strong> - executes <code>mip install</code> in each workspace.</li>
+<li><strong><code>exec</code></strong> - executes an arbitrary command in each workspace.</li>
 </ul>
 </li>
 </ol>
@@ -2052,9 +2116,9 @@ workspaces<span class="hljs-punctuation">:</span>
 💡 Tip</div><div class="callout-content">
 <p><code>mip workspaces</code> is a powerful tool for:</p>
 <ul>
-<li><strong>Monorepositories</strong> — managing multiple packages from one point.</li>
-<li><strong>CI/CD</strong> — parallel installation and testing of all components.</li>
-<li><strong>Development</strong> — quickly running scripts across all packages.</li>
+<li><strong>Monorepositories</strong> - managing multiple packages from one point.</li>
+<li><strong>CI/CD</strong> - parallel installation and testing of all components.</li>
+<li><strong>Development</strong> - quickly running scripts across all packages.</li>
 </ul>
 <p><strong>Best practices:</strong></p>
 <ol>
@@ -2065,9 +2129,9 @@ workspaces<span class="hljs-punctuation">:</span>
 </div></div>
 <h2 id="mip-workspaces-related-commands" class="docmd-heading"><a href="#mip-workspaces-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — install dependencies (in the root project).</li>
-<li><a href="/commands/run/">mip run</a> — run scripts (in the root project).</li>
-<li><a href="/commands/list/">mip list</a> — view installed packages.</li>
+<li><a href="/commands/install/">mip install</a> - install dependencies (in the root project).</li>
+<li><a href="/commands/run/">mip run</a> - run scripts (in the root project).</li>
+<li><a href="/commands/list/">mip list</a> - view installed packages.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -2077,7 +2141,7 @@ workspaces<span class="hljs-punctuation">:</span>
         <div class="collapsible-content">
 <p>Workspace discovery algorithm:</p>
 <ol>
-<li><p><strong>Read patterns</strong> — from the <code>workspaces</code> section in the root <code>mip.yml</code>.</p>
+<li><p><strong>Read patterns</strong> - from the <code>workspaces</code> section in the root <code>mip.yml</code>.</p>
 </li>
 <li><p><strong>Process each pattern:</strong></p>
 <ul>
@@ -2104,7 +2168,7 @@ workspaces<span class="hljs-punctuation">:</span>
 </li>
 </ul>
 </li>
-<li><p><strong>Result</strong> — an array of paths to folders with <code>mip.yml</code>.</p>
+<li><p><strong>Result</strong> - an array of paths to folders with <code>mip.yml</code>.</p>
 </li>
 </ol>
 <p><strong>Note:</strong> Discovery only goes one level deep. For recursive discovery, use separate patterns.</p>
@@ -2252,15 +2316,15 @@ workspaces<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

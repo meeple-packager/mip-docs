@@ -1,5 +1,5 @@
 ---
-title: "mip info — get package information"
+title: "mip info - get package information"
 description: "The info command shows detailed information about a package from the registry: description, author, versions, homepage, repository, and publication date."
 ---
 
@@ -23,13 +23,13 @@ mip info <package-name>
 
 ## How it works
 
-1. **Argument check** — if no package name is provided, usage help is displayed.
+1. **Argument check** - if no package name is provided, usage help is displayed.
 
-2. **Parallel request** — two requests are made to the registry simultaneously:
+2. **Parallel request** - two requests are made to the registry simultaneously:
    - Fetching information about the latest version of the package.
    - Fetching a list of all available versions.
 
-3. **Report generation** — from the retrieved data, an information card is assembled:
+3. **Report generation** - from the retrieved data, an information card is assembled:
    - Package name and latest version.
    - Description.
    - Author.
@@ -38,7 +38,7 @@ mip info <package-name>
    - Publication date.
    - Repository link.
 
-4. **Recent versions list** — shows the last 5 versions with a marker for the current one.
+4. **Recent versions list** - shows the last 5 versions with a marker for the current one.
 
 ## Examples
 
@@ -157,6 +157,6 @@ mip info unknown-package
 
 ## Related commands
 
-- [mip search](/commands/search) — searches for packages in the registry.
-- [mip list](/commands/list) — shows locally installed packages.
-- [mip outdated](/commands/outdated) — checks for outdated packages in the project.
+- [mip search](/commands/search) - searches for packages in the registry.
+- [mip list](/commands/list) - shows locally installed packages.
+- [mip outdated](/commands/outdated) - checks for outdated packages in the project.

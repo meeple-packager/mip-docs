@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip run — запуск пользовательских скриптов : MIP - Modern Package Manager
+      mip run - запуск пользовательских скриптов : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Команда run выполняет скрипты, определённые в секции scripts файла mip.yml, с поддержкой всех установленных пакетов в PATH.">
 <link rel="canonical" href="https://mip.fwh.is/ru/commands/run/">
-<meta property="og:title" content="mip run — запуск пользовательских скриптов - MIP - Modern Package Manager">
+<meta property="og:title" content="mip run - запуск пользовательских скриптов - MIP - Modern Package Manager">
 <meta property="og:description" content="Команда run выполняет скрипты, определённые в секции scripts файла mip.yml, с поддержкой всех установленных пакетов в PATH.">
 <meta property="og:url" content="https://mip.fwh.is/ru/commands/run/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip run — запуск пользовательских скриптов - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip run - запуск пользовательских скриптов - MIP - Modern Package Manager">
 <meta name="twitter:description" content="Команда run выполняет скрипты, определённые в секции scripts файла mip.yml, с поддержкой всех установленных пакетов в PATH.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/run/">
 <link rel="alternate" hreflang="en" href="/commands/run/">
 <link rel="alternate" hreflang="x-default" href="/commands/run/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Функции конфиг-файла
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Настройка конфига
             </span>
           
           
@@ -1677,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip run — запуск пользовательских скриптов
+                  mip run - запуск пользовательских скриптов
                 </span>
               </div>
             </div>
@@ -1761,7 +1825,7 @@
   <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
 </svg>
 Что это?</div><div class="callout-content">
-<p><code>mip run</code> — это команда для выполнения пользовательских скриптов из <code>mip.yml</code> (или <code>package.json</code> для совместимости). Она автоматически добавляет в <code>PATH</code> все бинарники из установленных пакетов (через манифест), позволяя использовать их в скриптах без глобальной установки. Это удобно для запуска тестов, сборки проекта, линтеров и любых других задач, связанных с вашим проектом.</p>
+<p><code>mip run</code> - это команда для выполнения пользовательских скриптов из <code>mip.yml</code> (или <code>package.json</code> для совместимости). Она автоматически добавляет в <code>PATH</code> все бинарники из установленных пакетов (через манифест), позволяя использовать их в скриптах без глобальной установки. Это удобно для запуска тестов, сборки проекта, линтеров и любых других задач, связанных с вашим проектом.</p>
 </div></div>
 <h2 id="mip-run-синтаксис" class="docmd-heading"><a href="#mip-run-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
 <pre class="hljs"><code class="language-bash">mip run <span class="hljs-punctuation">&lt;</span>script<span class="hljs-punctuation">-</span>name<span class="hljs-punctuation">&gt;</span>
@@ -1787,21 +1851,21 @@
 </table>
 </div><h2 id="mip-run-логика-работы" class="docmd-heading"><a href="#mip-run-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
 <ol>
-<li><p><strong>Чтение конфига</strong> — команда загружает <code>mip.yml</code> (или <code>package.json</code> для совместимости) из текущей директории.</p>
+<li><p><strong>Чтение конфига</strong> - команда загружает <code>mip.yml</code> (или <code>package.json</code> для совместимости) из текущей директории.</p>
 </li>
-<li><p><strong>Поиск скрипта</strong> — ищет указанный скрипт в секции <code>scripts</code>.</p>
+<li><p><strong>Поиск скрипта</strong> - ищет указанный скрипт в секции <code>scripts</code>.</p>
 </li>
-<li><p><strong>Сбор путей бинарников</strong> — сканирует манифест <code>.mip/manifest.json</code> и собирает все папки <code>.bin</code> из установленных пакетов.</p>
+<li><p><strong>Сбор путей бинарников</strong> - сканирует манифест <code>.mip/manifest.json</code> и собирает все папки <code>.bin</code> из установленных пакетов.</p>
 </li>
-<li><p><strong>Обновление <code>PATH</code></strong> — все найденные папки с бинарниками добавляются в переменную окружения <code>PATH</code> (с приоритетом над системными).</p>
+<li><p><strong>Обновление <code>PATH</code></strong> - все найденные папки с бинарниками добавляются в переменную окружения <code>PATH</code> (с приоритетом над системными).</p>
 </li>
-<li><p><strong>Запуск скрипта</strong> — выполняет команду через системную оболочку:</p>
+<li><p><strong>Запуск скрипта</strong> - выполняет команду через системную оболочку:</p>
 <ul>
 <li><strong>Windows:</strong> <code>cmd.exe /d /s /c &lt;script&gt;</code></li>
 <li><strong>Unix:</strong> <code>sh -c &lt;script&gt;</code></li>
 </ul>
 </li>
-<li><p><strong>Обработка завершения</strong> — код возврата скрипта передаётся как код завершения <code>mip run</code>.</p>
+<li><p><strong>Обработка завершения</strong> - код возврата скрипта передаётся как код завершения <code>mip run</code>.</p>
 </li>
 </ol>
 <h2 id="mip-run-примеры" class="docmd-heading"><a href="#mip-run-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
@@ -1870,7 +1934,7 @@
 <ol>
 <li>Перейдите в папку с проектом: <code>cd /path/to/project</code></li>
 <li>Убедитесь, что там есть <code>mip.yml</code>.</li>
-<li>Если нет — создайте его: <code>mip init</code></li>
+<li>Если нет - создайте его: <code>mip init</code></li>
 </ol>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
@@ -1945,11 +2009,11 @@
   <path d="M10 22h4" />
 </svg>
 💡 Совет</div><div class="callout-content">
-<p><code>mip run</code> — это аналог <code>npm run</code> или <code>yarn run</code>, но с MIP-специфичными улучшениями:</p>
+<p><code>mip run</code> - это аналог <code>npm run</code> или <code>yarn run</code>, но с MIP-специфичными улучшениями:</p>
 <ul>
-<li><strong>Автоматический <code>PATH</code></strong> — не нужно устанавливать пакеты глобально.</li>
-<li><strong>Кроссплатформенность</strong> — корректно работает на Windows и Unix.</li>
-<li><strong>Простота</strong> — достаточно указать имя скрипта.</li>
+<li><strong>Автоматический <code>PATH</code></strong> - не нужно устанавливать пакеты глобально.</li>
+<li><strong>Кроссплатформенность</strong> - корректно работает на Windows и Unix.</li>
+<li><strong>Простота</strong> - достаточно указать имя скрипта.</li>
 </ul>
 <p><strong>Примеры скриптов:</strong></p>
 <pre class="hljs"><code class="language-yaml">scripts<span class="hljs-punctuation">:</span>
@@ -1963,9 +2027,9 @@
 </div></div>
 <h2 id="mip-run-связанные-команды" class="docmd-heading"><a href="#mip-run-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
 <ul>
-<li><a href="/ru/commands/exec/">mip exec</a> — выполнение конкретного бинарника без скрипта.</li>
-<li><a href="/ru/commands/install/">mip install</a> — установка пакетов, бинарники которых становятся доступны.</li>
-<li><a href="/ru/commands/init/">mip init</a> — создание <code>mip.yml</code> с секцией <code>scripts</code>.</li>
+<li><a href="/ru/commands/exec/">mip exec</a> - выполнение конкретного бинарника без скрипта.</li>
+<li><a href="/ru/commands/install/">mip install</a> - установка пакетов, бинарники которых становятся доступны.</li>
+<li><a href="/ru/commands/init/">mip init</a> - создание <code>mip.yml</code> с секцией <code>scripts</code>.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1975,9 +2039,9 @@
         <div class="collapsible-content">
 <p>Когда вы запускаете <code>mip run</code>, команда:</p>
 <ol>
-<li><p><strong>Сканирует манифест</strong> — читает <code>.mip/manifest.json</code>, где хранятся пути ко всем установленным пакетам.</p>
+<li><p><strong>Сканирует манифест</strong> - читает <code>.mip/manifest.json</code>, где хранятся пути ко всем установленным пакетам.</p>
 </li>
-<li><p><strong>Собирает папки <code>.bin</code></strong> — для каждого пакета проверяет:</p>
+<li><p><strong>Собирает папки <code>.bin</code></strong> - для каждого пакета проверяет:</p>
 <ul>
 <li><code>node_modules/.bin/</code></li>
 <li><code>.bin/</code> (в корне пакета)</li>
@@ -1987,10 +2051,10 @@
 <pre class="hljs"><code>PATH <span class="hljs-punctuation">=</span> <span class="hljs-punctuation">&lt;</span>все .<span class="hljs-attr">bin</span> папки<span class="hljs-punctuation">&gt;</span> <span class="hljs-punctuation">+</span> <span class="hljs-punctuation">&lt;</span>системный PATH<span class="hljs-punctuation">&gt;</span>
 </code></pre>
 </li>
-<li><p><strong>Запускает скрипт</strong> — все бинарники из глобального кэша становятся доступны без глобальной установки.</p>
+<li><p><strong>Запускает скрипт</strong> - все бинарники из глобального кэша становятся доступны без глобальной установки.</p>
 </li>
 </ol>
-<p><strong>Преимущество:</strong> не нужно устанавливать пакеты глобально — всё работает из проекта.</p>
+<p><strong>Преимущество:</strong> не нужно устанавливать пакеты глобально - всё работает из проекта.</p>
 </div></details>
 
                 
@@ -2139,15 +2203,15 @@
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

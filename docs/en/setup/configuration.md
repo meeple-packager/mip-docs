@@ -51,7 +51,7 @@ plugins:
 
 ## 📋 Fields
 
-### `name` — project name
+### `name` - project name
 
 **Type:** string  
 **Required:** yes  
@@ -61,7 +61,7 @@ The project name. Used in README and when creating plugins.
 
 ---
 
-### `version` — project version
+### `version` - project version
 
 **Type:** string  
 **Required:** yes  
@@ -71,7 +71,7 @@ Project version in semver format.
 
 ---
 
-### `language` — interface language
+### `language` - interface language
 
 **Type:** string  
 **Required:** no (default: `en`)  
@@ -85,7 +85,7 @@ mip language ru
 
 ---
 
-### `dependencies` — production dependencies
+### `dependencies` - production dependencies
 
 **Type:** object  
 **Required:** no  
@@ -95,7 +95,7 @@ Packages required for the application to run.
 
 ---
 
-### `devDependencies` — development dependencies
+### `devDependencies` - development dependencies
 
 **Type:** object  
 **Required:** no  
@@ -105,7 +105,7 @@ Packages only needed for development (tests, linters, builds).
 
 ---
 
-### `scripts` — scripts
+### `scripts` - scripts
 
 **Type:** object  
 **Required:** no  
@@ -114,15 +114,15 @@ Packages only needed for development (tests, linters, builds).
 Custom scripts. Run via `mip run <name>`.
 
 **Common scripts:**
-- `start` — start the application
-- `dev` — development mode (with reload)
-- `test` — run tests
-- `build` — build the project
-- `lint` — lint the code
+- `start` - start the application
+- `dev` - development mode (with reload)
+- `test` - run tests
+- `build` - build the project
+- `lint` - lint the code
 
 ---
 
-### `workspaces` — monorepositories
+### `workspaces` - monorepositories
 
 **Type:** array of strings  
 **Required:** no  
@@ -134,7 +134,7 @@ See: [mip workspaces](/commands/workspaces).
 
 ---
 
-### `plugins` — plugin configuration
+### `plugins` - plugin configuration
 
 **Type:** object  
 **Required:** no  
@@ -143,8 +143,8 @@ See: [mip workspaces](/commands/workspaces).
 Configuration for MIP plugins. Each key is the plugin name, the value is its settings.
 
 **Standard fields:**
-- `enabled` — whether the plugin is enabled
-- Other fields — specific to each plugin
+- `enabled` - whether the plugin is enabled
+- Other fields - specific to each plugin
 
 ---
 
@@ -301,19 +301,19 @@ Old files are saved as `.backup` for rollback. (Feature is in beta)
 
 ## 💡 Best practices
 
-1. **Always commit `mip-lock.yml`** — ensures reproducibility
-2. **Use `--save-dev`** — for development tools
-3. **Don't commit `.mip/`** — add it to `.gitignore`
+1. **Always commit `mip-lock.yml`** - ensures reproducibility
+2. **Use `--save-dev`** - for development tools
+3. **Don't commit `.mip/`** - add it to `.gitignore`
 4. **Use specific versions** in `mip-lock.yml`
-5. **Update `language`** — if you need translations
-6. **Add comments in `mip.yml`** — YAML allows it!
+5. **Update `language`** - if you need translations
+6. **Add comments in `mip.yml`** - YAML allows it!
 
 ---
 
 ## 🔗 Related pages
 
-- [mip init](/commands/init) — creating `mip.yml`
-- [mip install](/commands/install) — adding dependencies
-- [mip run](/commands/run) — running scripts
-- [mip workspaces](/commands/workspaces) — monorepositories
-- [mip language](/commands/language) — changing language
+- [mip init](/commands/init) - creating `mip.yml`
+- [mip install](/commands/install) - adding dependencies
+- [mip run](/commands/run) - running scripts
+- [mip workspaces](/commands/workspaces) - monorepositories
+- [mip language](/commands/language) - changing language

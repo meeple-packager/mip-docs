@@ -1,6 +1,6 @@
 ---
 title: "Other"
-description: "Additional materials — glossary and extended FAQ."
+description: "Additional materials - glossary and extended FAQ."
 ---
 
 # Other 📚
@@ -22,8 +22,8 @@ Additional materials not covered in the main sections.
 
 This section contains information not tied to a specific command or module:
 
-- **Glossary** — terms from the world of package managers, Node.js, and MIP
-- **FAQ** — answers to questions not covered in the main sections
+- **Glossary** - terms from the world of package managers, Node.js, and MIP
+- **FAQ** - answers to questions not covered in the main sections
 
 ---
 
@@ -39,7 +39,7 @@ The glossary and FAQ help you:
 
 ## 🔗 Related pages
 
-- [Introduction](/index) — MIP overview
-- [Setup](/setup) — installation and configuration
-- [Commands](/commands/install) — core commands
-- [For Developers](/dev) — for those writing code
+- [Introduction](/index) - MIP overview
+- [Setup](/setup) - installation and configuration
+- [Commands](/commands/install) - core commands
+- [For Developers](/dev) - for those writing code

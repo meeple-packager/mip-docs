@@ -1,5 +1,5 @@
 ---
-title: "mip features — behavior customization"
+title: "mip features - behavior customization"
 description: "MIP features system allows you to fine-tune every aspect of the package manager through a single configuration file."
 ---
 
@@ -31,10 +31,10 @@ mip config set features.config.enabled false
 ## How it works
 
 1. **Features are stored** in `mip.config.yml` (project-level) or `~/.mip/config.yml` (global)
-2. **Each feature** has a default value — you only need to override what you want to change
-3. **Master switch** — `config.enabled: false` disables ALL feature modifications
-4. **Zero performance impact** — features are loaded once at startup
-5. **Granular control** — enable/disable specific behaviors without affecting others
+2. **Each feature** has a default value - you only need to override what you want to change
+3. **Master switch** - `config.enabled: false` disables ALL feature modifications
+4. **Zero performance impact** - features are loaded once at startup
+5. **Granular control** - enable/disable specific behaviors without affecting others
 
 ## Features list
 
@@ -46,7 +46,7 @@ mip config set features.config.enabled false
 | `install.forceReinstall` | `false` | Always reinstall packages even if already in global store |
 | `install.saveExact` | `false` | Save exact versions to config (without ^ and ~) |
 | `install.skipIntegrityCheck` | `false` | Skip package integrity checks (faster but less secure) |
-| `install.dryRun` | `false` | Simulation mode — shows what would be installed without making changes |
+| `install.dryRun` | `false` | Simulation mode - shows what would be installed without making changes |
 | `install.ignoreScripts` | `false` | Do not run install scripts from package.json |
 | `install.ignoreOptional` | `false` | Ignore optionalDependencies |
 | `install.ignoreEngines` | `false` | Ignore engines check in package.json |
@@ -240,7 +240,7 @@ mip config set features.config.enabled false
 # ────────────────────────────────────────────────
 # Documentation: https://mipdocs.fwh.is/features
 #
-# Master switch — set to false to disable ALL feature modifications
+# Master switch - set to false to disable ALL feature modifications
 # config.enabled: true
 #
 # To enable/disable a feature:
@@ -339,17 +339,17 @@ experimental.enabled: false  # Experimental features
 
 ## Related commands
 
-- [mip config](/commands/config) — manage configuration
-- [mip doctor](/commands/doctor) — system diagnostics
-- [mip registry](/commands/registry) — manage registries
+- [mip config](/commands/config) - manage configuration
+- [mip doctor](/commands/doctor) - system diagnostics
+- [mip registry](/commands/registry) - manage registries
 
 ::: collapsible "🔧 How features are loaded"
 MIP loads features in this order:
 
-1. **Defaults** — built-in values
-2. **Global config** — `~/.mip/config.yml` (user-wide)
-3. **Project config** — `mip.config.yml` (project-specific)
-4. **mip.yml** — `features` section in `mip.yml`
+1. **Defaults** - built-in values
+2. **Global config** - `~/.mip/config.yml` (user-wide)
+3. **Project config** - `mip.config.yml` (project-specific)
+4. **mip.yml** - `features` section in `mip.yml`
 
 Later values override earlier ones. This allows you to set global defaults and override them per project.
 :::

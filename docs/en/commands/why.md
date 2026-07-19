@@ -1,7 +1,7 @@
 ```markdown
 ---
-title: "mip why — analyze package dependencies"
-description: "The why command shows why a specific package is installed in your project — which other packages depend on it and which version is used."
+title: "mip why - analyze package dependencies"
+description: "The why command shows why a specific package is installed in your project - which other packages depend on it and which version is used."
 ---
 
 # mip why
@@ -24,15 +24,15 @@ mip why <package-name>
 
 ## How it works
 
-1. **Check arguments** — if no package name is provided, usage help is displayed.
+1. **Check arguments** - if no package name is provided, usage help is displayed.
 
-2. **Read lockfile** — analyzes `mip-lock.yml` to understand the dependency structure.
+2. **Read lockfile** - analyzes `mip-lock.yml` to understand the dependency structure.
 
-3. **Search for dependencies** — checks all packages in the lockfile for dependencies on the specified package.
+3. **Search for dependencies** - checks all packages in the lockfile for dependencies on the specified package.
 
-4. **Analyze direct dependencies** — if the package is listed in `mip.yml`, it is considered a direct dependency.
+4. **Analyze direct dependencies** - if the package is listed in `mip.yml`, it is considered a direct dependency.
 
-5. **Output results** — shows:
+5. **Output results** - shows:
    - The version of the installed package.
    - A list of packages that depend on it.
    - The dependency level (direct or transitive).
@@ -134,31 +134,31 @@ mip why lodash
 **Solution:**
 1. Check the list of installed packages: `mip list`
 2. Make sure the name is spelled correctly.
-3. If the package is needed — install it: `mip install <package>`
+3. If the package is needed - install it: `mip install <package>`
 :::
 
 ::: callout tip "💡 Tip" icon:lightbulb
 `mip why` is useful for:
-- **Understanding structure** — why a particular package is installed.
-- **Optimization** — identifying duplicate dependencies.
-- **Updates** — understanding which package updates will affect others.
+- **Understanding structure** - why a particular package is installed.
+- **Optimization** - identifying duplicate dependencies.
+- **Updates** - understanding which package updates will affect others.
 
 **Usage:**
 1. Find the package you're interested in: `mip why <package>`
 2. See who requires it.
-3. If it's a transitive dependency — consider whether you can remove it.
+3. If it's a transitive dependency - consider whether you can remove it.
 :::
 
 ## Related commands
 
-- [mip list](/commands/list) — view all installed packages.
-- [mip outdated](/commands/outdated) — check for outdated packages.
-- [mip dedupe](/commands/dedupe) — eliminate duplicates.
+- [mip list](/commands/list) - view all installed packages.
+- [mip outdated](/commands/outdated) - check for outdated packages.
+- [mip dedupe](/commands/dedupe) - eliminate duplicates.
 
 ::: collapsible "🧠 How does dependency analysis work?"
 `mip why` uses **two sources** of information:
 
-**1. `mip-lock.yml` — main source:**
+**1. `mip-lock.yml` - main source:**
 ```yaml
 packages:
   express@4.18.2:
@@ -171,7 +171,7 @@ packages:
     dependencies: {}
 ```
 
-**2. `mip.yml` — for determining direct dependencies:**
+**2. `mip.yml` - for determining direct dependencies:**
 ```yaml
 dependencies:
   express: ^4.18.0
@@ -181,12 +181,12 @@ dependencies:
 **Algorithm:**
 1. Get all packages from `mip-lock.yml`.
 2. For each package, check its `dependencies`.
-3. If the target package is found among them — add to `dependents` list.
+3. If the target package is found among them - add to `dependents` list.
 4. Check if the package is in `mip.yml`.
 5. Output the result.
 
 **Dependency levels:**
-- **Direct** — listed in `mip.yml`.
-- **Transitive** — installed as a dependency of another package.
+- **Direct** - listed in `mip.yml`.
+- **Transitive** - installed as a dependency of another package.
 :::
 ```

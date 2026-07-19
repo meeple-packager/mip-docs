@@ -1,12 +1,12 @@
 ---
-title: "mip alias — command shortcuts"
+title: "mip alias - command shortcuts"
 description: "The alias command allows you to create, list, and remove custom shortcuts for frequently used MIP commands."
 ---
 
 # mip alias
 
 ::: callout info "What is this?" icon:⚡
-`mip alias` allows you to create custom shortcuts for MIP commands. Stop typing long commands — use your own abbreviations and speed up your workflow.
+`mip alias` allows you to create custom shortcuts for MIP commands. Stop typing long commands - use your own abbreviations and speed up your workflow.
 :::
 
 ## Syntax
@@ -28,10 +28,10 @@ mip alias <subcommand> [options]
 ## How it works
 
 1. **Aliases are stored** in `~/.mip/aliases.yml` (global, not project-specific)
-2. **Resolution** happens before command execution — MIP checks if the command matches any alias
+2. **Resolution** happens before command execution - MIP checks if the command matches any alias
 3. **Supports spaces** in alias names (use quotes)
-4. **Supports arguments** — everything after the alias is passed to the target command
-5. **Longest match** — if multiple aliases match, the longest one is used
+4. **Supports arguments** - everything after the alias is passed to the target command
+5. **Longest match** - if multiple aliases match, the longest one is used
 
 ## Examples
 
@@ -140,7 +140,7 @@ up: update
 "mip build fast": "mip run build --mode production"
 ```
 
-You can edit this file directly — MIP will load changes on the next run.
+You can edit this file directly - MIP will load changes on the next run.
 
 ## Common use cases
 
@@ -202,9 +202,9 @@ mip alias set "fresh" "mip cache clean && mip install"
 
 When you run a command, MIP checks:
 
-1. **Exact match** — if the entire command matches an alias name
-2. **Longest match** — if multiple aliases match, the longest one wins
-3. **Argument passing** — remaining arguments are passed to the target command
+1. **Exact match** - if the entire command matches an alias name
+2. **Longest match** - if multiple aliases match, the longest one wins
+3. **Argument passing** - remaining arguments are passed to the target command
 
 **Example:**
 ```
@@ -219,9 +219,9 @@ Result: mip run build --production --force
 
 ## Related commands
 
-- [mip config](/commands/config) — manage MIP configuration
-- [mip plugin](/commands/plugin) — manage plugins (which often provide additional commands)
-- [mip pe](/commands/pe) — execute plugin commands (often used in aliases)
+- [mip config](/commands/config) - manage MIP configuration
+- [mip plugin](/commands/plugin) - manage plugins (which often provide additional commands)
+- [mip pe](/commands/pe) - execute plugin commands (often used in aliases)
 
 ::: collapsible "🔧 Aliases vs Shell Aliases"
 **MIP aliases** work inside MIP commands and are portable across any shell.
@@ -236,8 +236,8 @@ mip alias set i install
 ```
 
 **When to use each:**
-- Shell aliases — for global MIP flags (`--super`, `--debug`)
-- MIP aliases — for command substitutions (`i` → `install`)
+- Shell aliases - for global MIP flags (`--super`, `--debug`)
+- MIP aliases - for command substitutions (`i` → `install`)
 :::
 
 ::: callout tip "💡 Pro tip: Share aliases" icon:lightbulb

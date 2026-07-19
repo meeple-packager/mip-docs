@@ -243,7 +243,7 @@ node --version
 
 ## 🔗 Связанные страницы
 
-- [Сеть и регистры](/troubleshooting/network) — проблемы с сетью
-- [Lock-файлы](/troubleshooting/lockfile) — проблемы с lock-файлами
-- [mip doctor](/commands/doctor) — диагностика окружения
-- [mip cache](/commands/cache) — управление кэшем
+- [Сеть и регистры](/troubleshooting/network) - проблемы с сетью
+- [Lock-файлы](/troubleshooting/lockfile) - проблемы с lock-файлами
+- [mip doctor](/commands/doctor) - диагностика окружения
+- [mip cache](/commands/cache) - управление кэшем

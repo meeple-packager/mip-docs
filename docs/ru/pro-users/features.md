@@ -29,7 +29,7 @@ mip config set features.config.enabled false
 
 | Фича | По умолчанию | Описание |
 |------|--------------|----------|
-| `config.enabled` | `true` | Главный выключатель — отключает ВСЕ модификации фич при значении `false` |
+| `config.enabled` | `true` | Главный выключатель - отключает ВСЕ модификации фич при значении `false` |
 
 ---
 
@@ -41,7 +41,7 @@ mip config set features.config.enabled false
 | `install.forceReinstall` | `false` | Всегда переустанавливать пакеты, даже если уже есть в глобальном хранилище |
 | `install.saveExact` | `false` | Сохранять точные версии в конфиг (без `^` и `~`) |
 | `install.skipIntegrityCheck` | `false` | Пропускать проверку целостности пакетов (быстрее, но менее безопасно) |
-| `install.dryRun` | `false` | Режим имитации — показывает что будет установлено, но ничего не меняет |
+| `install.dryRun` | `false` | Режим имитации - показывает что будет установлено, но ничего не меняет |
 | `install.ignoreScripts` | `false` | Не запускать скрипты установки из `package.json` |
 | `install.ignoreOptional` | `false` | Игнорировать optionalDependencies |
 | `install.ignoreEngines` | `false` | Игнорировать проверку engines в `package.json` |
@@ -412,8 +412,8 @@ mip config set features.dependency.resolutionStrategy exact
 
 ## Связанные команды
 
-- [mip config](/commands/config) — управление конфигурацией
-- [mip --genconfig](/commands/genconfig) — генерация конфигурации фич
-- [mip --list-features](/commands/list-features) — список всех фич
-- [mip doctor](/commands/doctor) — диагностика системы
-- [mip registry](/commands/registry) — управление реестрами
+- [mip config](/commands/config) - управление конфигурацией
+- [mip --genconfig](/commands/genconfig) - генерация конфигурации фич
+- [mip --list-features](/commands/list-features) - список всех фич
+- [mip doctor](/commands/doctor) - диагностика системы
+- [mip registry](/commands/registry) - управление реестрами

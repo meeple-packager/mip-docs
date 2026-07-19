@@ -39,7 +39,7 @@ plugins/my-plugin/
 }
 ```
 
-### index.js — full structure
+### index.js - full structure
 
 ```javascript
 module.exports = {
@@ -460,7 +460,7 @@ describe('plugin integration', () => {
 
 ## 📚 Related pages
 
-- [mip plugin](/commands/plugin) — manage plugins
-- [mip pe](/commands/pe) — execute plugin commands
-- [Hooks and plugins](/dev/hooks) — extending functionality
-- [Adding commands](/dev/adding-commands) — two ways to add a command
+- [mip plugin](/commands/plugin) - manage plugins
+- [mip pe](/commands/pe) - execute plugin commands
+- [Hooks and plugins](/dev/hooks) - extending functionality
+- [Adding commands](/dev/adding-commands) - two ways to add a command

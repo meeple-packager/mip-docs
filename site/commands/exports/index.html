@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip exports — view package export paths : MIP - Modern Package Manager
+      mip exports - view package export paths : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The exports command shows all public export paths of a package that can be imported via require or import.">
 <link rel="canonical" href="https://mip.fwh.is/commands/exports/">
-<meta property="og:title" content="mip exports — view package export paths - MIP - Modern Package Manager">
+<meta property="og:title" content="mip exports - view package export paths - MIP - Modern Package Manager">
 <meta property="og:description" content="The exports command shows all public export paths of a package that can be imported via require or import.">
 <meta property="og:url" content="https://mip.fwh.is/commands/exports/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip exports — view package export paths - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip exports - view package export paths - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The exports command shows all public export paths of a package that can be imported via require or import.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/exports/">
 <link rel="alternate" hreflang="en" href="/commands/exports/">
 <link rel="alternate" hreflang="x-default" href="/commands/exports/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip exports — view package export paths
+                  mip exports - view package export paths
                 </span>
               </div>
             </div>
@@ -1809,15 +1873,15 @@ What is this?</div><div class="callout-content">
 </table>
 </div><h2 id="mip-exports-how-it-works" class="docmd-heading"><a href="#mip-exports-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Determine project directory</strong> — the command gets the current working directory.</p>
+<li><p><strong>Determine project directory</strong> - the command gets the current working directory.</p>
 </li>
-<li><p><strong>Find the package</strong> — via <code>ExportsResolver</code>, the command locates the installed package in the local <code>.mip/</code> cache.</p>
+<li><p><strong>Find the package</strong> - via <code>ExportsResolver</code>, the command locates the installed package in the local <code>.mip/</code> cache.</p>
 </li>
-<li><p><strong>Read <code>exports</code></strong> — parses the <code>exports</code> section in the package’s <code>package.json</code> (if it exists).</p>
+<li><p><strong>Read <code>exports</code></strong> - parses the <code>exports</code> section in the package’s <code>package.json</code> (if it exists).</p>
 </li>
-<li><p><strong>Check availability</strong> — for each exported path, checks whether the file physically exists.</p>
+<li><p><strong>Check availability</strong> - for each exported path, checks whether the file physically exists.</p>
 </li>
-<li><p><strong>Output results</strong> — displays a list of all available paths with an indicator of file existence (✅ or ❌).</p>
+<li><p><strong>Output results</strong> - displays a list of all available paths with an indicator of file existence (✅ or ❌).</p>
 </li>
 </ol>
 <h2 id="mip-exports-examples" class="docmd-heading"><a href="#mip-exports-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1911,17 +1975,17 @@ What is this?</div><div class="callout-content">
 💡 Tip</div><div class="callout-content">
 <p><code>mip exports</code> is especially useful for:</p>
 <ul>
-<li><strong>Exploring a new package</strong> — to understand what can be imported.</li>
-<li><strong>Migration</strong> — when switching from CommonJS to ESM, when the package changes its export structure.</li>
-<li><strong>Working with monorepos</strong> — to understand which subpackages are available.</li>
+<li><strong>Exploring a new package</strong> - to understand what can be imported.</li>
+<li><strong>Migration</strong> - when switching from CommonJS to ESM, when the package changes its export structure.</li>
+<li><strong>Working with monorepos</strong> - to understand which subpackages are available.</li>
 </ul>
-<p>Use this command before writing imports — it will show you which paths actually exist.</p>
+<p>Use this command before writing imports - it will show you which paths actually exist.</p>
 </div></div>
 <h2 id="mip-exports-related-commands" class="docmd-heading"><a href="#mip-exports-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/info/">mip info</a> — shows package information (version, description, dependencies).</li>
-<li><a href="/commands/list/">mip list</a> — shows all installed packages.</li>
-<li><a href="/commands/install/">mip install</a> — installs packages.</li>
+<li><a href="/commands/info/">mip info</a> - shows package information (version, description, dependencies).</li>
+<li><a href="/commands/list/">mip list</a> - shows all installed packages.</li>
+<li><a href="/commands/install/">mip install</a> - installs packages.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1931,9 +1995,9 @@ What is this?</div><div class="callout-content">
         <div class="collapsible-content">
 <p>The <code>exports</code> field in <code>package.json</code> is a modern standard for <strong>controlling the public API</strong> of a package. It defines:</p>
 <ol>
-<li><strong>Which files are available</strong> — not all files in the package are public, only those listed in <code>exports</code>.</li>
-<li><strong>How they are available</strong> — you can configure different paths for <code>require</code> and <code>import</code>.</li>
-<li><strong>Conditional exports</strong> — different versions for Node.js, browser, React Native, etc.</li>
+<li><strong>Which files are available</strong> - not all files in the package are public, only those listed in <code>exports</code>.</li>
+<li><strong>How they are available</strong> - you can configure different paths for <code>require</code> and <code>import</code>.</li>
+<li><strong>Conditional exports</strong> - different versions for Node.js, browser, React Native, etc.</li>
 </ol>
 <p><strong>Example from <code>react/package.json</code>:</strong></p>
 <pre class="hljs"><code class="language-json">{
@@ -1966,7 +2030,7 @@ What is this?</div><div class="callout-content">
 <li>There is an entry in <code>exports</code>, but the file is physically missing (package error).</li>
 <li>The export is described with conditions (<code>browser</code>, <code>node</code>, <code>default</code>), and it is not available in your environment.</li>
 </ol>
-<p>In any case, if a path is marked ❌ — the import will not work. <code>mip exports</code> helps identify such issues before writing code.</p>
+<p>In any case, if a path is marked ❌ - the import will not work. <code>mip exports</code> helps identify such issues before writing code.</p>
 </div></details>
 
                 
@@ -2103,15 +2167,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

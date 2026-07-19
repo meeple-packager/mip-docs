@@ -1,6 +1,6 @@
 ---
 title: "Testing in MIP"
-description: "How to write and run tests for MIP — unit tests, integration tests, plugin testing."
+description: "How to write and run tests for MIP - unit tests, integration tests, plugin testing."
 ---
 
 # Testing in MIP 🧪
@@ -315,6 +315,6 @@ node --inspect-brk node_modules/.bin/jest --runInBand
 
 ## Related pages
 
-- [MIP Architecture](/dev/architecture) — project structure
-- [Adding commands](/dev/adding-commands) — how to create a command
-- [Hooks and plugins](/dev/hooks) — extending functionality
+- [MIP Architecture](/dev/architecture) - project structure
+- [Adding commands](/dev/adding-commands) - how to create a command
+- [Hooks and plugins](/dev/hooks) - extending functionality

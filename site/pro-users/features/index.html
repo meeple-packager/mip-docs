@@ -1,0 +1,3098 @@
+<!--
+  ---------------------------------------------------------------
+  docmd : the zero-config documentation engine.
+  @website https://docmd.io
+  [docmd-source] - Please do not remove this header.
+  ---------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="generator" content="docmd v0.8.7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value - the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+    <style>
+      html {
+        visibility: hidden;
+      }
+    </style>
+    
+    <script>
+      var root = "../../";
+      if (root && !root.endsWith('/')) root += '/';
+      if (root === '') root = './';
+      window.DOCMD_ROOT = root;
+
+      var siteRoot = "../../";
+      if (siteRoot && !siteRoot.endsWith('/')) siteRoot += '/';
+      if (siteRoot === '') siteRoot = './';
+      window.DOCMD_SITE_ROOT = siteRoot;
+
+      window.DOCMD_APPEARANCE = "system";
+      window.DOCMD_VERSION_ROOT = "/";
+      window.DOCMD_BASE = "/";
+      window.DOCMD_LOCALE = "en";
+      window.DOCMD_DEFAULT_LOCALE = "en";
+    </script>
+    <title>
+      MIP Features Documentation : MIP - Modern Package Manager
+    </title>
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    
+    
+<meta name="description" content="MIP - быстрый и современный пакетный менеджер / MIP - fast and modern package manager.">
+<link rel="canonical" href="https://mip.fwh.is/pro-users/features/">
+<meta property="og:title" content="MIP Features Documentation - MIP - Modern Package Manager">
+<meta property="og:description" content="MIP - быстрый и современный пакетный менеджер / MIP - fast and modern package manager.">
+<meta property="og:url" content="https://mip.fwh.is/pro-users/features/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MIP Features Documentation - MIP - Modern Package Manager">
+<meta name="twitter:description" content="MIP - быстрый и современный пакетный менеджер / MIP - fast and modern package manager.">
+
+
+
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="alternate" hreflang="ru" href="/ru/pro-users/features/">
+<link rel="alternate" hreflang="en" href="/pro-users/features/">
+<link rel="alternate" hreflang="x-default" href="/pro-users/features/">
+    
+    <script>/**
+ * --------------------------------------------------------------------
+ * docmd : the zero-config documentation engine.
+ *
+ * @package     @docmd/core (and ecosystem)
+ * @website     https://docmd.io
+ * @repository  https://github.com/docmd-io/docmd
+ * @license     MIT
+ * @copyright   Copyright (c) 2025-present docmd.io
+ *
+ * [docmd-source] - Please do not remove this header.
+ * --------------------------------------------------------------------
+ */
+
+(function () {
+  try {
+    // 1. Determine Theme
+    //
+    // Resolve from three sources, in priority order:
+    //   1. localStorage explicit user choice (light / dark)
+    //   2. window.DOCMD_APPEARANCE  (current canonical name, set by EJS templates)
+    //   3. window.DOCMD_DEFAULT_MODE (legacy alias kept for pre-0.8.7 outputs)
+    //   4. 'light' as the final fallback
+    //
+    // Note: localStorage is only honoured when it holds an explicit
+    // 'light' or 'dark' value. A stored 'system' value (from a prior
+    // session where the user picked "follow system") must NOT win over
+    // a freshly resolved config value - the resolved value will itself
+    // be 'system' in that case and the OS preference check below takes
+    // over, so this is a no-op for the in-session behaviour but keeps
+    // any future storage migration simple.
+    var localValue = localStorage.getItem('docmd-theme');
+    var configValue = window.DOCMD_APPEARANCE
+      || window.DOCMD_DEFAULT_MODE
+      || 'light';
+    var theme = (localValue === 'light' || localValue === 'dark')
+      ? localValue
+      : configValue;
+
+    if (theme === 'system') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // 2. Apply to Root
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // 3. Highlight.js Toggle Strategy
+    var lightLink = document.getElementById('hljs-light');
+    var darkLink = document.getElementById('hljs-dark');
+
+    if (lightLink && darkLink) {
+      if (theme === 'dark') {
+        lightLink.disabled = true;
+        darkLink.disabled = false;
+      } else {
+        lightLink.disabled = false;
+        darkLink.disabled = true;
+      }
+    }
+
+    document.documentElement.style.visibility = "visible";
+  } catch (e) {
+    document.documentElement.style.visibility = "visible";
+    console.error('Theme init failed', e);
+  }
+})();</script>
+  </head>
+  <body
+    class="sidebar-collapsible"
+    data-default-collapsed="false"
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/en/pro-users/features.md">
+
+    <a href="#main-content" class="skip-link">skipToContent</a>
+
+    
+    
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          
+            <h1><a href="../../">
+                MIP - Modern Package Manager
+              </a></h1>
+          
+          <span class="mobile-view sidebar-menu-button float-right">
+            
+<svg class="lucide-icon icon-menu " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-menu"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M4 5h16" />
+  <path d="M4 12h16" />
+  <path d="M4 19h16" />
+</svg>
+
+          </span>
+        </div>
+        <div class="sidebar-top-group">
+          
+          
+            <div class="sidebar-options-wrapper">
+              
+
+
+<div class="docmd-options-menu">
+    
+    <button class="docmd-search-trigger" aria-label="search">
+        
+<svg class="lucide-icon icon-search " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-search"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" />
+</svg>
+
+        <span class="search-label">search</span>
+        <span class="search-keys"><kbd class="docmd-kbd">⌘</kbd><kbd class="docmd-kbd">K</kbd></span>
+    </button>
+    
+
+    
+
+    
+    <div class="options-menu-language">
+        
+
+
+<div class="docmd-language-switcher language-compact">
+  <button class="language-switcher-toggle" aria-expanded="false" aria-label="selectLanguage">
+    
+<svg class="lucide-icon icon-globe language-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-globe"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+  <path d="M2 12h20" />
+</svg>
+
+    
+  </button>
+  <ul class="language-switcher-menu">
+    
+    <li>
+      <a href="/ru/pro-users/features" 
+        class="language-switcher-item " 
+        data-spa-ignore
+        data-locale-id="ru"
+        lang="ru"
+        dir="ltr"
+        >
+        Русский
+        
+        
+      </a>
+    </li>
+    
+    <li>
+      <a href="/pro-users/features" 
+        class="language-switcher-item active" 
+        data-spa-ignore
+        data-locale-id="en"
+        lang="en"
+        dir="ltr"
+        >
+        English
+        
+          
+<svg class="lucide-icon icon-check language-check" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-check"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20 6 9 17l-5-5" />
+</svg>
+
+        
+        
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+    </div>
+    
+
+    
+    <button class="theme-toggle-button" aria-label="toggleTheme">
+        
+<svg class="lucide-icon icon-sun icon-sun" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-sun"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="4" />
+  <path d="M12 2v2" />
+  <path d="M12 20v2" />
+  <path d="m4.93 4.93 1.41 1.41" />
+  <path d="m17.66 17.66 1.41 1.41" />
+  <path d="M2 12h2" />
+  <path d="M20 12h2" />
+  <path d="m6.34 17.66-1.41 1.41" />
+  <path d="m19.07 4.93-1.41 1.41" />
+</svg>
+ 
+<svg class="lucide-icon icon-moon icon-moon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-moon"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+</svg>
+
+    </button>
+    
+
+    
+</div>
+
+            </div>
+          
+          
+          
+        </div>
+        
+
+<nav class="sidebar-nav" aria-label="mainNavigation">
+  <ul>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-home " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-house"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+  <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Introduction
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Welcome
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../qna/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Quick Q&amp;A
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-terminal " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-terminal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 19h8" />
+  <path d="m4 17 6-6-6-6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Commands
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../commands/audit/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            audit
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/cache/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            cache
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/ci/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            ci
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/create/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            create
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/dedupe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            dedupe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/doctor/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            doctor
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/exec/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exec
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/exports/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            exports
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/genlock/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            genlock
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/global/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            global
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/info/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            info
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/init/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            init
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/language/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            language
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/legacy/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            legacy
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/link/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            link
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/list/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            list
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/oldrepo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            oldrepo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/outdated/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            outdated
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/repo/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            repo
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/run/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            run
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/search/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            search
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/super-install/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            super-install
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/uninstall/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            uninstall
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/update/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            update
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/why/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            why
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/workspaces/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            workspaces
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/pe/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            pe
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/plugin/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            plugin
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/registry/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            registry
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/config/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            config
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/server/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            server
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-cog " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-cog"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11 10.27 7 3.34" />
+  <path d="m11 13.73-4 6.93" />
+  <path d="M12 22v-2" />
+  <path d="M12 2v2" />
+  <path d="M14 12h8" />
+  <path d="m17 20.66-1-1.73" />
+  <path d="m17 3.34-1 1.73" />
+  <path d="M2 12h2" />
+  <path d="m20.66 17-1.73-1" />
+  <path d="m20.66 7-1.73 1" />
+  <path d="m3.34 17 1.73-1" />
+  <path d="m3.34 7 1.73 1" />
+  <circle cx="12" cy="12" r="2" />
+  <circle cx="12" cy="12" r="8" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Setup
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../setup/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Creating a Project
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../setup/quick-start/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Quick Start
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../setup/configuration/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Configuration
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="active-parent collapsible expanded nav-group"  aria-expanded="true" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-star " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-star"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            For Pros
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../pro-users/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/performance/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Performance
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/ci-cd/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active" >
+      
+        <a href="../../pro-users/features/" class="active "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-code " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-code"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m16 18 6-6-6-6" />
+  <path d="m8 6-6 6 6 6" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            For Developers
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../dev/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/architecture/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Architecture
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/adding-commands/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Adding Commands
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/testing/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Testing
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/all-plugins/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            All About Plugins
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../dev/hooks/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Hooks &amp; Plugins
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-bug " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-bug"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 20v-9" />
+  <path d="M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4z" />
+  <path d="M14.12 3.88 16 2" />
+  <path d="M21 21a4 4 0 0 0-3.81-4" />
+  <path d="M21 5a4 4 0 0 1-3.55 3.97" />
+  <path d="M22 13h-4" />
+  <path d="M3 21a4 4 0 0 1 3.81-4" />
+  <path d="M3 5a4 4 0 0 0 3.55 3.97" />
+  <path d="M6 13H2" />
+  <path d="m8 2 1.88 1.88" />
+  <path d="M9 7.13V6a3 3 0 1 1 6 0v1.13" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Troubleshooting
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../troubleshooting/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            General List
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../troubleshooting/network/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Network &amp; Registries
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../troubleshooting/lockfile/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Lock Files
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+      <li class="collapsible nav-group"  aria-expanded="false" >
+      
+        <span class="nav-label nav-group">
+           
+<svg class="lucide-icon icon-archive " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-archive"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="20" height="5" x="2" y="3" rx="1" />
+  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
+  <path d="M10 12h4" />
+</svg>
+
+          
+          <span class="nav-item-title">
+            Other
+          </span>
+          
+            <span class="collapse-icon-wrapper">
+<svg class="lucide-icon icon-chevron-right collapse-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+          
+        </span>
+        
+
+        
+          <ul class="submenu">
+            
+      <li class="" >
+      
+        <a href="../../other/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Overview
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../other/glossary/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Glossary
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../other/faq/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Extended FAQ
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+          </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+        <div class="sidebar-bottom-group mt-auto">
+          
+          
+          
+          
+        </div>
+      </aside>
+      
+      
+      
+      <div class="main-content-wrapper">
+        
+        
+          <header class="page-header">
+            <div class="header-left">
+              
+                <button id="sidebar-toggle-button" class="sidebar-toggle-button"
+                  aria-label="toggleSidebar">
+                  
+<svg class="lucide-icon icon-chevron-left " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m15 18-6-6 6-6" />
+</svg>
+
+                </button>
+              
+              <div class="header-titles-wrapper">
+                <span class="header-title">
+                  MIP Features Documentation
+                </span>
+              </div>
+            </div>
+            <div class="header-right">
+              
+            </div>
+          </header>
+        
+        <div class="content-theme-cover">
+          <main class="content-area" id="main-content">
+            <div class="content-layout">
+              <div class="main-content">
+                <div class="docmd-breadcrumbs-row">
+                  <div id="docmd-raw-markdown" data-content="%23%20MIP%20Features%20Documentation%0A%0A%23%23%20Overview%0A%0AMIP%202.1%20introduces%20a%20powerful%20features%20system%20that%20allows%20you%20to%20control%20almost%20every%20aspect%20of%20the%20package%20manager&#039;s%20behavior.%20Each%20feature%20can%20be%20enabled%20or%20disabled%20individually%20through%20a%20configuration%20file%20or%20CLI%20commands.%0A%0A%23%23%20Quick%20Start%0A%0A%60%60%60bash%0A%23%20Generate%20default%20configuration%20with%20all%20features%0Amip%20--genconfig%0A%0A%23%20View%20all%20available%20features%0Amip%20--list-features%0A%0A%23%20Enable%20a%20feature%0Amip%20config%20set%20features.install.parallel%20true%0A%0A%23%20Disable%20a%20feature%0Amip%20config%20set%20features.update.checkForUpdates%20false%0A%0A%23%20Disable%20ALL%20features%20at%20once%0Amip%20config%20set%20features.config.enabled%20false%0A%60%60%60%0A%0A%23%23%20Feature%20Categories%0A%0A%23%23%23%20Global%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60config.enabled%60%20%7C%20%60true%60%20%7C%20Master%20switch%20%E2%80%94%20disables%20ALL%20feature%20modifications%20when%20set%20to%20%60false%60%20%7C%0A%0A---%0A%0A%23%23%23%20Install%20%26%20Update%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60install.parallel%60%20%7C%20%60true%60%20%7C%20Install%20multiple%20packages%20in%20parallel%20for%20faster%20execution%20%7C%0A%7C%20%60install.forceReinstall%60%20%7C%20%60false%60%20%7C%20Always%20reinstall%20packages%20even%20if%20already%20in%20global%20store%20%7C%0A%7C%20%60install.saveExact%60%20%7C%20%60false%60%20%7C%20Save%20exact%20versions%20to%20config%20(without%20%60%5E%60%20and%20%60~%60)%20%7C%0A%7C%20%60install.skipIntegrityCheck%60%20%7C%20%60false%60%20%7C%20Skip%20package%20integrity%20checks%20(faster%20but%20less%20secure)%20%7C%0A%7C%20%60install.dryRun%60%20%7C%20%60false%60%20%7C%20Simulation%20mode%20%E2%80%94%20shows%20what%20would%20be%20installed%20without%20making%20changes%20%7C%0A%7C%20%60install.ignoreScripts%60%20%7C%20%60false%60%20%7C%20Do%20not%20run%20install%20scripts%20from%20%60package.json%60%20%7C%0A%7C%20%60install.ignoreOptional%60%20%7C%20%60false%60%20%7C%20Ignore%20optionalDependencies%20%7C%0A%7C%20%60install.ignoreEngines%60%20%7C%20%60false%60%20%7C%20Ignore%20engines%20check%20in%20%60package.json%60%20%7C%0A%7C%20%60install.ignorePlatform%60%20%7C%20%60false%60%20%7C%20Ignore%20os%2Fcpu%20checks%20in%20%60package.json%60%20%7C%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60update.checkForUpdates%60%20%7C%20%60true%60%20%7C%20Automatically%20check%20for%20new%20MIP%20versions%20on%20startup%20%7C%0A%7C%20%60update.autoUpdate%60%20%7C%20%60false%60%20%7C%20Automatically%20update%20packages%20on%20startup%20(without%20confirmation)%20%7C%0A%7C%20%60update.prerelease%60%20%7C%20%60false%60%20%7C%20Allow%20installation%20of%20pre-release%20versions%20(alpha%2C%20beta%2C%20rc)%20%7C%0A%7C%20%60update.major%60%20%7C%20%60false%60%20%7C%20Allow%20major%20version%20updates%20(may%20break%20code)%20%7C%0A%7C%20%60update.minor%60%20%7C%20%60true%60%20%7C%20Allow%20minor%20version%20updates%20%7C%0A%7C%20%60update.patch%60%20%7C%20%60true%60%20%7C%20Allow%20patch%20updates%20%7C%0A%0A---%0A%0A%23%23%23%20Security%20%26%20Audit%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60audit.enabled%60%20%7C%20%60true%60%20%7C%20Enable%20security%20audit%20for%20packages%20%7C%0A%7C%20%60audit.fixAutomatically%60%20%7C%20%60false%60%20%7C%20Automatically%20fix%20found%20vulnerabilities%20%7C%0A%7C%20%60audit.ignoreDev%60%20%7C%20%60false%60%20%7C%20Ignore%20devDependencies%20during%20audit%20%7C%0A%7C%20%60audit.ignoreLow%60%20%7C%20%60true%60%20%7C%20Ignore%20low%20severity%20vulnerabilities%20%7C%0A%7C%20%60audit.ignoreModerate%60%20%7C%20%60false%60%20%7C%20Ignore%20moderate%20severity%20vulnerabilities%20%7C%0A%7C%20%60audit.ignoreHigh%60%20%7C%20%60false%60%20%7C%20Ignore%20high%20severity%20vulnerabilities%20%7C%0A%7C%20%60audit.ignoreCritical%60%20%7C%20%60false%60%20%7C%20Ignore%20critical%20severity%20vulnerabilities%20(dangerous!)%20%7C%0A%7C%20%60audit.parallelScan%60%20%7C%20%60true%60%20%7C%20Scan%20packages%20in%20parallel%20for%20faster%20execution%20%7C%0A%7C%20%60audit.timeout%60%20%7C%20%605000%60%20%7C%20Registry%20request%20timeout%20for%20audit%20(ms)%20%7C%0A%0A---%0A%0A%23%23%23%20Caching%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60cache.enabled%60%20%7C%20%60true%60%20%7C%20Use%20cache%20for%20downloaded%20packages%20%7C%0A%7C%20%60cache.maxSize%60%20%7C%20%60500%60%20%7C%20Maximum%20cache%20size%20in%20MB%20%7C%0A%7C%20%60cache.ttl%60%20%7C%20%6086400%60%20%7C%20Cache%20time-to-live%20in%20seconds%20(86400%20%3D%201%20day)%20%7C%0A%7C%20%60cache.cleanOnExit%60%20%7C%20%60false%60%20%7C%20Clear%20cache%20when%20MIP%20exits%20%7C%0A%7C%20%60cache.path%60%20%7C%20%60~%2F.mip%2Fcache%60%20%7C%20Cache%20directory%20path%20%7C%0A%7C%20%60cache.compress%60%20%7C%20%60false%60%20%7C%20Compress%20cache%20to%20save%20disk%20space%20%7C%0A%0A---%0A%0A%23%23%23%20Performance%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60performance.parallelDownloads%60%20%7C%20%605%60%20%7C%20Number%20of%20parallel%20package%20downloads%20%7C%0A%7C%20%60performance.useHardlinks%60%20%7C%20%60false%60%20%7C%20Use%20hard%20links%20instead%20of%20symlinks%20(saves%20disk%20space)%20%7C%0A%7C%20%60performance.optimizeSymlinks%60%20%7C%20%60true%60%20%7C%20Optimize%20symlink%20creation%20%7C%0A%7C%20%60performance.useMemoryCache%60%20%7C%20%60true%60%20%7C%20Cache%20package%20metadata%20in%20memory%20%7C%0A%7C%20%60performance.throttle%60%20%7C%20%60false%60%20%7C%20Limit%20download%20speed%20(useful%20for%20slow%20networks)%20%7C%0A%7C%20%60performance.maxSockets%60%20%7C%20%6015%60%20%7C%20Maximum%20number%20of%20sockets%20for%20downloads%20%7C%0A%0A---%0A%0A%23%23%23%20Logging%20%26%20Debug%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60logging.level%60%20%7C%20%60info%60%20%7C%20Log%20level%3A%20%60silent%60%20%5C%7C%20%60error%60%20%5C%7C%20%60warn%60%20%5C%7C%20%60info%60%20%5C%7C%20%60debug%60%20%5C%7C%20%60trace%60%20%7C%0A%7C%20%60logging.color%60%20%7C%20%60true%60%20%7C%20Colored%20console%20output%20%7C%0A%7C%20%60logging.timestamp%60%20%7C%20%60false%60%20%7C%20Show%20timestamps%20in%20logs%20%7C%0A%7C%20%60logging.showStack%60%20%7C%20%60false%60%20%7C%20Show%20full%20error%20stack%20traces%20%7C%0A%7C%20%60logging.file%60%20%7C%20%60null%60%20%7C%20Log%20file%20path%20(null%20%3D%20stdout%20only)%20%7C%0A%7C%20%60logging.maxSize%60%20%7C%20%6010MB%60%20%7C%20Maximum%20log%20file%20size%20%7C%0A%0A---%0A%0A%23%23%23%20Interactivity%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60interactive.promptOnInstall%60%20%7C%20%60false%60%20%7C%20Ask%20for%20confirmation%20before%20installing%20%7C%0A%7C%20%60interactive.promptOnDelete%60%20%7C%20%60true%60%20%7C%20Ask%20for%20confirmation%20before%20deleting%20%7C%0A%7C%20%60interactive.promptOnUpdate%60%20%7C%20%60true%60%20%7C%20Ask%20for%20confirmation%20before%20updating%20%7C%0A%7C%20%60interactive.promptOnAudit%60%20%7C%20%60false%60%20%7C%20Ask%20for%20confirmation%20before%20running%20audit%20%7C%0A%7C%20%60interactive.promptOnDedupe%60%20%7C%20%60true%60%20%7C%20Ask%20for%20confirmation%20before%20deduplication%20%7C%0A%7C%20%60interactive.autoConfirm%60%20%7C%20%60false%60%20%7C%20Auto-confirm%20all%20prompts%20(for%20CI)%20%7C%0A%0A---%0A%0A%23%23%23%20Registries%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60registry.default%60%20%7C%20%60npm%60%20%7C%20Default%20package%20registry%20%7C%0A%7C%20%60registry.fallbackToNpm%60%20%7C%20%60true%60%20%7C%20Fall%20back%20to%20npm%20if%20custom%20registry%20is%20unavailable%20%7C%0A%7C%20%60registry.strictSSL%60%20%7C%20%60true%60%20%7C%20Validate%20registry%20SSL%20certificates%20%7C%0A%7C%20%60registry.timeout%60%20%7C%20%6030000%60%20%7C%20Registry%20request%20timeout%20(ms)%20%7C%0A%7C%20%60registry.retryCount%60%20%7C%20%603%60%20%7C%20Number%20of%20retry%20attempts%20on%20error%20%7C%0A%7C%20%60registry.userAgent%60%20%7C%20%60mip%60%20%7C%20User-Agent%20for%20registry%20requests%20%7C%0A%7C%20%60registry.cacheMetadata%60%20%7C%20%60true%60%20%7C%20Cache%20package%20metadata%20from%20registry%20%7C%0A%0A---%0A%0A%23%23%23%20Dependency%20Resolution%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60dependency.resolutionStrategy%60%20%7C%20%60semver%60%20%7C%20Version%20resolution%20strategy%3A%20%60semver%60%20%5C%7C%20%60exact%60%20%5C%7C%20%60latest%60%20%7C%0A%7C%20%60dependency.dedupeOnInstall%60%20%7C%20%60true%60%20%7C%20Automatically%20deduplicate%20dependencies%20on%20install%20%7C%0A%7C%20%60dependency.hoist%60%20%7C%20%60false%60%20%7C%20Hoist%20dependencies%20to%20top%20level%20(like%20npm)%20%7C%0A%7C%20%60dependency.workspaceProtocol%60%20%7C%20%60true%60%20%7C%20Use%20%60workspace%3A%60%20protocol%20for%20local%20packages%20%7C%0A%7C%20%60dependency.allowConflicts%60%20%7C%20%60false%60%20%7C%20Allow%20conflicting%20versions%20(may%20cause%20errors)%20%7C%0A%7C%20%60dependency.ignorePeerDependencies%60%20%7C%20%60false%60%20%7C%20Ignore%20peerDependencies%20%7C%0A%7C%20%60dependency.optionalDependencies%60%20%7C%20%60true%60%20%7C%20Install%20optionalDependencies%20%7C%0A%0A---%0A%0A%23%23%23%20Git%20%26%20Integration%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60git.enabled%60%20%7C%20%60true%60%20%7C%20Use%20Git%20for%20cloning%20repositories%20%7C%0A%7C%20%60git.branch%60%20%7C%20%60main%60%20%7C%20Default%20Git%20branch%20%7C%0A%7C%20%60git.ssh%60%20%7C%20%60false%60%20%7C%20Use%20SSH%20instead%20of%20HTTPS%20for%20Git%20%7C%0A%7C%20%60git.depth%60%20%7C%20%601%60%20%7C%20Clone%20depth%20(1%20%3D%20only%20latest%20commit)%20%7C%0A%7C%20%60git.privateToken%60%20%7C%20%60null%60%20%7C%20Token%20for%20private%20repository%20access%20%7C%0A%7C%20%60git.cloneTimeout%60%20%7C%20%6060000%60%20%7C%20Repository%20clone%20timeout%20(ms)%20%7C%0A%0A---%0A%0A%23%23%23%20Monorepo%20(Workspaces)%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60monorepo.autoLink%60%20%7C%20%60true%60%20%7C%20Automatically%20link%20local%20packages%20in%20workspace%20%7C%0A%7C%20%60monorepo.hoistWorkspaces%60%20%7C%20%60false%60%20%7C%20Hoist%20workspace%20dependencies%20to%20root%20level%20%7C%0A%7C%20%60monorepo.ignoreWorkspaceRoot%60%20%7C%20%60false%60%20%7C%20Ignore%20root%20package.json%20in%20workspace%20%7C%0A%7C%20%60monorepo.runScriptsInOrder%60%20%7C%20%60true%60%20%7C%20Run%20workspace%20scripts%20in%20order%20%7C%0A%7C%20%60monorepo.parallelScripts%60%20%7C%20%60false%60%20%7C%20Run%20workspace%20scripts%20in%20parallel%20%7C%0A%0A---%0A%0A%23%23%23%20Doctor%20(Diagnostics)%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60doctor.checkNodeVersion%60%20%7C%20%60true%60%20%7C%20Check%20Node.js%20version%20in%20%60mip%20doctor%60%20%7C%0A%7C%20%60doctor.checkDiskSpace%60%20%7C%20%60true%60%20%7C%20Check%20free%20disk%20space%20%7C%0A%7C%20%60doctor.checkGitHubToken%60%20%7C%20%60true%60%20%7C%20Check%20for%20%60GITHUB_TOKEN%60%20presence%20%7C%0A%7C%20%60doctor.autoFix%60%20%7C%20%60false%60%20%7C%20Automatically%20fix%20issues%20in%20%60mip%20doctor%60%20%7C%0A%7C%20%60doctor.checkNetwork%60%20%7C%20%60true%60%20%7C%20Check%20network%20availability%20%7C%0A%7C%20%60doctor.checkPermissions%60%20%7C%20%60true%60%20%7C%20Check%20file%20permissions%20%7C%0A%7C%20%60doctor.checkSymlinks%60%20%7C%20%60true%60%20%7C%20Check%20symlink%20integrity%20%7C%0A%7C%20%60doctor.checkManifest%60%20%7C%20%60true%60%20%7C%20Check%20manifest%20integrity%20%7C%0A%0A---%0A%0A%23%23%23%20Server%20(%60mip%20server%60)%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60server.port%60%20%7C%20%603000%60%20%7C%20Port%20for%20web%20server%20(%60mip%20server%60)%20%7C%0A%7C%20%60server.host%60%20%7C%20%60localhost%60%20%7C%20Host%20for%20web%20server%20%7C%0A%7C%20%60server.autoOpen%60%20%7C%20%60false%60%20%7C%20Auto-open%20browser%20when%20server%20starts%20%7C%0A%7C%20%60server.refreshInterval%60%20%7C%20%603000%60%20%7C%20Dashboard%20refresh%20interval%20(ms)%20%7C%0A%7C%20%60server.darkTheme%60%20%7C%20%60true%60%20%7C%20Use%20dark%20theme%20in%20dashboard%20%7C%0A%7C%20%60server.authToken%60%20%7C%20%60null%60%20%7C%20Authentication%20token%20for%20dashboard%20%7C%0A%7C%20%60server.enableCors%60%20%7C%20%60true%60%20%7C%20Enable%20CORS%20for%20dashboard%20%7C%0A%0A---%0A%0A%23%23%23%20CLI%20Behavior%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60cli.suggestCommands%60%20%7C%20%60true%60%20%7C%20Suggest%20similar%20commands%20on%20error%20%7C%0A%7C%20%60cli.autoComplete%60%20%7C%20%60true%60%20%7C%20Enable%20terminal%20autocompletion%20%7C%0A%7C%20%60cli.pager%60%20%7C%20%60false%60%20%7C%20Use%20pager%20for%20long%20output%20%7C%0A%7C%20%60cli.confirmExit%60%20%7C%20%60false%60%20%7C%20Ask%20for%20confirmation%20on%20exit%20%7C%0A%7C%20%60cli.showTimings%60%20%7C%20%60false%60%20%7C%20Show%20command%20execution%20time%20%7C%0A%7C%20%60cli.noColor%60%20%7C%20%60false%60%20%7C%20Disable%20colors%20in%20output%20%7C%0A%7C%20%60cli.quiet%60%20%7C%20%60false%60%20%7C%20Minimal%20output%20(errors%20only)%20%7C%0A%0A---%0A%0A%23%23%23%20Plugins%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60plugins.autoLoad%60%20%7C%20%60true%60%20%7C%20Auto-load%20plugins%20from%20plugins%20directory%20%7C%0A%7C%20%60plugins.allowUnsecure%60%20%7C%20%60false%60%20%7C%20Allow%20installing%20untrusted%20plugins%20%7C%0A%7C%20%60plugins.path%60%20%7C%20%60.%2Fplugins%60%20%7C%20Path%20to%20plugins%20directory%20%7C%0A%7C%20%60plugins.allowGlobal%60%20%7C%20%60false%60%20%7C%20Allow%20global%20plugins%20installation%20%7C%0A%7C%20%60plugins.verbose%60%20%7C%20%60false%60%20%7C%20Show%20verbose%20plugin%20output%20%7C%0A%0A---%0A%0A%23%23%23%20Internationalization%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60i18n.language%60%20%7C%20%60en%60%20%7C%20Interface%20language%20(en%2C%20ru%2C%20etc.)%20%7C%0A%7C%20%60i18n.fallback%60%20%7C%20%60en%60%20%7C%20Fallback%20language%20if%20selected%20is%20unavailable%20%7C%0A%7C%20%60i18n.loadCustom%60%20%7C%20%60true%60%20%7C%20Load%20custom%20language%20packs%20%7C%0A%0A---%0A%0A%23%23%23%20Experimental%20Features%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60experimental.enabled%60%20%7C%20%60false%60%20%7C%20Enable%20experimental%20features%20(caution!)%20%7C%0A%7C%20%60experimental.useNewResolver%60%20%7C%20%60false%60%20%7C%20Use%20new%20dependency%20resolver%20%7C%0A%7C%20%60experimental.fastGlob%60%20%7C%20%60false%60%20%7C%20Use%20fast%20glob%20for%20file%20searching%20%7C%0A%7C%20%60experimental.parallelExtract%60%20%7C%20%60false%60%20%7C%20Extract%20archives%20in%20parallel%20%7C%0A%7C%20%60experimental.symlinkCache%60%20%7C%20%60false%60%20%7C%20Cache%20symlink%20information%20%7C%0A%0A---%0A%0A%23%23%23%20Message%20of%20the%20Day%20(MOTD)%0A%0A%7C%20Feature%20%7C%20Default%20%7C%20Description%20%7C%0A%7C---------%7C---------%7C-------------%7C%0A%7C%20%60motd.enabled%60%20%7C%20%60true%60%20%7C%20Show%20Message%20of%20the%20Day%20with%20quotes%20and%20tips%20on%20each%20startup%20%7C%0A%0A---%0A%0A%23%23%20Configuration%20File%20Example%0A%0A%60%60%60yaml%0A%23%20mip.config.yml%0A%0A%23%20%3D%3D%3D%20GLOBAL%20%3D%3D%3D%0Aconfig.enabled%3A%20true%0A%0A%23%20%3D%3D%3D%20INSTALL%20%3D%3D%3D%0Ainstall.parallel%3A%20true%0Ainstall.forceReinstall%3A%20false%0Ainstall.saveExact%3A%20false%0Ainstall.dryRun%3A%20false%0A%0A%23%20%3D%3D%3D%20UPDATE%20%3D%3D%3D%0Aupdate.checkForUpdates%3A%20true%0Aupdate.autoUpdate%3A%20false%0Aupdate.prerelease%3A%20false%0Aupdate.major%3A%20false%0Aupdate.minor%3A%20true%0Aupdate.patch%3A%20true%0A%0A%23%20%3D%3D%3D%20AUDIT%20%3D%3D%3D%0Aaudit.enabled%3A%20true%0Aaudit.ignoreLow%3A%20true%0Aaudit.parallelScan%3A%20true%0Aaudit.timeout%3A%205000%0A%0A%23%20%3D%3D%3D%20CACHE%20%3D%3D%3D%0Acache.enabled%3A%20true%0Acache.maxSize%3A%20500%0Acache.path%3A%20~%2F.mip%2Fcache%0A%0A%23%20%3D%3D%3D%20PERFORMANCE%20%3D%3D%3D%0Aperformance.parallelDownloads%3A%205%0Aperformance.useMemoryCache%3A%20true%0A%0A%23%20%3D%3D%3D%20LOGGING%20%3D%3D%3D%0Alogging.level%3A%20info%0Alogging.color%3A%20true%0A%0A%23%20%3D%3D%3D%20INTERACTIVE%20%3D%3D%3D%0Ainteractive.promptOnDelete%3A%20true%0Ainteractive.promptOnUpdate%3A%20true%0A%0A%23%20%3D%3D%3D%20REGISTRY%20%3D%3D%3D%0Aregistry.default%3A%20npm%0Aregistry.fallbackToNpm%3A%20true%0A%0A%23%20%3D%3D%3D%20DEPENDENCY%20%3D%3D%3D%0Adependency.resolutionStrategy%3A%20semver%0Adependency.dedupeOnInstall%3A%20true%0A%0A%23%20%3D%3D%3D%20DOCTOR%20%3D%3D%3D%0Adoctor.checkNodeVersion%3A%20true%0Adoctor.checkDiskSpace%3A%20true%0A%0A%23%20%3D%3D%3D%20SERVER%20%3D%3D%3D%0Aserver.port%3A%203000%0Aserver.darkTheme%3A%20true%0A%0A%23%20%3D%3D%3D%20CLI%20%3D%3D%3D%0Acli.suggestCommands%3A%20true%0A%0A%23%20%3D%3D%3D%20PLUGINS%20%3D%3D%3D%0Aplugins.autoLoad%3A%20true%0A%0A%23%20%3D%3D%3D%20I18N%20%3D%3D%3D%0Ai18n.language%3A%20en%0A%0A%23%20%3D%3D%3D%20EXPERIMENTAL%20%3D%3D%3D%0Aexperimental.enabled%3A%20false%0A%0A%23%20%3D%3D%3D%20MOTD%20%3D%3D%3D%0Amotd.enabled%3A%20true%0A%60%60%60%0A%0A%23%23%20Common%20Use%20Cases%0A%0A%23%23%23%20CI%2FCD%20Optimizations%0A%0AFor%20CI%2FCD%20environments%2C%20disable%20heavy%20features%20for%20maximum%20speed%3A%0A%0A%60%60%60bash%0Amip%20config%20set%20features.audit.enabled%20false%0Amip%20config%20set%20features.update.checkForUpdates%20false%0Amip%20config%20set%20features.interactive.promptOnInstall%20false%0Amip%20config%20set%20features.interactive.autoConfirm%20true%0Amip%20config%20set%20features.motd.enabled%20false%0A%60%60%60%0A%0A%23%23%23%20Development%20Environment%0A%0AEnable%20helpful%20features%20for%20development%3A%0A%0A%60%60%60bash%0Amip%20config%20set%20features.install.parallel%20true%0Amip%20config%20set%20features.logging.level%20debug%0Amip%20config%20set%20features.motd.enabled%20true%0A%60%60%60%0A%0A%23%23%23%20Production%20Builds%0A%0AFor%20production%20builds%2C%20ensure%20reproducibility%3A%0A%0A%60%60%60bash%0Amip%20config%20set%20features.install.saveExact%20true%0Amip%20config%20set%20features.update.major%20false%0Amip%20config%20set%20features.dependency.resolutionStrategy%20exact%0A%60%60%60%0A%0A%23%23%20Troubleshooting%0A%0A%23%23%23%20Feature%20Not%20Found%0A%0A%60%60%60%0A%E2%9D%8C%20Feature%20%22install.xxx%22%20not%20found%0A%60%60%60%0A%0A**Resolution%3A**%0A1.%20Check%20available%20features%3A%20%60mip%20--list-features%60%0A2.%20Make%20sure%20you%20typed%20the%20feature%20name%20correctly%0A3.%20Features%20use%20dot%20notation%3A%20%60install.parallel%60%2C%20%60update.checkForUpdates%60%0A%0A%23%23%23%20Features%20Disabled%0A%0A%60%60%60%0A%E2%9A%A0%EF%B8%8F%20Features%20are%20currently%20DISABLED%0A%60%60%60%0A%0A**Resolution%3A**%0A1.%20Enable%20features%3A%20%60mip%20config%20set%20features.config.enabled%20true%60%0A2.%20Or%20edit%20%60mip.config.yml%60%20and%20set%20%60config.enabled%3A%20true%60%0A%0A%23%23%23%20Invalid%20Value%0A%0A%60%60%60%0A%E2%9A%A0%EF%B8%8F%20Invalid%20value%20for%20feature%20%22install.parallel%22%0A%60%60%60%0A%0A**Resolution%3A**%0A-%20Booleans%3A%20%60true%60%20or%20%60false%60%0A-%20Numbers%3A%20%605%60%2C%20%603000%60%2C%20%6086400%60%0A-%20Strings%3A%20%60%22info%22%60%2C%20%60%22localhost%22%60%2C%20%60%22npm%22%60%0A-%20Check%20the%20feature%20description%20for%20the%20expected%20type%0A%0A%23%23%20Related%20Commands%0A%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20%E2%80%94%20manage%20configuration%0A-%20%5Bmip%20--genconfig%5D(%2Fcommands%2Fgenconfig)%20%E2%80%94%20generate%20feature%20configuration%0A-%20%5Bmip%20--list-features%5D(%2Fcommands%2Flist-features)%20%E2%80%94%20list%20all%20features%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20system%20diagnostics%0A-%20%5Bmip%20registry%5D(%2Fcommands%2Fregistry)%20%E2%80%94%20manage%20registries" style="display: none;"></div>
+                  
+                    <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
+                      <ol>
+                        
+                        
+                          <li class="breadcrumb-item " >
+                            
+                              <span>For Pros</span>
+                            
+                            
+                              <span class="breadcrumb-separator">
+<svg class="lucide-icon icon-chevron-right " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m9 18 6-6-6-6" />
+</svg>
+</span>
+                            
+                          </li>
+                        
+                          <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
+                            
+                              <span>Features / Config</span>
+                            
+                            
+                          </li>
+                        
+                      </ol>
+                    </nav>
+                  
+
+                  
+                    <div class="docmd-copy-widgets">
+                      
+                        <button class="docmd-copy-btn docmd-copy-raw-btn" data-copied="copiedToClipboard" title="copyMarkdown" aria-label="copyMarkdown">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-copy " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-copy"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+</svg>
+</span>
+                        </button>
+                      
+                      
+                        <button class="docmd-copy-btn docmd-copy-context-btn" data-copied="copiedToClipboard" title="copyContext">
+                          <span class="docmd-btn-icon">
+<svg class="lucide-icon icon-message-square " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-message-square"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+</svg>
+</span>
+                          <span class="docmd-btn-text">copyContext</span>
+                        </button>
+                      
+                    </div>
+                  
+                </div>
+                
+                <h1 id="mip-features-documentation" class="docmd-heading"><a href="#mip-features-documentation" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>MIP Features Documentation</h1>
+<h2 id="mip-features-documentation-overview" class="docmd-heading"><a href="#mip-features-documentation-overview" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Overview</h2>
+<p>MIP 2.1 introduces a powerful features system that allows you to control almost every aspect of the package manager’s behavior. Each feature can be enabled or disabled individually through a configuration file or CLI commands.</p>
+<h2 id="mip-features-documentation-quick-start" class="docmd-heading"><a href="#mip-features-documentation-quick-start" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Quick Start</h2>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Generate default configuration with all features</span>
+mip <span class="hljs-punctuation">--</span>genconfig
+
+<span class="hljs-comment"># View all available features</span>
+mip <span class="hljs-punctuation">--</span>list<span class="hljs-punctuation">-</span>features
+
+<span class="hljs-comment"># Enable a feature</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">install</span>.<span class="hljs-attr">parallel</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># Disable a feature</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">update</span>.<span class="hljs-attr">checkForUpdates</span> <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment"># Disable ALL features at once</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">config</span>.<span class="hljs-attr">enabled</span> <span class="hljs-keyword">false</span>
+</code></pre>
+<h2 id="mip-features-documentation-feature-categories" class="docmd-heading"><a href="#mip-features-documentation-feature-categories" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Feature Categories</h2>
+<h3 id="mip-features-documentation-feature-categories-global" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-global" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Global</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.enabled</code></td>
+<td><code>true</code></td>
+<td>Master switch - disables ALL feature modifications when set to <code>false</code></td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-install-update" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-install-update" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Install &amp; Update</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>install.parallel</code></td>
+<td><code>true</code></td>
+<td>Install multiple packages in parallel for faster execution</td>
+</tr>
+<tr>
+<td><code>install.forceReinstall</code></td>
+<td><code>false</code></td>
+<td>Always reinstall packages even if already in global store</td>
+</tr>
+<tr>
+<td><code>install.saveExact</code></td>
+<td><code>false</code></td>
+<td>Save exact versions to config (without <code>^</code> and <code>~</code>)</td>
+</tr>
+<tr>
+<td><code>install.skipIntegrityCheck</code></td>
+<td><code>false</code></td>
+<td>Skip package integrity checks (faster but less secure)</td>
+</tr>
+<tr>
+<td><code>install.dryRun</code></td>
+<td><code>false</code></td>
+<td>Simulation mode - shows what would be installed without making changes</td>
+</tr>
+<tr>
+<td><code>install.ignoreScripts</code></td>
+<td><code>false</code></td>
+<td>Do not run install scripts from <code>package.json</code></td>
+</tr>
+<tr>
+<td><code>install.ignoreOptional</code></td>
+<td><code>false</code></td>
+<td>Ignore optionalDependencies</td>
+</tr>
+<tr>
+<td><code>install.ignoreEngines</code></td>
+<td><code>false</code></td>
+<td>Ignore engines check in <code>package.json</code></td>
+</tr>
+<tr>
+<td><code>install.ignorePlatform</code></td>
+<td><code>false</code></td>
+<td>Ignore os/cpu checks in <code>package.json</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update.checkForUpdates</code></td>
+<td><code>true</code></td>
+<td>Automatically check for new MIP versions on startup</td>
+</tr>
+<tr>
+<td><code>update.autoUpdate</code></td>
+<td><code>false</code></td>
+<td>Automatically update packages on startup (without confirmation)</td>
+</tr>
+<tr>
+<td><code>update.prerelease</code></td>
+<td><code>false</code></td>
+<td>Allow installation of pre-release versions (alpha, beta, rc)</td>
+</tr>
+<tr>
+<td><code>update.major</code></td>
+<td><code>false</code></td>
+<td>Allow major version updates (may break code)</td>
+</tr>
+<tr>
+<td><code>update.minor</code></td>
+<td><code>true</code></td>
+<td>Allow minor version updates</td>
+</tr>
+<tr>
+<td><code>update.patch</code></td>
+<td><code>true</code></td>
+<td>Allow patch updates</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-security-audit" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-security-audit" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Security &amp; Audit</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>audit.enabled</code></td>
+<td><code>true</code></td>
+<td>Enable security audit for packages</td>
+</tr>
+<tr>
+<td><code>audit.fixAutomatically</code></td>
+<td><code>false</code></td>
+<td>Automatically fix found vulnerabilities</td>
+</tr>
+<tr>
+<td><code>audit.ignoreDev</code></td>
+<td><code>false</code></td>
+<td>Ignore devDependencies during audit</td>
+</tr>
+<tr>
+<td><code>audit.ignoreLow</code></td>
+<td><code>true</code></td>
+<td>Ignore low severity vulnerabilities</td>
+</tr>
+<tr>
+<td><code>audit.ignoreModerate</code></td>
+<td><code>false</code></td>
+<td>Ignore moderate severity vulnerabilities</td>
+</tr>
+<tr>
+<td><code>audit.ignoreHigh</code></td>
+<td><code>false</code></td>
+<td>Ignore high severity vulnerabilities</td>
+</tr>
+<tr>
+<td><code>audit.ignoreCritical</code></td>
+<td><code>false</code></td>
+<td>Ignore critical severity vulnerabilities (dangerous!)</td>
+</tr>
+<tr>
+<td><code>audit.parallelScan</code></td>
+<td><code>true</code></td>
+<td>Scan packages in parallel for faster execution</td>
+</tr>
+<tr>
+<td><code>audit.timeout</code></td>
+<td><code>5000</code></td>
+<td>Registry request timeout for audit (ms)</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-caching" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-caching" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Caching</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cache.enabled</code></td>
+<td><code>true</code></td>
+<td>Use cache for downloaded packages</td>
+</tr>
+<tr>
+<td><code>cache.maxSize</code></td>
+<td><code>500</code></td>
+<td>Maximum cache size in MB</td>
+</tr>
+<tr>
+<td><code>cache.ttl</code></td>
+<td><code>86400</code></td>
+<td>Cache time-to-live in seconds (86400 = 1 day)</td>
+</tr>
+<tr>
+<td><code>cache.cleanOnExit</code></td>
+<td><code>false</code></td>
+<td>Clear cache when MIP exits</td>
+</tr>
+<tr>
+<td><code>cache.path</code></td>
+<td><code>~/.mip/cache</code></td>
+<td>Cache directory path</td>
+</tr>
+<tr>
+<td><code>cache.compress</code></td>
+<td><code>false</code></td>
+<td>Compress cache to save disk space</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-performance" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-performance" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Performance</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>performance.parallelDownloads</code></td>
+<td><code>5</code></td>
+<td>Number of parallel package downloads</td>
+</tr>
+<tr>
+<td><code>performance.useHardlinks</code></td>
+<td><code>false</code></td>
+<td>Use hard links instead of symlinks (saves disk space)</td>
+</tr>
+<tr>
+<td><code>performance.optimizeSymlinks</code></td>
+<td><code>true</code></td>
+<td>Optimize symlink creation</td>
+</tr>
+<tr>
+<td><code>performance.useMemoryCache</code></td>
+<td><code>true</code></td>
+<td>Cache package metadata in memory</td>
+</tr>
+<tr>
+<td><code>performance.throttle</code></td>
+<td><code>false</code></td>
+<td>Limit download speed (useful for slow networks)</td>
+</tr>
+<tr>
+<td><code>performance.maxSockets</code></td>
+<td><code>15</code></td>
+<td>Maximum number of sockets for downloads</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-logging-debug" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-logging-debug" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Logging &amp; Debug</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>logging.level</code></td>
+<td><code>info</code></td>
+<td>Log level: <code>silent</code> | <code>error</code> | <code>warn</code> | <code>info</code> | <code>debug</code> | <code>trace</code></td>
+</tr>
+<tr>
+<td><code>logging.color</code></td>
+<td><code>true</code></td>
+<td>Colored console output</td>
+</tr>
+<tr>
+<td><code>logging.timestamp</code></td>
+<td><code>false</code></td>
+<td>Show timestamps in logs</td>
+</tr>
+<tr>
+<td><code>logging.showStack</code></td>
+<td><code>false</code></td>
+<td>Show full error stack traces</td>
+</tr>
+<tr>
+<td><code>logging.file</code></td>
+<td><code>null</code></td>
+<td>Log file path (null = stdout only)</td>
+</tr>
+<tr>
+<td><code>logging.maxSize</code></td>
+<td><code>10MB</code></td>
+<td>Maximum log file size</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-interactivity" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-interactivity" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Interactivity</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>interactive.promptOnInstall</code></td>
+<td><code>false</code></td>
+<td>Ask for confirmation before installing</td>
+</tr>
+<tr>
+<td><code>interactive.promptOnDelete</code></td>
+<td><code>true</code></td>
+<td>Ask for confirmation before deleting</td>
+</tr>
+<tr>
+<td><code>interactive.promptOnUpdate</code></td>
+<td><code>true</code></td>
+<td>Ask for confirmation before updating</td>
+</tr>
+<tr>
+<td><code>interactive.promptOnAudit</code></td>
+<td><code>false</code></td>
+<td>Ask for confirmation before running audit</td>
+</tr>
+<tr>
+<td><code>interactive.promptOnDedupe</code></td>
+<td><code>true</code></td>
+<td>Ask for confirmation before deduplication</td>
+</tr>
+<tr>
+<td><code>interactive.autoConfirm</code></td>
+<td><code>false</code></td>
+<td>Auto-confirm all prompts (for CI)</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-registries" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-registries" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Registries</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry.default</code></td>
+<td><code>npm</code></td>
+<td>Default package registry</td>
+</tr>
+<tr>
+<td><code>registry.fallbackToNpm</code></td>
+<td><code>true</code></td>
+<td>Fall back to npm if custom registry is unavailable</td>
+</tr>
+<tr>
+<td><code>registry.strictSSL</code></td>
+<td><code>true</code></td>
+<td>Validate registry SSL certificates</td>
+</tr>
+<tr>
+<td><code>registry.timeout</code></td>
+<td><code>30000</code></td>
+<td>Registry request timeout (ms)</td>
+</tr>
+<tr>
+<td><code>registry.retryCount</code></td>
+<td><code>3</code></td>
+<td>Number of retry attempts on error</td>
+</tr>
+<tr>
+<td><code>registry.userAgent</code></td>
+<td><code>mip</code></td>
+<td>User-Agent for registry requests</td>
+</tr>
+<tr>
+<td><code>registry.cacheMetadata</code></td>
+<td><code>true</code></td>
+<td>Cache package metadata from registry</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-dependency-resolution" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-dependency-resolution" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Dependency Resolution</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dependency.resolutionStrategy</code></td>
+<td><code>semver</code></td>
+<td>Version resolution strategy: <code>semver</code> | <code>exact</code> | <code>latest</code></td>
+</tr>
+<tr>
+<td><code>dependency.dedupeOnInstall</code></td>
+<td><code>true</code></td>
+<td>Automatically deduplicate dependencies on install</td>
+</tr>
+<tr>
+<td><code>dependency.hoist</code></td>
+<td><code>false</code></td>
+<td>Hoist dependencies to top level (like npm)</td>
+</tr>
+<tr>
+<td><code>dependency.workspaceProtocol</code></td>
+<td><code>true</code></td>
+<td>Use <code>workspace:</code> protocol for local packages</td>
+</tr>
+<tr>
+<td><code>dependency.allowConflicts</code></td>
+<td><code>false</code></td>
+<td>Allow conflicting versions (may cause errors)</td>
+</tr>
+<tr>
+<td><code>dependency.ignorePeerDependencies</code></td>
+<td><code>false</code></td>
+<td>Ignore peerDependencies</td>
+</tr>
+<tr>
+<td><code>dependency.optionalDependencies</code></td>
+<td><code>true</code></td>
+<td>Install optionalDependencies</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-git-integration" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-git-integration" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Git &amp; Integration</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git.enabled</code></td>
+<td><code>true</code></td>
+<td>Use Git for cloning repositories</td>
+</tr>
+<tr>
+<td><code>git.branch</code></td>
+<td><code>main</code></td>
+<td>Default Git branch</td>
+</tr>
+<tr>
+<td><code>git.ssh</code></td>
+<td><code>false</code></td>
+<td>Use SSH instead of HTTPS for Git</td>
+</tr>
+<tr>
+<td><code>git.depth</code></td>
+<td><code>1</code></td>
+<td>Clone depth (1 = only latest commit)</td>
+</tr>
+<tr>
+<td><code>git.privateToken</code></td>
+<td><code>null</code></td>
+<td>Token for private repository access</td>
+</tr>
+<tr>
+<td><code>git.cloneTimeout</code></td>
+<td><code>60000</code></td>
+<td>Repository clone timeout (ms)</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-monorepo-workspaces" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-monorepo-workspaces" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Monorepo (Workspaces)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>monorepo.autoLink</code></td>
+<td><code>true</code></td>
+<td>Automatically link local packages in workspace</td>
+</tr>
+<tr>
+<td><code>monorepo.hoistWorkspaces</code></td>
+<td><code>false</code></td>
+<td>Hoist workspace dependencies to root level</td>
+</tr>
+<tr>
+<td><code>monorepo.ignoreWorkspaceRoot</code></td>
+<td><code>false</code></td>
+<td>Ignore root package.json in workspace</td>
+</tr>
+<tr>
+<td><code>monorepo.runScriptsInOrder</code></td>
+<td><code>true</code></td>
+<td>Run workspace scripts in order</td>
+</tr>
+<tr>
+<td><code>monorepo.parallelScripts</code></td>
+<td><code>false</code></td>
+<td>Run workspace scripts in parallel</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-doctor-diagnostics" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-doctor-diagnostics" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Doctor (Diagnostics)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doctor.checkNodeVersion</code></td>
+<td><code>true</code></td>
+<td>Check Node.js version in <code>mip doctor</code></td>
+</tr>
+<tr>
+<td><code>doctor.checkDiskSpace</code></td>
+<td><code>true</code></td>
+<td>Check free disk space</td>
+</tr>
+<tr>
+<td><code>doctor.checkGitHubToken</code></td>
+<td><code>true</code></td>
+<td>Check for <code>GITHUB_TOKEN</code> presence</td>
+</tr>
+<tr>
+<td><code>doctor.autoFix</code></td>
+<td><code>false</code></td>
+<td>Automatically fix issues in <code>mip doctor</code></td>
+</tr>
+<tr>
+<td><code>doctor.checkNetwork</code></td>
+<td><code>true</code></td>
+<td>Check network availability</td>
+</tr>
+<tr>
+<td><code>doctor.checkPermissions</code></td>
+<td><code>true</code></td>
+<td>Check file permissions</td>
+</tr>
+<tr>
+<td><code>doctor.checkSymlinks</code></td>
+<td><code>true</code></td>
+<td>Check symlink integrity</td>
+</tr>
+<tr>
+<td><code>doctor.checkManifest</code></td>
+<td><code>true</code></td>
+<td>Check manifest integrity</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-server-mip-server" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-server-mip-server" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Server (<code>mip server</code>)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>server.port</code></td>
+<td><code>3000</code></td>
+<td>Port for web server (<code>mip server</code>)</td>
+</tr>
+<tr>
+<td><code>server.host</code></td>
+<td><code>localhost</code></td>
+<td>Host for web server</td>
+</tr>
+<tr>
+<td><code>server.autoOpen</code></td>
+<td><code>false</code></td>
+<td>Auto-open browser when server starts</td>
+</tr>
+<tr>
+<td><code>server.refreshInterval</code></td>
+<td><code>3000</code></td>
+<td>Dashboard refresh interval (ms)</td>
+</tr>
+<tr>
+<td><code>server.darkTheme</code></td>
+<td><code>true</code></td>
+<td>Use dark theme in dashboard</td>
+</tr>
+<tr>
+<td><code>server.authToken</code></td>
+<td><code>null</code></td>
+<td>Authentication token for dashboard</td>
+</tr>
+<tr>
+<td><code>server.enableCors</code></td>
+<td><code>true</code></td>
+<td>Enable CORS for dashboard</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-cli-behavior" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-cli-behavior" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>CLI Behavior</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cli.suggestCommands</code></td>
+<td><code>true</code></td>
+<td>Suggest similar commands on error</td>
+</tr>
+<tr>
+<td><code>cli.autoComplete</code></td>
+<td><code>true</code></td>
+<td>Enable terminal autocompletion</td>
+</tr>
+<tr>
+<td><code>cli.pager</code></td>
+<td><code>false</code></td>
+<td>Use pager for long output</td>
+</tr>
+<tr>
+<td><code>cli.confirmExit</code></td>
+<td><code>false</code></td>
+<td>Ask for confirmation on exit</td>
+</tr>
+<tr>
+<td><code>cli.showTimings</code></td>
+<td><code>false</code></td>
+<td>Show command execution time</td>
+</tr>
+<tr>
+<td><code>cli.noColor</code></td>
+<td><code>false</code></td>
+<td>Disable colors in output</td>
+</tr>
+<tr>
+<td><code>cli.quiet</code></td>
+<td><code>false</code></td>
+<td>Minimal output (errors only)</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-plugins" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-plugins" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Plugins</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugins.autoLoad</code></td>
+<td><code>true</code></td>
+<td>Auto-load plugins from plugins directory</td>
+</tr>
+<tr>
+<td><code>plugins.allowUnsecure</code></td>
+<td><code>false</code></td>
+<td>Allow installing untrusted plugins</td>
+</tr>
+<tr>
+<td><code>plugins.path</code></td>
+<td><code>./plugins</code></td>
+<td>Path to plugins directory</td>
+</tr>
+<tr>
+<td><code>plugins.allowGlobal</code></td>
+<td><code>false</code></td>
+<td>Allow global plugins installation</td>
+</tr>
+<tr>
+<td><code>plugins.verbose</code></td>
+<td><code>false</code></td>
+<td>Show verbose plugin output</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-internationalization" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-internationalization" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Internationalization</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>i18n.language</code></td>
+<td><code>en</code></td>
+<td>Interface language (en, ru, etc.)</td>
+</tr>
+<tr>
+<td><code>i18n.fallback</code></td>
+<td><code>en</code></td>
+<td>Fallback language if selected is unavailable</td>
+</tr>
+<tr>
+<td><code>i18n.loadCustom</code></td>
+<td><code>true</code></td>
+<td>Load custom language packs</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-experimental-features" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-experimental-features" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Experimental Features</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>experimental.enabled</code></td>
+<td><code>false</code></td>
+<td>Enable experimental features (caution!)</td>
+</tr>
+<tr>
+<td><code>experimental.useNewResolver</code></td>
+<td><code>false</code></td>
+<td>Use new dependency resolver</td>
+</tr>
+<tr>
+<td><code>experimental.fastGlob</code></td>
+<td><code>false</code></td>
+<td>Use fast glob for file searching</td>
+</tr>
+<tr>
+<td><code>experimental.parallelExtract</code></td>
+<td><code>false</code></td>
+<td>Extract archives in parallel</td>
+</tr>
+<tr>
+<td><code>experimental.symlinkCache</code></td>
+<td><code>false</code></td>
+<td>Cache symlink information</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h3 id="mip-features-documentation-feature-categories-message-of-the-day-motd" class="docmd-heading"><a href="#mip-features-documentation-feature-categories-message-of-the-day-motd" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Message of the Day (MOTD)</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>motd.enabled</code></td>
+<td><code>true</code></td>
+<td>Show Message of the Day with quotes and tips on each startup</td>
+</tr>
+</tbody>
+</table>
+</div><hr>
+<h2 id="mip-features-documentation-configuration-file-example" class="docmd-heading"><a href="#mip-features-documentation-configuration-file-example" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Configuration File Example</h2>
+<pre class="hljs"><code class="language-yaml"><span class="hljs-comment"># mip.config.yml</span>
+
+<span class="hljs-comment"># === GLOBAL ===</span>
+config.<span class="hljs-attr">enabled</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === INSTALL ===</span>
+install.<span class="hljs-attr">parallel</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+install.<span class="hljs-attr">forceReinstall</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+install.<span class="hljs-attr">saveExact</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+install.<span class="hljs-attr">dryRun</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment"># === UPDATE ===</span>
+update.<span class="hljs-attr">checkForUpdates</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+update.<span class="hljs-attr">autoUpdate</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+update.<span class="hljs-attr">prerelease</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+update.<span class="hljs-attr">major</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+update.<span class="hljs-attr">minor</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+update.<span class="hljs-attr">patch</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === AUDIT ===</span>
+audit.<span class="hljs-attr">enabled</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+audit.<span class="hljs-attr">ignoreLow</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+audit.<span class="hljs-attr">parallelScan</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+audit.<span class="hljs-attr">timeout</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5000</span>
+
+<span class="hljs-comment"># === CACHE ===</span>
+cache.<span class="hljs-attr">enabled</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+cache.<span class="hljs-attr">maxSize</span><span class="hljs-punctuation">:</span> <span class="hljs-number">500</span>
+cache.<span class="hljs-attr">path</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">~/</span>.<span class="hljs-attr">mip</span><span class="hljs-punctuation">/</span>cache
+
+<span class="hljs-comment"># === PERFORMANCE ===</span>
+performance.<span class="hljs-attr">parallelDownloads</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5</span>
+performance.<span class="hljs-attr">useMemoryCache</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === LOGGING ===</span>
+logging.<span class="hljs-attr">level</span><span class="hljs-punctuation">:</span> info
+logging.<span class="hljs-attr">color</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === INTERACTIVE ===</span>
+interactive.<span class="hljs-attr">promptOnDelete</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+interactive.<span class="hljs-attr">promptOnUpdate</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === REGISTRY ===</span>
+registry.<span class="hljs-keyword">default</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">npm</span>
+registry.<span class="hljs-attr">fallbackToNpm</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === DEPENDENCY ===</span>
+dependency.<span class="hljs-attr">resolutionStrategy</span><span class="hljs-punctuation">:</span> semver
+dependency.<span class="hljs-attr">dedupeOnInstall</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === DOCTOR ===</span>
+doctor.<span class="hljs-attr">checkNodeVersion</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+doctor.<span class="hljs-attr">checkDiskSpace</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === SERVER ===</span>
+server.<span class="hljs-attr">port</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3000</span>
+server.<span class="hljs-attr">darkTheme</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === CLI ===</span>
+cli.<span class="hljs-attr">suggestCommands</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === PLUGINS ===</span>
+plugins.<span class="hljs-attr">autoLoad</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+
+<span class="hljs-comment"># === I18N ===</span>
+i18n.<span class="hljs-attr">language</span><span class="hljs-punctuation">:</span> en
+
+<span class="hljs-comment"># === EXPERIMENTAL ===</span>
+experimental.<span class="hljs-attr">enabled</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment"># === MOTD ===</span>
+motd.<span class="hljs-attr">enabled</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+</code></pre>
+<h2 id="mip-features-documentation-common-use-cases" class="docmd-heading"><a href="#mip-features-documentation-common-use-cases" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common Use Cases</h2>
+<h3 id="mip-features-documentation-common-use-cases-cicd-optimizations" class="docmd-heading"><a href="#mip-features-documentation-common-use-cases-cicd-optimizations" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>CI/CD Optimizations</h3>
+<p>For CI/CD environments, disable heavy features for maximum speed:</p>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">audit</span>.<span class="hljs-attr">enabled</span> <span class="hljs-keyword">false</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">update</span>.<span class="hljs-attr">checkForUpdates</span> <span class="hljs-keyword">false</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">interactive</span>.<span class="hljs-attr">promptOnInstall</span> <span class="hljs-keyword">false</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">interactive</span>.<span class="hljs-attr">autoConfirm</span> <span class="hljs-keyword">true</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">motd</span>.<span class="hljs-attr">enabled</span> <span class="hljs-keyword">false</span>
+</code></pre>
+<h3 id="mip-features-documentation-common-use-cases-development-environment" class="docmd-heading"><a href="#mip-features-documentation-common-use-cases-development-environment" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Development Environment</h3>
+<p>Enable helpful features for development:</p>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">install</span>.<span class="hljs-attr">parallel</span> <span class="hljs-keyword">true</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">logging</span>.<span class="hljs-attr">level</span> debug
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">motd</span>.<span class="hljs-attr">enabled</span> <span class="hljs-keyword">true</span>
+</code></pre>
+<h3 id="mip-features-documentation-common-use-cases-production-builds" class="docmd-heading"><a href="#mip-features-documentation-common-use-cases-production-builds" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Production Builds</h3>
+<p>For production builds, ensure reproducibility:</p>
+<pre class="hljs"><code class="language-bash">mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">install</span>.<span class="hljs-attr">saveExact</span> <span class="hljs-keyword">true</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">update</span>.<span class="hljs-attr">major</span> <span class="hljs-keyword">false</span>
+mip config <span class="hljs-keyword">set</span> features.<span class="hljs-attr">dependency</span>.<span class="hljs-attr">resolutionStrategy</span> exact
+</code></pre>
+<h2 id="mip-features-documentation-troubleshooting" class="docmd-heading"><a href="#mip-features-documentation-troubleshooting" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Troubleshooting</h2>
+<h3 id="mip-features-documentation-troubleshooting-feature-not-found" class="docmd-heading"><a href="#mip-features-documentation-troubleshooting-feature-not-found" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Feature Not Found</h3>
+<pre class="hljs"><code>❌ Feature <span class="hljs-string">&quot;install.xxx&quot;</span> not found
+</code></pre>
+<p><strong>Resolution:</strong></p>
+<ol>
+<li>Check available features: <code>mip --list-features</code></li>
+<li>Make sure you typed the feature name correctly</li>
+<li>Features use dot notation: <code>install.parallel</code>, <code>update.checkForUpdates</code></li>
+</ol>
+<h3 id="mip-features-documentation-troubleshooting-features-disabled" class="docmd-heading"><a href="#mip-features-documentation-troubleshooting-features-disabled" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Features Disabled</h3>
+<pre class="hljs"><code>⚠️ Features are currently DISABLED
+</code></pre>
+<p><strong>Resolution:</strong></p>
+<ol>
+<li>Enable features: <code>mip config set features.config.enabled true</code></li>
+<li>Or edit <code>mip.config.yml</code> and set <code>config.enabled: true</code></li>
+</ol>
+<h3 id="mip-features-documentation-troubleshooting-invalid-value" class="docmd-heading"><a href="#mip-features-documentation-troubleshooting-invalid-value" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Invalid Value</h3>
+<pre class="hljs"><code>⚠️ Invalid value <span class="hljs-keyword">for</span> feature <span class="hljs-string">&quot;install.parallel&quot;</span>
+</code></pre>
+<p><strong>Resolution:</strong></p>
+<ul>
+<li>Booleans: <code>true</code> or <code>false</code></li>
+<li>Numbers: <code>5</code>, <code>3000</code>, <code>86400</code></li>
+<li>Strings: <code>&quot;info&quot;</code>, <code>&quot;localhost&quot;</code>, <code>&quot;npm&quot;</code></li>
+<li>Check the feature description for the expected type</li>
+</ul>
+<h2 id="mip-features-documentation-related-commands" class="docmd-heading"><a href="#mip-features-documentation-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related Commands</h2>
+<ul>
+<li><a href="/commands/config/">mip config</a> - manage configuration</li>
+<li><a href="/commands/genconfig/">mip --genconfig</a> - generate feature configuration</li>
+<li><a href="/commands/list-features/">mip --list-features</a> - list all features</li>
+<li><a href="/commands/doctor/">mip doctor</a> - system diagnostics</li>
+<li><a href="/commands/registry/">mip registry</a> - manage registries</li>
+</ul>
+
+                
+                  <div class="page-navigation">
+                    
+                      <a href="../../pro-users/ci-cd/" class="prev-page">
+                        
+<svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-left"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" />
+</svg>
+
+                        <span><small>previous</small><strong>
+                            CI/CD
+                          </strong></span>
+                      </a>
+                    
+                    
+                      <a href="../../dev/" class="next-page">
+                        <span><small>next</small>
+                          <strong>
+                            Overview
+                          </strong></span>
+                        
+<svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-arrow-right"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M5 12h14" />
+  <path d="m12 5 7 7-7 7" />
+</svg>
+
+                      </a>
+                    
+                  </div>
+                
+              </div>
+              <div class="toc-sidebar">
+                
+
+
+  <div class="toc-container">
+    <h2 class="toc-title">onThisPage<span class="mobile-view toc-menu-button float-right">
+<svg class="lucide-icon icon-chevron-down " width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-chevron-down"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m6 9 6 6 6-6" />
+</svg>
+</span></h2>
+    <ul class="toc-list">
+      
+        <li class="toc-item toc-level-1">
+          <a href="#mip-features-documentation" class="toc-link">MIP Features Documentation</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-overview" class="toc-link">Overview</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-quick-start" class="toc-link">Quick Start</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-feature-categories" class="toc-link">Feature Categories</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-global" class="toc-link">Global</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-install-update" class="toc-link">Install &amp; Update</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-security-audit" class="toc-link">Security &amp; Audit</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-caching" class="toc-link">Caching</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-performance" class="toc-link">Performance</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-logging-debug" class="toc-link">Logging &amp; Debug</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-interactivity" class="toc-link">Interactivity</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-registries" class="toc-link">Registries</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-dependency-resolution" class="toc-link">Dependency Resolution</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-git-integration" class="toc-link">Git &amp; Integration</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-monorepo-workspaces" class="toc-link">Monorepo (Workspaces)</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-doctor-diagnostics" class="toc-link">Doctor (Diagnostics)</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-server-mip-server" class="toc-link">Server (mip server)</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-cli-behavior" class="toc-link">CLI Behavior</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-plugins" class="toc-link">Plugins</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-internationalization" class="toc-link">Internationalization</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-experimental-features" class="toc-link">Experimental Features</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-feature-categories-message-of-the-day-motd" class="toc-link">Message of the Day (MOTD)</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-configuration-file-example" class="toc-link">Configuration File Example</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-common-use-cases" class="toc-link">Common Use Cases</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-common-use-cases-cicd-optimizations" class="toc-link">CI/CD Optimizations</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-common-use-cases-development-environment" class="toc-link">Development Environment</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-common-use-cases-production-builds" class="toc-link">Production Builds</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-troubleshooting" class="toc-link">Troubleshooting</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-troubleshooting-feature-not-found" class="toc-link">Feature Not Found</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-troubleshooting-features-disabled" class="toc-link">Features Disabled</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-features-documentation-troubleshooting-invalid-value" class="toc-link">Invalid Value</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-features-documentation-related-commands" class="toc-link">Related Commands</a>
+        </li>
+      
+    </ul>
+  </div>
+
+              </div>
+            </div>
+            <div class="page-footer-actions">
+              
+              
+              <span class="git-spacer"></span>
+              
+            </div>
+          </main>
+          
+
+
+<footer class="page-footer">
+  <div class="footer-content">
+    <div class="user-footer">© 2026 MIP. Open-source MIT.</div>
+    
+      <div class="branding-footer">
+        builtWith <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"></path><path d="m18 15-2-2"></path><path d="m15 18-2-2"></path></svg> <a href="https://docmd.io" target="_blank" rel="noopener">docmd.</a>
+      </div>
+    
+  </div>
+</footer>
+
+        </div>
+      </div>
+      
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+
+  <!-- Search Modal (Injected by @docmd/plugin-search) -->
+  <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
+       data-search-placeholder="Search documentation..."
+       data-search-no-results="No results found."
+       data-search-error="Failed to load search index."
+       data-search-initial="Type to start searching..."
+       data-search-navigate="to navigate"
+       data-search-escape="to close">
+      <div class="docmd-search-box">
+          <div class="docmd-search-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+              <input type="text" id="docmd-search-input" placeholder="Search documentation..." autocomplete="off" spellcheck="false">
+              <button onclick="window.closeDocmdSearch()" class="docmd-search-close" aria-label="Close search">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon icon-x"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+              </button>
+          </div>
+          <div id="docmd-search-results" class="docmd-search-results"></div>
+          <div class="docmd-search-footer">
+              <span><kbd class="docmd-kbd">↑</kbd> <kbd class="docmd-kbd">↓</kbd> to navigate</span>
+              <span><kbd class="docmd-kbd">ESC</kbd> to close</span>
+          </div>
+      </div>
+  </div>
+
+    <script>
+      (function() {
+        var searchDebounceTimer;
+
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link || !window.gtag) return;
+          
+          var url = link.href;
+          var hostname = window.location.hostname;
+          var isExternal = link.hostname && link.hostname !== hostname;
+          var isDownload = link.hasAttribute('download') || url.match(/\.(pdf|zip|tar|gz|exe|pkg)$/i);
+          
+          if (isExternal) {
+            gtag('event', 'click_external', { 'url': url, 'link_text': link.innerText.trim() });
+          } else if (isDownload) {
+            gtag('event', 'download', { 'file_name': url.split('/').pop(), 'url': url });
+          }
+
+          // TOC tracking
+          if (link.classList.contains('toc-link')) {
+            gtag('event', 'toc_click', { 'target_id': link.getAttribute('href'), 'title': link.innerText.trim() });
+          }
+
+          // Permalink tracking
+          if (link.classList.contains('heading-anchor')) {
+            gtag('event', 'permalink_click', { 'url': url });
+          }
+        });
+
+        
+        // Search Keyword Tracking
+        document.addEventListener('input', function(e) {
+          if (e.target.id === 'docmd-search-input' && window.gtag) {
+            var query = e.target.value.trim();
+            if (query.length < 3) return;
+            
+            clearTimeout(searchDebounceTimer);
+            searchDebounceTimer = setTimeout(function() {
+              gtag('event', 'search', { 'search_term': query });
+            }, 1000);
+          }
+        });
+        
+      })();
+    </script>
+
+<script>window.__git_config={"repo":null,"branch":"main","editLink":false,"lastUpdated":true,"commitHistory":true,"maxCommits":5,"dateFormat":"relative"};window.__git_i18n={"lastUpdated":"Last updated","recentCommits":"Recent commits","viewCommitHistory":"View commit history","editOnGitHub":"Edit on GitHub","editOnGitLab":"Edit on GitLab","editOnBitbucket":"Edit on Bitbucket","editThisPage":"Edit this page","justNow":"just now","minutesAgo":"{n}m ago","hoursAgo":"{n}h ago","daysAgo":"{n}d ago"}</script>
+      
+      
+      
+  </body>
+</html>

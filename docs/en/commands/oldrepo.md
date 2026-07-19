@@ -1,12 +1,12 @@
 ---
-title: "mip repo — interactive GitHub repository browser"
+title: "mip repo - interactive GitHub repository browser"
 description: "The repo command allows you to browse GitHub repositories directly from the terminal, navigate folders, read READMEs, and download files."
 ---
 
 # mip repo
 
 ::: callout info "What is this?" icon:github
-`mip repo` is an interactive file manager for GitHub repositories. You can browse repository contents, navigate folders, read READMEs in full-screen mode, and download files locally — all without cloning the repository. The command uses the GitHub API and supports authentication via `GITHUB_TOKEN` to bypass rate limits.
+`mip repo` is an interactive file manager for GitHub repositories. You can browse repository contents, navigate folders, read READMEs in full-screen mode, and download files locally - all without cloning the repository. The command uses the GitHub API and supports authentication via `GITHUB_TOKEN` to bypass rate limits.
 :::
 
 ## Syntax
@@ -30,18 +30,18 @@ mip repo <owner/repo> [--branch <branch>] [--path <download-path>]
 
 ## How it works
 
-1. **Connect to GitHub API** — the command uses the public GitHub API to fetch repository contents.
+1. **Connect to GitHub API** - the command uses the public GitHub API to fetch repository contents.
 
-2. **Authentication** — if the `GITHUB_TOKEN` environment variable is set, it is used to increase API rate limits.
+2. **Authentication** - if the `GITHUB_TOKEN` environment variable is set, it is used to increase API rate limits.
 
-3. **Interactive mode** — after entering the repository, an interactive shell opens with the following commands:
-   - `ls` — show contents of the current folder.
-   - `cd <folder>` — navigate to a folder.
-   - `cd ..` — go up one level.
-   - `readme` or `cat` — show README in full-screen mode.
-   - `get <filename>` — download a file to the local folder.
-   - `help` or `?` — show help.
-   - `exit` — exit the browser.
+3. **Interactive mode** - after entering the repository, an interactive shell opens with the following commands:
+   - `ls` - show contents of the current folder.
+   - `cd <folder>` - navigate to a folder.
+   - `cd ..` - go up one level.
+   - `readme` or `cat` - show README in full-screen mode.
+   - `get <filename>` - download a file to the local folder.
+   - `help` or `?` - show help.
+   - `exit` - exit the browser.
 
 ## Examples
 
@@ -91,10 +91,10 @@ mip repo> readme
 ```
 
 Opens full-screen README viewer:
-- `j` / `↓` — scroll down.
-- `k` / `↑` — scroll up.
-- `PgDn` / `PgUp` — page scroll.
-- `q` — exit read mode.
+- `j` / `↓` - scroll down.
+- `k` / `↑` - scroll up.
+- `PgDn` / `PgUp` - page scroll.
+- `q` - exit read mode.
 :::
 == tab "Download a file"
 ```bash
@@ -151,16 +151,16 @@ For private repositories, set `GITHUB_TOKEN` with read permissions.
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages (can be used with GitHub repositories).
-- [mip info](/commands/info) — package information from the registry.
+- [mip install](/commands/install) - install packages (can be used with GitHub repositories).
+- [mip info](/commands/info) - package information from the registry.
 
 ::: collapsible "🧠 How does interactive mode work?"
 After entering the repository, a **REPL shell** (Read-Eval-Print Loop) opens where you can execute commands:
 
-1. **`ls`** — queries the GitHub API for the current folder contents.
-2. **`cd <folder>`** — updates the path and re-queries contents.
-3. **`readme`** — searches for README files in the current folder (first looks for `README.md`, then other variants) and opens them in full-screen mode.
-4. **`get <file>`** — downloads a file to the folder specified in `--path`.
+1. **`ls`** - queries the GitHub API for the current folder contents.
+2. **`cd <folder>`** - updates the path and re-queries contents.
+3. **`readme`** - searches for README files in the current folder (first looks for `README.md`, then other variants) and opens them in full-screen mode.
+4. **`get <file>`** - downloads a file to the folder specified in `--path`.
 
 **Full-screen README mode:**
 - Uses the terminal's alternate screen.

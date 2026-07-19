@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip update — update packages to the latest versions : MIP - Modern Package Manager
+      mip update - update packages to the latest versions : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The update command checks for updates for all dependencies and installs them after user confirmation.">
 <link rel="canonical" href="https://mip.fwh.is/commands/update/">
-<meta property="og:title" content="mip update — update packages to the latest versions - MIP - Modern Package Manager">
+<meta property="og:title" content="mip update - update packages to the latest versions - MIP - Modern Package Manager">
 <meta property="og:description" content="The update command checks for updates for all dependencies and installs them after user confirmation.">
 <meta property="og:url" content="https://mip.fwh.is/commands/update/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip update — update packages to the latest versions - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip update - update packages to the latest versions - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The update command checks for updates for all dependencies and installs them after user confirmation.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/update/">
 <link rel="alternate" hreflang="en" href="/commands/update/">
 <link rel="alternate" hreflang="x-default" href="/commands/update/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip update — update packages to the latest versions
+                  mip update - update packages to the latest versions
                 </span>
               </div>
             </div>
@@ -1789,23 +1853,23 @@ What is this?</div><div class="callout-content">
 </code></pre>
 <h2 id="mip-update-how-it-works" class="docmd-heading"><a href="#mip-update-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Read <code>mip.yml</code></strong> — loads all dependencies from <code>dependencies</code> and <code>devDependencies</code>.</p>
+<li><p><strong>Read <code>mip.yml</code></strong> - loads all dependencies from <code>dependencies</code> and <code>devDependencies</code>.</p>
 </li>
-<li><p><strong>Parallel check</strong> — for each package, a request is made to the registry to get the latest version.</p>
+<li><p><strong>Parallel check</strong> - for each package, a request is made to the registry to get the latest version.</p>
 </li>
-<li><p><strong>Compare versions</strong> — if the latest version differs from the current one, the package is added to the update list.</p>
+<li><p><strong>Compare versions</strong> - if the latest version differs from the current one, the package is added to the update list.</p>
 </li>
-<li><p><strong>Check global cache</strong> — shows whether the package will be taken from the global cache (<code>🌍</code>) or downloaded again (<code>📡</code>).</p>
+<li><p><strong>Check global cache</strong> - shows whether the package will be taken from the global cache (<code>🌍</code>) or downloaded again (<code>📡</code>).</p>
 </li>
-<li><p><strong>Check manifest</strong> — shows whether the package is installed in the project (<code>📋</code>) or not (<code>❌</code>).</p>
+<li><p><strong>Check manifest</strong> - shows whether the package is installed in the project (<code>📋</code>) or not (<code>❌</code>).</p>
 </li>
-<li><p><strong>Display list</strong> — shows all packages that can be updated, with current and new versions, as well as cache and manifest status.</p>
+<li><p><strong>Display list</strong> - shows all packages that can be updated, with current and new versions, as well as cache and manifest status.</p>
 </li>
-<li><p><strong>Request confirmation</strong> — asks the user: <em>“Update these packages? (y/N)”</em>.</p>
+<li><p><strong>Request confirmation</strong> - asks the user: <em>“Update these packages? (y/N)”</em>.</p>
 </li>
-<li><p><strong>Install updates</strong> — on confirmation, installs new versions with forced reload (<code>force: true</code>).</p>
+<li><p><strong>Install updates</strong> - on confirmation, installs new versions with forced reload (<code>force: true</code>).</p>
 </li>
-<li><p><strong>Update lockfile</strong> — automatically updates <code>mip-lock.yml</code> with new versions.</p>
+<li><p><strong>Update lockfile</strong> - automatically updates <code>mip-lock.yml</code> with new versions.</p>
 </li>
 </ol>
 <h2 id="mip-update-examples" class="docmd-heading"><a href="#mip-update-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1904,7 +1968,7 @@ Update these packages<span class="hljs-punctuation">?</span> (y<span class="hljs
 <ol>
 <li>Navigate to the project folder: <code>cd /path/to/project</code></li>
 <li>Make sure <code>mip.yml</code> exists there.</li>
-<li>If not — create it: <code>mip init</code></li>
+<li>If not - create it: <code>mip init</code></li>
 </ol>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
@@ -1960,15 +2024,15 @@ Update these packages<span class="hljs-punctuation">?</span> (y<span class="hljs
 <p><strong>After updating:</strong></p>
 <ol>
 <li>Check that the project works: <code>mip run test</code></li>
-<li>If there are issues — use <code>mip install</code> to reinstall.</li>
+<li>If there are issues - use <code>mip install</code> to reinstall.</li>
 <li>Commit the updated <code>mip.yml</code> and <code>mip-lock.yml</code>.</li>
 </ol>
 </div></div>
 <h2 id="mip-update-related-commands" class="docmd-heading"><a href="#mip-update-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/outdated/">mip outdated</a> — check outdated packages (without installation).</li>
-<li><a href="/commands/install/">mip install</a> — install a specific package.</li>
-<li><a href="/commands/audit/">mip audit</a> — security check.</li>
+<li><a href="/commands/outdated/">mip outdated</a> - check outdated packages (without installation).</li>
+<li><a href="/commands/install/">mip install</a> - install a specific package.</li>
+<li><a href="/commands/audit/">mip audit</a> - security check.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1979,9 +2043,9 @@ Update these packages<span class="hljs-punctuation">?</span> (y<span class="hljs
 <p><code>mip update</code> performs updates through the existing installation mechanism:</p>
 <p><strong>Steps:</strong></p>
 <ol>
-<li><strong>Version check</strong> — for each package, gets the latest version from the registry.</li>
-<li><strong>Comparison</strong> — if the latest version differs from the current one, the package is added to the list.</li>
-<li><strong>Installation</strong> — calls <code>installPackage()</code> with the <code>force: true</code> flag, which:
+<li><strong>Version check</strong> - for each package, gets the latest version from the registry.</li>
+<li><strong>Comparison</strong> - if the latest version differs from the current one, the package is added to the list.</li>
+<li><strong>Installation</strong> - calls <code>installPackage()</code> with the <code>force: true</code> flag, which:
 <ul>
 <li>Overwrites the existing package in the global cache.</li>
 <li>Updates <code>mip-lock.yml</code>.</li>
@@ -1989,7 +2053,7 @@ Update these packages<span class="hljs-punctuation">?</span> (y<span class="hljs
 </ul>
 </li>
 </ol>
-<p><strong>Important:</strong> <code>mip update</code> updates packages <strong>to the latest version</strong>, regardless of the range in <code>mip.yml</code>. If you want to update only within the range — use <code>mip install</code> with a specific version.</p>
+<p><strong>Important:</strong> <code>mip update</code> updates packages <strong>to the latest version</strong>, regardless of the range in <code>mip.yml</code>. If you want to update only within the range - use <code>mip install</code> with a specific version.</p>
 <p><strong>Example:</strong></p>
 <pre class="hljs"><code class="language-yaml"><span class="hljs-comment"># mip.yml</span>
 dependencies<span class="hljs-punctuation">:</span>
@@ -2182,15 +2246,15 @@ dependencies<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

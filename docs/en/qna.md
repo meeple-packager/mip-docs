@@ -1,6 +1,6 @@
 ---
 title: "Quick Q&A (Q&A)"
-description: "The most common questions about MIP — installation, configuration, comparison with npm, troubleshooting."
+description: "The most common questions about MIP - installation, configuration, comparison with npm, troubleshooting."
 ---
 
 # 📌 Quick Questions & Answers (Q&A)
@@ -38,8 +38,8 @@ mip init
 ```
 
 MIP will create:
-- `mip.json` — project configuration
-- `.mip/` — local package storage
+- `mip.json` - project configuration
+- `.mip/` - local package storage
 - `README.md` with hints
 
 After that, you can install packages:
@@ -53,7 +53,7 @@ mip run start
 :::
 
 ::: collapsible "Where are installed packages stored?"
-All packages are stored in `.mip/<name>/<version>/`. No duplicates in `node_modules` — only one copy of each version.
+All packages are stored in `.mip/<name>/<version>/`. No duplicates in `node_modules` - only one copy of each version.
 
 Example:
 
@@ -76,10 +76,10 @@ Example:
 
 ::: collapsible "Why is MIP so fast?"
 MIP uses:
-- **Parallel downloads** — up to 10 packages at the same time.
-- **HTTP/2** — request multiplexing.
-- **Aggressive caching** — after the first time, packages are stored locally.
-- **No duplication** — each package version is stored only once in `.mip/`.
+- **Parallel downloads** - up to 10 packages at the same time.
+- **HTTP/2** - request multiplexing.
+- **Aggressive caching** - after the first time, packages are stored locally.
+- **No duplication** - each package version is stored only once in `.mip/`.
 
 **Benchmarks** (cold cache, install `express lodash axios`):
 ```
@@ -113,8 +113,8 @@ Comparison:
 ## 🔧 Using commands
 
 ::: collapsible "What’s the difference between `mip run` and `mip exec`?"
-- `mip run <script>` — runs a script from the `scripts` section in `mip.json`. This is similar to `npm run`.
-- `mip exec <command>` — executes any binary from installed packages, even if it’s not listed in scripts. For example: `mip exec jest` will run Jest if it’s installed.
+- `mip run <script>` - runs a script from the `scripts` section in `mip.json`. This is similar to `npm run`.
+- `mip exec <command>` - executes any binary from installed packages, even if it’s not listed in scripts. For example: `mip exec jest` will run Jest if it’s installed.
 
 📖 [Commands](/commands/run) and [exec](/commands/exec)
 :::
@@ -157,7 +157,7 @@ For extra strictness:
 mip ci --frozen-lockfile
 ```
 
-It checks that the lockfile matches `mip.json` — if not, it exits with an error.
+It checks that the lockfile matches `mip.json` - if not, it exits with an error.
 
 📖 [CI](/commands/ci)
 :::
@@ -251,9 +251,9 @@ The builder will update the binaries. If MIP is already in your `PATH`, the new 
 
 ## 📚 Where else can I get help?
 
-- [Full FAQ](/other/faq) — detailed answers.
-- [Troubleshooting](/troubleshooting) — step-by-step instructions.
-- [Developer documentation](/dev) — for understanding internals.
+- [Full FAQ](/other/faq) - detailed answers.
+- [Troubleshooting](/troubleshooting) - step-by-step instructions.
+- [Developer documentation](/dev) - for understanding internals.
 
 ::: callout success "💬 Community"
 If you still can’t find an answer, open a [GitHub issue](https://github.com/zshx/mip/issues). The author responds quickly!

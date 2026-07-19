@@ -1,5 +1,5 @@
 ---
-title: "mip super-install — super-fast package installation"
+title: "mip super-install - super-fast package installation"
 description: "The super-install command uses multi-threaded downloading, HTTP/2, parallel extraction, and super-cache for the fastest possible dependency installation."
 ---
 
@@ -23,20 +23,20 @@ mip super-install <packages...> [options]
 
 ## How it works
 
-1. **Super-resolution** — uses `FastResolver` with aggressive caching for instant dependency resolution.
+1. **Super-resolution** - uses `FastResolver` with aggressive caching for instant dependency resolution.
 
-2. **Parallel downloading** — `ParallelDownloader` downloads up to 10 packages simultaneously using HTTP/2.
+2. **Parallel downloading** - `ParallelDownloader` downloads up to 10 packages simultaneously using HTTP/2.
 
-3. **Streaming extraction** — `StreamExtractor` extracts archives as they download, without waiting for all downloads to complete.
+3. **Streaming extraction** - `StreamExtractor` extracts archives as they download, without waiting for all downloads to complete.
 
-4. **Multi-threaded extraction** — uses all CPU cores for parallel package extraction.
+4. **Multi-threaded extraction** - uses all CPU cores for parallel package extraction.
 
-5. **Super-cache** — `SuperCache` caches:
+5. **Super-cache** - `SuperCache` caches:
    - Downloaded tarball archives.
    - Extracted packages.
    - Resolution results.
 
-6. **Lockfile update** — pins all installed versions.
+6. **Lockfile update** - pins all installed versions.
 
 ## Technologies
 
@@ -104,9 +104,9 @@ time mip super-install express # ~1.5s
 
 ::: callout tip "💡 Tip" icon:lightbulb
 `mip super-install` is ideal for:
-- **CI/CD** — saves minutes in every pipeline.
-- **Large projects** — with thousands of dependencies.
-- **Dev containers** — fast environment rebuilds.
+- **CI/CD** - saves minutes in every pipeline.
+- **Large projects** - with thousands of dependencies.
+- **Dev containers** - fast environment rebuilds.
 
 **Best practices:**
 1. Use `super-install` for cold installation.
@@ -116,9 +116,9 @@ time mip super-install express # ~1.5s
 
 ## Related commands
 
-- [mip install](/commands/install) — standard installation (slower but more stable).
-- [mip ci](/commands/ci) — CI installation (optimized for stability).
-- [mip cache clean](/commands/cache) — clear cache.
+- [mip install](/commands/install) - standard installation (slower but more stable).
+- [mip ci](/commands/ci) - CI installation (optimized for stability).
+- [mip cache clean](/commands/cache) - clear cache.
 
 ::: collapsible "🧠 Why is super-install so fast?"
 Installation stage comparison:
@@ -165,7 +165,7 @@ class SuperInstaller {
 ```
 
 **Caching:**
-1. **Level 1** — resolution (remembers versions).
-2. **Level 2** — tarball archives (saves downloaded files).
-3. **Level 3** — extracted packages (ready to use).
+1. **Level 1** - resolution (remembers versions).
+2. **Level 2** - tarball archives (saves downloaded files).
+3. **Level 3** - extracted packages (ready to use).
 :::

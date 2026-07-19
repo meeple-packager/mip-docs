@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip workspaces — управление монорепозиториями : MIP - Modern Package Manager
+      mip workspaces - управление монорепозиториями : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Команда workspaces позволяет управлять несколькими пакетами в одном репозитории, выполняя команды во всех воркспейсах одновременно.">
 <link rel="canonical" href="https://mip.fwh.is/ru/commands/workspaces/">
-<meta property="og:title" content="mip workspaces — управление монорепозиториями - MIP - Modern Package Manager">
+<meta property="og:title" content="mip workspaces - управление монорепозиториями - MIP - Modern Package Manager">
 <meta property="og:description" content="Команда workspaces позволяет управлять несколькими пакетами в одном репозитории, выполняя команды во всех воркспейсах одновременно.">
 <meta property="og:url" content="https://mip.fwh.is/ru/commands/workspaces/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip workspaces — управление монорепозиториями - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip workspaces - управление монорепозиториями - MIP - Modern Package Manager">
 <meta name="twitter:description" content="Команда workspaces позволяет управлять несколькими пакетами в одном репозитории, выполняя команды во всех воркспейсах одновременно.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/workspaces/">
 <link rel="alternate" hreflang="en" href="/commands/workspaces/">
 <link rel="alternate" hreflang="x-default" href="/commands/workspaces/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Функции конфиг-файла
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Настройка конфига
             </span>
           
           
@@ -1677,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip workspaces — управление монорепозиториями
+                  mip workspaces - управление монорепозиториями
                 </span>
               </div>
             </div>
@@ -1798,7 +1862,7 @@
   <path d="M3 8.268a2 2 0 0 0-1 1.738V19a2 2 0 0 0 2 2h11a2 2 0 0 0 1.732-1" />
 </svg>
 Что это?</div><div class="callout-content">
-<p><code>mip workspaces</code> — это команда для работы с <strong>монорепозиториями</strong> (монорепо). Она позволяет управлять несколькими пакетами в одном репозитории, выполняя команды (установка, запуск скриптов, выполнение команд) во всех воркспейсах одновременно. Это удобно для проектов с несколькими взаимосвязанными пакетами, библиотеками или микросервисами.</p>
+<p><code>mip workspaces</code> - это команда для работы с <strong>монорепозиториями</strong> (монорепо). Она позволяет управлять несколькими пакетами в одном репозитории, выполняя команды (установка, запуск скриптов, выполнение команд) во всех воркспейсах одновременно. Это удобно для проектов с несколькими взаимосвязанными пакетами, библиотеками или микросервисами.</p>
 </div></div>
 <h2 id="mip-workspaces-синтаксис" class="docmd-heading"><a href="#mip-workspaces-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
 <pre class="hljs"><code class="language-bash">mip workspaces <span class="hljs-punctuation">&lt;</span>action<span class="hljs-punctuation">&gt;</span> [arg]
@@ -1865,26 +1929,26 @@ workspaces<span class="hljs-punctuation">:</span>
 </code></pre>
 <p><strong>Поддерживаемые паттерны:</strong></p>
 <ul>
-<li><code>packages/*</code> — все папки внутри <code>packages/</code>.</li>
-<li><code>apps/*</code> — все папки внутри <code>apps/</code>.</li>
-<li><code>libs/shared</code> — конкретная папка.</li>
+<li><code>packages/*</code> - все папки внутри <code>packages/</code>.</li>
+<li><code>apps/*</code> - все папки внутри <code>apps/</code>.</li>
+<li><code>libs/shared</code> - конкретная папка.</li>
 </ul>
 <h2 id="mip-workspaces-логика-работы" class="docmd-heading"><a href="#mip-workspaces-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
 <ol>
-<li><p><strong>Чтение корневого <code>mip.yml</code></strong> — загружает список паттернов воркспейсов.</p>
+<li><p><strong>Чтение корневого <code>mip.yml</code></strong> - загружает список паттернов воркспейсов.</p>
 </li>
-<li><p><strong>Поиск воркспейсов</strong> — для каждого паттерна:</p>
+<li><p><strong>Поиск воркспейсов</strong> - для каждого паттерна:</p>
 <ul>
-<li>Если есть <code>*</code> — сканируются все подпапки на наличие <code>mip.yml</code>.</li>
-<li>Если нет <code>*</code> — проверяется конкретная папка.</li>
+<li>Если есть <code>*</code> - сканируются все подпапки на наличие <code>mip.yml</code>.</li>
+<li>Если нет <code>*</code> - проверяется конкретная папка.</li>
 </ul>
 </li>
-<li><p><strong>Выполнение действия</strong> — в зависимости от <code>action</code>:</p>
+<li><p><strong>Выполнение действия</strong> - в зависимости от <code>action</code>:</p>
 <ul>
-<li><strong><code>list</code></strong> — выводит список найденных воркспейсов.</li>
-<li><strong><code>run</code></strong> — выполняет <code>mip run &lt;script&gt;</code> в каждом воркспейсе.</li>
-<li><strong><code>install</code></strong> — выполняет <code>mip install</code> в каждом воркспейсе.</li>
-<li><strong><code>exec</code></strong> — выполняет произвольную команду в каждом воркспейсе.</li>
+<li><strong><code>list</code></strong> - выводит список найденных воркспейсов.</li>
+<li><strong><code>run</code></strong> - выполняет <code>mip run &lt;script&gt;</code> в каждом воркспейсе.</li>
+<li><strong><code>install</code></strong> - выполняет <code>mip install</code> в каждом воркспейсе.</li>
+<li><strong><code>exec</code></strong> - выполняет произвольную команду в каждом воркспейсе.</li>
 </ul>
 </li>
 </ol>
@@ -2066,11 +2130,11 @@ workspaces<span class="hljs-punctuation">:</span>
   <path d="M10 22h4" />
 </svg>
 💡 Совет</div><div class="callout-content">
-<p><code>mip workspaces</code> — это мощный инструмент для:</p>
+<p><code>mip workspaces</code> - это мощный инструмент для:</p>
 <ul>
-<li><strong>Монорепозиториев</strong> — управление несколькими пакетами из одной точки.</li>
-<li><strong>CI/CD</strong> — параллельная установка и тестирование всех компонентов.</li>
-<li><strong>Разработки</strong> — быстрый запуск скриптов во всех пакетах.</li>
+<li><strong>Монорепозиториев</strong> - управление несколькими пакетами из одной точки.</li>
+<li><strong>CI/CD</strong> - параллельная установка и тестирование всех компонентов.</li>
+<li><strong>Разработки</strong> - быстрый запуск скриптов во всех пакетах.</li>
 </ul>
 <p><strong>Лучшие практики:</strong></p>
 <ol>
@@ -2081,9 +2145,9 @@ workspaces<span class="hljs-punctuation">:</span>
 </div></div>
 <h2 id="mip-workspaces-связанные-команды" class="docmd-heading"><a href="#mip-workspaces-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
 <ul>
-<li><a href="/ru/commands/install/">mip install</a> — установка зависимостей (в корневом проекте).</li>
-<li><a href="/ru/commands/run/">mip run</a> — запуск скриптов (в корневом проекте).</li>
-<li><a href="/ru/commands/list/">mip list</a> — просмотр установленных пакетов.</li>
+<li><a href="/ru/commands/install/">mip install</a> - установка зависимостей (в корневом проекте).</li>
+<li><a href="/ru/commands/run/">mip run</a> - запуск скриптов (в корневом проекте).</li>
+<li><a href="/ru/commands/list/">mip list</a> - просмотр установленных пакетов.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -2093,7 +2157,7 @@ workspaces<span class="hljs-punctuation">:</span>
         <div class="collapsible-content">
 <p>Алгоритм поиска воркспейсов:</p>
 <ol>
-<li><p><strong>Чтение паттернов</strong> — из секции <code>workspaces</code> в корневом <code>mip.yml</code>.</p>
+<li><p><strong>Чтение паттернов</strong> - из секции <code>workspaces</code> в корневом <code>mip.yml</code>.</p>
 </li>
 <li><p><strong>Обработка каждого паттерна:</strong></p>
 <ul>
@@ -2120,7 +2184,7 @@ workspaces<span class="hljs-punctuation">:</span>
 </li>
 </ul>
 </li>
-<li><p><strong>Результат</strong> — массив путей к папкам с <code>mip.yml</code>.</p>
+<li><p><strong>Результат</strong> - массив путей к папкам с <code>mip.yml</code>.</p>
 </li>
 </ol>
 <p><strong>Важно:</strong> Поиск происходит только на один уровень вложенности. Для рекурсивного поиска используйте отдельные паттерны.</p>
@@ -2300,15 +2364,15 @@ workspaces<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

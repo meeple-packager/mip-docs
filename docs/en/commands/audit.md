@@ -1,5 +1,5 @@
 ---
-title: "mip audit — dependency security check"
+title: "mip audit - dependency security check"
 description: "The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes."
 ---
 
@@ -23,20 +23,20 @@ mip audit [--fix]
 
 ## How it works
 
-1. **Read the lockfile** — the command checks whether `mip-lock.yml` exists in the current directory. If it’s missing, execution stops.
+1. **Read the lockfile** - the command checks whether `mip-lock.yml` exists in the current directory. If it’s missing, execution stops.
 
-2. **Scan dependencies** — for each package from the lockfile, the command sends a request to the npm registry to get a list of known vulnerabilities.
+2. **Scan dependencies** - for each package from the lockfile, the command sends a request to the npm registry to get a list of known vulnerabilities.
 
-3. **Filtering** — it checks whether the current package version matches `vulnerable_versions` from the vulnerability database.
+3. **Filtering** - it checks whether the current package version matches `vulnerable_versions` from the vulnerability database.
 
-4. **Sorting** — all found vulnerabilities are sorted by CVSS score (from most critical to least dangerous).
+4. **Sorting** - all found vulnerabilities are sorted by CVSS score (from most critical to least dangerous).
 
-5. **Output report** — vulnerabilities are grouped by severity: 🔴 Critical, 🟠 High, 🟡 Moderate, 🔵 Low.
+5. **Output report** - vulnerabilities are grouped by severity: 🔴 Critical, 🟠 High, 🟡 Moderate, 🔵 Low.
 
 If `--fix` is specified:
-6. **Find fixes** — for each vulnerability, it checks whether `patched_versions` exists.
-7. **Update packages** — runs `mip install <pkg>@<fixed-version>`.
-8. **Sync `mip.yml`** — automatically updates `mip.yml`.
+6. **Find fixes** - for each vulnerability, it checks whether `patched_versions` exists.
+7. **Update packages** - runs `mip install <pkg>@<fixed-version>`.
+8. **Sync `mip.yml`** - automatically updates `mip.yml`.
 
 ## Examples
 
@@ -126,9 +126,9 @@ mip audit --fix
 
 ## Related commands
 
-- [mip outdated](/commands/outdated) — shows outdated packages (not only vulnerabilities)
-- [mip update](/commands/update) — updates all packages to the latest versions
-- [mip doctor](/commands/doctor) — checks the overall project health (including dependency conflicts)
+- [mip outdated](/commands/outdated) - shows outdated packages (not only vulnerabilities)
+- [mip update](/commands/update) - updates all packages to the latest versions
+- [mip doctor](/commands/doctor) - checks the overall project health (including dependency conflicts)
 
 ::: collapsible "🔧 How patch search works"
 When `--fix` is enabled, the command:

@@ -74,7 +74,7 @@ my-project/
 ```
 
 ::: tip "💡 Что такое mip.yml?"
-`mip.yml` — это новый формат конфигурации на YAML. Он читается проще, поддерживает комментарии и приятнее для ручного редактирования, чем JSON.
+`mip.yml` - это новый формат конфигурации на YAML. Он читается проще, поддерживает комментарии и приятнее для ручного редактирования, чем JSON.
 :::
 
 ### 3. Посмотри `mip.yml`
@@ -208,15 +208,15 @@ mip uninstall express
 
 Ты установил MIP и создал первый проект. Дальше:
 
-- [Конфигурация](/ru/setup/configuration) — настройка `mip.yml`
-- [Команды](/ru/commands/install) — все команды MIP
-- [Плагины](/ru/commands/plugin) — расширение MIP
+- [Конфигурация](/ru/setup/configuration) - настройка `mip.yml`
+- [Команды](/ru/commands/install) - все команды MIP
+- [Плагины](/ru/commands/plugin) - расширение MIP
 
 ---
 
 ## 🔗 Связанные страницы
 
-- [Установка](/ru/setup) — полный гайд по установке
-- [Конфигурация](/ru/setup/configuration) — настройка проекта
-- [mip init](/ru/commands/init) — создание проекта
-- [mip install](/ru/commands/install) — установка пакетов
+- [Установка](/ru/setup) - полный гайд по установке
+- [Конфигурация](/ru/setup/configuration) - настройка проекта
+- [mip init](/ru/commands/init) - создание проекта
+- [mip install](/ru/commands/install) - установка пакетов

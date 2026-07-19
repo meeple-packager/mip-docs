@@ -1,5 +1,5 @@
 ---
-title: "mip search — search for packages in the registry"
+title: "mip search - search for packages in the registry"
 description: "The search command searches the npm registry for packages matching a keyword, showing the name, version, and description."
 ---
 
@@ -23,17 +23,17 @@ mip search <query>
 
 ## How it works
 
-1. **Check arguments** — if no query is provided, usage help is displayed.
+1. **Check arguments** - if no query is provided, usage help is displayed.
 
-2. **Send request to registry** — the command performs a search via the npm registry API.
+2. **Send request to registry** - the command performs a search via the npm registry API.
 
-3. **Get results** — returns up to 20 packages matching the query.
+3. **Get results** - returns up to 20 packages matching the query.
 
-4. **Format output** — for each package, shows:
+4. **Format output** - for each package, shows:
    - Name and version.
    - Description (truncated to 70 characters).
 
-5. **Report count** — shows the total number of packages found.
+5. **Report count** - shows the total number of packages found.
 
 ## Examples
 
@@ -140,6 +140,6 @@ mip search
 
 ## Related commands
 
-- [mip info](/commands/info) — detailed information about a package.
-- [mip install](/commands/install) — install the found package.
-- [mip list](/commands/list) — view already installed packages.
+- [mip info](/commands/info) - detailed information about a package.
+- [mip install](/commands/install) - install the found package.
+- [mip list](/commands/list) - view already installed packages.

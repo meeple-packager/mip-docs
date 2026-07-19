@@ -12,7 +12,7 @@ A collection of key terms used in MIP and package managers.
 ## 🔤 A–Z
 
 ### API
-**Application Programming Interface** — a set of methods available to plugins for interacting with MIP.
+**Application Programming Interface** - a set of methods available to plugins for interacting with MIP.
 
 ### Audit
 Security check of dependencies. MIP checks packages against known vulnerabilities via the npm advisory database.
@@ -35,20 +35,20 @@ A Git branch. MIP uses `--branch` in the `repo` command to browse a specific bra
 Temporary data storage to speed up repeated operations. In MIP: `SuperCache` (3 levels: memory, disk, in-flight), and the global cache `~/.mip/store/`.
 
 ### CI
-**Continuous Integration** — continuous integration. The `mip ci` command is optimized for CI environments.
+**Continuous Integration** - continuous integration. The `mip ci` command is optimized for CI environments.
 
 ### CLI
-**Command Line Interface** — command line interface. MIP is a CLI tool.
+**Command Line Interface** - command line interface. MIP is a CLI tool.
 
 ### CVSS
-**Common Vulnerability Scoring System** — vulnerability scoring system. Used in `mip audit`.
+**Common Vulnerability Scoring System** - vulnerability scoring system. Used in `mip audit`.
 
 ---
 
 ## 🅳️ D
 
 ### Dedupe
-Deduplication — removing duplicate package versions. Command: `mip dedupe`.
+Deduplication - removing duplicate package versions. Command: `mip dedupe`.
 
 ### Dependency
 A package required by another package to work.
@@ -84,7 +84,7 @@ A lockfile in a frozen state. With `mip ci --frozen-lockfile`, installation fail
 ## 🅶️ G
 
 ### Global Install
-Global installation — a package becomes available from anywhere. In MIP: `mip global install`.
+Global installation - a package becomes available from anywhere. In MIP: `mip global install`.
 
 ### Global Store
 The global package storage at `~/.mip/store/`. All packages are stored once and shared across all projects.
@@ -107,7 +107,7 @@ A protocol for faster loading. MIP uses HTTP/2 for parallel package downloads.
 ## 🅸️ I
 
 ### i18n
-**Internationalization** — internationalization. In MIP: support for 10 languages.
+**Internationalization** - internationalization. In MIP: support for 10 languages.
 
 ### Integrity
 Package integrity. SHA256 hashes are stored in `mip-lock.yml` for verification.
@@ -133,22 +133,22 @@ A cache that removes old entries when full. Used in `SuperCache`.
 ## 🅼️ M
 
 ### MIP
-**MInimal Package Manager** — a minimalistic package manager.
+**MInimal Package Manager** - a minimalistic package manager.
 
 ### MIP Cache
-MIP cache — located in `.mip/cache/` (local) and `~/.mip/store/` (global).
+MIP cache - located in `.mip/cache/` (local) and `~/.mip/store/` (global).
 
 ### MIP Lock
-Lockfile — `mip-lock.yml`.
+Lockfile - `mip-lock.yml`.
 
 ### MIP Store
-Global package storage — `~/.mip/store/`.
+Global package storage - `~/.mip/store/`.
 
 ### Manifest
-The manifest — `.mip/manifest.json`, stores information about installed packages.
+The manifest - `.mip/manifest.json`, stores information about installed packages.
 
 ### Monorepo
-A monorepository — a project with multiple packages in one repository. In MIP: `mip workspaces`.
+A monorepository - a project with multiple packages in one repository. In MIP: `mip workspaces`.
 
 ---
 
@@ -161,7 +161,7 @@ The JavaScript runtime environment. MIP is written in Node.js.
 The folder with installed packages. In MIP, symlinks to the global cache are used instead of `node_modules`.
 
 ### npm
-**Node Package Manager** — the original package manager for Node.js.
+**Node Package Manager** - the original package manager for Node.js.
 
 ---
 
@@ -203,7 +203,7 @@ Manages plugin loading and registration.
 ## 🆁️ R
 
 ### Registry
-A package registry — for example, `registry.npmjs.org`.
+A package registry - for example, `registry.npmjs.org`.
 
 ### Resolved
 The tarball URL of a package, pinned in the lockfile.
@@ -216,16 +216,16 @@ A component that resolves dependency versions.
 ## 🆂️ S
 
 ### Semver
-**Semantic Versioning** — semantic versioning (MAJOR.MINOR.PATCH).
+**Semantic Versioning** - semantic versioning (MAJOR.MINOR.PATCH).
 
 ### Sidebar
 The sidebar in the documentation.
 
 ### SPA
-**Single Page Application** — single-page application. MIP documentation runs in SPA mode.
+**Single Page Application** - single-page application. MIP documentation runs in SPA mode.
 
 ### Stream Extract
-Streaming extraction — extracting a tarball without saving to disk.
+Streaming extraction - extracting a tarball without saving to disk.
 
 ### Super Cache
 Three-level cache in MIP (memory → disk → in-flight).
@@ -241,7 +241,7 @@ A symbolic link. MIP uses them to connect `node_modules/` with the global cache.
 A `.tgz` archive containing a package.
 
 ### TUI
-**Text User Interface** — text user interface. For example, `mip repo` in TUI mode.
+**Text User Interface** - text user interface. For example, `mip repo` in TUI mode.
 
 ---
 
@@ -265,7 +265,7 @@ A flaw in a package that can be exploited by an attacker.
 ## 🆆️ W
 
 ### Workspace
-A workspace — a separate package in a monorepository. Command: `mip workspaces`.
+A workspace - a separate package in a monorepository. Command: `mip workspaces`.
 
 ### Why
 Why is a package installed? Command: `mip why`.
@@ -274,4 +274,4 @@ Why is a package installed? Command: `mip why`.
 
 ## ❓ Questions?
 
-If you've encountered a term not listed in the glossary — [let us know](https://github.com/kiwinatra/mip/issues). We'll add it! 📝
+If you've encountered a term not listed in the glossary - [let us know](https://github.com/kiwinatra/mip/issues). We'll add it! 📝

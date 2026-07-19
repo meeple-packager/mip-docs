@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip dedupe — устранение дублирующихся зависимостей : MIP - Modern Package Manager
+      mip dedupe - устранение дублирующихся зависимостей : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Команда dedupe анализирует дерево зависимостей и удаляет дублирующиеся пакеты, оптимизируя структуру и уменьшая размер проекта.">
 <link rel="canonical" href="https://mip.fwh.is/ru/commands/dedupe/">
-<meta property="og:title" content="mip dedupe — устранение дублирующихся зависимостей - MIP - Modern Package Manager">
+<meta property="og:title" content="mip dedupe - устранение дублирующихся зависимостей - MIP - Modern Package Manager">
 <meta property="og:description" content="Команда dedupe анализирует дерево зависимостей и удаляет дублирующиеся пакеты, оптимизируя структуру и уменьшая размер проекта.">
 <meta property="og:url" content="https://mip.fwh.is/ru/commands/dedupe/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip dedupe — устранение дублирующихся зависимостей - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip dedupe - устранение дублирующихся зависимостей - MIP - Modern Package Manager">
 <meta name="twitter:description" content="Команда dedupe анализирует дерево зависимостей и удаляет дублирующиеся пакеты, оптимизируя структуру и уменьшая размер проекта.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/dedupe/">
 <link rel="alternate" hreflang="en" href="/commands/dedupe/">
 <link rel="alternate" hreflang="x-default" href="/commands/dedupe/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Функции конфиг-файла
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Настройка конфига
             </span>
           
           
@@ -1677,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip dedupe — устранение дублирующихся зависимостей
+                  mip dedupe - устранение дублирующихся зависимостей
                 </span>
               </div>
             </div>
@@ -1801,7 +1865,7 @@
   <path d="M14.8 14.8 20 20" />
 </svg>
 Что это?</div><div class="callout-content">
-<p><code>mip dedupe</code> находит и устраняет дублирующиеся версии пакетов в вашем проекте. Это помогает уменьшить размер, ускорить установку и избежать конфликтов версий. Команда предлагает два режима работы: <strong>быстрый</strong> (по умолчанию) и <strong>полный</strong> — для максимальной оптимизации.</p>
+<p><code>mip dedupe</code> находит и устраняет дублирующиеся версии пакетов в вашем проекте. Это помогает уменьшить размер, ускорить установку и избежать конфликтов версий. Команда предлагает два режима работы: <strong>быстрый</strong> (по умолчанию) и <strong>полный</strong> - для максимальной оптимизации.</p>
 </div></div>
 <h2 id="mip-dedupe-синтаксис" class="docmd-heading"><a href="#mip-dedupe-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
 <pre class="hljs"><code class="language-bash">mip dedupe [<span class="hljs-punctuation">--</span>full]
@@ -1817,41 +1881,41 @@
 <tbody>
 <tr>
 <td><code>--full</code></td>
-<td>Включает <strong>полный режим</strong> дедупликации — более агрессивно перестраивает дерево зависимостей, удаляя все возможные дубликаты. Может занять больше времени.</td>
+<td>Включает <strong>полный режим</strong> дедупликации - более агрессивно перестраивает дерево зависимостей, удаляя все возможные дубликаты. Может занять больше времени.</td>
 </tr>
 </tbody>
 </table>
 </div><h2 id="mip-dedupe-логика-работы" class="docmd-heading"><a href="#mip-dedupe-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
 <ol>
-<li><p><strong>Анализ lock-файла</strong> — читает <code>mip-lock.yml</code> и строит граф зависимостей.</p>
+<li><p><strong>Анализ lock-файла</strong> - читает <code>mip-lock.yml</code> и строит граф зависимостей.</p>
 </li>
-<li><p><strong>Поиск дубликатов</strong> — находит пакеты, у которых:</p>
+<li><p><strong>Поиск дубликатов</strong> - находит пакеты, у которых:</p>
 <ul>
 <li>Одинаковое имя.</li>
 <li>Разные версии.</li>
 <li>Обе версии удовлетворяют требованиям всех родительских пакетов.</li>
 </ul>
 </li>
-<li><p><strong>Проверка совместимости</strong> — определяет, можно ли заменить старую версию на новую без нарушения совместимости (проверяет major-версию).</p>
+<li><p><strong>Проверка совместимости</strong> - определяет, можно ли заменить старую версию на новую без нарушения совместимости (проверяет major-версию).</p>
 </li>
-<li><p><strong>Вывод отчёта</strong> — показывает список найденных дубликатов с указанием:</p>
+<li><p><strong>Вывод отчёта</strong> - показывает список найденных дубликатов с указанием:</p>
 <ul>
 <li>Имя пакета и его версии.</li>
 <li>Какие версии можно удалить (совместимые).</li>
 <li>Какие версии нужно сохранить (несовместимые).</li>
 </ul>
 </li>
-<li><p><strong>Запрос подтверждения</strong> — перед изменениями команда спрашивает: <em>“Do you want to deduplicate? (y/N)”</em>.</p>
+<li><p><strong>Запрос подтверждения</strong> - перед изменениями команда спрашивает: <em>“Do you want to deduplicate? (y/N)”</em>.</p>
 </li>
 <li><p><strong>Выполнение дедупликации</strong>:</p>
 <ul>
-<li><strong>Быстрый режим</strong> — удаляет только совместимые дубликаты (в рамках одной major-версии).</li>
-<li><strong>Полный режим</strong> (<code>--full</code>) — удаляет все дубликаты, даже если major-версии отличаются (может привести к breaking changes).</li>
+<li><strong>Быстрый режим</strong> - удаляет только совместимые дубликаты (в рамках одной major-версии).</li>
+<li><strong>Полный режим</strong> (<code>--full</code>) - удаляет все дубликаты, даже если major-версии отличаются (может привести к breaking changes).</li>
 </ul>
 </li>
-<li><p><strong>Обновление lock-файла</strong> — после удаления обновляет <code>mip-lock.yml</code>.</p>
+<li><p><strong>Обновление lock-файла</strong> - после удаления обновляет <code>mip-lock.yml</code>.</p>
 </li>
-<li><p><strong>Отчёт о результатах</strong> — показывает сколько пакетов удалено и сколько осталось.</p>
+<li><p><strong>Отчёт о результатах</strong> - показывает сколько пакетов удалено и сколько осталось.</p>
 </li>
 </ol>
 <h2 id="mip-dedupe-примеры" class="docmd-heading"><a href="#mip-dedupe-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
@@ -1919,7 +1983,7 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 </svg>
 ❌ No duplicates found</div><div class="callout-content">
 <p><strong>Причина:</strong> В проекте уже оптимизированное дерево зависимостей.</p>
-<p><strong>Решение:</strong> Это не ошибка — всё в порядке. Просто продолжайте работу.</p>
+<p><strong>Решение:</strong> Это не ошибка - всё в порядке. Просто продолжайте работу.</p>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
 <svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -1973,9 +2037,9 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 </div></div>
 <h2 id="mip-dedupe-связанные-команды" class="docmd-heading"><a href="#mip-dedupe-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
 <ul>
-<li><a href="/ru/commands/install/">mip install</a> — устанавливает зависимости и создаёт lock-файл.</li>
-<li><a href="/ru/commands/outdated/">mip outdated</a> — показывает устаревшие пакеты (часто дубликаты возникают из-за устаревших версий).</li>
-<li><a href="/ru/commands/doctor/">mip doctor</a> — проверяет общее состояние проекта.</li>
+<li><a href="/ru/commands/install/">mip install</a> - устанавливает зависимости и создаёт lock-файл.</li>
+<li><a href="/ru/commands/outdated/">mip outdated</a> - показывает устаревшие пакеты (часто дубликаты возникают из-за устаревших версий).</li>
+<li><a href="/ru/commands/doctor/">mip doctor</a> - проверяет общее состояние проекта.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1983,7 +2047,7 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
             <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
         </summary>
         <div class="collapsible-content">
-<p>В менеджерах пакетов дублирование возникает, когда несколько пакетов требуют разные версии одной зависимости. Например, если пакет <code>A</code> требует <code>lodash@4.17.19</code>, а пакет <code>B</code> требует <code>lodash@4.17.21</code> — MIP установит обе версии.</p>
+<p>В менеджерах пакетов дублирование возникает, когда несколько пакетов требуют разные версии одной зависимости. Например, если пакет <code>A</code> требует <code>lodash@4.17.19</code>, а пакет <code>B</code> требует <code>lodash@4.17.21</code> - MIP установит обе версии.</p>
 <p><strong>Быстрый режим</strong> (<code>dedupe</code> без флагов):</p>
 <ul>
 <li>Проверяет только совместимые версии (в рамках одной major-версии).</li>
@@ -1996,7 +2060,7 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 <li>Перестраивает его для максимального использования общих версий.</li>
 <li>Может занять больше времени, но даёт лучший результат.</li>
 </ul>
-<p><strong>Важно:</strong> Дедупликация никогда не нарушает требования пакетов — версия заменяется только если она совместима со всеми родительскими пакетами.</p>
+<p><strong>Важно:</strong> Дедупликация никогда не нарушает требования пакетов - версия заменяется только если она совместима со всеми родительскими пакетами.</p>
 </div></details>
 
                 
@@ -2165,15 +2229,15 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

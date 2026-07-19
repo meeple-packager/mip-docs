@@ -1,5 +1,5 @@
 ---
-title: "mip create — create a new project from a template"
+title: "mip create - create a new project from a template"
 description: "The create command generates a project structure based on ready-made templates (Node.js, React, CLI, Express) with automatic dependency installation."
 ---
 
@@ -33,19 +33,19 @@ mip create <template> <project-name>
 
 ## How it works
 
-1. **Validate arguments** — if `template` or `project-name` is missing, it prints help.
+1. **Validate arguments** - if `template` or `project-name` is missing, it prints help.
 
-2. **Load the template** — selects the configuration from the `templates` object for the provided template name.
+2. **Load the template** - selects the configuration from the `templates` object for the provided template name.
 
-3. **Create the project folder** — if a folder with that name already exists, the operation stops.
+3. **Create the project folder** - if a folder with that name already exists, the operation stops.
 
-4. **Generate files** — all template files are created inside the project folder:
+4. **Generate files** - all template files are created inside the project folder:
    - Supports placeholder substitution `{{name}}` → replaced with `project-name`.
    - Creates nested folders recursively.
 
-5. **Set file permissions** — for the `cli` template, `bin/cli.js` is marked as executable (`chmod 755`).
+5. **Set file permissions** - for the `cli` template, `bin/cli.js` is marked as executable (`chmod 755`).
 
-6. **Install dependencies** — if the template includes a list of packages, it runs `mip install` for each one.
+6. **Install dependencies** - if the template includes a list of packages, it runs `mip install` for each one.
 
 ## Examples
 
@@ -194,7 +194,7 @@ For React, use `mip run build` to build the production version.
 
 ## Related commands
 
-- [mip init](/commands/init) — initializes `mip.yml` in an existing project.
-- [mip install](/commands/install) — installs dependencies in the created project.
-- [mip run](/commands/run) — runs scripts from `mip.yml`.
+- [mip init](/commands/init) - initializes `mip.yml` in an existing project.
+- [mip install](/commands/install) - installs dependencies in the created project.
+- [mip run](/commands/run) - runs scripts from `mip.yml`.
 

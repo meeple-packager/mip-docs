@@ -1,6 +1,6 @@
 ---
 title: "Hooks and plugins in MIP"
-description: "How to extend MIP with hooks and plugins — entry points, API, examples."
+description: "How to extend MIP with hooks and plugins - entry points, API, examples."
 ---
 
 # Hooks and plugins in MIP
@@ -242,6 +242,6 @@ cat mip-install.log
 
 ## Related pages
 
-- [Adding commands](/dev/adding-commands) — how to create a command
-- [MIP Architecture](/dev/architecture) — project structure
-- [mip plugin](/commands/plugin) — manage plugins
+- [Adding commands](/dev/adding-commands) - how to create a command
+- [MIP Architecture](/dev/architecture) - project structure
+- [mip plugin](/commands/plugin) - manage plugins

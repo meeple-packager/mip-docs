@@ -1,5 +1,5 @@
 ---
-title: "mip plugin — управление плагинами"
+title: "mip plugin - управление плагинами"
 description: "Управление плагинами в MIP: создание, компиляция, активация, выполнение команд."
 ---
 
@@ -264,5 +264,5 @@ mip pe hello help
 
 ## Связанные команды
 
-- [mip plugin](/commands/plugin) — управление плагинами
-- [mip pe](/commands/pe) — выполнение команд плагинов
+- [mip plugin](/commands/plugin) - управление плагинами
+- [mip pe](/commands/pe) - выполнение команд плагинов

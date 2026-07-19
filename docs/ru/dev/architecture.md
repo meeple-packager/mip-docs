@@ -5,7 +5,7 @@ description: "Как устроен MIP внутри: модули, потоки
 
 # Архитектура MIP
 
-MIP — минималистичный пакетный менеджер с модульной архитектурой. Всё заточено под простоту и расширяемость.
+MIP - минималистичный пакетный менеджер с модульной архитектурой. Всё заточено под простоту и расширяемость.
 
 ---
 
@@ -74,7 +74,7 @@ mip/
 
 ## 🧩 Ключевые компоненты
 
-### `utils/config.js` — работа с конфигами
+### `utils/config.js` - работа с конфигами
 
 Универсальный загрузчик, поддерживающий `mip.yml`, `mip.json` и `package.json`.
 
@@ -89,7 +89,7 @@ const conf = config.readConfig();
 config.writeConfig({ name: 'my-project' });
 ```
 
-### `utils/store.js` — глобальный кэш
+### `utils/store.js` - глобальный кэш
 
 Управляет хранением пакетов в `~/.mip/store/`.
 
@@ -105,7 +105,7 @@ if (store.isPackageInStore('lodash', '4.17.21')) {
 const path = store.getPackageStorePath('lodash', '4.17.21');
 ```
 
-### `core/resolver.js` — разрешение зависимостей
+### `core/resolver.js` - разрешение зависимостей
 
 Строит дерево зависимостей. Кэширует результаты.
 
@@ -115,7 +115,7 @@ const tree = await resolver.resolveVersion('express', 'latest');
 // Возвращает: { name, version, dependencies: { ... } }
 ```
 
-### `core/parallel-download.js` — параллельная загрузка
+### `core/parallel-download.js` - параллельная загрузка
 
 Скачивает до 10 пакетов одновременно. Использует HTTP/2.
 
@@ -124,13 +124,13 @@ const downloader = new ParallelDownloader();
 const packages = await downloader.downloadPackages(tree);
 ```
 
-### `core/super-cache.js` — трёхуровневый кэш
+### `core/super-cache.js` - трёхуровневый кэш
 
 1. In-memory (LRU, 1000 элементов)
 2. Диск (`.mip/cache/`)
 3. In-flight (дедупликация параллельных запросов)
 
-### `core/peer-resolver.js` — peer-зависимости
+### `core/peer-resolver.js` - peer-зависимости
 
 По умолчанию пропускает предупреждения. С флагом `--show-peer-warnings` показывает и спрашивает.
 
@@ -246,7 +246,7 @@ project/
 
 ## 🔧 Команды
 
-Каждая команда — отдельный файл в `lib/commands/`, экспортирующий асинхронную функцию.
+Каждая команда - отдельный файл в `lib/commands/`, экспортирующий асинхронную функцию.
 
 **Стандартный шаблон:**
 
@@ -298,5 +298,5 @@ i18n/  ui/  api/
 
 ## Связанные страницы
 
-- [Добавление команд](/ru/dev/adding-commands) — как создать команду
-- [Хуки и плагины](/ru/dev/hooks) — расширение функциональности
+- [Добавление команд](/ru/dev/adding-commands) - как создать команду
+- [Хуки и плагины](/ru/dev/hooks) - расширение функциональности

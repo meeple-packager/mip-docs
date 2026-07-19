@@ -1,12 +1,12 @@
 ---
-title: "mip init — initialize a new project"
+title: "mip init - initialize a new project"
 description: "The init command creates the structure of a new MIP project: mip.yml, the .mip folder with subdirectories, and README.md with instructions."
 ---
 
 # mip init
 
 ::: callout info "What is this?" icon:rocket
-`mip init` is the first command you run to create a new MIP project. It creates the `mip.yml` file, sets up the folder structure, and generates a README file with usage instructions. Everything you need to get started — in one command!
+`mip init` is the first command you run to create a new MIP project. It creates the `mip.yml` file, sets up the folder structure, and generates a README file with usage instructions. Everything you need to get started - in one command!
 :::
 
 ## Syntax
@@ -41,11 +41,11 @@ workspaces: []
 
 ## How it works
 
-1. **Check if `mip.yml` exists** — if the file already exists, the command exits with an error.
+1. **Check if `mip.yml` exists** - if the file already exists, the command exits with an error.
 
-2. **Check for old configs** — if `mip.json` or `package.json` exists, MIP automatically migrates them to `mip.yml`.
+2. **Check for old configs** - if `mip.json` or `package.json` exists, MIP automatically migrates them to `mip.yml`.
 
-3. **Create `mip.yml`** — a minimal configuration is automatically generated in YAML format:
+3. **Create `mip.yml`** - a minimal configuration is automatically generated in YAML format:
    ```yaml
    name: folder-name
    version: 1.0.0
@@ -56,7 +56,7 @@ workspaces: []
    workspaces: []
    ```
 
-4. **Create `.mip` directory** — structure for storing cache and manifest:
+4. **Create `.mip` directory** - structure for storing cache and manifest:
    ```
    .mip/
    ├── manifest.json   # Installed packages manifest
@@ -68,9 +68,9 @@ workspaces: []
    - Node.js version (recommended: v18+).
    - Write permissions to the `.mip` folder.
 
-6. **Generate README.md** — if the file doesn't exist, it is created with basic instructions.
+6. **Generate README.md** - if the file doesn't exist, it is created with basic instructions.
 
-7. **Display final report** — shows the project structure and suggests next steps.
+7. **Display final report** - shows the project structure and suggests next steps.
 
 ## Migration from old formats
 
@@ -163,8 +163,8 @@ mip init
 **Cause:** The project is already initialized.
 
 **Solution:**
-1. If you want to recreate the project — delete `mip.yml` and `.mip/` manually, then run `mip init` again.
-2. If you just want to start working — use other commands: `mip install`, `mip list`, etc.
+1. If you want to recreate the project - delete `mip.yml` and `.mip/` manually, then run `mip init` again.
+2. If you just want to start working - use other commands: `mip install`, `mip list`, etc.
 :::
 
 ::: callout warning "⚠️ Node.js version too old" icon:alert-triangle
@@ -189,6 +189,6 @@ After `mip init` you can immediately:
 
 ## Related commands
 
-- [mip create](/commands/create) — creates a project from a template (node, react, cli, express)
-- [mip install](/commands/install) — installs packages in the created project
-- [mip doctor](/commands/doctor) — diagnoses the environment after initialization
+- [mip create](/commands/create) - creates a project from a template (node, react, cli, express)
+- [mip install](/commands/install) - installs packages in the created project
+- [mip doctor](/commands/doctor) - diagnoses the environment after initialization

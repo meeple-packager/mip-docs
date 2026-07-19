@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip doctor — diagnose the environment and the project : MIP - Modern Package Manager
+      mip doctor - diagnose the environment and the project : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The doctor command checks your environment: Node.js and MIP versions, Git availability, access to the registry, write permissions, and PATH correctness.">
 <link rel="canonical" href="https://mip.fwh.is/commands/doctor/">
-<meta property="og:title" content="mip doctor — diagnose the environment and the project - MIP - Modern Package Manager">
+<meta property="og:title" content="mip doctor - diagnose the environment and the project - MIP - Modern Package Manager">
 <meta property="og:description" content="The doctor command checks your environment: Node.js and MIP versions, Git availability, access to the registry, write permissions, and PATH correctness.">
 <meta property="og:url" content="https://mip.fwh.is/commands/doctor/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip doctor — diagnose the environment and the project - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip doctor - diagnose the environment and the project - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The doctor command checks your environment: Node.js and MIP versions, Git availability, access to the registry, write permissions, and PATH correctness.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/doctor/">
 <link rel="alternate" hreflang="en" href="/commands/doctor/">
 <link rel="alternate" hreflang="x-default" href="/commands/doctor/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip doctor — diagnose the environment and the project
+                  mip doctor - diagnose the environment and the project
                 </span>
               </div>
             </div>
@@ -1785,34 +1849,34 @@
   <circle cx="20" cy="10" r="2" />
 </svg>
 What is this?</div><div class="callout-content">
-<p><code>mip doctor</code> is a diagnostic utility that checks your environment for potential problems. It analyzes tool versions, network availability, access permissions, and PATH configuration—helping you quickly identify and fix common issues before installing packages.</p>
+<p><code>mip doctor</code> is a diagnostic utility that checks your environment for potential problems. It analyzes tool versions, network availability, access permissions, and PATH configuration-helping you quickly identify and fix common issues before installing packages.</p>
 </div></div>
 <h2 id="mip-doctor-syntax" class="docmd-heading"><a href="#mip-doctor-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
 <pre class="hljs"><code class="language-bash">mip doctor
 </code></pre>
 <h2 id="mip-doctor-how-it-works" class="docmd-heading"><a href="#mip-doctor-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Check Node.js</strong> — analyzes the current Node.js version. Recommended version is <strong>v18 or higher</strong>.</p>
+<li><p><strong>Check Node.js</strong> - analyzes the current Node.js version. Recommended version is <strong>v18 or higher</strong>.</p>
 </li>
-<li><p><strong>Check MIP</strong> — displays the currently installed MIP version.</p>
+<li><p><strong>Check MIP</strong> - displays the currently installed MIP version.</p>
 </li>
-<li><p><strong>Check the global cache</strong> (<code>~/.mip/</code>) — verifies that the global storage exists and checks its size.</p>
+<li><p><strong>Check the global cache</strong> (<code>~/.mip/</code>) - verifies that the global storage exists and checks its size.</p>
 </li>
-<li><p><strong>Check configuration</strong> — verifies that <code>mip.yml</code> exists and outputs the number of dependencies, scripts, and workspaces.</p>
+<li><p><strong>Check configuration</strong> - verifies that <code>mip.yml</code> exists and outputs the number of dependencies, scripts, and workspaces.</p>
 </li>
-<li><p><strong>Check the manifest</strong> — checks <code>.mip/manifest.json</code> and validates that package paths are intact.</p>
+<li><p><strong>Check the manifest</strong> - checks <code>.mip/manifest.json</code> and validates that package paths are intact.</p>
 </li>
-<li><p><strong>Check the local <code>.mip/</code> directory</strong> — checks that the local cache exists.</p>
+<li><p><strong>Check the local <code>.mip/</code> directory</strong> - checks that the local cache exists.</p>
 </li>
-<li><p><strong>Check PATH</strong> — ensures that MIP global binaries (<code>~/.mip/global/node_modules/.bin</code>) are present in <code>PATH</code>.</p>
+<li><p><strong>Check PATH</strong> - ensures that MIP global binaries (<code>~/.mip/global/node_modules/.bin</code>) are present in <code>PATH</code>.</p>
 </li>
-<li><p><strong>Check Git</strong> — verifies that Git is available (required for GitHub packages).</p>
+<li><p><strong>Check Git</strong> - verifies that Git is available (required for GitHub packages).</p>
 </li>
-<li><p><strong>Check network</strong> — tries to reach the npm registry (<code>registry.npmjs.org</code>).</p>
+<li><p><strong>Check network</strong> - tries to reach the npm registry (<code>registry.npmjs.org</code>).</p>
 </li>
-<li><p><strong>Check disk</strong> — verifies write permissions in a temporary directory.</p>
+<li><p><strong>Check disk</strong> - verifies write permissions in a temporary directory.</p>
 </li>
-<li><p><strong>Report results</strong> — shows all found issues and suggests how to fix them.</p>
+<li><p><strong>Report results</strong> - shows all found issues and suggests how to fix them.</p>
 </li>
 </ol>
 <h2 id="mip-doctor-examples" class="docmd-heading"><a href="#mip-doctor-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1982,9 +2046,9 @@ nvm <span class="hljs-keyword">use</span> <span class="hljs-number">20</span>
 </div></div>
 <h2 id="mip-doctor-related-commands" class="docmd-heading"><a href="#mip-doctor-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — installs dependencies (after running doctor).</li>
-<li><a href="/commands/cache/">mip cache clean</a> — clears the cache if you run into disk-related issues.</li>
-<li><a href="/commands/ci/">mip ci</a> — CI/CD installation (doctor helps you pre-check the environment).</li>
+<li><a href="/commands/install/">mip install</a> - installs dependencies (after running doctor).</li>
+<li><a href="/commands/cache/">mip cache clean</a> - clears the cache if you run into disk-related issues.</li>
+<li><a href="/commands/ci/">mip ci</a> - CI/CD installation (doctor helps you pre-check the environment).</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1994,9 +2058,9 @@ nvm <span class="hljs-keyword">use</span> <span class="hljs-number">20</span>
         <div class="collapsible-content">
 <p><code>mip doctor</code> is a <strong>first line of defense</strong> against common problems:</p>
 <ol>
-<li><strong>Saves time</strong> — instead of guessing why installation fails, you get a clear diagnosis.</li>
-<li><strong>Prevents mistakes</strong> — many issues (e.g., outdated Node.js) lead to confusing errors that are hard to interpret.</li>
-<li><strong>Improves onboarding</strong> — new developers only need to run <code>mip doctor</code> to understand what must be configured in their environment.</li>
+<li><strong>Saves time</strong> - instead of guessing why installation fails, you get a clear diagnosis.</li>
+<li><strong>Prevents mistakes</strong> - many issues (e.g., outdated Node.js) lead to confusing errors that are hard to interpret.</li>
+<li><strong>Improves onboarding</strong> - new developers only need to run <code>mip doctor</code> to understand what must be configured in their environment.</li>
 </ol>
 <p><strong>Tip:</strong> Add <code>mip doctor</code> to your <code>README.md</code> as the very first step after cloning the repository.</p>
 </div></details>
@@ -2131,15 +2195,15 @@ nvm <span class="hljs-keyword">use</span> <span class="hljs-number">20</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

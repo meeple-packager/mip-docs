@@ -1,5 +1,5 @@
 ---
-title: "mip config — manage MIP configuration"
+title: "mip config - manage MIP configuration"
 description: "The config command allows you to view, modify, and manage MIP project configuration directly from the command line."
 ---
 
@@ -35,15 +35,15 @@ mip config <subcommand> [options]
 
 ## How it works
 
-1. **Configuration detection** — MIP automatically detects your config file (`mip.yml`, `mip.json`, or `package.json`).
+1. **Configuration detection** - MIP automatically detects your config file (`mip.yml`, `mip.json`, or `package.json`).
 
-2. **Value resolution** — supports nested keys using dot notation (e.g., `registries.github.url`).
+2. **Value resolution** - supports nested keys using dot notation (e.g., `registries.github.url`).
 
-3. **Type detection** — values are automatically parsed (strings, numbers, JSON objects, arrays).
+3. **Type detection** - values are automatically parsed (strings, numbers, JSON objects, arrays).
 
-4. **File migration** — if you're using a legacy config format, MIP will automatically migrate to `mip.yml`.
+4. **File migration** - if you're using a legacy config format, MIP will automatically migrate to `mip.yml`.
 
-5. **Editor integration** — uses `$EDITOR` or `$VISUAL` environment variables for the `edit` subcommand.
+5. **Editor integration** - uses `$EDITOR` or `$VISUAL` environment variables for the `edit` subcommand.
 
 ## Examples
 
@@ -286,16 +286,16 @@ Shows the raw YAML configuration.
 
 ## Related commands
 
-- [mip registry](/commands/registry) — manage package registries
-- [mip init](/commands/init) — create a new project
-- [mip doctor](/commands/doctor) — check project health
+- [mip registry](/commands/registry) - manage package registries
+- [mip init](/commands/init) - create a new project
+- [mip doctor](/commands/doctor) - check project health
 
 ::: collapsible "🔧 How configuration resolution works"
 MIP follows a specific order when resolving configuration:
 
-1. **`mip.yml`** — primary configuration file (recommended)
-2. **`mip.json`** — legacy JSON format (will be migrated)
-3. **`package.json`** — npm compatibility (will be migrated)
+1. **`mip.yml`** - primary configuration file (recommended)
+2. **`mip.json`** - legacy JSON format (will be migrated)
+3. **`package.json`** - npm compatibility (will be migrated)
 
 When you run `mip config set`, MIP automatically:
 - Detects the active config file

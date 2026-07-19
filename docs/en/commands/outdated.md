@@ -1,5 +1,5 @@
 ---
-title: "mip outdated — check for outdated packages"
+title: "mip outdated - check for outdated packages"
 description: "The outdated command compares installed package versions with the latest versions in the registry and shows which packages need updating."
 ---
 
@@ -23,21 +23,21 @@ mip outdated [--json]
 
 ## How it works
 
-1. **Read `mip.yml`** — the command loads dependencies from `dependencies` and `devDependencies`.
+1. **Read `mip.yml`** - the command loads dependencies from `dependencies` and `devDependencies`.
 
-2. **Check currency** — for each package, a request is made to the npm registry to get the latest version.
+2. **Check currency** - for each package, a request is made to the npm registry to get the latest version.
 
-3. **Compare versions** — if the version from `mip.yml` differs from the latest in the registry, the package is considered outdated.
+3. **Compare versions** - if the version from `mip.yml` differs from the latest in the registry, the package is considered outdated.
 
-4. **Check global cache** — shows whether the package is in the global cache (`🌍`) or needs to be downloaded (`📡`).
+4. **Check global cache** - shows whether the package is in the global cache (`🌍`) or needs to be downloaded (`📡`).
 
-5. **Check manifest** — shows whether the package is installed in the project (`📋`) or not (`❌`).
+5. **Check manifest** - shows whether the package is installed in the project (`📋`) or not (`❌`).
 
 6. **Output result**:
-   - **Normal mode** — table with columns: `Package`, `Current`, `Latest`, `Store`, `Manifest`.
-   - **JSON mode** (`--json`) — structured output for automation.
+   - **Normal mode** - table with columns: `Package`, `Current`, `Latest`, `Store`, `Manifest`.
+   - **JSON mode** (`--json`) - structured output for automation.
 
-7. **Exit code** — in JSON mode, returns code `1` if there are outdated packages (useful for CI).
+7. **Exit code** - in JSON mode, returns code `1` if there are outdated packages (useful for CI).
 
 ## Examples
 
@@ -119,8 +119,8 @@ mip outdated --json
 | `Package` | Package name |
 | `Current` | Current version in the project |
 | `Latest` | Latest version in the registry |
-| `Store` | 🌍 — in global cache, 📡 — will be downloaded |
-| `Manifest` | 📋 — installed in project, ❌ — missing |
+| `Store` | 🌍 - in global cache, 📡 - will be downloaded |
+| `Manifest` | 📋 - installed in project, ❌ - missing |
 
 ## Common errors
 
@@ -130,7 +130,7 @@ mip outdated --json
 **Solution:**
 1. Navigate to the project folder: `cd /path/to/project`
 2. Make sure `mip.yml` exists there.
-3. If not — create it: `mip init`
+3. If not - create it: `mip init`
 :::
 
 ::: callout warning "❌ Package not found in registry" icon:alert-circle
@@ -154,15 +154,15 @@ Use `mip outdated --json` for automatic checking and team notifications.
 
 ## Related commands
 
-- [mip update](/commands/update) — update packages to the latest versions.
-- [mip install](/commands/install) — install packages.
-- [mip audit](/commands/audit) — check package security.
-- [mip list](/commands/list) — view installed packages.
+- [mip update](/commands/update) - update packages to the latest versions.
+- [mip install](/commands/install) - install packages.
+- [mip audit](/commands/audit) - check package security.
+- [mip list](/commands/list) - view installed packages.
 
 ::: collapsible "🧠 How does version comparison work?"
 MIP uses **semantic versioning** for comparison:
 
-1. **Exact comparison** — versions are compared as strings (if `current` === `latest`, the package is up to date).
+1. **Exact comparison** - versions are compared as strings (if `current` === `latest`, the package is up to date).
 
 2. **Examples:**
    - `4.17.19` vs `4.17.21` → outdated.

@@ -241,6 +241,6 @@ mip repo kiwinatra/mip
 
 ## 🔗 Related pages
 
-- [Installation Errors](/troubleshooting/installation) — installation issues
-- [Lock Files](/troubleshooting/lockfile) — lockfile issues
-- [mip doctor](/commands/doctor) — environment diagnostics
+- [Installation Errors](/troubleshooting/installation) - installation issues
+- [Lock Files](/troubleshooting/lockfile) - lockfile issues
+- [mip doctor](/commands/doctor) - environment diagnostics

@@ -1,5 +1,5 @@
 ---
-title: "mip legacy — work with legacy packages"
+title: "mip legacy - work with legacy packages"
 description: "The legacy command helps identify and handle legacy packages that have not been updated for a long time or use outdated formats."
 ---
 
@@ -126,18 +126,18 @@ Regularly run `mip legacy list` to track package deprecation:
 
 ## Related commands
 
-- [mip outdated](/commands/outdated) — shows version-outdated packages.
-- [mip audit](/commands/audit) — checks packages for vulnerabilities.
-- [mip update](/commands/update) — updates packages to the latest versions.
-- [mip doctor](/commands/doctor) — diagnoses project state.
+- [mip outdated](/commands/outdated) - shows version-outdated packages.
+- [mip audit](/commands/audit) - checks packages for vulnerabilities.
+- [mip update](/commands/update) - updates packages to the latest versions.
+- [mip doctor](/commands/doctor) - diagnoses project state.
 
 ::: collapsible "🧠 What makes a package 'legacy'?"
 MIP defines legacy packages by several criteria:
 
-1. **Publication date** — package has not been updated for more than 2 years.
-2. **Dependency format** — uses outdated format (e.g., `peerDependencies` in old style).
-3. **Registry warnings** — package is marked as `deprecated` in the npm registry.
-4. **Critical vulnerabilities** — package contains vulnerabilities with no patches available.
+1. **Publication date** - package has not been updated for more than 2 years.
+2. **Dependency format** - uses outdated format (e.g., `peerDependencies` in old style).
+3. **Registry warnings** - package is marked as `deprecated` in the npm registry.
+4. **Critical vulnerabilities** - package contains vulnerabilities with no patches available.
 
 **Check example:**
 ```javascript
@@ -165,16 +165,16 @@ With `mip legacy fix`, MIP attempts to automatically resolve conflicts in legacy
 ::: collapsible "🔍 Practical recommendations"
 **What to do with legacy packages?**
 
-1. **Check alternatives** — often there are modern replacements:
+1. **Check alternatives** - often there are modern replacements:
    - `request` → `axios` or `node-fetch`
    - `moment` → `day.js` or `date-fns`
    - `lodash` → using built-in methods
 
-2. **Try updating** — `mip update <package>` may solve the problem.
+2. **Try updating** - `mip update <package>` may solve the problem.
 
-3. **Use `mip legacy fix`** — if automatic fix works, verify the application still functions correctly.
+3. **Use `mip legacy fix`** - if automatic fix works, verify the application still functions correctly.
 
-4. **Plan migration** — if the package is unmaintained, plan a transition to an alternative.
+4. **Plan migration** - if the package is unmaintained, plan a transition to an alternative.
 
 **Important:** Legacy packages are not always bad. If a package is stable and has no vulnerabilities, it can be kept. But regular auditing helps avoid future problems.
 :::

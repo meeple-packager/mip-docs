@@ -1,5 +1,5 @@
 ---
-title: "mip update — update packages to the latest versions"
+title: "mip update - update packages to the latest versions"
 description: "The update command checks for updates for all dependencies and installs them after user confirmation."
 ---
 
@@ -17,23 +17,23 @@ mip update
 
 ## How it works
 
-1. **Read `mip.yml`** — loads all dependencies from `dependencies` and `devDependencies`.
+1. **Read `mip.yml`** - loads all dependencies from `dependencies` and `devDependencies`.
 
-2. **Parallel check** — for each package, a request is made to the registry to get the latest version.
+2. **Parallel check** - for each package, a request is made to the registry to get the latest version.
 
-3. **Compare versions** — if the latest version differs from the current one, the package is added to the update list.
+3. **Compare versions** - if the latest version differs from the current one, the package is added to the update list.
 
-4. **Check global cache** — shows whether the package will be taken from the global cache (`🌍`) or downloaded again (`📡`).
+4. **Check global cache** - shows whether the package will be taken from the global cache (`🌍`) or downloaded again (`📡`).
 
-5. **Check manifest** — shows whether the package is installed in the project (`📋`) or not (`❌`).
+5. **Check manifest** - shows whether the package is installed in the project (`📋`) or not (`❌`).
 
-6. **Display list** — shows all packages that can be updated, with current and new versions, as well as cache and manifest status.
+6. **Display list** - shows all packages that can be updated, with current and new versions, as well as cache and manifest status.
 
-7. **Request confirmation** — asks the user: *"Update these packages? (y/N)"*.
+7. **Request confirmation** - asks the user: *"Update these packages? (y/N)"*.
 
-8. **Install updates** — on confirmation, installs new versions with forced reload (`force: true`).
+8. **Install updates** - on confirmation, installs new versions with forced reload (`force: true`).
 
-9. **Update lockfile** — automatically updates `mip-lock.yml` with new versions.
+9. **Update lockfile** - automatically updates `mip-lock.yml` with new versions.
 
 ## Examples
 
@@ -110,7 +110,7 @@ Update these packages? (y/N) n
 **Solution:**
 1. Navigate to the project folder: `cd /path/to/project`
 2. Make sure `mip.yml` exists there.
-3. If not — create it: `mip init`
+3. If not - create it: `mip init`
 :::
 
 ::: callout warning "⚠️ Check failed for package" icon:alert-circle
@@ -130,28 +130,28 @@ Update these packages? (y/N) n
 
 **After updating:**
 1. Check that the project works: `mip run test`
-2. If there are issues — use `mip install` to reinstall.
+2. If there are issues - use `mip install` to reinstall.
 3. Commit the updated `mip.yml` and `mip-lock.yml`.
 :::
 
 ## Related commands
 
-- [mip outdated](/commands/outdated) — check outdated packages (without installation).
-- [mip install](/commands/install) — install a specific package.
-- [mip audit](/commands/audit) — security check.
+- [mip outdated](/commands/outdated) - check outdated packages (without installation).
+- [mip install](/commands/install) - install a specific package.
+- [mip audit](/commands/audit) - security check.
 
 ::: collapsible "🧠 How does update work?"
 `mip update` performs updates through the existing installation mechanism:
 
 **Steps:**
-1. **Version check** — for each package, gets the latest version from the registry.
-2. **Comparison** — if the latest version differs from the current one, the package is added to the list.
-3. **Installation** — calls `installPackage()` with the `force: true` flag, which:
+1. **Version check** - for each package, gets the latest version from the registry.
+2. **Comparison** - if the latest version differs from the current one, the package is added to the list.
+3. **Installation** - calls `installPackage()` with the `force: true` flag, which:
    - Overwrites the existing package in the global cache.
    - Updates `mip-lock.yml`.
    - Does not change `mip.yml` (the version range remains the same).
 
-**Important:** `mip update` updates packages **to the latest version**, regardless of the range in `mip.yml`. If you want to update only within the range — use `mip install` with a specific version.
+**Important:** `mip update` updates packages **to the latest version**, regardless of the range in `mip.yml`. If you want to update only within the range - use `mip install` with a specific version.
 
 **Example:**
 ```yaml

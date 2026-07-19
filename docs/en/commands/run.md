@@ -1,5 +1,5 @@
 ---
-title: "mip run — run custom scripts"
+title: "mip run - run custom scripts"
 description: "The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH."
 ---
 
@@ -23,19 +23,19 @@ mip run <script-name>
 
 ## How it works
 
-1. **Read config** — the command loads `mip.yml` (or `package.json` for compatibility) from the current directory.
+1. **Read config** - the command loads `mip.yml` (or `package.json` for compatibility) from the current directory.
 
-2. **Find script** — looks for the specified script in the `scripts` section.
+2. **Find script** - looks for the specified script in the `scripts` section.
 
-3. **Collect binary paths** — scans the `.mip/manifest.json` manifest and collects all `.bin` folders from installed packages.
+3. **Collect binary paths** - scans the `.mip/manifest.json` manifest and collects all `.bin` folders from installed packages.
 
-4. **Update `PATH`** — all found binary folders are added to the `PATH` environment variable (with priority over system paths).
+4. **Update `PATH`** - all found binary folders are added to the `PATH` environment variable (with priority over system paths).
 
-5. **Run script** — executes the command through the system shell:
+5. **Run script** - executes the command through the system shell:
    - **Windows:** `cmd.exe /d /s /c <script>`
    - **Unix:** `sh -c <script>`
 
-6. **Handle exit** — the script's exit code is passed as the `mip run` exit code.
+6. **Handle exit** - the script's exit code is passed as the `mip run` exit code.
 
 ## Examples
 
@@ -102,7 +102,7 @@ mip run start
 **Solution:**
 1. Navigate to the project folder: `cd /path/to/project`
 2. Make sure `mip.yml` exists there.
-3. If not — create it: `mip init`
+3. If not - create it: `mip init`
 :::
 
 ::: callout warning "❌ Script not found" icon:alert-circle
@@ -129,9 +129,9 @@ mip run start
 ::: callout tip "💡 Tip" icon:lightbulb
 `mip run` is the equivalent of `npm run` or `yarn run`, but with MIP-specific improvements:
 
-- **Automatic `PATH`** — no need to install packages globally.
-- **Cross-platform** — works correctly on Windows and Unix.
-- **Simplicity** — just specify the script name.
+- **Automatic `PATH`** - no need to install packages globally.
+- **Cross-platform** - works correctly on Windows and Unix.
+- **Simplicity** - just specify the script name.
 
 **Example scripts:**
 ```yaml
@@ -147,15 +147,15 @@ scripts:
 
 ## Related commands
 
-- [mip exec](/commands/exec) — run a specific binary without a script.
-- [mip install](/commands/install) — install packages whose binaries become available.
-- [mip init](/commands/init) — create `mip.yml` with a `scripts` section.
+- [mip exec](/commands/exec) - run a specific binary without a script.
+- [mip install](/commands/install) - install packages whose binaries become available.
+- [mip init](/commands/init) - create `mip.yml` with a `scripts` section.
 
 ::: collapsible "🧠 How does automatic PATH work?"
 When you run `mip run`, the command:
 
-1. **Scans the manifest** — reads `.mip/manifest.json`, which stores paths to all installed packages.
-2. **Collects `.bin` folders** — for each package, checks:
+1. **Scans the manifest** - reads `.mip/manifest.json`, which stores paths to all installed packages.
+2. **Collects `.bin` folders** - for each package, checks:
    - `node_modules/.bin/`
    - `.bin/` (in the package root)
 
@@ -164,7 +164,7 @@ When you run `mip run`, the command:
    PATH = <all .bin folders> + <system PATH>
    ```
 
-4. **Runs the script** — all binaries from the global cache become available without global installation.
+4. **Runs the script** - all binaries from the global cache become available without global installation.
 
-**Advantage:** no need to install packages globally — everything works from the project.
+**Advantage:** no need to install packages globally - everything works from the project.
 :::

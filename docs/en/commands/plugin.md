@@ -1,5 +1,5 @@
 ---
-title: "mip plugin — manage plugins"
+title: "mip plugin - manage plugins"
 description: "Plugin management in MIP: creation, compilation, activation, command execution."
 ---
 
@@ -264,5 +264,5 @@ Plugins can subscribe to MIP events:
 
 ## Related commands
 
-- [mip plugin](/commands/plugin) — manage plugins
-- [mip pe](/commands/pe) — execute plugin commands
+- [mip plugin](/commands/plugin) - manage plugins
+- [mip pe](/commands/pe) - execute plugin commands

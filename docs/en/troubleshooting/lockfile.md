@@ -219,18 +219,18 @@ mip install
 
 ## 💡 Best practices
 
-1. **Always commit `mip-lock.yml`** — ensures reproducibility
-2. **Don't edit the lockfile manually** — use MIP commands
-3. **Use `mip ci --frozen-lockfile` in CI** — checks synchronization
-4. **Run `mip dedupe` periodically** — removes duplicates
-5. **Keep the lockfile in the repository** — speeds up installation
+1. **Always commit `mip-lock.yml`** - ensures reproducibility
+2. **Don't edit the lockfile manually** - use MIP commands
+3. **Use `mip ci --frozen-lockfile` in CI** - checks synchronization
+4. **Run `mip dedupe` periodically** - removes duplicates
+5. **Keep the lockfile in the repository** - speeds up installation
 
 ---
 
 ## 🔗 Related pages
 
-- [mip genlock](/commands/genlock) — lockfile generation
-- [mip ci](/commands/ci) — install from lockfile
-- [mip dedupe](/commands/dedupe) — deduplication
-- [mip doctor](/commands/doctor) — diagnostics
+- [mip genlock](/commands/genlock) - lockfile generation
+- [mip ci](/commands/ci) - install from lockfile
+- [mip dedupe](/commands/dedupe) - deduplication
+- [mip doctor](/commands/doctor) - diagnostics
 ```

@@ -1,5 +1,5 @@
 ---
-title: "mip link — local package linking for development"
+title: "mip link - local package linking for development"
 description: "The link command allows you to create a global link to a local package and use it in other projects, simplifying the development of interconnected packages without publishing to the registry."
 ---
 
@@ -19,7 +19,7 @@ mip link [package-name]
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `package-name` | string | ❌ | Name of the package to link. If not specified — creates a link from the current package. |
+| `package-name` | string | ❌ | Name of the package to link. If not specified - creates a link from the current package. |
 
 ## How it works
 
@@ -31,7 +31,7 @@ mip link [package-name]
 
 ### `mip link <package-name>`
 1. Checks for the existence of a global link in `~/.mip-links/`.
-2. If the link is not found — displays a list of available links.
+2. If the link is not found - displays a list of available links.
 3. If the link is found:
    - Creates the `node_modules/` folder (if it doesn't exist).
    - Creates a symbolic link from `node_modules/<package-name>` to the target package.
@@ -121,23 +121,23 @@ mip link
 
 **Solution:**
 1. Check that the target folder exists and contains a config.
-2. If the package was moved — recreate the link: `mip link` in the package folder.
+2. If the package was moved - recreate the link: `mip link` in the package folder.
 :::
 
 ::: callout tip "💡 Tip" icon:lightbulb
 `mip link` is ideal for:
-- **Library development** — test changes in a real project without publishing.
-- **Monorepos** — link packages together.
-- **Plugins** — develop plugins locally and use them in your project.
+- **Library development** - test changes in a real project without publishing.
+- **Monorepos** - link packages together.
+- **Plugins** - develop plugins locally and use them in your project.
 
 **After changes in the package:** changes are applied instantly (thanks to symbolic links). No need to reinstall the package!
 :::
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages from the registry.
-- [mip uninstall](/commands/uninstall) — remove linked packages.
-- [mip list](/commands/list) — view installed packages (including linked ones).
+- [mip install](/commands/install) - install packages from the registry.
+- [mip uninstall](/commands/uninstall) - remove linked packages.
+- [mip list](/commands/list) - view installed packages (including linked ones).
 
 ::: collapsible "🧠 How does symbolic linking work?"
 MIP uses two levels of symbolic links:

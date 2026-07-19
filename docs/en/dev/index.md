@@ -1,6 +1,6 @@
 ---
 title: "For Developers"
-description: "Everything a developer needs to know about MIP — architecture, adding commands, testing, and hooks."
+description: "Everything a developer needs to know about MIP - architecture, adding commands, testing, and hooks."
 ---
 
 # For Developers

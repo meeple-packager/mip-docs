@@ -1,5 +1,5 @@
 ---
-title: "mip registry — manage package registries"
+title: "mip registry - manage package registries"
 description: "The registry command allows you to add, remove, list, and manage custom package registries for private packages and alternative package sources."
 ---
 
@@ -32,16 +32,16 @@ mip registry <subcommand> [options]
 
 ## How it works
 
-1. **Configuration storage** — registries are stored in the project's `mip.yml` or `mip.json` file in the `registries` section.
+1. **Configuration storage** - registries are stored in the project's `mip.yml` or `mip.json` file in the `registries` section.
 
-2. **Default registry** — if not specified, `npm` is always the default registry. You can change this with `set-default`.
+2. **Default registry** - if not specified, `npm` is always the default registry. You can change this with `set-default`.
 
-3. **Registry resolution** — when installing packages, MIP checks:
+3. **Registry resolution** - when installing packages, MIP checks:
    - Is a registry explicitly specified in the package name? (`package@registry:version`)
    - If not, use the default registry (`npm` by default)
    - The npm registry always works as a fallback
 
-4. **Authentication** — tokens are stored securely in the config and used for authentication with private registries.
+4. **Authentication** - tokens are stored securely in the config and used for authentication with private registries.
 
 ## Examples
 
@@ -152,9 +152,9 @@ mip install @mygroup/private-package@gitlab:2.1.0
 ```
 <package>@<registry>:<version>
 ```
-- `<package>` — package name
-- `<registry>` — registry name (as added)
-- `<version>` — package version (optional)
+- `<package>` - package name
+- `<registry>` - registry name (as added)
+- `<version>` - package version (optional)
 
 ## Common errors
 
@@ -189,9 +189,9 @@ mip install @mygroup/private-package@gitlab:2.1.0
 
 ::: callout info "🔒 Reserved registry names" icon:info
 The following names are reserved and cannot be used for custom registries:
-- `npm` — built-in npm registry
-- `default` — reserved for internal use
-- `registry` — reserved for internal use
+- `npm` - built-in npm registry
+- `default` - reserved for internal use
+- `registry` - reserved for internal use
 :::
 
 ## Configuration format
@@ -241,20 +241,20 @@ Tokens are stored in plaintext in the config file. Make sure to:
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages from configured registries
-- [mip doctor](/commands/doctor) — checks project health (including registry configuration)
-- [mip config](/commands/config) — view and edit configuration
+- [mip install](/commands/install) - install packages from configured registries
+- [mip doctor](/commands/doctor) - checks project health (including registry configuration)
+- [mip config](/commands/config) - view and edit configuration
 
 ::: collapsible "🔧 How registry resolution works"
 When you run `mip install <package>`:
 
-1. **Parse package spec** — check if package contains a registry prefix (`package@registry:version`).
-2. **Resolve registry** — if a registry is explicitly specified, use it.
-3. **Default fallback** — if no registry is specified, use the default registry from config.
-4. **npm fallback** — if the default registry fails, fall back to npm registry.
-5. **Authentication** — add the token from config as `Authorization` header.
-6. **Fetch package** — request package metadata from the registry.
-7. **Install** — download and install the package.
+1. **Parse package spec** - check if package contains a registry prefix (`package@registry:version`).
+2. **Resolve registry** - if a registry is explicitly specified, use it.
+3. **Default fallback** - if no registry is specified, use the default registry from config.
+4. **npm fallback** - if the default registry fails, fall back to npm registry.
+5. **Authentication** - add the token from config as `Authorization` header.
+6. **Fetch package** - request package metadata from the registry.
+7. **Install** - download and install the package.
 
 This ensures maximum compatibility and flexibility when working with multiple package sources.
 :::

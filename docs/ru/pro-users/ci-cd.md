@@ -33,7 +33,7 @@ mip ci
 mip ci --frozen-lockfile
 ```
 
-Если есть расхождения — команда завершается с ошибкой.
+Если есть расхождения - команда завершается с ошибкой.
 
 ---
 
@@ -396,7 +396,7 @@ jobs:
 
 ## 🔗 Связанные страницы
 
-- [mip ci](/ru/commands/ci) — установка в CI
-- [mip audit](/ru/commands/audit) — проверка безопасности
-- [mip outdated](/ru/commands/outdated) — проверка устаревших пакетов
-- [mip doctor](/ru/commands/doctor) — диагностика окружения
+- [mip ci](/ru/commands/ci) - установка в CI
+- [mip audit](/ru/commands/audit) - проверка безопасности
+- [mip outdated](/ru/commands/outdated) - проверка устаревших пакетов
+- [mip doctor](/ru/commands/doctor) - диагностика окружения

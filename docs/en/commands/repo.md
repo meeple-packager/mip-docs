@@ -1,5 +1,5 @@
 ---
-title: "mip repo — interactive TUI for GitHub repositories"
+title: "mip repo - interactive TUI for GitHub repositories"
 description: "The repo command opens a TUI file manager for browsing GitHub repositories, viewing contents, and downloading files."
 ---
 
@@ -54,15 +54,15 @@ mip repo <owner/repo> [--branch <branch>] [--downloadPath <path>]
 
 ## How it works
 
-1. **Connect to GitHub API** — the command uses the GitHub API to fetch repository contents.
+1. **Connect to GitHub API** - the command uses the GitHub API to fetch repository contents.
 
 2. **Two-panel interface**:
-   - **Left panel** — file manager (folders and files).
-   - **Right panel** — content of the selected file or README.
+   - **Left panel** - file manager (folders and files).
+   - **Right panel** - content of the selected file or README.
 
-3. **Automatic README opening** — when entering a folder, README is automatically displayed on the right (if available).
+3. **Automatic README opening** - when entering a folder, README is automatically displayed on the right (if available).
 
-4. **Interactive commands** — entered at the bottom line, executed without reloading the interface.
+4. **Interactive commands** - entered at the bottom line, executed without reloading the interface.
 
 ## Examples
 
@@ -95,13 +95,13 @@ Opens TUI with two panels:
 == tab "Navigate folders"
 In TUI:
 1. Use `j`/`k` to select the `lib` folder.
-2. Press `Enter` — the `lib` folder opens.
+2. Press `Enter` - the `lib` folder opens.
 3. The right panel automatically shows README from the `lib` folder (if available).
 :::
 == tab "View a file"
 In TUI:
 1. Select a file (e.g., `package.json`) with `j`/`k`.
-2. Press `Enter` — the file content appears in the right panel.
+2. Press `Enter` - the file content appears in the right panel.
 :::
 == tab "Download a file"
 In TUI:
@@ -150,5 +150,5 @@ For private repositories, set `GITHUB_TOKEN` with read permissions.
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages (can be used with GitHub repositories).
-- [mip info](/commands/info) — package information from the registry.
+- [mip install](/commands/install) - install packages (can be used with GitHub repositories).
+- [mip info](/commands/info) - package information from the registry.

@@ -44,14 +44,14 @@
   const eventListeners = new Map(); // name → Set<callback>
 
   // retryCount lives outside connect() so it persists across reconnect calls.
-  // This ensures maxRetries is actually enforced — previously it reset to 0
+  // This ensures maxRetries is actually enforced - previously it reset to 0
   // on every invocation, causing infinite reconnection loops on static servers.
   let retryCount = 0;
   const maxRetries = 5;
 
   function connect() {
     if (socket && (socket.readyState === 0 || socket.readyState === 1)) return;
-    if (retryCount >= maxRetries) return; // give up — not a dev server
+    if (retryCount >= maxRetries) return; // give up - not a dev server
 
     socket = new WebSocket('ws://' + window.location.host);
 
@@ -95,7 +95,7 @@
       if (retryCount < maxRetries) {
         setTimeout(connect, Math.min(1000 * (1.5 ** retryCount), 5000));
       }
-      // No log on final failure — this is expected when serving a static build.
+      // No log on final failure - this is expected when serving a static build.
     };
   }
 

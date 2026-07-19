@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip super-install — super-fast package installation : MIP - Modern Package Manager
+      mip super-install - super-fast package installation : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The super-install command uses multi-threaded downloading, HTTP/2, parallel extraction, and super-cache for the fastest possible dependency installation.">
 <link rel="canonical" href="https://mip.fwh.is/commands/super-install/">
-<meta property="og:title" content="mip super-install — super-fast package installation - MIP - Modern Package Manager">
+<meta property="og:title" content="mip super-install - super-fast package installation - MIP - Modern Package Manager">
 <meta property="og:description" content="The super-install command uses multi-threaded downloading, HTTP/2, parallel extraction, and super-cache for the fastest possible dependency installation.">
 <meta property="og:url" content="https://mip.fwh.is/commands/super-install/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip super-install — super-fast package installation - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip super-install - super-fast package installation - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The super-install command uses multi-threaded downloading, HTTP/2, parallel extraction, and super-cache for the fastest possible dependency installation.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/super-install/">
 <link rel="alternate" hreflang="en" href="/commands/super-install/">
 <link rel="alternate" hreflang="x-default" href="/commands/super-install/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip super-install — super-fast package installation
+                  mip super-install - super-fast package installation
                 </span>
               </div>
             </div>
@@ -1807,22 +1871,22 @@ What is this?</div><div class="callout-content">
 </table>
 </div><h2 id="mip-super-install-how-it-works" class="docmd-heading"><a href="#mip-super-install-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Super-resolution</strong> — uses <code>FastResolver</code> with aggressive caching for instant dependency resolution.</p>
+<li><p><strong>Super-resolution</strong> - uses <code>FastResolver</code> with aggressive caching for instant dependency resolution.</p>
 </li>
-<li><p><strong>Parallel downloading</strong> — <code>ParallelDownloader</code> downloads up to 10 packages simultaneously using HTTP/2.</p>
+<li><p><strong>Parallel downloading</strong> - <code>ParallelDownloader</code> downloads up to 10 packages simultaneously using HTTP/2.</p>
 </li>
-<li><p><strong>Streaming extraction</strong> — <code>StreamExtractor</code> extracts archives as they download, without waiting for all downloads to complete.</p>
+<li><p><strong>Streaming extraction</strong> - <code>StreamExtractor</code> extracts archives as they download, without waiting for all downloads to complete.</p>
 </li>
-<li><p><strong>Multi-threaded extraction</strong> — uses all CPU cores for parallel package extraction.</p>
+<li><p><strong>Multi-threaded extraction</strong> - uses all CPU cores for parallel package extraction.</p>
 </li>
-<li><p><strong>Super-cache</strong> — <code>SuperCache</code> caches:</p>
+<li><p><strong>Super-cache</strong> - <code>SuperCache</code> caches:</p>
 <ul>
 <li>Downloaded tarball archives.</li>
 <li>Extracted packages.</li>
 <li>Resolution results.</li>
 </ul>
 </li>
-<li><p><strong>Lockfile update</strong> — pins all installed versions.</p>
+<li><p><strong>Lockfile update</strong> - pins all installed versions.</p>
 </li>
 </ol>
 <h2 id="mip-super-install-technologies" class="docmd-heading"><a href="#mip-super-install-technologies" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Technologies</h2>
@@ -1961,9 +2025,9 @@ time mip <span class="hljs-keyword">super</span><span class="hljs-punctuation">-
 💡 Tip</div><div class="callout-content">
 <p><code>mip super-install</code> is ideal for:</p>
 <ul>
-<li><strong>CI/CD</strong> — saves minutes in every pipeline.</li>
-<li><strong>Large projects</strong> — with thousands of dependencies.</li>
-<li><strong>Dev containers</strong> — fast environment rebuilds.</li>
+<li><strong>CI/CD</strong> - saves minutes in every pipeline.</li>
+<li><strong>Large projects</strong> - with thousands of dependencies.</li>
+<li><strong>Dev containers</strong> - fast environment rebuilds.</li>
 </ul>
 <p><strong>Best practices:</strong></p>
 <ol>
@@ -1974,9 +2038,9 @@ time mip <span class="hljs-keyword">super</span><span class="hljs-punctuation">-
 </div></div>
 <h2 id="mip-super-install-related-commands" class="docmd-heading"><a href="#mip-super-install-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — standard installation (slower but more stable).</li>
-<li><a href="/commands/ci/">mip ci</a> — CI installation (optimized for stability).</li>
-<li><a href="/commands/cache/">mip cache clean</a> — clear cache.</li>
+<li><a href="/commands/install/">mip install</a> - standard installation (slower but more stable).</li>
+<li><a href="/commands/ci/">mip ci</a> - CI installation (optimized for stability).</li>
+<li><a href="/commands/cache/">mip cache clean</a> - clear cache.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -2055,9 +2119,9 @@ time mip <span class="hljs-keyword">super</span><span class="hljs-punctuation">-
 </code></pre>
 <p><strong>Caching:</strong></p>
 <ol>
-<li><strong>Level 1</strong> — resolution (remembers versions).</li>
-<li><strong>Level 2</strong> — tarball archives (saves downloaded files).</li>
-<li><strong>Level 3</strong> — extracted packages (ready to use).</li>
+<li><strong>Level 1</strong> - resolution (remembers versions).</li>
+<li><strong>Level 2</strong> - tarball archives (saves downloaded files).</li>
+<li><strong>Level 3</strong> - extracted packages (ready to use).</li>
 </ol>
 </div></details>
 
@@ -2199,15 +2263,15 @@ time mip <span class="hljs-keyword">super</span><span class="hljs-punctuation">-
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

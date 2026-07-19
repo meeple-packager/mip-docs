@@ -1,12 +1,12 @@
 ---
-title: "mip exec — execute binaries from dependencies"
+title: "mip exec - execute binaries from dependencies"
 description: "The exec command runs executables from installed packages, without installing them globally. It looks up binaries in the manifest and inserts the correct path automatically."
 ---
 
 # mip exec
 
 ::: callout info "What is this?" icon:terminal
-`mip exec` runs executable files shipped by your dependencies. It does not require you to install those binaries globally—MIP finds them in the installed packages and executes them.
+`mip exec` runs executable files shipped by your dependencies. It does not require you to install those binaries globally-MIP finds them in the installed packages and executes them.
 :::
 
 ## Syntax
@@ -17,8 +17,8 @@ mip exec <command> [-- <args>...]
 
 ## Arguments
 
-- `<command>` — the binary name to run (for example: `jest`, `eslint`, `ts-node`).
-- `[-- <args>...]` — optional arguments passed to the binary.
+- `<command>` - the binary name to run (for example: `jest`, `eslint`, `ts-node`).
+- `[-- <args>...]` - optional arguments passed to the binary.
 
 ## How it works
 
@@ -56,6 +56,6 @@ MIP resolves the binary based on the installed packages for the current project.
 
 ## Related commands
 
-- [mip run](/commands/run) — run scripts defined in `mip.yml`.
-- [mip install](/commands/install) — install dependencies and update `mip.yml`/lockfile.
+- [mip run](/commands/run) - run scripts defined in `mip.yml`.
+- [mip install](/commands/install) - install dependencies and update `mip.yml`/lockfile.
 

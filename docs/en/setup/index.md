@@ -36,9 +36,9 @@ mip init
 ```
 
 MIP will create:
-- `mip.yml` — project configuration in YAML
-- `.mip/` — directory for cache and manifest
-- `README.md` — instructions
+- `mip.yml` - project configuration in YAML
+- `.mip/` - directory for cache and manifest
+- `README.md` - instructions
 
 ### 3. Install dependencies
 

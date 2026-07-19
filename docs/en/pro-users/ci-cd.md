@@ -33,7 +33,7 @@ Checks that the lockfile is synced with `mip.yml`.
 mip ci --frozen-lockfile
 ```
 
-If there are discrepancies — the command exits with an error.
+If there are discrepancies - the command exits with an error.
 
 ---
 
@@ -396,7 +396,7 @@ jobs:
 
 ## 🔗 Related pages
 
-- [mip ci](/commands/ci) — installation in CI
-- [mip audit](/commands/audit) — security check
-- [mip outdated](/commands/outdated) — check outdated packages
-- [mip doctor](/commands/doctor) — environment diagnostics
+- [mip ci](/commands/ci) - installation in CI
+- [mip audit](/commands/audit) - security check
+- [mip outdated](/commands/outdated) - check outdated packages
+- [mip doctor](/commands/doctor) - environment diagnostics

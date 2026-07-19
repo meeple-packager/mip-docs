@@ -1,5 +1,5 @@
 ---
-title: "mip workspaces — manage monorepositories"
+title: "mip workspaces - manage monorepositories"
 description: "The workspaces command allows you to manage multiple packages in a single repository, executing commands across all workspaces simultaneously."
 ---
 
@@ -44,23 +44,23 @@ workspaces:
 ```
 
 **Supported patterns:**
-- `packages/*` — all folders inside `packages/`.
-- `apps/*` — all folders inside `apps/`.
-- `libs/shared` — a specific folder.
+- `packages/*` - all folders inside `packages/`.
+- `apps/*` - all folders inside `apps/`.
+- `libs/shared` - a specific folder.
 
 ## How it works
 
-1. **Read root `mip.yml`** — loads the list of workspace patterns.
+1. **Read root `mip.yml`** - loads the list of workspace patterns.
 
-2. **Find workspaces** — for each pattern:
-   - If it contains `*` — scans all subfolders for `mip.yml`.
-   - If no `*` — checks the specific folder.
+2. **Find workspaces** - for each pattern:
+   - If it contains `*` - scans all subfolders for `mip.yml`.
+   - If no `*` - checks the specific folder.
 
-3. **Execute action** — depending on `action`:
-   - **`list`** — outputs the list of found workspaces.
-   - **`run`** — executes `mip run <script>` in each workspace.
-   - **`install`** — executes `mip install` in each workspace.
-   - **`exec`** — executes an arbitrary command in each workspace.
+3. **Execute action** - depending on `action`:
+   - **`list`** - outputs the list of found workspaces.
+   - **`run`** - executes `mip run <script>` in each workspace.
+   - **`install`** - executes `mip install` in each workspace.
+   - **`exec`** - executes an arbitrary command in each workspace.
 
 ## Examples
 
@@ -194,9 +194,9 @@ mip workspaces list
 
 ::: callout tip "💡 Tip" icon:lightbulb
 `mip workspaces` is a powerful tool for:
-- **Monorepositories** — managing multiple packages from one point.
-- **CI/CD** — parallel installation and testing of all components.
-- **Development** — quickly running scripts across all packages.
+- **Monorepositories** - managing multiple packages from one point.
+- **CI/CD** - parallel installation and testing of all components.
+- **Development** - quickly running scripts across all packages.
 
 **Best practices:**
 1. Use the same structure for all workspaces.
@@ -206,14 +206,14 @@ mip workspaces list
 
 ## Related commands
 
-- [mip install](/commands/install) — install dependencies (in the root project).
-- [mip run](/commands/run) — run scripts (in the root project).
-- [mip list](/commands/list) — view installed packages.
+- [mip install](/commands/install) - install dependencies (in the root project).
+- [mip run](/commands/run) - run scripts (in the root project).
+- [mip list](/commands/list) - view installed packages.
 
 ::: collapsible "🧠 How does workspace discovery work?"
 Workspace discovery algorithm:
 
-1. **Read patterns** — from the `workspaces` section in the root `mip.yml`.
+1. **Read patterns** - from the `workspaces` section in the root `mip.yml`.
 
 2. **Process each pattern:**
    - If the pattern contains `*`:
@@ -240,7 +240,7 @@ Workspace discovery algorithm:
      }
      ```
 
-3. **Result** — an array of paths to folders with `mip.yml`.
+3. **Result** - an array of paths to folders with `mip.yml`.
 
 **Note:** Discovery only goes one level deep. For recursive discovery, use separate patterns.
 :::

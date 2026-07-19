@@ -1,5 +1,5 @@
 ---
-title: "mip language — manage interface language"
+title: "mip language - manage interface language"
 description: "The language command allows you to view and change the language of MIP messages in the current project."
 ---
 
@@ -19,7 +19,7 @@ mip language [lang]
 
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| `lang` | string | ❌ | Language code (e.g., `en`, `ru`, `de`). If not specified — shows the current language. |
+| `lang` | string | ❌ | Language code (e.g., `en`, `ru`, `de`). If not specified - shows the current language. |
 
 ## Available languages
 
@@ -31,14 +31,14 @@ mip language [lang]
 
 ## How it works
 
-1. **Determine current language** — MIP checks settings in the following order:
+1. **Determine current language** - MIP checks settings in the following order:
    - Language from `mip.yml` (the `language` field).
    - System language (if not specified in the project).
    - `en` (if unable to determine).
 
-2. **Show current language** — if `lang` is not specified, the command displays the current language and the list of available ones.
+2. **Show current language** - if `lang` is not specified, the command displays the current language and the list of available ones.
 
-3. **Set new language** — if a language code is provided:
+3. **Set new language** - if a language code is provided:
    - Checks whether the language is supported.
    - Updates `mip.yml` (adds or updates the `language` field).
    - Displays confirmation of successful language change.
@@ -103,21 +103,21 @@ mip language fr
 
 ::: callout info "💡 Tip" icon:lightbulb
 - The language is saved **per project** (in `mip.yml`), not globally. This allows different projects to use different languages.
-- If you want to change the language globally — change your system settings or the `LANG` environment variable.
+- If you want to change the language globally - change your system settings or the `LANG` environment variable.
 - For new projects, the default language is determined from system settings.
 :::
 
 ## Related commands
 
-- [mip init](/commands/init) — creates a new project with the language specified in `mip.yml`.
-- [mip info](/commands/info) — outputs package information in the selected language.
+- [mip init](/commands/init) - creates a new project with the language specified in `mip.yml`.
+- [mip info](/commands/info) - outputs package information in the selected language.
 
 ::: collapsible "🧠 How does multi-language work in MIP?"
 MIP uses a **two-level localization system**:
 
-1. **Project level** — the language is stored in `mip.yml` (the `language` field). This language is used for all commands within the project.
+1. **Project level** - the language is stored in `mip.yml` (the `language` field). This language is used for all commands within the project.
 
-2. **System level** — if no language is specified in the project, MIP looks at the system `LANG` or `LC_ALL` variable.
+2. **System level** - if no language is specified in the project, MIP looks at the system `LANG` or `LC_ALL` variable.
 
 **Priority:**
 ```

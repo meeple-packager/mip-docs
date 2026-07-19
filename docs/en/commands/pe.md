@@ -1,5 +1,5 @@
 ---
-title: "mip pe — execute plugin commands"
+title: "mip pe - execute plugin commands"
 description: "The pe (plugin-execute) command executes commands registered in MIP plugins."
 ---
 
@@ -95,4 +95,4 @@ Output:
 
 ## Related commands
 
-- [mip plugin](/commands/plugin) — manage plugins
+- [mip plugin](/commands/plugin) - manage plugins

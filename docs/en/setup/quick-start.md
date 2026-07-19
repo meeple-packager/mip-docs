@@ -208,15 +208,15 @@ mip uninstall express
 
 You've installed MIP and created your first project. Next:
 
-- [Configuration](/setup/configuration) — configuring `mip.yml`
-- [Commands](/commands/install) — all MIP commands
-- [Plugins](/commands/plugin) — extending MIP
+- [Configuration](/setup/configuration) - configuring `mip.yml`
+- [Commands](/commands/install) - all MIP commands
+- [Plugins](/commands/plugin) - extending MIP
 
 ---
 
 ## 🔗 Related pages
 
-- [Installation](/setup) — full installation guide
-- [Configuration](/setup/configuration) — project setup
-- [mip init](/commands/init) — creating a project
-- [mip install](/commands/install) — installing packages
+- [Installation](/setup) - full installation guide
+- [Configuration](/setup/configuration) - project setup
+- [mip init](/commands/init) - creating a project
+- [mip install](/commands/install) - installing packages

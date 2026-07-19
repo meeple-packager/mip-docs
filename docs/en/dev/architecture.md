@@ -74,7 +74,7 @@ mip/
 
 ## 🧩 Key components
 
-### `utils/config.js` — configuration handling
+### `utils/config.js` - configuration handling
 
 A universal loader that supports `mip.yml`, `mip.json`, and `package.json`.
 
@@ -89,7 +89,7 @@ const conf = config.readConfig();
 config.writeConfig({ name: 'my-project' });
 ```
 
-### `utils/store.js` — global cache
+### `utils/store.js` - global cache
 
 Manages package storage in `~/.mip/store/`.
 
@@ -105,7 +105,7 @@ if (store.isPackageInStore('lodash', '4.17.21')) {
 const path = store.getPackageStorePath('lodash', '4.17.21');
 ```
 
-### `core/resolver.js` — dependency resolution
+### `core/resolver.js` - dependency resolution
 
 Builds the dependency tree and caches results.
 
@@ -115,7 +115,7 @@ const tree = await resolver.resolveVersion('express', 'latest');
 // Returns: { name, version, dependencies: { ... } }
 ```
 
-### `core/parallel-download.js` — parallel download
+### `core/parallel-download.js` - parallel download
 
 Downloads up to 10 packages at the same time. Uses HTTP/2.
 
@@ -124,13 +124,13 @@ const downloader = new ParallelDownloader();
 const packages = await downloader.downloadPackages(tree);
 ```
 
-### `core/super-cache.js` — 3-level cache
+### `core/super-cache.js` - 3-level cache
 
 1. In-memory (LRU, 1000 items)
 2. Disk (`.mip/cache/`)
 3. In-flight (deduplication of parallel requests)
 
-### `core/peer-resolver.js` — peer dependencies
+### `core/peer-resolver.js` - peer dependencies
 
 By default, it skips peer warnings. With `--show-peer-warnings`, it shows warnings and asks.
 
@@ -298,6 +298,6 @@ i18n/  ui/  api/
 
 ## Related pages
 
-- [Adding commands](/ru/dev/adding-commands) — how to create a command
-- [Hooks & plugins](/ru/dev/hooks) — extending functionality
+- [Adding commands](/ru/dev/adding-commands) - how to create a command
+- [Hooks & plugins](/ru/dev/hooks) - extending functionality
 

@@ -1,5 +1,5 @@
 ---
-title: "mip global — manage global packages"
+title: "mip global - manage global packages"
 description: "The global command allows you to install, remove, and list packages installed globally for use anywhere in the system."
 ---
 
@@ -35,11 +35,11 @@ mip global <action> [package-name]
 ### `install`
 1. Creates the global directory `~/.mip/global/` (if it doesn't exist).
 2. Changes to that directory.
-3. If `mip.json` is missing — creates it via `mip init`.
+3. If `mip.json` is missing - creates it via `mip init`.
 4. Installs the specified package via `mip install`.
 5. Removes the temporary `mip.json` (if it was created).
 6. Checks whether the global folder (`~/.mip/global/node_modules/.bin`) is in PATH.
-7. If not — adds it to `.zshrc` or `.bashrc`.
+7. If not - adds it to `.zshrc` or `.bashrc`.
 
 ### `uninstall`
 1. Removes the package folder from `~/.mip/global/node_modules/`.
@@ -140,7 +140,7 @@ mip global uninstall some-package
 **Cause:** The global folder has not been added to PATH.
 
 **Solution:**
-After installation, the command tries to add PATH automatically. If it doesn't work — add it manually:
+After installation, the command tries to add PATH automatically. If it doesn't work - add it manually:
 ```bash
 echo 'export PATH="$PATH:~/.mip/global/node_modules/.bin"' >> ~/.zshrc
 source ~/.zshrc
@@ -161,9 +161,9 @@ source ~/.zshrc
 
 ## Related commands
 
-- [mip install](/commands/install) — local installation in the current project.
-- [mip list](/commands/list) — shows locally installed packages.
-- [mip doctor](/commands/doctor) — environment diagnostics (checks PATH).
+- [mip install](/commands/install) - local installation in the current project.
+- [mip list](/commands/list) - shows locally installed packages.
+- [mip doctor](/commands/doctor) - environment diagnostics (checks PATH).
 
 ::: collapsible "🧠 Where are global packages stored?"
 ```
@@ -180,9 +180,9 @@ source ~/.zshrc
 ```
 
 **Structure:**
-- `~/.mip/global/` — root of the global environment.
-- `node_modules/` — installed packages.
-- `.bin/` — executable files (added to PATH).
+- `~/.mip/global/` - root of the global environment.
+- `node_modules/` - installed packages.
+- `.bin/` - executable files (added to PATH).
 
 **Important:** Global packages **do not depend** on the local `mip.yml` and are not included in `mip-lock.yml`.
 :::

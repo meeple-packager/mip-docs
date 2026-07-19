@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip ci — установка для CI/CD окружений : MIP - Modern Package Manager
+      mip ci - установка для CI/CD окружений : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Команда ci предназначена для быстрой и надёжной установки зависимостей в CI/CD средах, используя lock-файл и проверяя его целостность.">
 <link rel="canonical" href="https://mip.fwh.is/ru/commands/ci/">
-<meta property="og:title" content="mip ci — установка для CI/CD окружений - MIP - Modern Package Manager">
+<meta property="og:title" content="mip ci - установка для CI/CD окружений - MIP - Modern Package Manager">
 <meta property="og:description" content="Команда ci предназначена для быстрой и надёжной установки зависимостей в CI/CD средах, используя lock-файл и проверяя его целостность.">
 <meta property="og:url" content="https://mip.fwh.is/ru/commands/ci/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip ci — установка для CI/CD окружений - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip ci - установка для CI/CD окружений - MIP - Modern Package Manager">
 <meta name="twitter:description" content="Команда ci предназначена для быстрой и надёжной установки зависимостей в CI/CD средах, используя lock-файл и проверяя его целостность.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/ci/">
 <link rel="alternate" hreflang="en" href="/commands/ci/">
 <link rel="alternate" hreflang="x-default" href="/commands/ci/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Функции конфиг-файла
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Настройка конфига
             </span>
           
           
@@ -1677,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip ci — установка для CI/CD окружений
+                  mip ci - установка для CI/CD окружений
                 </span>
               </div>
             </div>
@@ -1800,7 +1864,7 @@
   <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05" />
 </svg>
 Что это?</div><div class="callout-content">
-<p><code>mip ci</code> — это специальная команда для <strong>неинтерактивных сред</strong> (CI/CD, Docker, тестовые серверы). Она устанавливает зависимости строго по <code>mip-lock.yml</code>, игнорируя <code>mip.yml</code>, что гарантирует воспроизводимую установку. В отличие от <code>mip install</code>, команда не обновляет lock-файл и не проверяет обновления — только устанавливает то, что уже зафиксировано.</p>
+<p><code>mip ci</code> - это специальная команда для <strong>неинтерактивных сред</strong> (CI/CD, Docker, тестовые серверы). Она устанавливает зависимости строго по <code>mip-lock.yml</code>, игнорируя <code>mip.yml</code>, что гарантирует воспроизводимую установку. В отличие от <code>mip install</code>, команда не обновляет lock-файл и не проверяет обновления - только устанавливает то, что уже зафиксировано.</p>
 </div></div>
 <h2 id="mip-ci-синтаксис" class="docmd-heading"><a href="#mip-ci-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
 <pre class="hljs"><code class="language-bash">mip ci [<span class="hljs-punctuation">--</span>frozen<span class="hljs-punctuation">-</span>lockfile]
@@ -1816,36 +1880,36 @@
 <tbody>
 <tr>
 <td><code>--frozen-lockfile</code></td>
-<td>Проверяет, что <code>mip-lock.yml</code> синхронизирован с <code>mip.yml</code>. Если есть расхождения — установка прерывается с ошибкой.</td>
+<td>Проверяет, что <code>mip-lock.yml</code> синхронизирован с <code>mip.yml</code>. Если есть расхождения - установка прерывается с ошибкой.</td>
 </tr>
 </tbody>
 </table>
 </div><h2 id="mip-ci-логика-работы" class="docmd-heading"><a href="#mip-ci-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
 <ol>
-<li><p><strong>Проверка наличия файлов</strong> — команда проверяет существование <code>mip.yml</code> и <code>mip-lock.yml</code>. Если файлы отсутствуют — выполнение прерывается с кодом ошибки <code>1</code>.</p>
+<li><p><strong>Проверка наличия файлов</strong> - команда проверяет существование <code>mip.yml</code> и <code>mip-lock.yml</code>. Если файлы отсутствуют - выполнение прерывается с кодом ошибки <code>1</code>.</p>
 </li>
-<li><p><strong>Проверка frozen lockfile (если указан флаг)</strong> — сравнивает зависимости из <code>mip.yml</code> и <code>mip-lock.yml</code>:</p>
+<li><p><strong>Проверка frozen lockfile (если указан флаг)</strong> - сравнивает зависимости из <code>mip.yml</code> и <code>mip-lock.yml</code>:</p>
 <ul>
 <li>Все зависимости из <code>mip.yml</code> должны присутствовать в lock-файле.</li>
 <li>В lock-файле не должно быть лишних пакетов, которых нет в <code>mip.yml</code>.</li>
 <li>При обнаружении расхождений выводится список проблем и инструкция по исправлению.</li>
 </ul>
 </li>
-<li><p><strong>Установка из lock-файла</strong> — для каждого пакета из <code>mip-lock.yml</code>:</p>
+<li><p><strong>Установка из lock-файла</strong> - для каждого пакета из <code>mip-lock.yml</code>:</p>
 <ul>
 <li>Проверяется наличие в глобальном кэше <code>~/.mip/store/</code>.</li>
-<li>Если пакет отсутствует — скачивается и распаковывается.</li>
+<li>Если пакет отсутствует - скачивается и распаковывается.</li>
 <li>Создаётся симлинк в <code>node_modules/</code>.</li>
 </ul>
 </li>
-<li><p><strong>Индикация прогресса</strong> — отображается прогресс-бар с процентом завершения.</p>
+<li><p><strong>Индикация прогресса</strong> - отображается прогресс-бар с процентом завершения.</p>
 </li>
 </ol>
 <h2 id="mip-ci-примеры" class="docmd-heading"><a href="#mip-ci-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
 <div class="docmd-tabs">
 <div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Стандартная CI установка</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip ci
 </code></pre>
-<p>Устанавливает все зависимости из <code>mip-lock.yml</code>. Если lock-файл отсутствует — выводит ошибку.</p>
+<p>Устанавливает все зависимости из <code>mip-lock.yml</code>. Если lock-файл отсутствует - выводит ошибку.</p>
 <p><strong>Пример вывода:</strong></p>
 <pre class="hljs"><code>🚀 Running CI installation...
 📦 Installing <span class="hljs-keyword">from</span> <span class="hljs-title function_">lockfile</span> (<span class="hljs-number">42</span> packages)
@@ -1857,7 +1921,7 @@
 </div></div></div><p>== tab “Строгая проверка lock-файла”</p>
 <pre class="hljs"><code class="language-bash">mip ci <span class="hljs-punctuation">--</span>frozen<span class="hljs-punctuation">-</span>lockfile
 </code></pre>
-<p>Перед установкой проверяет, что lock-файл синхронизирован с <code>mip.yml</code>. При расхождении — выводит ошибку и подсказку.</p>
+<p>Перед установкой проверяет, что lock-файл синхронизирован с <code>mip.yml</code>. При расхождении - выводит ошибку и подсказку.</p>
 <p><strong>Пример ошибки:</strong></p>
 <pre class="hljs"><code>❌ Frozen lockfile check failed<span class="hljs-punctuation">:</span>
   • lodash<span class="hljs-punctuation">:</span> missing <span class="hljs-keyword">from</span> lockfile
@@ -1908,7 +1972,7 @@
 </svg>
 ❌ mip.yml not found</div><div class="callout-content">
 <p><strong>Причина:</strong> В текущей директории нет <code>mip.yml</code>.</p>
-<p><strong>Решение:</strong> Убедитесь, что вы находитесь в корне проекта. Если это новый проект — создайте <code>mip.yml</code> с помощью <code>mip init</code>.</p>
+<p><strong>Решение:</strong> Убедитесь, что вы находитесь в корне проекта. Если это новый проект - создайте <code>mip.yml</code> с помощью <code>mip init</code>.</p>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
 <svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -1935,7 +1999,7 @@
 <li>Закоммитьте обновлённый <code>mip-lock.yml</code>.</li>
 <li>Перезапустите CI.</li>
 </ol>
-<p>Для автоматизации добавьте <code>mip ci --frozen-lockfile</code> в CI-пайплайн — это гарантирует, что никто не забудет обновить lock-файл.</p>
+<p>Для автоматизации добавьте <code>mip ci --frozen-lockfile</code> в CI-пайплайн - это гарантирует, что никто не забудет обновить lock-файл.</p>
 </div></div>
 <div class="docmd-container callout callout-tip"><div class="callout-title">
 <svg class="lucide-icon icon-lightbulb callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -1957,21 +2021,21 @@
 💡 Совет</div><div class="callout-content">
 <p>Всегда используйте <code>mip ci</code> вместо <code>mip install</code> в CI/CD. Это:</p>
 <ul>
-<li><strong>Быстрее</strong> — не проверяет обновления, только устанавливает.</li>
-<li><strong>Надёжнее</strong> — гарантирует воспроизводимость сборки.</li>
-<li><strong>Безопаснее</strong> — не позволяет случайно обновить зависимости.</li>
+<li><strong>Быстрее</strong> - не проверяет обновления, только устанавливает.</li>
+<li><strong>Надёжнее</strong> - гарантирует воспроизводимость сборки.</li>
+<li><strong>Безопаснее</strong> - не позволяет случайно обновить зависимости.</li>
 </ul>
 <p>Команда также использует прогресс-бар для наглядности процесса.</p>
 </div></div>
 <h2 id="mip-ci-связанные-команды" class="docmd-heading"><a href="#mip-ci-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
 <ul>
-<li><a href="/ru/commands/install/">mip install</a> — интерактивная установка с обновлением lock-файла.</li>
-<li><a href="/ru/commands/genlock/">mip genlock</a> — генерация lock-файла.</li>
-<li><a href="/ru/commands/doctor/">mip doctor</a> — диагностика состояния проекта.</li>
+<li><a href="/ru/commands/install/">mip install</a> - интерактивная установка с обновлением lock-файла.</li>
+<li><a href="/ru/commands/genlock/">mip genlock</a> - генерация lock-файла.</li>
+<li><a href="/ru/commands/doctor/">mip doctor</a> - диагностика состояния проекта.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
-            <span class="collapsible-title">🧠 Почему ci и install — разные команды?</span>
+            <span class="collapsible-title">🧠 Почему ci и install - разные команды?</span>
             <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
         </summary>
         <div class="collapsible-content">
@@ -2001,7 +2065,7 @@
 </tbody>
 </table>
 </div><p>В CI вы <strong>всегда</strong> хотите установить строго те версии, которые зафиксированы в lock-файле. Использование <code>mip install</code> в CI может привести к недетерминированным сборкам, если кто-то опубликовал новую версию пакета.</p>
-<p>Дополнительно, <code>--frozen-lockfile</code> выступает как <strong>защита от человеческого фактора</strong> — если разработчик забыл обновить lock-файл после изменения <code>mip.yml</code>, CI упадёт с понятной ошибкой и подсказкой, что делать.</p>
+<p>Дополнительно, <code>--frozen-lockfile</code> выступает как <strong>защита от человеческого фактора</strong> - если разработчик забыл обновить lock-файл после изменения <code>mip.yml</code>, CI упадёт с понятной ошибкой и подсказкой, что делать.</p>
 </div></details>
 
                 
@@ -2170,15 +2234,15 @@
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

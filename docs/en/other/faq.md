@@ -1,6 +1,6 @@
 ---
 title: "Extended FAQ"
-description: "Answers to complex questions about MIP — architecture, plugins, debugging, performance."
+description: "Answers to complex questions about MIP - architecture, plugins, debugging, performance."
 ---
 
 # Extended FAQ ❓
@@ -105,7 +105,7 @@ DEBUG=1 mip install lodash
 Logs are printed to the console. For logger plugins, you can write to a file.
 
 ### A command is stuck. What should I do?
-Press `Ctrl+C`. If stuck on `npm install` in a plugin — check the plugin's `package.json`.
+Press `Ctrl+C`. If stuck on `npm install` in a plugin - check the plugin's `package.json`.
 
 ### Why doesn't `mip pe` see my command?
 1. Check that the plugin is activated: `mip plugin list`
@@ -187,7 +187,7 @@ Installs packages strictly from `mip-lock.yml`, ignoring `mip.yml`.
 mip ci --frozen-lockfile
 ```
 
-Checks that the lockfile is synced with `mip.yml`. If there are mismatches — exits with an error.
+Checks that the lockfile is synced with `mip.yml`. If there are mismatches - exits with an error.
 
 ### How do I check security in CI?
 
@@ -265,6 +265,6 @@ Open an issue on GitHub: [https://github.com/kiwinatra/mip/issues](https://githu
 
 ## Related pages
 
-- [MIP Architecture](/dev/architecture) — project structure
-- [Hooks and plugins](/dev/hooks) — extending functionality
-- [mip plugin](/commands/plugin) — manage plugins
+- [MIP Architecture](/dev/architecture) - project structure
+- [Hooks and plugins](/dev/hooks) - extending functionality
+- [mip plugin](/commands/plugin) - manage plugins

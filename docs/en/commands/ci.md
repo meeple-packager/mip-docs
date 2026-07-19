@@ -1,12 +1,12 @@
 ---
-title: "mip ci — install for CI/CD environments"
+title: "mip ci - install for CI/CD environments"
 description: "The ci command is designed for fast and reliable dependency installation in CI/CD environments using a lockfile and verifying its integrity."
 ---
 
 # mip ci
 
 ::: callout info "What is this?" icon:rocket
-`mip ci` is a special command for **non-interactive environments** (CI/CD, Docker, testing servers). It installs dependencies strictly according to `mip-lock.yml`, ignoring `mip.yml`, which guarantees a reproducible installation. Unlike `mip install`, this command does not update the lockfile and does not check for updates — it only installs what is already locked.
+`mip ci` is a special command for **non-interactive environments** (CI/CD, Docker, testing servers). It installs dependencies strictly according to `mip-lock.yml`, ignoring `mip.yml`, which guarantees a reproducible installation. Unlike `mip install`, this command does not update the lockfile and does not check for updates - it only installs what is already locked.
 :::
 
 ## Syntax
@@ -23,19 +23,19 @@ mip ci [--frozen-lockfile]
 
 ## How it works
 
-1. **Check that required files exist** — the command verifies `mip.yml` and `mip-lock.yml` are present. If any are missing, it exits with error code `1`.
+1. **Check that required files exist** - the command verifies `mip.yml` and `mip-lock.yml` are present. If any are missing, it exits with error code `1`.
 
-2. **Frozen lockfile check (if the flag is set)** — compares dependencies from `mip.yml` and `mip-lock.yml`:
+2. **Frozen lockfile check (if the flag is set)** - compares dependencies from `mip.yml` and `mip-lock.yml`:
    - All dependencies from `mip.yml` must be present in the lockfile.
    - The lockfile must not contain extra packages that are not in `mip.yml`.
    - If discrepancies are found, it prints the problems and instructions on how to fix them.
 
-3. **Install from the lockfile** — for each package from `mip-lock.yml`:
+3. **Install from the lockfile** - for each package from `mip-lock.yml`:
    - Checks whether it exists in the global cache `~/.mip/store/`.
    - If it’s missing, it’s downloaded and extracted.
    - A symlink is created in `node_modules/`.
 
-4. **Progress indication** — shows a progress bar with the completion percentage.
+4. **Progress indication** - shows a progress bar with the completion percentage.
 
 ## Examples
 
@@ -96,23 +96,23 @@ Before installation, it checks that the lockfile matches `mip.yml`. If there’s
 2. Commit the updated `mip-lock.yml`.
 3. Restart CI.
 
-To automate this, add `mip ci --frozen-lockfile` to your CI pipeline — this prevents people from forgetting to update the lockfile.
+To automate this, add `mip ci --frozen-lockfile` to your CI pipeline - this prevents people from forgetting to update the lockfile.
 :::
 
 ::: callout tip "💡 Tip" icon:lightbulb
 Always use `mip ci` instead of `mip install` in CI/CD. It’s:
-- **Faster** — it doesn’t check for updates, it only installs.
-- **More reliable** — guarantees reproducible builds.
-- **Safer** — prevents accidental dependency updates.
+- **Faster** - it doesn’t check for updates, it only installs.
+- **More reliable** - guarantees reproducible builds.
+- **Safer** - prevents accidental dependency updates.
 
 The command also uses a progress bar to make the process visible.
 :::
 
 ## Related commands
 
-- [mip install](/commands/install) — interactive install that updates the lockfile.
-- [mip genlock](/commands/genlock) — generates the lockfile.
-- [mip doctor](/commands/doctor) — checks overall project health.
+- [mip install](/commands/install) - interactive install that updates the lockfile.
+- [mip genlock](/commands/genlock) - generates the lockfile.
+- [mip doctor](/commands/doctor) - checks overall project health.
 
 ::: collapsible "🧠 Why ci and install are different?"
 MIP splits these commands to prevent common CI mistakes:

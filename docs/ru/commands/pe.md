@@ -1,5 +1,5 @@
 ---
-title: "mip pe — выполнение команд плагинов"
+title: "mip pe - выполнение команд плагинов"
 description: "Команда pe (plugin-execute) выполняет команды, зарегистрированные в плагинах MIP."
 ---
 
@@ -95,4 +95,4 @@ mip pe hello unknown-command
 
 ## Связанные команды
 
-- [mip plugin](/ru/commands/plugin) — управление плагинами
+- [mip plugin](/ru/commands/plugin) - управление плагинами

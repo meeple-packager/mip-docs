@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip list — list installed packages : MIP - Modern Package Manager
+      mip list - list installed packages : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The list command shows all packages installed in the current project with their versions, source (global cache or local), and status.">
 <link rel="canonical" href="https://mip.fwh.is/commands/list/">
-<meta property="og:title" content="mip list — list installed packages - MIP - Modern Package Manager">
+<meta property="og:title" content="mip list - list installed packages - MIP - Modern Package Manager">
 <meta property="og:description" content="The list command shows all packages installed in the current project with their versions, source (global cache or local), and status.">
 <meta property="og:url" content="https://mip.fwh.is/commands/list/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip list — list installed packages - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip list - list installed packages - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The list command shows all packages installed in the current project with their versions, source (global cache or local), and status.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/list/">
 <link rel="alternate" hreflang="en" href="/commands/list/">
 <link rel="alternate" hreflang="x-default" href="/commands/list/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip list — list installed packages
+                  mip list - list installed packages
                 </span>
               </div>
             </div>
@@ -1793,20 +1857,20 @@ What is this?</div><div class="callout-content">
 </code></pre>
 <h2 id="mip-list-how-it-works" class="docmd-heading"><a href="#mip-list-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Check <code>mip.yml</code></strong> — if the file is missing, the command outputs an error message.</p>
+<li><p><strong>Check <code>mip.yml</code></strong> - if the file is missing, the command outputs an error message.</p>
 </li>
-<li><p><strong>Read manifest</strong> — all installed packages are extracted from <code>.mip/manifest.json</code>.</p>
+<li><p><strong>Read manifest</strong> - all installed packages are extracted from <code>.mip/manifest.json</code>.</p>
 </li>
-<li><p><strong>Determine source</strong> — for each package, the following is shown:</p>
+<li><p><strong>Determine source</strong> - for each package, the following is shown:</p>
 <ul>
-<li>🌍 — package from the global cache <code>~/.mip/store/</code></li>
-<li>🔗 — package linked via <code>mip link</code></li>
-<li>📁 — local package (for backward compatibility)</li>
+<li>🌍 - package from the global cache <code>~/.mip/store/</code></li>
+<li>🔗 - package linked via <code>mip link</code></li>
+<li>📁 - local package (for backward compatibility)</li>
 </ul>
 </li>
-<li><p><strong>Display versions and paths</strong> — for each package, the version and path in the global cache are shown.</p>
+<li><p><strong>Display versions and paths</strong> - for each package, the version and path in the global cache are shown.</p>
 </li>
-<li><p><strong>Total count</strong> — total number of packages.</p>
+<li><p><strong>Total count</strong> - total number of packages.</p>
 </li>
 </ol>
 <h2 id="mip-list-examples" class="docmd-heading"><a href="#mip-list-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1897,7 +1961,7 @@ What is this?</div><div class="callout-content">
 <ol>
 <li>Navigate to the project folder: <code>cd /path/to/project</code></li>
 <li>Make sure <code>mip.yml</code> exists there.</li>
-<li>If not — create it: <code>mip init</code></li>
+<li>If not - create it: <code>mip init</code></li>
 </ol>
 </div></div>
 <div class="docmd-container callout callout-tip"><div class="callout-title">
@@ -1928,9 +1992,9 @@ What is this?</div><div class="callout-content">
 </div></div>
 <h2 id="mip-list-related-commands" class="docmd-heading"><a href="#mip-list-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — install packages.</li>
-<li><a href="/commands/outdated/">mip outdated</a> — check for outdated packages.</li>
-<li><a href="/commands/doctor/">mip doctor</a> — project diagnostics.</li>
+<li><a href="/commands/install/">mip install</a> - install packages.</li>
+<li><a href="/commands/outdated/">mip outdated</a> - check for outdated packages.</li>
+<li><a href="/commands/doctor/">mip doctor</a> - project diagnostics.</li>
 </ul>
 
                 
@@ -2067,15 +2131,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

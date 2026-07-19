@@ -246,7 +246,7 @@ node --version
 
 ## 🔗 Related pages
 
-- [Network & Registries](/troubleshooting/network) — network issues
-- [Lock Files](/troubleshooting/lockfile) — lockfile issues
-- [mip doctor](/commands/doctor) — environment diagnostics
-- [mip cache](/commands/cache) — cache management
+- [Network & Registries](/troubleshooting/network) - network issues
+- [Lock Files](/troubleshooting/lockfile) - lockfile issues
+- [mip doctor](/commands/doctor) - environment diagnostics
+- [mip cache](/commands/cache) - cache management

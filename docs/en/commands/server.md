@@ -1,18 +1,18 @@
 ---
-title: "mip server — web dashboard for MIP"
+title: "mip page - web dashboard for MIP"
 description: "The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health."
 ---
 
-# mip server
+# mip page
 
 ::: callout info "What is this?" icon:🌐
-`mip server` launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project's dependencies, global storage, configured registries, available scripts, and system information — all in one place with auto-refresh.
+`mip page` launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project's dependencies, global storage, configured registries, available scripts, and system information - all in one place with auto-refresh.
 :::
 
 ## Syntax
 
 ```bash
-mip server <subcommand> [options]
+mip page <subcommand> [options]
 ```
 
 ## Subcommands
@@ -33,14 +33,15 @@ mip server <subcommand> [options]
 ## Dashboard Features
 
 ### 📊 Overview Tab
-- **Package statistics** — total installed packages
-- **Store size** — global storage usage
-- **Dependency breakdown** — production vs development
-- **Script count** — available npm scripts
-- **Registry count** — configured registries
-- **Workspace count** — monorepo workspaces
-- **Top 5 packages** — largest packages by size
-- **Registry quick view** — all configured registries with status
+- **Package statistics** - total installed packages
+- **Store size** - global storage usage
+- **Dependency breakdown** - production vs development
+- **Script count** - available npm scripts
+- **Registry count** - configured registries
+- **Workspace count** - monorepo workspaces
+- **Top 5 packages** - largest packages by size
+- **Registry quick view** - all configured registries with status
+- **Blog** - view all latest mip news
 
 ### 📦 Packages Tab
 - Complete list of all installed packages
@@ -78,33 +79,33 @@ mip server <subcommand> [options]
 
 ## How it works
 
-1. **Server process** — MIP starts a lightweight HTTP server using Node.js `http` module.
+1. **Server process** - MIP starts a lightweight HTTP server using Node.js `http` module.
 
-2. **API endpoints** — the server exposes RESTful endpoints:
-   - `/api/project` — project configuration
-   - `/api/packages` — installed packages
-   - `/api/store` — global storage info
-   - `/api/registries` — registry configuration
-   - `/api/system` — system information
-   - `/api/health` — health check
+2. **API endpoints** - the server exposes RESTful endpoints:
+   - `/api/project` - project configuration
+   - `/api/packages` - installed packages
+   - `/api/store` - global storage info
+   - `/api/registries` - registry configuration
+   - `/api/system` - system information
+   - `/api/health` - health check
 
-3. **Dashboard UI** — a single-page application with tabs that fetches data from the API every 3 seconds.
+3. **Dashboard UI** - a single-page application with tabs that fetches data from the API every 3 seconds.
 
-4. **Process management** — server PID is stored in `~/.mip/server.pid` for process control.
+4. **Process management** - server PID is stored in `~/.mip/server.pid` for process control.
 
-5. **Auto-refresh** — the dashboard automatically updates every 3 seconds, keeping information current.
+5. **Auto-refresh** - the dashboard automatically updates every 3 seconds, keeping information current.
 
 ## Examples
 
 ::: tabs
 == tab "Start server"
 ```bash
-mip server start
+mip page start
 ```
 
 **Output:**
 ```
-🌐 MIP Server running at http://localhost:3000
+🌐 mip page running at http://localhost:3000
 📊 Dashboard: http://localhost:3000/
 📁 Project: /home/user/my-project
 🔧 Press Ctrl+C to stop
@@ -115,28 +116,28 @@ Open your browser and visit `http://localhost:3000` to see the dashboard.
 
 == tab "Start on custom port"
 ```bash
-mip server start 8080
+mip page start 8080
 ```
 Starts the server on port 8080 instead of the default 3000.
 :::
 
 == tab "Start with browser"
 ```bash
-mip server start --open
+mip page start --open
 ```
 Starts the server and automatically opens the dashboard in your default browser.
 :::
 
 == tab "Start on all interfaces"
 ```bash
-mip server start --host
+mip page start --host
 ```
 Allows access from other devices on the network (useful for sharing the dashboard with team members).
 :::
 
 == tab "Stop server"
 ```bash
-mip server stop
+mip page stop
 ```
 
 **Output:**
@@ -147,13 +148,13 @@ mip server stop
 
 == tab "Check status"
 ```bash
-mip server status
+mip page status
 ```
 
 **Output:**
 ```
 ✅ Server is running (PID: 12345)
-   To stop: mip server stop
+   To stop: mip page stop
 ```
 
 Or if not running:
@@ -193,8 +194,8 @@ Or if not running:
 **Cause:** Port 3000 (or the specified port) is already in use.
 
 **Resolution:**
-1. Use a different port: `mip server start 8080`
-2. Stop the existing server: `mip server stop`
+1. Use a different port: `mip page start 8080`
+2. Stop the existing server: `mip page stop`
 3. Or kill the process manually using the PID shown in the error message.
 :::
 
@@ -202,9 +203,9 @@ Or if not running:
 **Cause:** The server is already running.
 
 **Resolution:**
-1. Check the status: `mip server status`
-2. Stop it first: `mip server stop`
-3. Then start again: `mip server start`
+1. Check the status: `mip page status`
+2. Stop it first: `mip page stop`
+3. Then start again: `mip page start`
 :::
 
 ::: callout warning "⚠️ ERR_NO_CONFIG" icon:alert-circle
@@ -218,16 +219,16 @@ Or if not running:
 
 ## Related commands
 
-- [mip doctor](/commands/doctor) — system diagnostics
-- [mip list](/commands/list) — list installed packages (CLI)
-- [mip config](/commands/config) — manage configuration
-- [mip registry](/commands/registry) — manage registries
+- [mip doctor](/commands/doctor) - system diagnostics
+- [mip list](/commands/list) - list installed packages (CLI)
+- [mip config](/commands/config) - manage configuration
+- [mip registry](/commands/registry) - manage registries
 
 ::: collapsible "🔧 How the server works under the hood"
 The server is a single-file implementation using Node.js's built-in `http` module (no external dependencies).
 
 **Process flow:**
-1. When `mip server start` is called, MIP:
+1. When `mip page start` is called, MIP:
    - Checks if the server is already running (using `~/.mip/server.pid`)
    - Creates an HTTP server
    - Listens on the specified port
@@ -245,15 +246,15 @@ The server is a single-file implementation using Node.js's built-in `http` modul
    - Renders the data in tabbed interface
    - Provides keyboard shortcuts (Ctrl+R to refresh)
 
-4. **Graceful shutdown** — the server handles SIGINT and SIGTERM signals to clean up the PID file.
+4. **Graceful shutdown** - the server handles SIGINT and SIGTERM signals to clean up the PID file.
 :::
 
 ::: callout tip "💡 Pro tip: Share with your team" icon:lightbulb
-Use `mip server start --host` to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:
+Use `mip page start --host` to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:
 
 ```bash
 # Start on all interfaces
-mip server start --host
+mip page start --host
 
 # Your team can access at:
 # http://192.168.1.100:3000  (replace with your IP)

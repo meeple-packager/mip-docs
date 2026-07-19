@@ -945,7 +945,7 @@ body.has-menubar-header .docmd-menubar {
     max-height: calc(100vh - var(--sticky-top-offset) - 4rem);
     overflow-y: auto;
     scrollbar-width: thin;
-    /* Don't stretch to match the full .content-layout height — the TOC
+    /* Don't stretch to match the full .content-layout height - the TOC
      * is sticky and sizes itself; .main-content needs to fill the height
      * so .page-navigation (margin-top: auto) can push to the bottom. */
     align-self: flex-start
@@ -1728,7 +1728,7 @@ html[data-theme=dark] .theme-toggle-button .icon-sun {
    override block.
    ========================================================================= */
 
-/* Base — hidden by default, absolute-positioned, smooth reveal. */
+/* Base - hidden by default, absolute-positioned, smooth reveal. */
 .docmd-container.steps-reset ol.steps-list>li.step-item .step-permalink,
 .docmd-container.changelog-timeline .changelog-permalink {
     position: absolute;
@@ -2160,7 +2160,7 @@ button,
     gap: 2rem;
     width: 100%;
     /* align-items: stretch (default) so .main-content fills the full
-     * available height — lets .page-navigation (margin-top: auto) push
+     * available height - lets .page-navigation (margin-top: auto) push
      * all the way to the bottom of .content-area on short pages, matching
      * the behavior of .page-footer-actions below. */
     align-items: stretch;

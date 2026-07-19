@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip dedupe — remove duplicate dependencies : MIP - Modern Package Manager
+      mip dedupe - remove duplicate dependencies : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The dedupe command analyzes the dependency tree and removes duplicate packages to optimize structure and reduce the project size.">
 <link rel="canonical" href="https://mip.fwh.is/commands/dedupe/">
-<meta property="og:title" content="mip dedupe — remove duplicate dependencies - MIP - Modern Package Manager">
+<meta property="og:title" content="mip dedupe - remove duplicate dependencies - MIP - Modern Package Manager">
 <meta property="og:description" content="The dedupe command analyzes the dependency tree and removes duplicate packages to optimize structure and reduce the project size.">
 <meta property="og:url" content="https://mip.fwh.is/commands/dedupe/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip dedupe — remove duplicate dependencies - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip dedupe - remove duplicate dependencies - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The dedupe command analyzes the dependency tree and removes duplicate packages to optimize structure and reduce the project size.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/dedupe/">
 <link rel="alternate" hreflang="en" href="/commands/dedupe/">
 <link rel="alternate" hreflang="x-default" href="/commands/dedupe/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip dedupe — remove duplicate dependencies
+                  mip dedupe - remove duplicate dependencies
                 </span>
               </div>
             </div>
@@ -1785,7 +1849,7 @@
   <path d="M14.8 14.8 20 20" />
 </svg>
 What is this?</div><div class="callout-content">
-<p><code>mip dedupe</code> finds and removes duplicate package versions in your project. This helps reduce size, speed up installation, and avoid version conflicts. The command has two modes: <strong>quick</strong> (default) and <strong>full</strong> — for maximum optimization.</p>
+<p><code>mip dedupe</code> finds and removes duplicate package versions in your project. This helps reduce size, speed up installation, and avoid version conflicts. The command has two modes: <strong>quick</strong> (default) and <strong>full</strong> - for maximum optimization.</p>
 </div></div>
 <h2 id="mip-dedupe-syntax" class="docmd-heading"><a href="#mip-dedupe-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
 <pre class="hljs"><code class="language-bash">mip dedupe [<span class="hljs-punctuation">--</span>full]
@@ -1801,41 +1865,41 @@ What is this?</div><div class="callout-content">
 <tbody>
 <tr>
 <td><code>--full</code></td>
-<td>Enables <strong>full deduplication</strong> mode — more aggressively rebuilds the dependency graph, removing all possible duplicates. Can take longer.</td>
+<td>Enables <strong>full deduplication</strong> mode - more aggressively rebuilds the dependency graph, removing all possible duplicates. Can take longer.</td>
 </tr>
 </tbody>
 </table>
 </div><h2 id="mip-dedupe-how-it-works" class="docmd-heading"><a href="#mip-dedupe-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Analyze the lockfile</strong> — reads <code>mip-lock.yml</code> and builds a dependency graph.</p>
+<li><p><strong>Analyze the lockfile</strong> - reads <code>mip-lock.yml</code> and builds a dependency graph.</p>
 </li>
-<li><p><strong>Find duplicates</strong> — identifies packages where:</p>
+<li><p><strong>Find duplicates</strong> - identifies packages where:</p>
 <ul>
 <li>The package name is the same.</li>
 <li>Versions are different.</li>
 <li>Both versions satisfy requirements of all parent packages.</li>
 </ul>
 </li>
-<li><p><strong>Check compatibility</strong> — determines whether the old version can be replaced with the new one without breaking compatibility (it checks the major version).</p>
+<li><p><strong>Check compatibility</strong> - determines whether the old version can be replaced with the new one without breaking compatibility (it checks the major version).</p>
 </li>
-<li><p><strong>Report results</strong> — shows the list of found duplicates, including:</p>
+<li><p><strong>Report results</strong> - shows the list of found duplicates, including:</p>
 <ul>
 <li>Package name and versions.</li>
 <li>Which versions can be deleted (compatible).</li>
 <li>Which versions must be kept (incompatible).</li>
 </ul>
 </li>
-<li><p><strong>Ask for confirmation</strong> — before making changes, the command asks: <em>“Do you want to deduplicate? (y/N)”</em>.</p>
+<li><p><strong>Ask for confirmation</strong> - before making changes, the command asks: <em>“Do you want to deduplicate? (y/N)”</em>.</p>
 </li>
 <li><p><strong>Run deduplication</strong>:</p>
 <ul>
-<li><strong>Quick mode</strong> — removes only compatible duplicates (within the same major version).</li>
-<li><strong>Full mode</strong> (<code>--full</code>) — removes all duplicates, even if major versions differ (may cause breaking changes).</li>
+<li><strong>Quick mode</strong> - removes only compatible duplicates (within the same major version).</li>
+<li><strong>Full mode</strong> (<code>--full</code>) - removes all duplicates, even if major versions differ (may cause breaking changes).</li>
 </ul>
 </li>
-<li><p><strong>Update the lockfile</strong> — after deletion, updates <code>mip-lock.yml</code>.</p>
+<li><p><strong>Update the lockfile</strong> - after deletion, updates <code>mip-lock.yml</code>.</p>
 </li>
-<li><p><strong>Show the result</strong> — reports how many packages were removed and how many remain.</p>
+<li><p><strong>Show the result</strong> - reports how many packages were removed and how many remain.</p>
 </li>
 </ol>
 <h2 id="mip-dedupe-examples" class="docmd-heading"><a href="#mip-dedupe-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1903,7 +1967,7 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 </svg>
 ❌ No duplicates found</div><div class="callout-content">
 <p><strong>Cause:</strong> Your dependency tree is already optimized.</p>
-<p><strong>Resolution:</strong> This is not an error — everything is fine. Continue your work.</p>
+<p><strong>Resolution:</strong> This is not an error - everything is fine. Continue your work.</p>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
 <svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -1957,9 +2021,9 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 </div></div>
 <h2 id="mip-dedupe-related-commands" class="docmd-heading"><a href="#mip-dedupe-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — installs dependencies and creates the lockfile.</li>
-<li><a href="/commands/outdated/">mip outdated</a> — shows outdated packages (often duplicates appear due to outdated versions).</li>
-<li><a href="/commands/doctor/">mip doctor</a> — checks overall project health.</li>
+<li><a href="/commands/install/">mip install</a> - installs dependencies and creates the lockfile.</li>
+<li><a href="/commands/outdated/">mip outdated</a> - shows outdated packages (often duplicates appear due to outdated versions).</li>
+<li><a href="/commands/doctor/">mip doctor</a> - checks overall project health.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1980,7 +2044,7 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
 <li>Rebuilds it to maximize shared versions.</li>
 <li>May take longer, but gives a better result.</li>
 </ul>
-<p><strong>Important:</strong> deduplication never violates package requirements — a version is replaced only if it’s compatible with all parent packages.</p>
+<p><strong>Important:</strong> deduplication never violates package requirements - a version is replaced only if it’s compatible with all parent packages.</p>
 </div></details>
 
                 
@@ -2117,15 +2181,15 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

@@ -29,7 +29,7 @@ mip config set features.config.enabled false
 
 | Feature | Default | Description |
 |---------|---------|-------------|
-| `config.enabled` | `true` | Master switch — disables ALL feature modifications when set to `false` |
+| `config.enabled` | `true` | Master switch - disables ALL feature modifications when set to `false` |
 
 ---
 
@@ -41,7 +41,7 @@ mip config set features.config.enabled false
 | `install.forceReinstall` | `false` | Always reinstall packages even if already in global store |
 | `install.saveExact` | `false` | Save exact versions to config (without `^` and `~`) |
 | `install.skipIntegrityCheck` | `false` | Skip package integrity checks (faster but less secure) |
-| `install.dryRun` | `false` | Simulation mode — shows what would be installed without making changes |
+| `install.dryRun` | `false` | Simulation mode - shows what would be installed without making changes |
 | `install.ignoreScripts` | `false` | Do not run install scripts from `package.json` |
 | `install.ignoreOptional` | `false` | Ignore optionalDependencies |
 | `install.ignoreEngines` | `false` | Ignore engines check in `package.json` |
@@ -412,8 +412,8 @@ mip config set features.dependency.resolutionStrategy exact
 
 ## Related Commands
 
-- [mip config](/commands/config) — manage configuration
-- [mip --genconfig](/commands/genconfig) — generate feature configuration
-- [mip --list-features](/commands/list-features) — list all features
-- [mip doctor](/commands/doctor) — system diagnostics
-- [mip registry](/commands/registry) — manage registries
+- [mip config](/commands/config) - manage configuration
+- [mip --genconfig](/commands/genconfig) - generate feature configuration
+- [mip --list-features](/commands/list-features) - list all features
+- [mip doctor](/commands/doctor) - system diagnostics
+- [mip registry](/commands/registry) - manage registries

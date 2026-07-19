@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip run — run custom scripts : MIP - Modern Package Manager
+      mip run - run custom scripts : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH.">
 <link rel="canonical" href="https://mip.fwh.is/commands/run/">
-<meta property="og:title" content="mip run — run custom scripts - MIP - Modern Package Manager">
+<meta property="og:title" content="mip run - run custom scripts - MIP - Modern Package Manager">
 <meta property="og:description" content="The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH.">
 <meta property="og:url" content="https://mip.fwh.is/commands/run/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip run — run custom scripts - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip run - run custom scripts - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/run/">
 <link rel="alternate" hreflang="en" href="/commands/run/">
 <link rel="alternate" hreflang="x-default" href="/commands/run/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip run — run custom scripts
+                  mip run - run custom scripts
                 </span>
               </div>
             </div>
@@ -1807,21 +1871,21 @@ What is this?</div><div class="callout-content">
 </table>
 </div><h2 id="mip-run-how-it-works" class="docmd-heading"><a href="#mip-run-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Read config</strong> — the command loads <code>mip.yml</code> (or <code>package.json</code> for compatibility) from the current directory.</p>
+<li><p><strong>Read config</strong> - the command loads <code>mip.yml</code> (or <code>package.json</code> for compatibility) from the current directory.</p>
 </li>
-<li><p><strong>Find script</strong> — looks for the specified script in the <code>scripts</code> section.</p>
+<li><p><strong>Find script</strong> - looks for the specified script in the <code>scripts</code> section.</p>
 </li>
-<li><p><strong>Collect binary paths</strong> — scans the <code>.mip/manifest.json</code> manifest and collects all <code>.bin</code> folders from installed packages.</p>
+<li><p><strong>Collect binary paths</strong> - scans the <code>.mip/manifest.json</code> manifest and collects all <code>.bin</code> folders from installed packages.</p>
 </li>
-<li><p><strong>Update <code>PATH</code></strong> — all found binary folders are added to the <code>PATH</code> environment variable (with priority over system paths).</p>
+<li><p><strong>Update <code>PATH</code></strong> - all found binary folders are added to the <code>PATH</code> environment variable (with priority over system paths).</p>
 </li>
-<li><p><strong>Run script</strong> — executes the command through the system shell:</p>
+<li><p><strong>Run script</strong> - executes the command through the system shell:</p>
 <ul>
 <li><strong>Windows:</strong> <code>cmd.exe /d /s /c &lt;script&gt;</code></li>
 <li><strong>Unix:</strong> <code>sh -c &lt;script&gt;</code></li>
 </ul>
 </li>
-<li><p><strong>Handle exit</strong> — the script’s exit code is passed as the <code>mip run</code> exit code.</p>
+<li><p><strong>Handle exit</strong> - the script’s exit code is passed as the <code>mip run</code> exit code.</p>
 </li>
 </ol>
 <h2 id="mip-run-examples" class="docmd-heading"><a href="#mip-run-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1890,7 +1954,7 @@ What is this?</div><div class="callout-content">
 <ol>
 <li>Navigate to the project folder: <code>cd /path/to/project</code></li>
 <li>Make sure <code>mip.yml</code> exists there.</li>
-<li>If not — create it: <code>mip init</code></li>
+<li>If not - create it: <code>mip init</code></li>
 </ol>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
@@ -1967,9 +2031,9 @@ What is this?</div><div class="callout-content">
 💡 Tip</div><div class="callout-content">
 <p><code>mip run</code> is the equivalent of <code>npm run</code> or <code>yarn run</code>, but with MIP-specific improvements:</p>
 <ul>
-<li><strong>Automatic <code>PATH</code></strong> — no need to install packages globally.</li>
-<li><strong>Cross-platform</strong> — works correctly on Windows and Unix.</li>
-<li><strong>Simplicity</strong> — just specify the script name.</li>
+<li><strong>Automatic <code>PATH</code></strong> - no need to install packages globally.</li>
+<li><strong>Cross-platform</strong> - works correctly on Windows and Unix.</li>
+<li><strong>Simplicity</strong> - just specify the script name.</li>
 </ul>
 <p><strong>Example scripts:</strong></p>
 <pre class="hljs"><code class="language-yaml">scripts<span class="hljs-punctuation">:</span>
@@ -1983,9 +2047,9 @@ What is this?</div><div class="callout-content">
 </div></div>
 <h2 id="mip-run-related-commands" class="docmd-heading"><a href="#mip-run-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/exec/">mip exec</a> — run a specific binary without a script.</li>
-<li><a href="/commands/install/">mip install</a> — install packages whose binaries become available.</li>
-<li><a href="/commands/init/">mip init</a> — create <code>mip.yml</code> with a <code>scripts</code> section.</li>
+<li><a href="/commands/exec/">mip exec</a> - run a specific binary without a script.</li>
+<li><a href="/commands/install/">mip install</a> - install packages whose binaries become available.</li>
+<li><a href="/commands/init/">mip init</a> - create <code>mip.yml</code> with a <code>scripts</code> section.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1995,9 +2059,9 @@ What is this?</div><div class="callout-content">
         <div class="collapsible-content">
 <p>When you run <code>mip run</code>, the command:</p>
 <ol>
-<li><p><strong>Scans the manifest</strong> — reads <code>.mip/manifest.json</code>, which stores paths to all installed packages.</p>
+<li><p><strong>Scans the manifest</strong> - reads <code>.mip/manifest.json</code>, which stores paths to all installed packages.</p>
 </li>
-<li><p><strong>Collects <code>.bin</code> folders</strong> — for each package, checks:</p>
+<li><p><strong>Collects <code>.bin</code> folders</strong> - for each package, checks:</p>
 <ul>
 <li><code>node_modules/.bin/</code></li>
 <li><code>.bin/</code> (in the package root)</li>
@@ -2007,10 +2071,10 @@ What is this?</div><div class="callout-content">
 <pre class="hljs"><code>PATH <span class="hljs-punctuation">=</span> <span class="hljs-punctuation">&lt;</span>all .<span class="hljs-attr">bin</span> folders<span class="hljs-punctuation">&gt;</span> <span class="hljs-punctuation">+</span> <span class="hljs-punctuation">&lt;</span>system PATH<span class="hljs-punctuation">&gt;</span>
 </code></pre>
 </li>
-<li><p><strong>Runs the script</strong> — all binaries from the global cache become available without global installation.</p>
+<li><p><strong>Runs the script</strong> - all binaries from the global cache become available without global installation.</p>
 </li>
 </ol>
-<p><strong>Advantage:</strong> no need to install packages globally — everything works from the project.</p>
+<p><strong>Advantage:</strong> no need to install packages globally - everything works from the project.</p>
 </div></details>
 
                 
@@ -2147,15 +2211,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

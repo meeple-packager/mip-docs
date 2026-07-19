@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip audit — dependency security check : MIP - Modern Package Manager
+      mip audit - dependency security check : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes.">
 <link rel="canonical" href="https://mip.fwh.is/commands/audit/">
-<meta property="og:title" content="mip audit — dependency security check - MIP - Modern Package Manager">
+<meta property="og:title" content="mip audit - dependency security check - MIP - Modern Package Manager">
 <meta property="og:description" content="The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes.">
 <meta property="og:url" content="https://mip.fwh.is/commands/audit/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip audit — dependency security check - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip audit - dependency security check - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/audit/">
 <link rel="alternate" hreflang="en" href="/commands/audit/">
 <link rel="alternate" hreflang="x-default" href="/commands/audit/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip audit — dependency security check
+                  mip audit - dependency security check
                 </span>
               </div>
             </div>
@@ -1803,21 +1867,21 @@ What is this?</div><div class="callout-content">
 </table>
 </div><h2 id="mip-audit-how-it-works" class="docmd-heading"><a href="#mip-audit-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Read the lockfile</strong> — the command checks whether <code>mip-lock.yml</code> exists in the current directory. If it’s missing, execution stops.</p>
+<li><p><strong>Read the lockfile</strong> - the command checks whether <code>mip-lock.yml</code> exists in the current directory. If it’s missing, execution stops.</p>
 </li>
-<li><p><strong>Scan dependencies</strong> — for each package from the lockfile, the command sends a request to the npm registry to get a list of known vulnerabilities.</p>
+<li><p><strong>Scan dependencies</strong> - for each package from the lockfile, the command sends a request to the npm registry to get a list of known vulnerabilities.</p>
 </li>
-<li><p><strong>Filtering</strong> — it checks whether the current package version matches <code>vulnerable_versions</code> from the vulnerability database.</p>
+<li><p><strong>Filtering</strong> - it checks whether the current package version matches <code>vulnerable_versions</code> from the vulnerability database.</p>
 </li>
-<li><p><strong>Sorting</strong> — all found vulnerabilities are sorted by CVSS score (from most critical to least dangerous).</p>
+<li><p><strong>Sorting</strong> - all found vulnerabilities are sorted by CVSS score (from most critical to least dangerous).</p>
 </li>
-<li><p><strong>Output report</strong> — vulnerabilities are grouped by severity: 🔴 Critical, 🟠 High, 🟡 Moderate, 🔵 Low.</p>
+<li><p><strong>Output report</strong> - vulnerabilities are grouped by severity: 🔴 Critical, 🟠 High, 🟡 Moderate, 🔵 Low.</p>
 </li>
 </ol>
 <p>If <code>--fix</code> is specified:<br>
-6. <strong>Find fixes</strong> — for each vulnerability, it checks whether <code>patched_versions</code> exists.<br>
-7. <strong>Update packages</strong> — runs <code>mip install &lt;pkg&gt;@&lt;fixed-version&gt;</code>.<br>
-8. <strong>Sync <code>mip.yml</code></strong> — automatically updates <code>mip.yml</code>.</p>
+6. <strong>Find fixes</strong> - for each vulnerability, it checks whether <code>patched_versions</code> exists.<br>
+7. <strong>Update packages</strong> - runs <code>mip install &lt;pkg&gt;@&lt;fixed-version&gt;</code>.<br>
+8. <strong>Sync <code>mip.yml</code></strong> - automatically updates <code>mip.yml</code>.</p>
 <h2 id="mip-audit-examples" class="docmd-heading"><a href="#mip-audit-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
 <div class="docmd-tabs">
 <div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Standard check</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip audit
@@ -1966,9 +2030,9 @@ What is this?</div><div class="callout-content">
 </div></div>
 <h2 id="mip-audit-related-commands" class="docmd-heading"><a href="#mip-audit-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/outdated/">mip outdated</a> — shows outdated packages (not only vulnerabilities)</li>
-<li><a href="/commands/update/">mip update</a> — updates all packages to the latest versions</li>
-<li><a href="/commands/doctor/">mip doctor</a> — checks the overall project health (including dependency conflicts)</li>
+<li><a href="/commands/outdated/">mip outdated</a> - shows outdated packages (not only vulnerabilities)</li>
+<li><a href="/commands/update/">mip update</a> - updates all packages to the latest versions</li>
+<li><a href="/commands/doctor/">mip doctor</a> - checks the overall project health (including dependency conflicts)</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -2121,15 +2185,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

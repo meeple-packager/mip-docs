@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip genlock — generate lockfile : MIP - Modern Package Manager
+      mip genlock - generate lockfile : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The genlock command creates a mip-lock.yml file based on dependencies from mip.yml, pinning exact versions and URLs for reproducible installs.">
 <link rel="canonical" href="https://mip.fwh.is/commands/genlock/">
-<meta property="og:title" content="mip genlock — generate lockfile - MIP - Modern Package Manager">
+<meta property="og:title" content="mip genlock - generate lockfile - MIP - Modern Package Manager">
 <meta property="og:description" content="The genlock command creates a mip-lock.yml file based on dependencies from mip.yml, pinning exact versions and URLs for reproducible installs.">
 <meta property="og:url" content="https://mip.fwh.is/commands/genlock/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip genlock — generate lockfile - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip genlock - generate lockfile - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The genlock command creates a mip-lock.yml file based on dependencies from mip.yml, pinning exact versions and URLs for reproducible installs.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/genlock/">
 <link rel="alternate" hreflang="en" href="/commands/genlock/">
 <link rel="alternate" hreflang="x-default" href="/commands/genlock/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip genlock — generate lockfile
+                  mip genlock - generate lockfile
                 </span>
               </div>
             </div>
@@ -1782,20 +1846,20 @@
   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
 </svg>
 What is this?</div><div class="callout-content">
-<p><code>mip genlock</code> generates a <strong>lockfile</strong> (<code>mip-lock.yml</code>) based on the dependencies specified in <code>mip.yml</code>. Unlike <code>mip install</code>, this command does not install packages locally — it only resolves their versions and creates a file with pinned versions, URLs, and dependencies. This is useful for pre-generating a lockfile in CI/CD or after manually updating <code>mip.yml</code>.</p>
+<p><code>mip genlock</code> generates a <strong>lockfile</strong> (<code>mip-lock.yml</code>) based on the dependencies specified in <code>mip.yml</code>. Unlike <code>mip install</code>, this command does not install packages locally - it only resolves their versions and creates a file with pinned versions, URLs, and dependencies. This is useful for pre-generating a lockfile in CI/CD or after manually updating <code>mip.yml</code>.</p>
 </div></div>
 <h2 id="mip-genlock-syntax" class="docmd-heading"><a href="#mip-genlock-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
 <pre class="hljs"><code class="language-bash">mip genlock
 </code></pre>
 <h2 id="mip-genlock-how-it-works" class="docmd-heading"><a href="#mip-genlock-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Check for <code>mip.yml</code></strong> — the command checks if <code>mip.yml</code> exists in the current directory. If not, execution stops.</p>
+<li><p><strong>Check for <code>mip.yml</code></strong> - the command checks if <code>mip.yml</code> exists in the current directory. If not, execution stops.</p>
 </li>
-<li><p><strong>Read dependencies</strong> — extracts <code>dependencies</code> and <code>devDependencies</code> sections from <code>mip.yml</code>.</p>
+<li><p><strong>Read dependencies</strong> - extracts <code>dependencies</code> and <code>devDependencies</code> sections from <code>mip.yml</code>.</p>
 </li>
-<li><p><strong>Resolve versions</strong> — for each dependency (name + version range), queries the npm registry to get the exact latest version that satisfies the range.</p>
+<li><p><strong>Resolve versions</strong> - for each dependency (name + version range), queries the npm registry to get the exact latest version that satisfies the range.</p>
 </li>
-<li><p><strong>Collect metadata</strong> — for each package, fetches:</p>
+<li><p><strong>Collect metadata</strong> - for each package, fetches:</p>
 <ul>
 <li>Exact version (<code>version</code>).</li>
 <li>Tarball URL (<code>resolved</code>).</li>
@@ -1803,7 +1867,7 @@ What is this?</div><div class="callout-content">
 <li>List of peer dependencies (<code>peerDependencies</code>).</li>
 </ul>
 </li>
-<li><p><strong>Generate lockfile</strong> — creates <code>mip-lock.yml</code> with the following structure:</p>
+<li><p><strong>Generate lockfile</strong> - creates <code>mip-lock.yml</code> with the following structure:</p>
 <pre class="hljs"><code class="language-yaml">version<span class="hljs-punctuation">:</span> <span class="hljs-number">1.0</span>.<span class="hljs-number">0</span>
 generatedAt<span class="hljs-punctuation">:</span> <span class="hljs-string">&#039;2026-01-15T14:23:00.000Z&#039;</span>
 packages<span class="hljs-punctuation">:</span>
@@ -1815,7 +1879,7 @@ packages<span class="hljs-punctuation">:</span>
     installPath<span class="hljs-punctuation">:</span> .<span class="hljs-attr">mip</span><span class="hljs-punctuation">/</span>lodash<span class="hljs-punctuation">/</span><span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
 </code></pre>
 </li>
-<li><p><strong>Output results</strong> — shows how many packages were successfully added to the lockfile.</p>
+<li><p><strong>Output results</strong> - shows how many packages were successfully added to the lockfile.</p>
 </li>
 </ol>
 <h2 id="mip-genlock-examples" class="docmd-heading"><a href="#mip-genlock-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
@@ -1871,7 +1935,7 @@ packages<span class="hljs-punctuation">:</span>
 <p><strong>Solution:</strong></p>
 <ol>
 <li>Make sure you are in the project root.</li>
-<li>If it’s a new project — create <code>mip.yml</code> with <code>mip init</code>.</li>
+<li>If it’s a new project - create <code>mip.yml</code> with <code>mip init</code>.</li>
 <li>Or use <code>mip create</code> to generate a ready-made project.</li>
 </ol>
 </div></div>
@@ -1894,7 +1958,7 @@ packages<span class="hljs-punctuation">:</span>
 </svg>
 ❌ No dependencies found</div><div class="callout-content">
 <p><strong>Cause:</strong> No dependencies specified in <code>mip.yml</code> (empty <code>dependencies</code> and <code>devDependencies</code> sections).</p>
-<p><strong>Solution:</strong> This is not an error, just a warning. If you want to pin dependencies — add them to <code>mip.yml</code> and run <code>mip genlock</code> again.</p>
+<p><strong>Solution:</strong> This is not an error, just a warning. If you want to pin dependencies - add them to <code>mip.yml</code> and run <code>mip genlock</code> again.</p>
 </div></div>
 <div class="docmd-container callout callout-danger"><div class="callout-title">
 <svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -1919,7 +1983,7 @@ packages<span class="hljs-punctuation">:</span>
 <ol>
 <li>Check the package name and version in <code>mip.yml</code>.</li>
 <li>Check your internet connection.</li>
-<li>If the package is private — make sure the correct registries are configured.</li>
+<li>If the package is private - make sure the correct registries are configured.</li>
 <li>After fixing, run <code>mip genlock</code> again.</li>
 </ol>
 </div></div>
@@ -1951,9 +2015,9 @@ packages<span class="hljs-punctuation">:</span>
 </div></div>
 <h2 id="mip-genlock-related-commands" class="docmd-heading"><a href="#mip-genlock-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/install/">mip install</a> — installs dependencies and generates a lockfile.</li>
-<li><a href="/commands/ci/">mip ci</a> — installs dependencies <strong>from the lockfile</strong>.</li>
-<li><a href="/commands/update/">mip update</a> — updates dependencies and regenerates the lockfile.</li>
+<li><a href="/commands/install/">mip install</a> - installs dependencies and generates a lockfile.</li>
+<li><a href="/commands/ci/">mip ci</a> - installs dependencies <strong>from the lockfile</strong>.</li>
+<li><a href="/commands/update/">mip update</a> - updates dependencies and regenerates the lockfile.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1963,9 +2027,9 @@ packages<span class="hljs-punctuation">:</span>
         <div class="collapsible-content">
 <p>A lockfile is a <strong>snapshot of the dependency tree</strong> at a specific point in time. It guarantees:</p>
 <ol>
-<li><strong>Reproducibility</strong> — all developers and CI get <strong>identical</strong> package versions.</li>
-<li><strong>Speed</strong> — no need to resolve dependencies on every install.</li>
-<li><strong>Security</strong> — if a package is removed from the registry, you still have the pinned version.</li>
+<li><strong>Reproducibility</strong> - all developers and CI get <strong>identical</strong> package versions.</li>
+<li><strong>Speed</strong> - no need to resolve dependencies on every install.</li>
+<li><strong>Security</strong> - if a package is removed from the registry, you still have the pinned version.</li>
 </ol>
 <p><strong>Difference between <code>mip install</code> and <code>mip genlock</code>:</strong></p>
 <div class="table-wrapper"><table>
@@ -2017,11 +2081,11 @@ packages<span class="hljs-punctuation">:</span>
 </code></pre>
 <p><strong>Fields:</strong></p>
 <ul>
-<li><code>version</code> — lockfile format version (for future compatibility).</li>
-<li><code>generatedAt</code> — generation time (ISO 8601).</li>
-<li><code>packages</code> — object with keys in the format <code>name@version</code> and metadata.</li>
-<li><code>resolved</code> — URL for downloading the tarball.</li>
-<li><code>installPath</code> — path where the package will be installed (relative to project root).</li>
+<li><code>version</code> - lockfile format version (for future compatibility).</li>
+<li><code>generatedAt</code> - generation time (ISO 8601).</li>
+<li><code>packages</code> - object with keys in the format <code>name@version</code> and metadata.</li>
+<li><code>resolved</code> - URL for downloading the tarball.</li>
+<li><code>installPath</code> - path where the package will be installed (relative to project root).</li>
 </ul>
 </div></details>
 
@@ -2155,15 +2219,15 @@ packages<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

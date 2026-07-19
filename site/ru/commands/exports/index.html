@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip exports — просмотр экспортируемых путей пакета : MIP - Modern Package Manager
+      mip exports - просмотр экспортируемых путей пакета : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Команда exports показывает все публичные пути экспорта пакета, которые можно импортировать через require или import.">
 <link rel="canonical" href="https://mip.fwh.is/ru/commands/exports/">
-<meta property="og:title" content="mip exports — просмотр экспортируемых путей пакета - MIP - Modern Package Manager">
+<meta property="og:title" content="mip exports - просмотр экспортируемых путей пакета - MIP - Modern Package Manager">
 <meta property="og:description" content="Команда exports показывает все публичные пути экспорта пакета, которые можно импортировать через require или import.">
 <meta property="og:url" content="https://mip.fwh.is/ru/commands/exports/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip exports — просмотр экспортируемых путей пакета - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip exports - просмотр экспортируемых путей пакета - MIP - Modern Package Manager">
 <meta name="twitter:description" content="Команда exports показывает все публичные пути экспорта пакета, которые можно импортировать через require или import.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/exports/">
 <link rel="alternate" hreflang="en" href="/commands/exports/">
 <link rel="alternate" hreflang="x-default" href="/commands/exports/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../../ru/setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Функции конфиг-файла
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../../ru/pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Настройка конфига
             </span>
           
           
@@ -1677,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip exports — просмотр экспортируемых путей пакета
+                  mip exports - просмотр экспортируемых путей пакета
                 </span>
               </div>
             </div>
@@ -1799,7 +1863,7 @@
   <path d="M12 22V12" />
 </svg>
 Что это?</div><div class="callout-content">
-<p><code>mip exports</code> — это утилита для просмотра <strong>экспортируемых путей</strong> (exports) пакета. Она показывает, какие файлы и подпути пакет делает доступными для импорта. Это особенно полезно, если вы работаете с пакетами, которые используют <code>exports</code> в <code>package.json</code> для контроля публичного API, или хотите узнать, откуда можно импортировать специфические файлы (например, <code>lodash/fp</code>, <code>react-dom/server</code>).</p>
+<p><code>mip exports</code> - это утилита для просмотра <strong>экспортируемых путей</strong> (exports) пакета. Она показывает, какие файлы и подпути пакет делает доступными для импорта. Это особенно полезно, если вы работаете с пакетами, которые используют <code>exports</code> в <code>package.json</code> для контроля публичного API, или хотите узнать, откуда можно импортировать специфические файлы (например, <code>lodash/fp</code>, <code>react-dom/server</code>).</p>
 </div></div>
 <h2 id="mip-exports-синтаксис" class="docmd-heading"><a href="#mip-exports-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
 <pre class="hljs"><code class="language-bash">mip exports <span class="hljs-punctuation">&lt;</span>package<span class="hljs-punctuation">-</span>name<span class="hljs-punctuation">&gt;</span>
@@ -1825,15 +1889,15 @@
 </table>
 </div><h2 id="mip-exports-логика-работы" class="docmd-heading"><a href="#mip-exports-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
 <ol>
-<li><p><strong>Определение директории проекта</strong> — команда получает текущую рабочую директорию.</p>
+<li><p><strong>Определение директории проекта</strong> - команда получает текущую рабочую директорию.</p>
 </li>
-<li><p><strong>Поиск пакета</strong> — через <code>ExportsResolver</code> команда находит установленный пакет в локальном кэше <code>.mip/</code>.</p>
+<li><p><strong>Поиск пакета</strong> - через <code>ExportsResolver</code> команда находит установленный пакет в локальном кэше <code>.mip/</code>.</p>
 </li>
-<li><p><strong>Чтение <code>exports</code></strong> — анализирует секцию <code>exports</code> в <code>package.json</code> пакета (если она есть).</p>
+<li><p><strong>Чтение <code>exports</code></strong> - анализирует секцию <code>exports</code> в <code>package.json</code> пакета (если она есть).</p>
 </li>
-<li><p><strong>Проверка доступности</strong> — для каждого экспортируемого пути проверяется, существует ли файл физически.</p>
+<li><p><strong>Проверка доступности</strong> - для каждого экспортируемого пути проверяется, существует ли файл физически.</p>
 </li>
-<li><p><strong>Вывод результатов</strong> — показывает список всех доступных путей с индикацией существования файла (✅ или ❌).</p>
+<li><p><strong>Вывод результатов</strong> - показывает список всех доступных путей с индикацией существования файла (✅ или ❌).</p>
 </li>
 </ol>
 <h2 id="mip-exports-примеры" class="docmd-heading"><a href="#mip-exports-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
@@ -1927,17 +1991,17 @@
 💡 Совет</div><div class="callout-content">
 <p><code>mip exports</code> особенно полезен при:</p>
 <ul>
-<li><strong>Изучении нового пакета</strong> — чтобы понять, что можно импортировать.</li>
-<li><strong>Миграции</strong> — при переходе с CommonJS на ESM, когда пакет меняет структуру экспортов.</li>
-<li><strong>Работе с монорепозиториями</strong> — чтобы понять, какие подпакеты доступны.</li>
+<li><strong>Изучении нового пакета</strong> - чтобы понять, что можно импортировать.</li>
+<li><strong>Миграции</strong> - при переходе с CommonJS на ESM, когда пакет меняет структуру экспортов.</li>
+<li><strong>Работе с монорепозиториями</strong> - чтобы понять, какие подпакеты доступны.</li>
 </ul>
-<p>Используйте эту команду перед тем, как писать импорты — она покажет, какие пути действительно существуют.</p>
+<p>Используйте эту команду перед тем, как писать импорты - она покажет, какие пути действительно существуют.</p>
 </div></div>
 <h2 id="mip-exports-связанные-команды" class="docmd-heading"><a href="#mip-exports-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
 <ul>
-<li><a href="/commands/info/">mip info</a> — показывает информацию о пакете (версия, описание, зависимости).</li>
-<li><a href="/commands/list/">mip list</a> — показывает все установленные пакеты.</li>
-<li><a href="/commands/install/">mip install</a> — устанавливает пакеты.</li>
+<li><a href="/commands/info/">mip info</a> - показывает информацию о пакете (версия, описание, зависимости).</li>
+<li><a href="/commands/list/">mip list</a> - показывает все установленные пакеты.</li>
+<li><a href="/commands/install/">mip install</a> - устанавливает пакеты.</li>
 </ul>
 <details class="docmd-container collapsible">
         <summary class="collapsible-summary">
@@ -1945,11 +2009,11 @@
             <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
         </summary>
         <div class="collapsible-content">
-<p>Секция <code>exports</code> в <code>package.json</code> — это современный стандарт для <strong>контроля публичного API</strong> пакета. Она определяет:</p>
+<p>Секция <code>exports</code> в <code>package.json</code> - это современный стандарт для <strong>контроля публичного API</strong> пакета. Она определяет:</p>
 <ol>
-<li><strong>Какие файлы доступны</strong> — не все файлы пакета публичны, только те, что перечислены в <code>exports</code>.</li>
-<li><strong>Как они доступны</strong> — можно настроить разные пути для <code>require</code> и <code>import</code>.</li>
-<li><strong>Условные экспорты</strong> — разные версии для Node.js, браузера, React Native и т.д.</li>
+<li><strong>Какие файлы доступны</strong> - не все файлы пакета публичны, только те, что перечислены в <code>exports</code>.</li>
+<li><strong>Как они доступны</strong> - можно настроить разные пути для <code>require</code> и <code>import</code>.</li>
+<li><strong>Условные экспорты</strong> - разные версии для Node.js, браузера, React Native и т.д.</li>
 </ol>
 <p><strong>Пример из <code>react/package.json</code>:</strong></p>
 <pre class="hljs"><code class="language-json">{
@@ -1982,7 +2046,7 @@
 <li>В <code>exports</code> есть запись, но файл физически отсутствует (ошибка в пакете).</li>
 <li>Экспорт описан с условиями (<code>browser</code>, <code>node</code>, <code>default</code>), и в вашей среде он недоступен.</li>
 </ol>
-<p>В любом случае, если путь помечен ❌ — импорт не будет работать. <code>mip exports</code> помогает выявить такие проблемы до написания кода.</p>
+<p>В любом случае, если путь помечен ❌ - импорт не будет работать. <code>mip exports</code> помогает выявить такие проблемы до написания кода.</p>
 </div></details>
 
                 
@@ -2151,15 +2215,15 @@
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

@@ -1,14 +1,14 @@
 ---
 title: "Adding commands to MIP"
-description: "How to create and register a new command in MIP — two ways: built-in command (fork) and plugin."
+description: "How to create and register a new command in MIP - two ways: built-in command (fork) and plugin."
 ---
 
 # Adding commands to MIP
 
 There are two ways to add a command to MIP:
 
-1. **Built-in command (fork)** — via `bin/mip.js` (for MIP core)
-2. **Plugin command** — via `api.registerCommand()` (recommended for extensions)
+1. **Built-in command (fork)** - via `bin/mip.js` (for MIP core)
+2. **Plugin command** - via `api.registerCommand()` (recommended for extensions)
 
 ---
 
@@ -135,7 +135,7 @@ module.exports = {
   },
 
   init: async ({ api }) => {
-    // Alternative method — dynamic registration
+    // Alternative method - dynamic registration
     api.registerCommand('my-dynamic', 'my-plugin', async (args) => {
       console.log('Dynamic command!', args);
     });
@@ -208,6 +208,6 @@ In `init()`, the plugin receives an `api` object with methods:
 
 ## Related pages
 
-- [mip plugin](/commands/plugin) — manage plugins
-- [mip pe](/commands/pe) — execute plugin commands
-- [MIP Architecture](/dev/architecture) — project structure
+- [mip plugin](/commands/plugin) - manage plugins
+- [mip pe](/commands/pe) - execute plugin commands
+- [MIP Architecture](/dev/architecture) - project structure

@@ -147,7 +147,7 @@ DEBUG=1 mip install express
 - Complex structure
 
 ### MIP
-- Simple structure — symlinks to `~/.mip/store/`
+- Simple structure - symlinks to `~/.mip/store/`
 - Parallel loading + HTTP/2
 - Three-level cache
 - Works offline
@@ -156,11 +156,11 @@ DEBUG=1 mip install express
 
 ## 💡 Optimization tips
 
-1. **Use `mip ci` in CI** — faster than `mip install`
-2. **Cache `~/.mip/store/` in CI** — speeds up rebuilds
+1. **Use `mip ci` in CI** - faster than `mip install`
+2. **Cache `~/.mip/store/` in CI** - speeds up rebuilds
 3. **Clear cache** when it gets too large
 4. **Use `--ci`** for non-interactive installation
-5. **Update MIP** — each version is faster
+5. **Update MIP** - each version is faster
 
 ---
 
@@ -191,18 +191,18 @@ node --prof-process isolate-0x*.log
 
 ## 🧠 Why is MIP so fast?
 
-1. **Global cache** — doesn't duplicate packages across projects
-2. **Parallelism** — downloads packages simultaneously
-3. **Caching** — avoids redundant requests
-4. **HTTP/2** — lower overhead
-5. **Streaming extraction** — no temporary files
-6. **Deduplication** — removes duplicate versions
+1. **Global cache** - doesn't duplicate packages across projects
+2. **Parallelism** - downloads packages simultaneously
+3. **Caching** - avoids redundant requests
+4. **HTTP/2** - lower overhead
+5. **Streaming extraction** - no temporary files
+6. **Deduplication** - removes duplicate versions
 
 ---
 
 ## 🔗 Related pages
 
-- [mip install](/commands/install) — package installation
-- [mip ci](/commands/ci) — CI installation
-- [mip cache](/commands/cache) — cache management
-- [mip doctor](/commands/doctor) — diagnostics
+- [mip install](/commands/install) - package installation
+- [mip ci](/commands/ci) - CI installation
+- [mip cache](/commands/cache) - cache management
+- [mip doctor](/commands/doctor) - diagnostics

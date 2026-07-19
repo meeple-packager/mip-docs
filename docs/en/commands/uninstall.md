@@ -1,5 +1,5 @@
 ---
-title: "mip uninstall — remove packages"
+title: "mip uninstall - remove packages"
 description: "The uninstall command removes packages from your project, cleaning them from the global cache, manifest, mip-lock.yml, and mip.yml."
 ---
 
@@ -29,7 +29,7 @@ mip uninstall <package-name> [--no-save]
 
 ## How it works
 
-1. **Check `mip.yml`** — if the file is missing, the command exits with an error.
+1. **Check `mip.yml`** - if the file is missing, the command exits with an error.
 
 2. **Remove from manifest** (`manifest.json`):
    - Removes the package entry from `.mip/manifest.json`.
@@ -43,9 +43,9 @@ mip uninstall <package-name> [--no-save]
 5. **Remove from `mip.yml`** (unless `--no-save` is specified):
    - Removes the package from `dependencies` and `devDependencies`.
 
-6. **Global cache cleanup** — the package is NOT removed from `~/.mip/store/`, as it may be used by other projects.
+6. **Global cache cleanup** - the package is NOT removed from `~/.mip/store/`, as it may be used by other projects.
 
-7. **Output result** — shows what was removed.
+7. **Output result** - shows what was removed.
 
 ## Examples
 
@@ -100,7 +100,7 @@ mip uninstall unknown-package
 **Solution:**
 1. Navigate to the project folder: `cd /path/to/project`
 2. Make sure `mip.yml` exists there.
-3. If not — create it: `mip init`
+3. If not - create it: `mip init`
 :::
 
 ::: callout warning "❌ Package not found" icon:info
@@ -125,6 +125,6 @@ mip uninstall unknown-package
 
 ## Related commands
 
-- [mip install](/commands/install) — install packages.
-- [mip list](/commands/list) — view installed packages.
-- [mip outdated](/commands/outdated) — check for outdated packages.
+- [mip install](/commands/install) - install packages.
+- [mip list](/commands/list) - view installed packages.
+- [mip outdated](/commands/outdated) - check for outdated packages.

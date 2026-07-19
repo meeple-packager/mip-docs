@@ -23,8 +23,8 @@
 (function () {
 
   // Idempotency guard. Some servers (e.g. `serve` with SPA fallback) can
-  // request this same script twice — once at the page-relative URL, once
-  // at the site root — and both copies execute. Without this guard, every
+  // request this same script twice - once at the page-relative URL, once
+  // at the site root - and both copies execute. Without this guard, every
   // click handler (toggle, SPA nav, copy code, etc.) would bind twice and
   // every nav action would fire two times, silently breaking the sidebar.
   if (window.__docmdMainLoaded) return;
@@ -253,7 +253,7 @@
 
       // Optional manifest-based UX: if the build-time manifest is loaded AND
       // it knows about this specific page, redirect to the locale root when
-      // the page isn't translated. This is only an optimisation — the target
+      // the page isn't translated. This is only an optimisation - the target
       // page is still the canonical answer and the server will return 404 if
       // the page genuinely doesn't exist there.
       var manifest = window.DOCMD_LOCALE_PAGES;
@@ -261,7 +261,7 @@
         var lookupPath = '/' + currentPath.replace(/\/$/, '').replace(/\/index\.html$/, '');
         if (lookupPath === '/') lookupPath = '/';
         if (manifest[localeId].indexOf(lookupPath) === -1) {
-          // Page is not translated — fall back to the locale root. For the
+          // Page is not translated - fall back to the locale root. For the
           // default locale the "locale root" IS the site root, so this
           // naturally sends the user to the homepage, which is the
           // expected behaviour when switching to the default.
@@ -286,7 +286,7 @@
       // or in the nearest codeblock-shaped wrapper. Templates like
       // `summer` re-home the copy button into a title bar that lives
       // outside .code-wrapper (e.g. inside .docmd-code-block-wrapper
-      // for ```lang "title"``` blocks) — fall back to that parent
+      // for ```lang "title"``` blocks) - fall back to that parent
       // wrapper's <pre><code> in that case.
       const code = copyBtn.closest('.code-wrapper')?.querySelector('code')
         || copyBtn.closest('.docmd-code-block-wrapper, .summer-cb, .summer-codeblock')?.querySelector('pre code');
@@ -782,7 +782,7 @@
           '.docmd-language-switcher',
           '.docmd-version-dropdown',
           '.docmd-project-switcher',
-          // Summer template selectors (no-op in classic — they only
+          // Summer template selectors (no-op in classic - they only
           // exist when the active template is `summer`).
           '.summer-content',
           '.summer-toc',
@@ -918,7 +918,7 @@ function initBanner() {
       banner.remove();
       return;
     }
-  } catch (_) { /* sessionStorage blocked — leave visible */ }
+  } catch (_) { /* sessionStorage blocked - leave visible */ }
   const closeBtn = banner.querySelector('[data-docmd-banner-dismiss]');
   if (!closeBtn) return;
   closeBtn.addEventListener('click', () => {
@@ -967,7 +967,7 @@ function initCookieConsent() {
     try {
       const expires = Date.now() + (expiryDays * 24 * 60 * 60 * 1000);
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ value, expires, ts: Date.now() }));
-    } catch (_) { /* storage blocked — UI still works for this session */ }
+    } catch (_) { /* storage blocked - UI still works for this session */ }
   }
 
   if (readChoice()) return; // already chosen

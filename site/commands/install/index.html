@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip install — install dependencies : MIP - Modern Package Manager
+      mip install - install dependencies : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mr7sx9so">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mr7sx9so" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mr7sx9so" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The install command installs packages from the npm registry into your project, saves them to mip.yml, and creates a lockfile with pinned versions.">
 <link rel="canonical" href="https://mip.fwh.is/commands/install/">
-<meta property="og:title" content="mip install — install dependencies - MIP - Modern Package Manager">
+<meta property="og:title" content="mip install - install dependencies - MIP - Modern Package Manager">
 <meta property="og:description" content="The install command installs packages from the npm registry into your project, saves them to mip.yml, and creates a lockfile with pinned versions.">
 <meta property="og:url" content="https://mip.fwh.is/commands/install/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip install — install dependencies - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip install - install dependencies - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The install command installs packages from the npm registry into your project, saves them to mip.yml, and creates a lockfile with pinned versions.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mr7sx9so" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mr7sx9so" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/install/">
 <link rel="alternate" hreflang="en" href="/commands/install/">
 <link rel="alternate" hreflang="x-default" href="/commands/install/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value — the resolved value will itself
+    // a freshly resolved config value - the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1048,6 +1048,38 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../commands/alias/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            alias
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/hello/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1160,6 +1192,22 @@
         
       </li>
     
+      <li class="" >
+      
+        <a href="../../setup/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Config Features
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
           </ul>
         
       </li>
@@ -1250,6 +1298,22 @@
           
           <span class="nav-item-title">
             CI/CD
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../pro-users/features/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            Features / Config
             </span>
           
           
@@ -1661,7 +1725,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip install — install dependencies
+                  mip install - install dependencies
                 </span>
               </div>
             </div>
@@ -1804,7 +1868,7 @@ What is this?</div><div class="callout-content">
 <td><code>packages</code></td>
 <td>array</td>
 <td>❌</td>
-<td>List of packages to install. If not specified — installs all dependencies from <code>mip.yml</code>.</td>
+<td>List of packages to install. If not specified - installs all dependencies from <code>mip.yml</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -1842,22 +1906,22 @@ What is this?</div><div class="callout-content">
 </div><h2 id="mip-install-how-it-works" class="docmd-heading"><a href="#mip-install-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <h3 id="mip-install-how-it-works-mip-install-no-arguments" class="docmd-heading"><a href="#mip-install-how-it-works-mip-install-no-arguments" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>mip install</code> (no arguments)</h3>
 <ol>
-<li><strong>Read <code>mip.yml</code></strong> — loads dependencies from <code>dependencies</code> and <code>devDependencies</code>.</li>
-<li><strong>Check lockfile</strong> — if <code>mip-lock.yml</code> is missing, it will be created.</li>
-<li><strong>Install all packages</strong> — sequentially installs all dependencies.</li>
-<li><strong>Progress bar</strong> — displays installation progress.</li>
-<li><strong>Peer dependency resolution</strong> — in interactive mode, asks for confirmation; in <code>--ci</code> mode, automatically skips.</li>
+<li><strong>Read <code>mip.yml</code></strong> - loads dependencies from <code>dependencies</code> and <code>devDependencies</code>.</li>
+<li><strong>Check lockfile</strong> - if <code>mip-lock.yml</code> is missing, it will be created.</li>
+<li><strong>Install all packages</strong> - sequentially installs all dependencies.</li>
+<li><strong>Progress bar</strong> - displays installation progress.</li>
+<li><strong>Peer dependency resolution</strong> - in interactive mode, asks for confirmation; in <code>--ci</code> mode, automatically skips.</li>
 </ol>
 <h3 id="mip-install-how-it-works-mip-install-package" class="docmd-heading"><a href="#mip-install-how-it-works-mip-install-package" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a><code>mip install &lt;package&gt;</code></h3>
 <ol>
-<li><strong>Version resolution</strong> — if <code>package@version</code> is specified, installs that specific version; otherwise — <code>latest</code>.</li>
-<li><strong>Dependency resolution</strong> — fetches package information from the registry.</li>
-<li><strong>Download and extract</strong> — downloads the tarball and extracts it to the global cache <code>~/.mip/store/</code>.</li>
-<li><strong>Create symlink</strong> — creates a symbolic link in <code>node_modules/</code> pointing to the global cache.</li>
-<li><strong>Install package dependencies</strong> — recursively installs nested dependencies.</li>
-<li><strong>Update lockfile</strong> — pins exact versions in <code>mip-lock.yml</code>.</li>
-<li><strong>Save to <code>mip.yml</code></strong> — adds the package to <code>dependencies</code> (unless <code>--no-save</code> is specified).</li>
-<li><strong>Update manifest</strong> — writes information to <code>.mip/manifest.json</code>.</li>
+<li><strong>Version resolution</strong> - if <code>package@version</code> is specified, installs that specific version; otherwise - <code>latest</code>.</li>
+<li><strong>Dependency resolution</strong> - fetches package information from the registry.</li>
+<li><strong>Download and extract</strong> - downloads the tarball and extracts it to the global cache <code>~/.mip/store/</code>.</li>
+<li><strong>Create symlink</strong> - creates a symbolic link in <code>node_modules/</code> pointing to the global cache.</li>
+<li><strong>Install package dependencies</strong> - recursively installs nested dependencies.</li>
+<li><strong>Update lockfile</strong> - pins exact versions in <code>mip-lock.yml</code>.</li>
+<li><strong>Save to <code>mip.yml</code></strong> - adds the package to <code>dependencies</code> (unless <code>--no-save</code> is specified).</li>
+<li><strong>Update manifest</strong> - writes information to <code>.mip/manifest.json</code>.</li>
 </ol>
 <h2 id="mip-install-examples" class="docmd-heading"><a href="#mip-install-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
 <div class="docmd-tabs">
@@ -2005,18 +2069,18 @@ What is this?</div><div class="callout-content">
 </svg>
 💡 Tip</div><div class="callout-content">
 <ul>
-<li>For clean installs in CI, use <code>mip ci</code> — it’s faster and more reliable.</li>
+<li>For clean installs in CI, use <code>mip ci</code> - it’s faster and more reliable.</li>
 <li>Use <code>--force</code> only if you’re sure the cache is corrupted.</li>
 <li>For global packages, use <code>mip global install</code> (more convenient interface).</li>
 </ul>
 </div></div>
 <h2 id="mip-install-related-commands" class="docmd-heading"><a href="#mip-install-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><a href="/commands/ci/">mip ci</a> — installation for CI/CD</li>
-<li><a href="/commands/update/">mip update</a> — update packages</li>
-<li><a href="/commands/uninstall/">mip uninstall</a> — remove packages</li>
-<li><a href="/commands/list/">mip list</a> — view installed packages</li>
-<li><a href="/commands/global/">mip global</a> — manage global packages</li>
+<li><a href="/commands/ci/">mip ci</a> - installation for CI/CD</li>
+<li><a href="/commands/update/">mip update</a> - update packages</li>
+<li><a href="/commands/uninstall/">mip uninstall</a> - remove packages</li>
+<li><a href="/commands/list/">mip list</a> - view installed packages</li>
+<li><a href="/commands/global/">mip global</a> - manage global packages</li>
 </ul>
 
                 
@@ -2169,15 +2233,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mr7sx9so"></script>
+      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mr7sx9so"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mr7sx9so" ></script>
+      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mr7sx9so" ></script>
-<script src="../../assets/js/docmd-git.js?v=mr7sx9so" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
+<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
