@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip exports - view package export paths : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The exports command shows all public export paths of a package that can be imported via require or import.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/exports/">
 <link rel="alternate" hreflang="en" href="/commands/exports/">
 <link rel="alternate" hreflang="x-default" href="/commands/exports/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20exports%20%E2%80%94%20view%20package%20export%20paths%22%0Adescription%3A%20%22The%20exports%20command%20shows%20all%20public%20export%20paths%20of%20a%20package%20that%20can%20be%20imported%20via%20require%20or%20import.%22%0A---%0A%0A%23%20mip%20exports%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Abox%0A%60mip%20exports%60%20is%20a%20utility%20for%20viewing%20the%20**exported%20paths**%20(exports)%20of%20a%20package.%20It%20shows%20which%20files%20and%20subpaths%20the%20package%20makes%20available%20for%20import.%20This%20is%20especially%20useful%20when%20working%20with%20packages%20that%20use%20%60exports%60%20in%20%60package.json%60%20to%20control%20their%20public%20API%2C%20or%20when%20you%20want%20to%20know%20where%20to%20import%20specific%20files%20(e.g.%2C%20%60lodash%2Ffp%60%2C%20%60react-dom%2Fserver%60).%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20exports%20%3Cpackage-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60package-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20The%20name%20of%20the%20package%20whose%20exports%20you%20want%20to%20view%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Determine%20project%20directory**%20%E2%80%94%20the%20command%20gets%20the%20current%20working%20directory.%0A%0A2.%20**Find%20the%20package**%20%E2%80%94%20via%20%60ExportsResolver%60%2C%20the%20command%20locates%20the%20installed%20package%20in%20the%20local%20%60.mip%2F%60%20cache.%0A%0A3.%20**Read%20%60exports%60**%20%E2%80%94%20parses%20the%20%60exports%60%20section%20in%20the%20package&#039;s%20%60package.json%60%20(if%20it%20exists).%0A%0A4.%20**Check%20availability**%20%E2%80%94%20for%20each%20exported%20path%2C%20checks%20whether%20the%20file%20physically%20exists.%0A%0A5.%20**Output%20results**%20%E2%80%94%20displays%20a%20list%20of%20all%20available%20paths%20with%20an%20indicator%20of%20file%20existence%20(%E2%9C%85%20or%20%E2%9D%8C).%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22View%20React%20exports%22%0A%60%60%60bash%0Amip%20exports%20react%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Exports%20for%20react%3A%0A%20%20%E2%9C%85%20.%0A%20%20%E2%9C%85%20index.js%0A%20%20%E2%9C%85%20jsx-dev-runtime%0A%20%20%E2%9C%85%20jsx-runtime%0A%20%20%E2%9C%85%20react.shared-subset%0A%20%20%E2%9C%85%20server%0A%20%20%E2%9C%85%20server.browser%0A%20%20%E2%9C%85%20server.node%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22View%20Lodash%20exports%22%0A%60%60%60bash%0Amip%20exports%20lodash%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Exports%20for%20lodash%3A%0A%20%20%E2%9C%85%20.%0A%20%20%E2%9C%85%20add%0A%20%20%E2%9C%85%20array%0A%20%20%E2%9C%85%20chain%0A%20%20%E2%9C%85%20collection%0A%20%20%E2%9C%85%20date%0A%20%20%E2%9C%85%20fp%0A%20%20%E2%9C%85%20function%0A%20%20%E2%9C%85%20lang%0A%20%20%E2%9C%85%20math%0A%20%20%E2%9C%85%20number%0A%20%20%E2%9C%85%20object%0A%20%20%E2%9C%85%20seq%0A%20%20%E2%9C%85%20string%0A%20%20%E2%9C%85%20util%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Package%20with%20no%20exports%22%0A%60%60%60bash%0Amip%20exports%20some-old-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%E2%9D%8C%20No%20exports%20found%20for%20some-old-package%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20is%20not%20installed%20in%20the%20project.%0A%0A**Solution%3A**%0A1.%20Check%20the%20list%20of%20installed%20packages%3A%20%60mip%20list%60%0A2.%20Install%20the%20package%3A%20%60mip%20install%20%3Cpackage-name%3E%60%0A3.%20Try%20again%3A%20%60mip%20exports%20%3Cpackage-name%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20info%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20exports%60%20is%20especially%20useful%20for%3A%0A-%20**Exploring%20a%20new%20package**%20%E2%80%94%20to%20understand%20what%20can%20be%20imported.%0A-%20**Migration**%20%E2%80%94%20when%20switching%20from%20CommonJS%20to%20ESM%2C%20when%20the%20package%20changes%20its%20export%20structure.%0A-%20**Working%20with%20monorepos**%20%E2%80%94%20to%20understand%20which%20subpackages%20are%20available.%0A%0AUse%20this%20command%20before%20writing%20imports%20%E2%80%94%20it%20will%20show%20you%20which%20paths%20actually%20exist.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20info%5D(%2Fcommands%2Finfo)%20%E2%80%94%20shows%20package%20information%20(version%2C%20description%2C%20dependencies).%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20shows%20all%20installed%20packages.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20installs%20packages.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20What%20is%20exports%20in%20package.json%3F%22%0AThe%20%60exports%60%20field%20in%20%60package.json%60%20is%20a%20modern%20standard%20for%20**controlling%20the%20public%20API**%20of%20a%20package.%20It%20defines%3A%0A%0A1.%20**Which%20files%20are%20available**%20%E2%80%94%20not%20all%20files%20in%20the%20package%20are%20public%2C%20only%20those%20listed%20in%20%60exports%60.%0A2.%20**How%20they%20are%20available**%20%E2%80%94%20you%20can%20configure%20different%20paths%20for%20%60require%60%20and%20%60import%60.%0A3.%20**Conditional%20exports**%20%E2%80%94%20different%20versions%20for%20Node.js%2C%20browser%2C%20React%20Native%2C%20etc.%0A%0A**Example%20from%20%60react%2Fpackage.json%60%3A**%0A%60%60%60json%0A%7B%0A%20%20%22exports%22%3A%20%7B%0A%20%20%20%20%22.%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Findex.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Findex.js%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22.%2Fjsx-runtime%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Fjsx-runtime.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Fjsx-runtime.js%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22.%2Fserver%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Fserver.node.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Fserver.browser.js%22%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%60%60%60%0A%0A%60mip%20exports%60%20shows%20**all%20possible%20paths**%20that%20the%20package%20exports%2C%20with%20verification%20that%20the%20files%20actually%20exist.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%8D%20Why%20are%20some%20paths%20marked%20%E2%9D%8C%3F%22%0AA%20path%20may%20be%20marked%20%E2%9D%8C%20if%3A%0A1.%20There%20is%20an%20entry%20in%20%60exports%60%2C%20but%20the%20file%20is%20physically%20missing%20(package%20error).%0A2.%20The%20export%20is%20described%20with%20conditions%20(%60browser%60%2C%20%60node%60%2C%20%60default%60)%2C%20and%20it%20is%20not%20available%20in%20your%20environment.%0A%0AIn%20any%20case%2C%20if%20a%20path%20is%20marked%20%E2%9D%8C%20%E2%80%94%20the%20import%20will%20not%20work.%20%60mip%20exports%60%20helps%20identify%20such%20issues%20before%20writing%20code.%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20exports%20-%20view%20package%20export%20paths%22%0Adescription%3A%20%22The%20exports%20command%20shows%20all%20public%20export%20paths%20of%20a%20package%20that%20can%20be%20imported%20via%20require%20or%20import.%22%0A---%0A%0A%23%20mip%20exports%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Abox%0A%60mip%20exports%60%20is%20a%20utility%20for%20viewing%20the%20**exported%20paths**%20(exports)%20of%20a%20package.%20It%20shows%20which%20files%20and%20subpaths%20the%20package%20makes%20available%20for%20import.%20This%20is%20especially%20useful%20when%20working%20with%20packages%20that%20use%20%60exports%60%20in%20%60package.json%60%20to%20control%20their%20public%20API%2C%20or%20when%20you%20want%20to%20know%20where%20to%20import%20specific%20files%20(e.g.%2C%20%60lodash%2Ffp%60%2C%20%60react-dom%2Fserver%60).%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20exports%20%3Cpackage-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60package-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20The%20name%20of%20the%20package%20whose%20exports%20you%20want%20to%20view%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Determine%20project%20directory**%20-%20the%20command%20gets%20the%20current%20working%20directory.%0A%0A2.%20**Find%20the%20package**%20-%20via%20%60ExportsResolver%60%2C%20the%20command%20locates%20the%20installed%20package%20in%20the%20local%20%60.mip%2F%60%20cache.%0A%0A3.%20**Read%20%60exports%60**%20-%20parses%20the%20%60exports%60%20section%20in%20the%20package&#039;s%20%60package.json%60%20(if%20it%20exists).%0A%0A4.%20**Check%20availability**%20-%20for%20each%20exported%20path%2C%20checks%20whether%20the%20file%20physically%20exists.%0A%0A5.%20**Output%20results**%20-%20displays%20a%20list%20of%20all%20available%20paths%20with%20an%20indicator%20of%20file%20existence%20(%E2%9C%85%20or%20%E2%9D%8C).%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22View%20React%20exports%22%0A%60%60%60bash%0Amip%20exports%20react%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Exports%20for%20react%3A%0A%20%20%E2%9C%85%20.%0A%20%20%E2%9C%85%20index.js%0A%20%20%E2%9C%85%20jsx-dev-runtime%0A%20%20%E2%9C%85%20jsx-runtime%0A%20%20%E2%9C%85%20react.shared-subset%0A%20%20%E2%9C%85%20server%0A%20%20%E2%9C%85%20server.browser%0A%20%20%E2%9C%85%20server.node%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22View%20Lodash%20exports%22%0A%60%60%60bash%0Amip%20exports%20lodash%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Exports%20for%20lodash%3A%0A%20%20%E2%9C%85%20.%0A%20%20%E2%9C%85%20add%0A%20%20%E2%9C%85%20array%0A%20%20%E2%9C%85%20chain%0A%20%20%E2%9C%85%20collection%0A%20%20%E2%9C%85%20date%0A%20%20%E2%9C%85%20fp%0A%20%20%E2%9C%85%20function%0A%20%20%E2%9C%85%20lang%0A%20%20%E2%9C%85%20math%0A%20%20%E2%9C%85%20number%0A%20%20%E2%9C%85%20object%0A%20%20%E2%9C%85%20seq%0A%20%20%E2%9C%85%20string%0A%20%20%E2%9C%85%20util%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Package%20with%20no%20exports%22%0A%60%60%60bash%0Amip%20exports%20some-old-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%E2%9D%8C%20No%20exports%20found%20for%20some-old-package%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20is%20not%20installed%20in%20the%20project.%0A%0A**Solution%3A**%0A1.%20Check%20the%20list%20of%20installed%20packages%3A%20%60mip%20list%60%0A2.%20Install%20the%20package%3A%20%60mip%20install%20%3Cpackage-name%3E%60%0A3.%20Try%20again%3A%20%60mip%20exports%20%3Cpackage-name%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20info%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20exports%60%20is%20especially%20useful%20for%3A%0A-%20**Exploring%20a%20new%20package**%20-%20to%20understand%20what%20can%20be%20imported.%0A-%20**Migration**%20-%20when%20switching%20from%20CommonJS%20to%20ESM%2C%20when%20the%20package%20changes%20its%20export%20structure.%0A-%20**Working%20with%20monorepos**%20-%20to%20understand%20which%20subpackages%20are%20available.%0A%0AUse%20this%20command%20before%20writing%20imports%20-%20it%20will%20show%20you%20which%20paths%20actually%20exist.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20info%5D(%2Fcommands%2Finfo)%20-%20shows%20package%20information%20(version%2C%20description%2C%20dependencies).%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20-%20shows%20all%20installed%20packages.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20installs%20packages.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20What%20is%20exports%20in%20package.json%3F%22%0AThe%20%60exports%60%20field%20in%20%60package.json%60%20is%20a%20modern%20standard%20for%20**controlling%20the%20public%20API**%20of%20a%20package.%20It%20defines%3A%0A%0A1.%20**Which%20files%20are%20available**%20-%20not%20all%20files%20in%20the%20package%20are%20public%2C%20only%20those%20listed%20in%20%60exports%60.%0A2.%20**How%20they%20are%20available**%20-%20you%20can%20configure%20different%20paths%20for%20%60require%60%20and%20%60import%60.%0A3.%20**Conditional%20exports**%20-%20different%20versions%20for%20Node.js%2C%20browser%2C%20React%20Native%2C%20etc.%0A%0A**Example%20from%20%60react%2Fpackage.json%60%3A**%0A%60%60%60json%0A%7B%0A%20%20%22exports%22%3A%20%7B%0A%20%20%20%20%22.%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Findex.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Findex.js%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22.%2Fjsx-runtime%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Fjsx-runtime.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Fjsx-runtime.js%22%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22.%2Fserver%22%3A%20%7B%0A%20%20%20%20%20%20%22require%22%3A%20%22.%2Fserver.node.js%22%2C%0A%20%20%20%20%20%20%22import%22%3A%20%22.%2Fserver.browser.js%22%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%60%60%60%0A%0A%60mip%20exports%60%20shows%20**all%20possible%20paths**%20that%20the%20package%20exports%2C%20with%20verification%20that%20the%20files%20actually%20exist.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%8D%20Why%20are%20some%20paths%20marked%20%E2%9D%8C%3F%22%0AA%20path%20may%20be%20marked%20%E2%9D%8C%20if%3A%0A1.%20There%20is%20an%20entry%20in%20%60exports%60%2C%20but%20the%20file%20is%20physically%20missing%20(package%20error).%0A2.%20The%20export%20is%20described%20with%20conditions%20(%60browser%60%2C%20%60node%60%2C%20%60default%60)%2C%20and%20it%20is%20not%20available%20in%20your%20environment.%0A%0AIn%20any%20case%2C%20if%20a%20path%20is%20marked%20%E2%9D%8C%20-%20the%20import%20will%20not%20work.%20%60mip%20exports%60%20helps%20identify%20such%20issues%20before%20writing%20code.%0A%3A%3A%3A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2167,15 +2183,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

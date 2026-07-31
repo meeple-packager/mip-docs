@@ -36,6 +36,7 @@ npm run build
 mip init
 mip install express
 mip run start
+# Ну или просто используйте установщик, его можно скачать из релизов на гитхабе :)
 ```
 
 ::: tip "💡 Совет"

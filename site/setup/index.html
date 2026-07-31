@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       MIP Setup and Configuration : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="How to install MIP and configure it for your project.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/setup/">
 <link rel="alternate" hreflang="en" href="/setup/">
 <link rel="alternate" hreflang="x-default" href="/setup/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20Setup%20and%20Configuration%22%0Adescription%3A%20%22How%20to%20install%20MIP%20and%20configure%20it%20for%20your%20project.%22%0A---%0A%0A%23%20MIP%20Setup%20and%20Configuration%20%E2%9A%99%EF%B8%8F%0A%0AThis%20section%20will%20help%20you%20install%20MIP%20and%20set%20up%20your%20first%20project.%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Contents%0A%0A%7C%20Section%20%7C%20Description%20%7C%0A%7C---------%7C-------------%7C%0A%7C%20%5BQuick%20start%5D(%2Fsetup%2Fquick-start)%20%7C%20Install%20and%20create%20your%20first%20project%20in%205%20minutes%20%7C%0A%7C%20%5BConfiguration%5D(%2Fsetup%2Fconfiguration)%20%7C%20All%20%60mip.yml%60%20settings%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Quick%20start%0A%0A%23%23%23%201.%20Install%20MIP%0A%0A%60%60%60bash%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0Anpm%20install%0Anpm%20run%20build%0A%60%60%60%0A%0A%23%23%23%202.%20Create%20a%20project%0A%0A%60%60%60bash%0Amip%20init%0A%60%60%60%0A%0AMIP%20will%20create%3A%0A-%20%60mip.yml%60%20%E2%80%94%20project%20configuration%20in%20YAML%0A-%20%60.mip%2F%60%20%E2%80%94%20directory%20for%20cache%20and%20manifest%0A-%20%60README.md%60%20%E2%80%94%20instructions%0A%0A%23%23%23%203.%20Install%20dependencies%0A%0A%60%60%60bash%0Amip%20install%20express%0A%60%60%60%0A%0A%23%23%23%204.%20Run%20the%20project%0A%0A%60%60%60bash%0Amip%20run%20start%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0AAfter%20%60mip%20init%60%2C%20you%20will%20see%3A%0A%0A%60%60%60%0Amy-project%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20mip.yml%20%20%20%20%20%20%20%20%20%20%23%20Project%20configuration%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20mip-lock.yml%20%20%20%20%20%23%20Locked%20package%20versions%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20.mip%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20manifest.json%20%23%20Installed%20packages%20manifest%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20cache%2F%20%20%20%20%20%20%20%20%23%20Download%20cache%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20packages%2F%20%20%20%20%20%23%20Local%20packages%0A%E2%94%94%E2%94%80%E2%94%80%20node_modules%2F%20%20%20%20%20%23%20Symlinks%20to%20the%20global%20cache%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Main%20commands%0A%0A%60%60%60bash%0A%23%20Initialization%0Amip%20init%0A%0A%23%20Install%20packages%0Amip%20install%20%3Cpackage%3E%0A%0A%23%20Run%20scripts%0Amip%20run%20%3Cscript%3E%0A%0A%23%20List%20packages%0Amip%20list%0A%0A%23%20Update%20packages%0Amip%20update%0A%0A%23%20Remove%20packages%0Amip%20uninstall%20%3Cpackage%3E%0A%0A%23%20Security%20audit%0Amip%20audit%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%8C%8D%20Switching%20language%0A%0A%60%60%60bash%0Amip%20language%20ru%0A%60%60%60%0A%0AAvailable%20languages%3A%20%60en%60%2C%20%60ru%60%2C%20%60es%60%2C%20%60fr%60%2C%20%60de%60%2C%20%60it%60%2C%20%60pt%60%2C%20%60zh%60%2C%20%60ja%60%2C%20%60ko%60.%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BQuick%20start%5D(%2Fsetup%2Fquick-start)%0A-%20%5BConfiguration%5D(%2Fsetup%2Fconfiguration)%0A-%20%5BCommands%5D(%2Fcommands%2Finstall)%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20Setup%20and%20Configuration%22%0Adescription%3A%20%22How%20to%20install%20MIP%20and%20configure%20it%20for%20your%20project.%22%0A---%0A%0A%23%20MIP%20Setup%20and%20Configuration%20%E2%9A%99%EF%B8%8F%0A%0AThis%20section%20will%20help%20you%20install%20MIP%20and%20set%20up%20your%20first%20project.%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Contents%0A%0A%7C%20Section%20%7C%20Description%20%7C%0A%7C---------%7C-------------%7C%0A%7C%20%5BQuick%20start%5D(%2Fsetup%2Fquick-start)%20%7C%20Install%20and%20create%20your%20first%20project%20in%205%20minutes%20%7C%0A%7C%20%5BConfiguration%5D(%2Fsetup%2Fconfiguration)%20%7C%20All%20%60mip.yml%60%20settings%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Quick%20start%0A%0A%23%23%23%201.%20Install%20MIP%0A%0A%60%60%60bash%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0Anpm%20install%0Anpm%20run%20build%0A%60%60%60%0A%0A%23%23%23%202.%20Create%20a%20project%0A%0A%60%60%60bash%0Amip%20init%0A%60%60%60%0A%0AMIP%20will%20create%3A%0A-%20%60mip.yml%60%20-%20project%20configuration%20in%20YAML%0A-%20%60.mip%2F%60%20-%20directory%20for%20cache%20and%20manifest%0A-%20%60README.md%60%20-%20instructions%0A%0A%23%23%23%203.%20Install%20dependencies%0A%0A%60%60%60bash%0Amip%20install%20express%0A%60%60%60%0A%0A%23%23%23%204.%20Run%20the%20project%0A%0A%60%60%60bash%0Amip%20run%20start%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0AAfter%20%60mip%20init%60%2C%20you%20will%20see%3A%0A%0A%60%60%60%0Amy-project%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20mip.yml%20%20%20%20%20%20%20%20%20%20%23%20Project%20configuration%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20mip-lock.yml%20%20%20%20%20%23%20Locked%20package%20versions%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20.mip%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20manifest.json%20%23%20Installed%20packages%20manifest%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20cache%2F%20%20%20%20%20%20%20%20%23%20Download%20cache%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20packages%2F%20%20%20%20%20%23%20Local%20packages%0A%E2%94%94%E2%94%80%E2%94%80%20node_modules%2F%20%20%20%20%20%23%20Symlinks%20to%20the%20global%20cache%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Main%20commands%0A%0A%60%60%60bash%0A%23%20Initialization%0Amip%20init%0A%0A%23%20Install%20packages%0Amip%20install%20%3Cpackage%3E%0A%0A%23%20Run%20scripts%0Amip%20run%20%3Cscript%3E%0A%0A%23%20List%20packages%0Amip%20list%0A%0A%23%20Update%20packages%0Amip%20update%0A%0A%23%20Remove%20packages%0Amip%20uninstall%20%3Cpackage%3E%0A%0A%23%20Security%20audit%0Amip%20audit%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%8C%8D%20Switching%20language%0A%0A%60%60%60bash%0Amip%20language%20ru%0A%60%60%60%0A%0AAvailable%20languages%3A%20%60en%60%2C%20%60ru%60%2C%20%60es%60%2C%20%60fr%60%2C%20%60de%60%2C%20%60it%60%2C%20%60pt%60%2C%20%60zh%60%2C%20%60ja%60%2C%20%60ko%60.%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BQuick%20start%5D(%2Fsetup%2Fquick-start)%0A-%20%5BConfiguration%5D(%2Fsetup%2Fconfiguration)%0A-%20%5BCommands%5D(%2Fcommands%2Finstall)%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1924,7 +1940,7 @@ mip audit
                 
                   <div class="page-navigation">
                     
-                      <a href="../commands/hello/" class="prev-page">
+                      <a href="../commands/shell/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -1943,7 +1959,7 @@ mip audit
 </svg>
 
                         <span><small>previous</small><strong>
-                            hello
+                            shell
                           </strong></span>
                       </a>
                     
@@ -2071,15 +2087,15 @@ mip audit
         </div>
       </div>
       
-      <script src="../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

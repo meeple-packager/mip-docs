@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip audit - dependency security check : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The audit command analyzes the dependency tree for known vulnerabilities, reports issues, and suggests automatic fixes.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/audit/">
 <link rel="alternate" hreflang="en" href="/commands/audit/">
 <link rel="alternate" hreflang="x-default" href="/commands/audit/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20audit%20%E2%80%94%20dependency%20security%20check%22%0Adescription%3A%20%22The%20audit%20command%20analyzes%20the%20dependency%20tree%20for%20known%20vulnerabilities%2C%20reports%20issues%2C%20and%20suggests%20automatic%20fixes.%22%0A---%0A%0A%23%20mip%20audit%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ashield%0A%60mip%20audit%60%20scans%20all%20installed%20packages%20and%20their%20dependencies%2C%20comparing%20them%20against%20a%20vulnerability%20database%20(GitHub%20Advisory%20Database%2C%20npm%20Security).%20You%20receive%20a%20report%20of%20critical%2C%20high%2C%20moderate%2C%20and%20low%20vulnerabilities%2C%20along%20with%20upgrade%20recommendations.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20audit%20%5B--fix%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--fix%60%20%7C%20Automatically%20update%20vulnerable%20packages%20to%20safe%20versions%20(if%20possible)%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Read%20the%20lockfile**%20%E2%80%94%20the%20command%20checks%20whether%20%60mip-lock.yml%60%20exists%20in%20the%20current%20directory.%20If%20it%E2%80%99s%20missing%2C%20execution%20stops.%0A%0A2.%20**Scan%20dependencies**%20%E2%80%94%20for%20each%20package%20from%20the%20lockfile%2C%20the%20command%20sends%20a%20request%20to%20the%20npm%20registry%20to%20get%20a%20list%20of%20known%20vulnerabilities.%0A%0A3.%20**Filtering**%20%E2%80%94%20it%20checks%20whether%20the%20current%20package%20version%20matches%20%60vulnerable_versions%60%20from%20the%20vulnerability%20database.%0A%0A4.%20**Sorting**%20%E2%80%94%20all%20found%20vulnerabilities%20are%20sorted%20by%20CVSS%20score%20(from%20most%20critical%20to%20least%20dangerous).%0A%0A5.%20**Output%20report**%20%E2%80%94%20vulnerabilities%20are%20grouped%20by%20severity%3A%20%F0%9F%94%B4%20Critical%2C%20%F0%9F%9F%A0%20High%2C%20%F0%9F%9F%A1%20Moderate%2C%20%F0%9F%94%B5%20Low.%0A%0AIf%20%60--fix%60%20is%20specified%3A%0A6.%20**Find%20fixes**%20%E2%80%94%20for%20each%20vulnerability%2C%20it%20checks%20whether%20%60patched_versions%60%20exists.%0A7.%20**Update%20packages**%20%E2%80%94%20runs%20%60mip%20install%20%3Cpkg%3E%40%3Cfixed-version%3E%60.%0A8.%20**Sync%20%60mip.yml%60**%20%E2%80%94%20automatically%20updates%20%60mip.yml%60.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Standard%20check%22%0A%60%60%60bash%0Amip%20audit%0A%60%60%60%0A%0AIt%20prints%20a%20list%20of%20all%20vulnerabilities%2C%20including%3A%0A-%20Package%20name%20and%20version%0A-%20Severity%20level%20and%20description%0A-%20CVSS%20score%0A-%20Available%20patches%20or%20a%20recommendation%20to%20update%20manually%0A-%20A%20link%20to%20the%20detailed%20vulnerability%20description%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Scanning%20dependencies...%20(42%20packages)%0A%0A%F0%9F%94%B4%20lodash%404.17.19%20(critical)%0A%20%20%20Prototype%20Pollution%20vulnerability%0A%20%20%20CVSS%3A%209.8%0A%20%20%20Fix%3A%204.17.20%0A%20%20%20https%3A%2F%2Fgithub.com%2Fadvisories%2FGHSA-xxx%0A%0A%F0%9F%9F%A0%20axios%400.21.1%20(high)%0A%20%20%20Server-Side%20Request%20Forgery%0A%20%20%20CVSS%3A%207.5%0A%20%20%20Fix%3A%200.21.2%0A%20%20%20https%3A%2F%2Fgithub.com%2Fadvisories%2FGHSA-yyy%0A%0A%F0%9F%93%8A%20Summary%3A%0A%20%20%20%F0%9F%94%B4%20Critical%3A%201%0A%20%20%20%F0%9F%9F%A0%20High%3A%201%0A%20%20%20%F0%9F%9F%A1%20Moderate%3A%200%0A%20%20%20%F0%9F%94%B5%20Low%3A%200%0A%0A%F0%9F%92%A1%20Run%20&#039;mip%20audit%20--fix&#039;%20to%20auto-fix%20updateable%20vulnerabilities.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Auto-fix%22%0A%60%60%60bash%0Amip%20audit%20--fix%0A%60%60%60%0A%0A1.%20Finds%20all%20vulnerable%20packages.%0A2.%20For%20each%20vulnerability%2C%20checks%20that%20a%20patched%20version%20exists%20**within%20the%20same%20current%20major%20release**%20(to%20avoid%20breaking%20changes).%0A3.%20Automatically%20updates%20the%20package%20and%20syncs%20%60mip.yml%60.%0A4.%20Reports%20which%20packages%20were%20updated.%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_NO_CONNECTION%22%20icon%3Aalert-triangle%0A**Cause%3A**%20Failed%20to%20connect%20to%20the%20npm%20registry%20(network%20issues%20or%20the%20registry%20is%20unavailable).%0A%0A**Resolution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Make%20sure%20the%20npm%20registry%20is%20reachable.%0A3.%20If%20you%E2%80%99re%20using%20a%20proxy%2C%20configure%20environment%20variables.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20lock_not_found%22%20icon%3Askull%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%0A1.%20Make%20sure%20you%E2%80%99re%20in%20the%20project%20root%20with%20%60mip.yml%60.%0A2.%20Run%20%60mip%20install%60%20to%20create%20the%20lockfile.%0A3.%20Try%20again%3A%20%60mip%20audit%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20update_failed%22%20icon%3Aalert-circle%0A**Cause%3A**%20Could%20not%20install%20the%20patched%20package%20version%20(dependency%20conflicts%20or%20registry%20error).%0A%0A**Resolution%3A**%0A1.%20Check%20whether%20the%20specified%20package%20version%20exists%20in%20the%20registry.%0A2.%20Try%20installing%20the%20patch%20manually%3A%20%60mip%20install%20%3Cpkg%3E%40%3Cversion%3E%60.%0A3.%20Check%20for%20conflicts%20with%20other%20dependencies.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20info%20%22%F0%9F%94%84%20Auto-fix%20only%20within%20the%20same%20major%20release%22%20icon%3Ainfo%0A%60mip%20audit%20--fix%60%20will%20never%20upgrade%20a%20package%20to%20a%20version%20with%20a%20different%20major%20number%20(for%20example%2C%20%601.x%60%20%E2%86%92%20%602.x%60).%20This%20prevents%20potential%20breaking%20changes.%20If%20a%20safe%20version%20requires%20changing%20the%20major%2C%20the%20command%20will%20ask%20you%20to%20update%20manually.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20%E2%80%94%20shows%20outdated%20packages%20(not%20only%20vulnerabilities)%0A-%20%5Bmip%20update%5D(%2Fcommands%2Fupdate)%20%E2%80%94%20updates%20all%20packages%20to%20the%20latest%20versions%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20checks%20the%20overall%20project%20health%20(including%20dependency%20conflicts)%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20How%20patch%20search%20works%22%0AWhen%20%60--fix%60%20is%20enabled%2C%20the%20command%3A%0A1.%20Checks%20whether%20%60patched_versions%60%20exists.%0A2.%20Parses%20the%20list%20of%20available%20patches.%0A3.%20Selects%20the%20**minimum**%20version%20that%20is%20higher%20than%20the%20current%20one%20**within%20the%20same%20major%20release**.%0A4.%20Runs%20%60mip%20install%20%3Cpkg%3E%40%3Cversion%3E%60.%0A5.%20Updates%20%60mip.yml%60.%0A%0AThis%20approach%20guarantees%20minimal%20changes%20and%20a%20safe%20update.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20audit%20-%20dependency%20security%20check%22%0Adescription%3A%20%22The%20audit%20command%20analyzes%20the%20dependency%20tree%20for%20known%20vulnerabilities%2C%20reports%20issues%2C%20and%20suggests%20automatic%20fixes.%22%0A---%0A%0A%23%20mip%20audit%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ashield%0A%60mip%20audit%60%20scans%20all%20installed%20packages%20and%20their%20dependencies%2C%20comparing%20them%20against%20a%20vulnerability%20database%20(GitHub%20Advisory%20Database%2C%20npm%20Security).%20You%20receive%20a%20report%20of%20critical%2C%20high%2C%20moderate%2C%20and%20low%20vulnerabilities%2C%20along%20with%20upgrade%20recommendations.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20audit%20%5B--fix%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--fix%60%20%7C%20Automatically%20update%20vulnerable%20packages%20to%20safe%20versions%20(if%20possible)%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Read%20the%20lockfile**%20-%20the%20command%20checks%20whether%20%60mip-lock.yml%60%20exists%20in%20the%20current%20directory.%20If%20it%E2%80%99s%20missing%2C%20execution%20stops.%0A%0A2.%20**Scan%20dependencies**%20-%20for%20each%20package%20from%20the%20lockfile%2C%20the%20command%20sends%20a%20request%20to%20the%20npm%20registry%20to%20get%20a%20list%20of%20known%20vulnerabilities.%0A%0A3.%20**Filtering**%20-%20it%20checks%20whether%20the%20current%20package%20version%20matches%20%60vulnerable_versions%60%20from%20the%20vulnerability%20database.%0A%0A4.%20**Sorting**%20-%20all%20found%20vulnerabilities%20are%20sorted%20by%20CVSS%20score%20(from%20most%20critical%20to%20least%20dangerous).%0A%0A5.%20**Output%20report**%20-%20vulnerabilities%20are%20grouped%20by%20severity%3A%20%F0%9F%94%B4%20Critical%2C%20%F0%9F%9F%A0%20High%2C%20%F0%9F%9F%A1%20Moderate%2C%20%F0%9F%94%B5%20Low.%0A%0AIf%20%60--fix%60%20is%20specified%3A%0A6.%20**Find%20fixes**%20-%20for%20each%20vulnerability%2C%20it%20checks%20whether%20%60patched_versions%60%20exists.%0A7.%20**Update%20packages**%20-%20runs%20%60mip%20install%20%3Cpkg%3E%40%3Cfixed-version%3E%60.%0A8.%20**Sync%20%60mip.yml%60**%20-%20automatically%20updates%20%60mip.yml%60.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Standard%20check%22%0A%60%60%60bash%0Amip%20audit%0A%60%60%60%0A%0AIt%20prints%20a%20list%20of%20all%20vulnerabilities%2C%20including%3A%0A-%20Package%20name%20and%20version%0A-%20Severity%20level%20and%20description%0A-%20CVSS%20score%0A-%20Available%20patches%20or%20a%20recommendation%20to%20update%20manually%0A-%20A%20link%20to%20the%20detailed%20vulnerability%20description%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Scanning%20dependencies...%20(42%20packages)%0A%0A%F0%9F%94%B4%20lodash%404.17.19%20(critical)%0A%20%20%20Prototype%20Pollution%20vulnerability%0A%20%20%20CVSS%3A%209.8%0A%20%20%20Fix%3A%204.17.20%0A%20%20%20https%3A%2F%2Fgithub.com%2Fadvisories%2FGHSA-xxx%0A%0A%F0%9F%9F%A0%20axios%400.21.1%20(high)%0A%20%20%20Server-Side%20Request%20Forgery%0A%20%20%20CVSS%3A%207.5%0A%20%20%20Fix%3A%200.21.2%0A%20%20%20https%3A%2F%2Fgithub.com%2Fadvisories%2FGHSA-yyy%0A%0A%F0%9F%93%8A%20Summary%3A%0A%20%20%20%F0%9F%94%B4%20Critical%3A%201%0A%20%20%20%F0%9F%9F%A0%20High%3A%201%0A%20%20%20%F0%9F%9F%A1%20Moderate%3A%200%0A%20%20%20%F0%9F%94%B5%20Low%3A%200%0A%0A%F0%9F%92%A1%20Run%20&#039;mip%20audit%20--fix&#039;%20to%20auto-fix%20updateable%20vulnerabilities.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Auto-fix%22%0A%60%60%60bash%0Amip%20audit%20--fix%0A%60%60%60%0A%0A1.%20Finds%20all%20vulnerable%20packages.%0A2.%20For%20each%20vulnerability%2C%20checks%20that%20a%20patched%20version%20exists%20**within%20the%20same%20current%20major%20release**%20(to%20avoid%20breaking%20changes).%0A3.%20Automatically%20updates%20the%20package%20and%20syncs%20%60mip.yml%60.%0A4.%20Reports%20which%20packages%20were%20updated.%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_NO_CONNECTION%22%20icon%3Aalert-triangle%0A**Cause%3A**%20Failed%20to%20connect%20to%20the%20npm%20registry%20(network%20issues%20or%20the%20registry%20is%20unavailable).%0A%0A**Resolution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Make%20sure%20the%20npm%20registry%20is%20reachable.%0A3.%20If%20you%E2%80%99re%20using%20a%20proxy%2C%20configure%20environment%20variables.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20lock_not_found%22%20icon%3Askull%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%0A1.%20Make%20sure%20you%E2%80%99re%20in%20the%20project%20root%20with%20%60mip.yml%60.%0A2.%20Run%20%60mip%20install%60%20to%20create%20the%20lockfile.%0A3.%20Try%20again%3A%20%60mip%20audit%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20update_failed%22%20icon%3Aalert-circle%0A**Cause%3A**%20Could%20not%20install%20the%20patched%20package%20version%20(dependency%20conflicts%20or%20registry%20error).%0A%0A**Resolution%3A**%0A1.%20Check%20whether%20the%20specified%20package%20version%20exists%20in%20the%20registry.%0A2.%20Try%20installing%20the%20patch%20manually%3A%20%60mip%20install%20%3Cpkg%3E%40%3Cversion%3E%60.%0A3.%20Check%20for%20conflicts%20with%20other%20dependencies.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20info%20%22%F0%9F%94%84%20Auto-fix%20only%20within%20the%20same%20major%20release%22%20icon%3Ainfo%0A%60mip%20audit%20--fix%60%20will%20never%20upgrade%20a%20package%20to%20a%20version%20with%20a%20different%20major%20number%20(for%20example%2C%20%601.x%60%20%E2%86%92%20%602.x%60).%20This%20prevents%20potential%20breaking%20changes.%20If%20a%20safe%20version%20requires%20changing%20the%20major%2C%20the%20command%20will%20ask%20you%20to%20update%20manually.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20-%20shows%20outdated%20packages%20(not%20only%20vulnerabilities)%0A-%20%5Bmip%20update%5D(%2Fcommands%2Fupdate)%20-%20updates%20all%20packages%20to%20the%20latest%20versions%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20checks%20the%20overall%20project%20health%20(including%20dependency%20conflicts)%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20How%20patch%20search%20works%22%0AWhen%20%60--fix%60%20is%20enabled%2C%20the%20command%3A%0A1.%20Checks%20whether%20%60patched_versions%60%20exists.%0A2.%20Parses%20the%20list%20of%20available%20patches.%0A3.%20Selects%20the%20**minimum**%20version%20that%20is%20higher%20than%20the%20current%20one%20**within%20the%20same%20major%20release**.%0A4.%20Runs%20%60mip%20install%20%3Cpkg%3E%40%3Cversion%3E%60.%0A5.%20Updates%20%60mip.yml%60.%0A%0AThis%20approach%20guarantees%20minimal%20changes%20and%20a%20safe%20update.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2185,15 +2201,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

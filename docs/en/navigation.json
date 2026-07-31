@@ -42,9 +42,10 @@
       { "title": "plugin", "path": "/commands/plugin.md" },
       { "title": "registry", "path": "/commands/registry.md" },
       { "title": "config", "path": "/commands/config.md" },
-      { "title": "server", "path": "/commands/server.md" },
+      { "title": "page", "path": "/commands/server.md" },
       { "title": "alias", "path": "/commands/alias.md" },
-      { "title": "hello", "path": "/commands/hello.md" }
+      { "title": "hello", "path": "/commands/hello.md" },
+      { "title": "shell", "path": "/commands/shell.md" }
     ]
   },
   {

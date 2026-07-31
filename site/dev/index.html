@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       For Developers : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Everything a developer needs to know about MIP - architecture, adding commands, testing, and hooks.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/dev/">
 <link rel="alternate" hreflang="en" href="/dev/">
 <link rel="alternate" hreflang="x-default" href="/dev/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22For%20Developers%22%0Adescription%3A%20%22Everything%20a%20developer%20needs%20to%20know%20about%20MIP%20%E2%80%94%20architecture%2C%20adding%20commands%2C%20testing%2C%20and%20hooks.%22%0A---%0A%0A%23%20For%20Developers%0A%0AThis%20section%20is%20for%20people%20who%20want%20to%20**understand%20how%20MIP%20works**%20and%20start%20contributing%20changes.%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Contents%0A%0A%7C%20Section%20%7C%20About%20%7C%0A%7C---------%7C-------%7C%0A%7C%20%5BMIP%20Architecture%5D(%2Fdev%2Farchitecture)%20%7C%20How%20the%20project%20is%20organized%3A%20modules%2C%20data%20flow%2C%20and%20file%20structure%20%7C%0A%7C%20%5BAdding%20Commands%5D(%2Fdev%2Fadding-commands)%20%7C%20Two%20ways%20to%20create%20a%20command%3A%20via%20fork%20(built-in)%20or%20via%20a%20plugin%20%7C%0A%7C%20%5BHooks%20%26%20Plugins%5D(%2Fdev%2Fhooks)%20%7C%20How%20to%20extend%20MIP%E2%80%99s%20functionality%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Developer%20quick%20start%0A%0A%60%60%60bash%0A%23%20Clone%20the%20repository%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0A%0A%23%20Install%20dependencies%0Anpm%20install%0A%0A%23%20Build%20the%20project%0Anpm%20run%20build%0A%0A%23%20Run%20tests%20(if%20any)%0Anpm%20test%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%A9%20Key%20components%0A%0A%7C%20Component%20%7C%20File%20%7C%20What%20it%20does%20%7C%0A%7C-----------%7C------%7C--------------%7C%0A%7C%20**CLI**%20%7C%20%60bin%2Fmip.js%60%20%7C%20Entry%20point%3A%20parses%20commands%20and%20calls%20handlers%20%7C%0A%7C%20**Commands**%20%7C%20%60lib%2Fcommands%2F*.js%60%20%7C%20Logic%20of%20each%20command%20(install%2C%20audit%2C%20ci%2C%20etc.)%20%7C%0A%7C%20**Core**%20%7C%20%60lib%2Fcore%2F*.js%60%20%7C%20Main%20logic%3A%20resolving%2C%20downloading%2C%20caching%20%7C%0A%7C%20**Utilities**%20%7C%20%60lib%2Futils%2F*.js%60%20%7C%20Helper%20functions%3A%20registry%2C%20configs%2C%20extraction%20%7C%0A%7C%20**i18n**%20%7C%20%60lib%2Fi18n%2F*.js%60%20%7C%20Internationalization%3A%20translations%20and%20language%20loading%20%7C%0A%7C%20**API**%20%7C%20%60lib%2Fapi%2F*.js%60%20%7C%20Plugin%20API%3A%20hooks%20and%20command%20registration%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0A%60%60%60%0Amip%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20bin%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20mip.js%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Entry%20point%0A%E2%94%9C%E2%94%80%E2%94%80%20lib%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20api%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Plugin%20API%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20commands%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20All%20built-in%20commands%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20core%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Core%20(resolving%2C%20loading%2C%20caching)%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20i18n%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Translations%20(10%20languages)%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20ui%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Progress%20bars%2C%20colored%20output%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20utils%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Helper%20utilities%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20index.js%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proxy%20exports%0A%E2%94%9C%E2%94%80%E2%94%80%20tests%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Tests%0A%E2%94%9C%E2%94%80%E2%94%80%20docs%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Documentation%0A%E2%94%94%E2%94%80%E2%94%80%20package.json%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%8C%8D%20Internationalization%0A%0AMIP%20supports%2010%20languages%3A%20%60en%60%2C%20%60ru%60%2C%20%60es%60%2C%20%60fr%60%2C%20%60de%60%2C%20%60it%60%2C%20%60pt%60%2C%20%60zh%60%2C%20%60ja%60%2C%20%60ko%60.%0A%0A**How%20to%20use%20it%20in%20code%3A**%0A%0A%60%60%60javascript%0Aconst%20%7B%20loadLangForCwd%2C%20getI18n%20%7D%20%3D%20require(&#039;..%2Fi18n&#039;)%3B%0A%0Aasync%20function%20myCommand()%20%7B%0A%20%20const%20%7B%20t%20%7D%20%3D%20getI18n(loadLangForCwd(process.cwd()))%3B%0A%20%20console.log(t(&#039;commands.my_command.running&#039;))%3B%0A%7D%0A%60%60%60%0A%0A**How%20to%20add%20a%20translation%3A**%0A%0AIn%20%60lib%2Fi18n%2Flocales%2Fru.yml%60%3A%0A%0A%60%60%60yaml%0Acommands%3A%0A%20%20my_command%3A%0A%20%20%20%20running%3A%20%22%F0%9F%9A%80%20Running%20my%20command...%22%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%A6%20Adding%20a%20command%0A%0A%23%23%23%20Option%201%3A%20Built-in%20command%20(fork)%0A%0AThis%20is%20suitable%20only%20for%20commands%20that%20should%20be%20part%20of%20MIP%E2%80%99s%20core.%0A%0A1.%20Create%20a%20file%20in%20%60lib%2Fcommands%2F%60%0A2.%20Add%20it%20to%20%60bin%2Fmip.js%60%0A3.%20Add%20translations%20in%20%60locales%2F*.yml%60%0A%0A%23%23%23%20Option%202%3A%20Plugin%20command%20(recommended)%0A%0ASuitable%20for%20all%20user-defined%20commands.%0A%0A1.%20Create%20a%20plugin%3A%20%60mip%20plugin%20create%20my-plugin%60%0A2.%20Register%20the%20command%20using%20%60api.registerCommand()%60%20in%20%60init()%60%0A3.%20Compile%20and%20activate%0A%0A%F0%9F%93%96%20Learn%20more%3A%20%5BAdding%20Commands%5D(%2Fdev%2Fadding-commands)%0A%0A---%0A%0A%23%23%20%F0%9F%94%8C%20Hooks%20%26%20plugins%0A%0APlugins%20can%20subscribe%20to%20MIP%20events%3A%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;my-plugin&#039;%2C%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20afterInstall%3A%20async%20(pkgInfo)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Installed%20%24%7BpkgInfo.name%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20onError%3A%20async%20(err)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.error(%60Error%3A%20%24%7Berr.message%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A%F0%9F%93%96%20Learn%20more%3A%20%5BHooks%20%26%20Plugins%5D(%2Fdev%2Fhooks)%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Useful%20development%20commands%0A%0A%60%60%60bash%0A%23%20Build%0Anpm%20run%20build%0A%0A%23%20Run%20in%20development%20mode%0Anode%20bin%2Fmip.js%20%3Ccommand%3E%0A%0A%23%20Debug%20logs%0ADEBUG%3D1%20node%20bin%2Fmip.js%20%3Ccommand%3E%0A%0A%23%20Clean%20cache%0Amip%20cache%20clean%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Useful%20links%0A%0A-%20%5BSource%20code%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip)%0A-%20%5BReport%20an%20issue%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fissues)%0A-%20%5BMIT%20License%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fblob%2Fmain%2FLICENSE)%0A%0A---%0A%0A%23%23%20%E2%9D%93%20Questions%3F%0A%0AIf%20you%20have%20questions%20about%20development%2C%20open%20an%20issue%20or%20join%20the%20discussions.%20%F0%9F%9A%80%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22For%20Developers%22%0Adescription%3A%20%22Everything%20a%20developer%20needs%20to%20know%20about%20MIP%20-%20architecture%2C%20adding%20commands%2C%20testing%2C%20and%20hooks.%22%0A---%0A%0A%23%20For%20Developers%0A%0AThis%20section%20is%20for%20people%20who%20want%20to%20**understand%20how%20MIP%20works**%20and%20start%20contributing%20changes.%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Contents%0A%0A%7C%20Section%20%7C%20About%20%7C%0A%7C---------%7C-------%7C%0A%7C%20%5BMIP%20Architecture%5D(%2Fdev%2Farchitecture)%20%7C%20How%20the%20project%20is%20organized%3A%20modules%2C%20data%20flow%2C%20and%20file%20structure%20%7C%0A%7C%20%5BAdding%20Commands%5D(%2Fdev%2Fadding-commands)%20%7C%20Two%20ways%20to%20create%20a%20command%3A%20via%20fork%20(built-in)%20or%20via%20a%20plugin%20%7C%0A%7C%20%5BHooks%20%26%20Plugins%5D(%2Fdev%2Fhooks)%20%7C%20How%20to%20extend%20MIP%E2%80%99s%20functionality%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Developer%20quick%20start%0A%0A%60%60%60bash%0A%23%20Clone%20the%20repository%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0A%0A%23%20Install%20dependencies%0Anpm%20install%0A%0A%23%20Build%20the%20project%0Anpm%20run%20build%0A%0A%23%20Run%20tests%20(if%20any)%0Anpm%20test%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%A9%20Key%20components%0A%0A%7C%20Component%20%7C%20File%20%7C%20What%20it%20does%20%7C%0A%7C-----------%7C------%7C--------------%7C%0A%7C%20**CLI**%20%7C%20%60bin%2Fmip.js%60%20%7C%20Entry%20point%3A%20parses%20commands%20and%20calls%20handlers%20%7C%0A%7C%20**Commands**%20%7C%20%60lib%2Fcommands%2F*.js%60%20%7C%20Logic%20of%20each%20command%20(install%2C%20audit%2C%20ci%2C%20etc.)%20%7C%0A%7C%20**Core**%20%7C%20%60lib%2Fcore%2F*.js%60%20%7C%20Main%20logic%3A%20resolving%2C%20downloading%2C%20caching%20%7C%0A%7C%20**Utilities**%20%7C%20%60lib%2Futils%2F*.js%60%20%7C%20Helper%20functions%3A%20registry%2C%20configs%2C%20extraction%20%7C%0A%7C%20**i18n**%20%7C%20%60lib%2Fi18n%2F*.js%60%20%7C%20Internationalization%3A%20translations%20and%20language%20loading%20%7C%0A%7C%20**API**%20%7C%20%60lib%2Fapi%2F*.js%60%20%7C%20Plugin%20API%3A%20hooks%20and%20command%20registration%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0A%60%60%60%0Amip%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20bin%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20mip.js%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Entry%20point%0A%E2%94%9C%E2%94%80%E2%94%80%20lib%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20api%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Plugin%20API%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20commands%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20All%20built-in%20commands%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20core%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Core%20(resolving%2C%20loading%2C%20caching)%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20i18n%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Translations%20(10%20languages)%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20ui%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Progress%20bars%2C%20colored%20output%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20utils%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Helper%20utilities%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20index.js%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Proxy%20exports%0A%E2%94%9C%E2%94%80%E2%94%80%20tests%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Tests%0A%E2%94%9C%E2%94%80%E2%94%80%20docs%2F%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Documentation%0A%E2%94%94%E2%94%80%E2%94%80%20package.json%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%8C%8D%20Internationalization%0A%0AMIP%20supports%2010%20languages%3A%20%60en%60%2C%20%60ru%60%2C%20%60es%60%2C%20%60fr%60%2C%20%60de%60%2C%20%60it%60%2C%20%60pt%60%2C%20%60zh%60%2C%20%60ja%60%2C%20%60ko%60.%0A%0A**How%20to%20use%20it%20in%20code%3A**%0A%0A%60%60%60javascript%0Aconst%20%7B%20loadLangForCwd%2C%20getI18n%20%7D%20%3D%20require(&#039;..%2Fi18n&#039;)%3B%0A%0Aasync%20function%20myCommand()%20%7B%0A%20%20const%20%7B%20t%20%7D%20%3D%20getI18n(loadLangForCwd(process.cwd()))%3B%0A%20%20console.log(t(&#039;commands.my_command.running&#039;))%3B%0A%7D%0A%60%60%60%0A%0A**How%20to%20add%20a%20translation%3A**%0A%0AIn%20%60lib%2Fi18n%2Flocales%2Fru.yml%60%3A%0A%0A%60%60%60yaml%0Acommands%3A%0A%20%20my_command%3A%0A%20%20%20%20running%3A%20%22%F0%9F%9A%80%20Running%20my%20command...%22%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%A6%20Adding%20a%20command%0A%0A%23%23%23%20Option%201%3A%20Built-in%20command%20(fork)%0A%0AThis%20is%20suitable%20only%20for%20commands%20that%20should%20be%20part%20of%20MIP%E2%80%99s%20core.%0A%0A1.%20Create%20a%20file%20in%20%60lib%2Fcommands%2F%60%0A2.%20Add%20it%20to%20%60bin%2Fmip.js%60%0A3.%20Add%20translations%20in%20%60locales%2F*.yml%60%0A%0A%23%23%23%20Option%202%3A%20Plugin%20command%20(recommended)%0A%0ASuitable%20for%20all%20user-defined%20commands.%0A%0A1.%20Create%20a%20plugin%3A%20%60mip%20plugin%20create%20my-plugin%60%0A2.%20Register%20the%20command%20using%20%60api.registerCommand()%60%20in%20%60init()%60%0A3.%20Compile%20and%20activate%0A%0A%F0%9F%93%96%20Learn%20more%3A%20%5BAdding%20Commands%5D(%2Fdev%2Fadding-commands)%0A%0A---%0A%0A%23%23%20%F0%9F%94%8C%20Hooks%20%26%20plugins%0A%0APlugins%20can%20subscribe%20to%20MIP%20events%3A%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;my-plugin&#039;%2C%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20afterInstall%3A%20async%20(pkgInfo)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60Installed%20%24%7BpkgInfo.name%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20onError%3A%20async%20(err)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.error(%60Error%3A%20%24%7Berr.message%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A%F0%9F%93%96%20Learn%20more%3A%20%5BHooks%20%26%20Plugins%5D(%2Fdev%2Fhooks)%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Useful%20development%20commands%0A%0A%60%60%60bash%0A%23%20Build%0Anpm%20run%20build%0A%0A%23%20Run%20in%20development%20mode%0Anode%20bin%2Fmip.js%20%3Ccommand%3E%0A%0A%23%20Debug%20logs%0ADEBUG%3D1%20node%20bin%2Fmip.js%20%3Ccommand%3E%0A%0A%23%20Clean%20cache%0Amip%20cache%20clean%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%9A%20Useful%20links%0A%0A-%20%5BSource%20code%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip)%0A-%20%5BReport%20an%20issue%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fissues)%0A-%20%5BMIT%20License%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fblob%2Fmain%2FLICENSE)%0A%0A---%0A%0A%23%23%20%E2%9D%93%20Questions%3F%0A%0AIf%20you%20have%20questions%20about%20development%2C%20open%20an%20issue%20or%20join%20the%20discussions.%20%F0%9F%9A%80%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2165,15 +2181,15 @@ mip cache clean
         </div>
       </div>
       
-      <script src="../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

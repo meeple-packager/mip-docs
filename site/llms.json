@@ -171,9 +171,15 @@
       "priority": "medium"
     },
     {
-      "title": "mip server - web dashboard for MIP",
+      "title": "mip page - web dashboard for MIP",
       "url": "https://mip.fwh.is/commands/server/",
       "description": "The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip shell - interactive package manager shell",
+      "url": "https://mip.fwh.is/commands/shell/",
+      "description": "The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation.",
       "priority": "medium"
     },
     {
@@ -474,6 +480,12 @@
       "title": "mip server - веб-дашборд для MIP",
       "url": "https://mip.fwh.is/ru/commands/server/",
       "description": "Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.",
+      "priority": "medium"
+    },
+    {
+      "title": "mip shell - интерактивная оболочка менеджера пакетов",
+      "url": "https://mip.fwh.is/ru/commands/shell/",
+      "description": "Команда shell запускает интерактивную REPL-оболочку MIP, позволяя выполнять команды менеджера пакетов без префикса 'mip', с автодополнением, историей команд и встроенной навигацией.",
       "priority": "medium"
     },
     {

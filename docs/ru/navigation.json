@@ -41,8 +41,9 @@
       { "title": "pe", "path": "/commands/pe.md" },
       { "title": "plugin", "path": "/commands/plugin.md" },
       { "title": "registry", "path": "/commands/registry.md" },
-      { "title": "config", "path": "/commands/config.md" },
+{ "title": "config", "path": "/commands/config.md" },
       { "title": "server", "path": "/commands/server.md" },
+      { "title": "shell", "path": "/commands/shell.md" },
       { "title": "alias", "path": "/commands/alias.md" },
       { "title": "hello", "path": "/commands/hello.md" }
     ]

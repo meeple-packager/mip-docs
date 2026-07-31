@@ -102,7 +102,7 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip pe - execute plugin commands : MIP - Modern Package Manager
+      mip shell - interactive package manager shell : MIP - Modern Package Manager
     </title>
     
     <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
@@ -111,23 +111,23 @@
     <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
-<meta name="description" content="The pe (plugin-execute) command executes commands registered in MIP plugins.">
-<link rel="canonical" href="https://mip.fwh.is/commands/pe/">
-<meta property="og:title" content="mip pe - execute plugin commands - MIP - Modern Package Manager">
-<meta property="og:description" content="The pe (plugin-execute) command executes commands registered in MIP plugins.">
-<meta property="og:url" content="https://mip.fwh.is/commands/pe/">
+<meta name="description" content="The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation.">
+<link rel="canonical" href="https://mip.fwh.is/commands/shell/">
+<meta property="og:title" content="mip shell - interactive package manager shell - MIP - Modern Package Manager">
+<meta property="og:description" content="The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation.">
+<meta property="og:url" content="https://mip.fwh.is/commands/shell/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip pe - execute plugin commands - MIP - Modern Package Manager">
-<meta name="twitter:description" content="The pe (plugin-execute) command executes commands registered in MIP plugins.">
+<meta name="twitter:title" content="mip shell - interactive package manager shell - MIP - Modern Package Manager">
+<meta name="twitter:description" content="The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation.">
 
 
 
 <link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
 <link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
-<link rel="alternate" hreflang="ru" href="/ru/commands/pe/">
-<link rel="alternate" hreflang="en" href="/commands/pe/">
-<link rel="alternate" hreflang="x-default" href="/commands/pe/">
+<link rel="alternate" hreflang="ru" href="/ru/commands/shell/">
+<link rel="alternate" hreflang="en" href="/commands/shell/">
+<link rel="alternate" hreflang="x-default" href="/commands/shell/">
     
     <script>/**
  * --------------------------------------------------------------------
@@ -199,7 +199,7 @@
   <body
     class="sidebar-collapsible"
     data-default-collapsed="false"
-    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/en/commands/pe.md">
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/en/commands/shell.md">
 
     <a href="#main-content" class="skip-link">skipToContent</a>
 
@@ -297,7 +297,7 @@
   <ul class="language-switcher-menu">
     
     <li>
-      <a href="/ru/commands/pe" 
+      <a href="/ru/commands/shell" 
         class="language-switcher-item " 
         data-spa-ignore
         data-locale-id="ru"
@@ -311,7 +311,7 @@
     </li>
     
     <li>
-      <a href="/commands/pe" 
+      <a href="/commands/shell" 
         class="language-switcher-item active" 
         data-spa-ignore
         data-locale-id="en"
@@ -968,9 +968,9 @@
         
       </li>
     
-      <li class="active" >
+      <li class="" >
       
-        <a href="../../commands/pe/" class="active "
+        <a href="../../commands/pe/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1080,9 +1080,9 @@
         
       </li>
     
-      <li class="" >
+      <li class="active" >
       
-        <a href="../../commands/shell/" class=" "
+        <a href="../../commands/shell/" class="active "
           >
           
           <span class="nav-item-title">
@@ -1741,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip pe - execute plugin commands
+                  mip shell - interactive package manager shell
                 </span>
               </div>
             </div>
@@ -1755,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20pe%20-%20execute%20plugin%20commands%22%0Adescription%3A%20%22The%20pe%20(plugin-execute)%20command%20executes%20commands%20registered%20in%20MIP%20plugins.%22%0A---%0A%0A%23%20mip%20pe%0A%0AThe%20%60pe%60%20(plugin-execute)%20command%20is%20used%20to%20execute%20commands%20provided%20by%20MIP%20plugins.%0A%0A---%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20pe%20%3Cplugin%3E%20%3Ccommand%3E%20%5Bargs...%5D%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60plugin%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Plugin%20name%20%7C%0A%7C%20%60command%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Command%20name%20within%20the%20plugin%20%7C%0A%7C%20%60args%60%20%7C%20array%20%7C%20%E2%9D%8C%20%7C%20Arguments%20passed%20to%20the%20command%20%7C%0A%0A---%0A%0A%23%23%20Examples%0A%0A%23%23%23%20Basic%20execution%0A%0A%60%60%60bash%0Amip%20pe%20hello%20hello%0A%60%60%60%0A%0AOutput%3A%0A%60%60%60%0AHello%2C%20world!%20%F0%9F%91%8B%0A%60%60%60%0A%0A%23%23%23%20With%20arguments%0A%0A%60%60%60bash%0Amip%20pe%20hello%20hello%20zshx%0A%60%60%60%0A%0AOutput%3A%0A%60%60%60%0AHello%2C%20zshx!%20%F0%9F%91%8B%0A%60%60%60%0A%0A%23%23%23%20With%20multiple%20arguments%0A%0A%60%60%60bash%0Amip%20pe%20my-plugin%20my-command%20arg1%20arg2%20arg3%0A%60%60%60%0A%0A---%0A%0A%23%23%20How%20it%20works%0A%0A1.%20MIP%20checks%20whether%20the%20specified%20plugin%20is%20activated%0A2.%20Checks%20whether%20the%20command%20exists%20in%20the%20plugin%0A3.%20Executes%20the%20command%20with%20the%20passed%20arguments%0A%0A---%0A%0A%23%23%20Errors%0A%0A%23%23%23%20Plugin%20not%20found%0A%0A%60%60%60bash%0Amip%20pe%20unknown-plugin%20hello%0A%60%60%60%0A%0AOutput%3A%0A%60%60%60%0A%5BERROR%5D%20Plugin%20%22unknown-plugin%22%20not%20found%20or%20not%20activated%0A%5BINFO%5D%20Available%20plugins%3A%20hello%2C%20my-plugin%0A%60%60%60%0A%0A%23%23%23%20Command%20not%20found%0A%0A%60%60%60bash%0Amip%20pe%20hello%20unknown-command%0A%60%60%60%0A%0AOutput%3A%0A%60%60%60%0A%5BERROR%5D%20Command%20%22unknown-command%22%20not%20found%20in%20plugin%20%22hello%22%0A%5BINFO%5D%20Available%20commands%3A%20hello%2C%20help%0A%60%60%60%0A%0A---%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20plugin%5D(%2Fcommands%2Fplugin)%20-%20manage%20plugins%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20shell%20-%20interactive%20package%20manager%20shell%22%0Adescription%3A%20%22The%20shell%20command%20starts%20an%20interactive%20REPL%20shell%20for%20MIP%2C%20allowing%20you%20to%20run%20multiple%20package%20manager%20commands%20without%20typing%20&#039;mip&#039;%20each%20time%2C%20with%20autocomplete%2C%20command%20history%2C%20and%20built-in%20navigation.%22%0A---%0A%0A%23%20mip%20shell%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Aterminal%0A%60mip%20shell%60%20launches%20an%20interactive%20terminal%20shell%20for%20MIP.%20Inside%20the%20shell%2C%20you%20can%20run%20any%20MIP%20command%20without%20the%20%60mip%60%20prefix%2C%20use%20built-in%20shell%20commands%20like%20%60cd%60%20and%20%60pwd%60%2C%20get%20tab%20autocompletion%2C%20navigate%20command%20history%2C%20and%20more.%20It&#039;s%20like%20a%20dedicated%20mini-shell%20for%20package%20management.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20shell%0A%60%60%60%0A%0AAlias%3A%0A%0A%60%60%60bash%0Amip%20sh%0A%60%60%60%0A%0A%23%23%20Options%0A%0AThe%20%60shell%60%20command%20has%20no%20command-line%20options.%20All%20configuration%20is%20done%20through%20the%20interactive%20session.%0A%0A%23%23%20Built-in%20Shell%20Commands%0A%0AOnce%20inside%20the%20MIP%20shell%2C%20the%20following%20built-in%20commands%20are%20available%3A%0A%0A%7C%20Command%20%7C%20Description%20%7C%0A%7C---------%7C-------------%7C%0A%7C%20%60cd%20%3Cdir%3E%60%20%7C%20Change%20current%20working%20directory%20%7C%0A%7C%20%60pwd%60%20%7C%20Print%20current%20working%20directory%20path%20%7C%0A%7C%20%60clear%60%20%7C%20Clear%20the%20screen%20and%20redisplay%20the%20logo%20%7C%0A%7C%20%60exit%60%20%2F%20%60quit%60%20%7C%20Exit%20the%20interactive%20shell%20%7C%0A%7C%20%60help%60%20%7C%20Display%20the%20full%20help%20menu%20with%20all%20available%20commands%20%7C%0A%7C%20%60version%60%20%7C%20Display%20the%20current%20MIP%20version%20%7C%0A%7C%20%60shell%60%20%7C%20Inform%20that%20you%20are%20already%20in%20the%20shell%20%7C%0A%0A%23%23%20MIP%20Commands%0A%0AAll%20standard%20MIP%20commands%20work%20inside%20the%20shell%20without%20the%20%60mip%60%20prefix%3A%0A%0A**Core%3A**%0A-%20%60install%60%20%2F%20%60i%20%3Cpkg%3E%60%20%E2%80%94%20install%20packages%0A-%20%60uninstall%60%20%2F%20%60rm%20%3Cpkg%3E%60%20%E2%80%94%20remove%20packages%0A-%20%60list%60%20%2F%20%60ls%60%20%E2%80%94%20show%20installed%20packages%0A-%20%60update%60%20%2F%20%60up%60%20%E2%80%94%20update%20packages%0A-%20%60search%20%3Cq%3E%60%20%E2%80%94%20search%20the%20registry%0A-%20%60info%20%3Cpkg%3E%60%20%E2%80%94%20package%20details%0A-%20%60init%60%20%E2%80%94%20initialize%20a%20new%20project%0A-%20%60run%20%3Cscript%3E%60%20%E2%80%94%20run%20a%20script%0A-%20%60exec%20%3Ccmd%3E%60%20%E2%80%94%20execute%20a%20binary%0A%0A**Info%20%26%20Security%3A**%0A-%20%60outdated%60%20%E2%80%94%20show%20outdated%20packages%0A-%20%60audit%60%20%E2%80%94%20security%20audit%0A-%20%60doctor%60%20%E2%80%94%20system%20diagnostics%0A-%20%60why%20%3Cpkg%3E%60%20%E2%80%94%20why%20is%20this%20package%20installed%3F%0A-%20%60feel%60%20%E2%80%94%20project%20vibe%20check%0A-%20%60hello%60%20%E2%80%94%20system%20information%0A%0A**Management%3A**%0A-%20%60cache%60%20%E2%80%94%20cache%20commands%0A-%20%60config%60%20%E2%80%94%20manage%20configuration%0A-%20%60alias%60%20%E2%80%94%20manage%20aliases%0A-%20%60registry%60%20%E2%80%94%20manage%20registries%0A-%20%60dedupe%60%20%E2%80%94%20deduplicate%20dependencies%0A-%20%60ci%60%20%E2%80%94%20CI%20installation%0A-%20%60genlock%60%20%E2%80%94%20generate%20lockfile%0A-%20%60workspaces%60%20%E2%80%94%20workspace%20commands%0A-%20%60bundle%60%20%E2%80%94%20bundle%20packages%0A-%20%60clone%60%20%E2%80%94%20clone%20a%20project%0A-%20%60publish%60%20%E2%80%94%20publish%20a%20package%0A-%20%60plugin%60%20%E2%80%94%20manage%20plugins%0A-%20%60exports%60%20%E2%80%94%20export%20packages%0A-%20%60language%60%20%E2%80%94%20change%20interface%20language%0A-%20%60global%60%20%E2%80%94%20manage%20global%20packages%0A%0A%23%23%20Features%0A%0A%23%23%23%20Tab%20Autocompletion%0APress%20%60Tab%60%20to%20autocomplete%3A%0A-%20**Command%20names**%20%E2%80%94%20type%20%60in%60%20%2B%20%60Tab%60%20%E2%86%92%20%60install%60%0A-%20**Package%20names**%20%E2%80%94%20when%20a%20command%20expects%20a%20package%20(e.g.%2C%20%60install%60%2C%20%60uninstall%60%2C%20%60info%60)%2C%20it%20autocompletes%20from%20the%20installed%20packages%20manifest%0A%0A%23%23%23%20Command%20History%0A-%20**Up%20arrow%20(%E2%86%91)**%20%E2%80%94%20navigate%20to%20previous%20commands%0A-%20**Down%20arrow%20(%E2%86%93)**%20%E2%80%94%20navigate%20to%20next%20commands%0A-%20History%20is%20persisted%20to%20%60~%2F.mip%2Fshell-history.json%60%20(up%20to%20500%20entries)%0A%0A%23%23%23%20Keyboard%20Shortcuts%0A%7C%20Shortcut%20%7C%20Action%20%7C%0A%7C----------%7C--------%7C%0A%7C%20%60%E2%86%91%60%20%7C%20Previous%20command%20%7C%0A%7C%20%60%E2%86%93%60%20%7C%20Next%20command%20%7C%0A%7C%20%60Tab%60%20%7C%20Autocomplete%20%7C%0A%7C%20%60Ctrl%2BC%60%20%7C%20Exit%20shell%20%7C%0A%7C%20%60Ctrl%2BL%60%20%7C%20Clear%20screen%20(keeps%20prompt)%20%7C%0A%0A%23%23%23%20Smart%20%60mip%60%20Prefix%20Handling%0AIf%20you%20type%20a%20command%20prefixed%20with%20%60mip%60%20(e.g.%2C%20%60mip%20install%20express%60)%2C%20the%20shell%20detects%20this%20common%20mistake%2C%20shows%20a%20friendly%20warning%2C%20and%20automatically%20executes%20the%20command%20without%20the%20prefix.%0A%0A%23%23%23%20Welcome%20Screen%0AWhen%20the%20shell%20starts%2C%20it%20displays%3A%0A-%20MIP%20ASCII%20logo%0A-%20Version%20number%0A-%20Current%20project%20name%0A-%20Number%20of%20installed%20packages%0A-%20Current%20language%0A%0A%23%23%23%20Prompt%0AThe%20prompt%20shows%3A%0A%60%60%60%0Amip%20project-name%20%E2%9D%AF%0A%60%60%60%0A%0A%23%23%20History%20File%0A%0ACommand%20history%20is%20saved%20to%20%60~%2F.mip%2Fshell-history.json%60.%20It%20stores%20up%20to%20500%20most%20recent%20commands%20and%20persists%20across%20shell%20sessions.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Start%20the%20shell%22%0A%60%60%60bash%0Amip%20shell%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%20%20%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%20%20%E2%95%91%20%20%E2%96%88%E2%96%88%E2%96%88%E2%95%97%20%20%20%E2%96%88%E2%96%88%E2%96%88%E2%95%97%E2%96%88%E2%96%88%E2%95%97%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%95%97%20%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%91%20%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%95%97%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%94%E2%95%90%E2%95%90%E2%96%88%E2%96%88%E2%95%97%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%91%20%20%E2%96%88%E2%96%88%E2%95%94%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%95%94%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%95%94%E2%95%9D%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%91%20%20%E2%96%88%E2%96%88%E2%95%91%E2%95%9A%E2%96%88%E2%96%88%E2%95%94%E2%95%9D%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%9D%20%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%91%20%20%E2%96%88%E2%96%88%E2%95%91%20%E2%95%9A%E2%95%90%E2%95%9D%20%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%91%E2%96%88%E2%96%88%E2%95%91%20%20%20%20%20%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%91%20%20%E2%95%9A%E2%95%90%E2%95%9D%20%20%20%20%20%E2%95%9A%E2%95%90%E2%95%9D%E2%95%9A%E2%95%90%E2%95%9D%E2%95%9A%E2%95%90%E2%95%9D%20%20%20%20%20%20%20%20%20%20%20%E2%95%91%0A%20%20%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D%0A%0A%20%20MIP%20Interactive%20Shell%20v1.0.0%0A%20%20Type%20help%20for%20commands%2C%20exit%20to%20quit%0A%0A%20%20%F0%9F%93%81%20my-project%0A%20%20%F0%9F%93%A6%2017%20packages%0A%20%20%F0%9F%8C%90%20en%0A%0A%20%20mip%20my-project%20%E2%9D%AF%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Working%20in%20the%20shell%22%0A%60%60%60bash%0A%23%20Inside%20the%20shell%2C%20without%20&#039;mip&#039;%20prefix%3A%0Amip%20my-project%20%E2%9D%AF%20install%20express%0A%0Amip%20my-project%20%E2%9D%AF%20list%0A%23%20Shows%20installed%20packages%0A%0Amip%20my-project%20%E2%9D%AF%20cd%20..%2Fother-project%0A%0Amip%20other-project%20%E2%9D%AF%20pwd%0A%23%20%2Fhome%2Fuser%2Fother-project%0A%0Amip%20other-project%20%E2%9D%AF%20help%0A%23%20Shows%20full%20help%20menu%0A%0Amip%20other-project%20%E2%9D%AF%20exit%0A%23%20%E2%9A%93%20Fair%20winds!%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Tab%20completion%22%0A%60%60%60bash%0Amip%20my-project%20%E2%9D%AF%20in%5BTab%5D%20%E2%86%92%20install%0Amip%20my-project%20%E2%9D%AF%20install%20lo%5BTab%5D%20%E2%86%92%20lodash%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Command%20history%22%0A%60%60%60bash%0A%23%20Press%20%E2%86%91%20to%20recall%20previous%20commands%0Amip%20my-project%20%E2%9D%AF%20%E2%86%91%0Amip%20my-project%20%E2%9D%AF%20install%20express%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22mip%20prefix%20handling%22%0A%60%60%60bash%0Amip%20my-project%20%E2%9D%AF%20mip%20install%20express%0A%23%20%E2%9A%A0%EF%B8%8F%20You%20are%20in%20shell%2C%20there%20is%20no%20need%20to%20write%20mip%20%3Ccommand%3E%0A%23%20%20%20%20Try%3A%20install%20express%0A%23%20(automatically%20executes%20install%20express)%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Clear%20screen%22%0A%60%60%60bash%0Amip%20my-project%20%E2%9D%AF%20clear%0A%23%20Clears%20the%20screen%20and%20shows%20the%20logo%20again%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Exit%20the%20shell%22%0A%60%60%60bash%0Amip%20my-project%20%E2%9D%AF%20exit%0A%23%20%E2%9A%93%20Fair%20winds!%0A%60%60%60%0A%0AOr%20press%20%60Ctrl%2BC%60%3A%0A%60%60%60bash%0Amip%20my-project%20%E2%9D%AF%20%5EC%0A%23%20Bye!%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Common%20Mistakes%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20You%20are%20in%20shell%2C%20not%20in%20CLI%22%20icon%3Aalert-triangle%0A**Problem%3A**%20Typing%20%60mip%20%3Ccommand%3E%60%20inside%20the%20shell%20(e.g.%2C%20%60mip%20install%20lodash%60).%0A%0A**What%20happens%3A**%20The%20shell%20detects%20this%20common%20mistake%2C%20displays%20a%20warning%2C%20and%20automatically%20strips%20the%20%60mip%60%20prefix%20and%20executes%20the%20command.%0A%0A**Tip%3A**%20Inside%20the%20shell%2C%20just%20type%20the%20command%20directly%3A%20%60install%20lodash%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Already%20in%20shell%22%20icon%3Aalert-circle%0A**Problem%3A**%20Typing%20%60mip%20shell%60%20when%20already%20inside%20the%20shell.%0A%0A**What%20happens%3A**%20The%20shell%20responds%20with%20%22%E2%9A%A0%EF%B8%8F%20Already%20in%20shell!%22%20and%20remains%20in%20shell%20mode.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Unknown%20command%22%20icon%3Aalert-circle%0A**Problem%3A**%20Typing%20a%20command%20that%20doesn&#039;t%20exist.%0A%0A**What%20happens%3A**%20The%20shell%20shows%20%22%E2%9D%8C%20Unknown%20command%3A%20%3Ccmd%3E%22%20and%20suggests%20using%20%60help%60%20to%20see%20available%20commands.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20cd%20to%20invalid%20directory%22%20icon%3Aalert-triangle%0A**Problem%3A**%20Trying%20to%20%60cd%60%20to%20a%20directory%20that%20doesn&#039;t%20exist%20or%20is%20inaccessible.%0A%0A**What%20happens%3A**%20The%20shell%20shows%20%22%E2%9D%8C%20cd%3A%20%3Cerror%20message%3E%22%20and%20stays%20in%20the%20current%20directory.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A-%20The%20shell%20is%20great%20for%20batch%20operations%20%E2%80%94%20you%20can%20run%20multiple%20commands%20in%20sequence%20without%20typing%20%60mip%60%20each%20time.%0A-%20Use%20%60cd%60%20to%20navigate%20between%20different%20MIP%20projects%20while%20staying%20in%20the%20same%20shell%20session.%0A-%20The%20command%20history%20persists%20across%20sessions%2C%20so%20your%20most-used%20commands%20are%20always%20available.%0A-%20If%20you%20have%20many%20packages%20installed%2C%20tab%20completion%20for%20package%20names%20saves%20a%20lot%20of%20typing.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20hello%5D(%2Fcommands%2Fhello)%20%E2%80%94%20system%20information%20TUI%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20list%20installed%20packages%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20install%20packages%0A-%20%5Bmip%20exec%5D(%2Fcommands%2Fexec)%20%E2%80%94%20execute%20binaries%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1787,7 +1787,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>pe</span>
+                              <span>shell</span>
                             
                             
                           </li>
@@ -1844,93 +1844,374 @@
                   
                 </div>
                 
-                <h1 id="mip-pe" class="docmd-heading"><a href="#mip-pe" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip pe</h1>
-<p>The <code>pe</code> (plugin-execute) command is used to execute commands provided by MIP plugins.</p>
-<hr>
-<h2 id="mip-pe-syntax" class="docmd-heading"><a href="#mip-pe-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
-<pre class="hljs"><code class="language-bash">mip pe <span class="hljs-punctuation">&lt;</span>plugin<span class="hljs-punctuation">&gt;</span> <span class="hljs-punctuation">&lt;</span>command<span class="hljs-punctuation">&gt;</span> [args...]
+                <h1 id="mip-shell" class="docmd-heading"><a href="#mip-shell" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip shell</h1>
+<div class="docmd-container callout callout-info"><div class="callout-title">
+<svg class="lucide-icon icon-terminal callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-terminal"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M12 19h8" />
+  <path d="m4 17 6-6-6-6" />
+</svg>
+What is this?</div><div class="callout-content">
+<p><code>mip shell</code> launches an interactive terminal shell for MIP. Inside the shell, you can run any MIP command without the <code>mip</code> prefix, use built-in shell commands like <code>cd</code> and <code>pwd</code>, get tab autocompletion, navigate command history, and more. It’s like a dedicated mini-shell for package management.</p>
+</div></div>
+<h2 id="mip-shell-syntax" class="docmd-heading"><a href="#mip-shell-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
+<pre class="hljs"><code class="language-bash">mip shell
 </code></pre>
-<h2 id="mip-pe-arguments" class="docmd-heading"><a href="#mip-pe-arguments" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Arguments</h2>
+<p>Alias:</p>
+<pre class="hljs"><code class="language-bash">mip <span class="hljs-keyword">sh</span>
+</code></pre>
+<h2 id="mip-shell-options" class="docmd-heading"><a href="#mip-shell-options" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Options</h2>
+<p>The <code>shell</code> command has no command-line options. All configuration is done through the interactive session.</p>
+<h2 id="mip-shell-built-in-shell-commands" class="docmd-heading"><a href="#mip-shell-built-in-shell-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Built-in Shell Commands</h2>
+<p>Once inside the MIP shell, the following built-in commands are available:</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
+<th>Command</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>plugin</code></td>
-<td>string</td>
-<td>✅</td>
-<td>Plugin name</td>
+<td><code>cd &lt;dir&gt;</code></td>
+<td>Change current working directory</td>
 </tr>
 <tr>
-<td><code>command</code></td>
-<td>string</td>
-<td>✅</td>
-<td>Command name within the plugin</td>
+<td><code>pwd</code></td>
+<td>Print current working directory path</td>
 </tr>
 <tr>
-<td><code>args</code></td>
-<td>array</td>
-<td>❌</td>
-<td>Arguments passed to the command</td>
+<td><code>clear</code></td>
+<td>Clear the screen and redisplay the logo</td>
+</tr>
+<tr>
+<td><code>exit</code> / <code>quit</code></td>
+<td>Exit the interactive shell</td>
+</tr>
+<tr>
+<td><code>help</code></td>
+<td>Display the full help menu with all available commands</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Display the current MIP version</td>
+</tr>
+<tr>
+<td><code>shell</code></td>
+<td>Inform that you are already in the shell</td>
 </tr>
 </tbody>
 </table>
-</div><hr>
-<h2 id="mip-pe-examples" class="docmd-heading"><a href="#mip-pe-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
-<h3 id="mip-pe-examples-basic-execution" class="docmd-heading"><a href="#mip-pe-examples-basic-execution" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Basic execution</h3>
-<pre class="hljs"><code class="language-bash">mip pe hello hello
-</code></pre>
-<p>Output:</p>
-<pre class="hljs"><code>Hello, world<span class="hljs-punctuation">!</span> 👋
-</code></pre>
-<h3 id="mip-pe-examples-with-arguments" class="docmd-heading"><a href="#mip-pe-examples-with-arguments" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>With arguments</h3>
-<pre class="hljs"><code class="language-bash">mip pe hello hello zshx
-</code></pre>
-<p>Output:</p>
-<pre class="hljs"><code>Hello, zshx<span class="hljs-punctuation">!</span> 👋
-</code></pre>
-<h3 id="mip-pe-examples-with-multiple-arguments" class="docmd-heading"><a href="#mip-pe-examples-with-multiple-arguments" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>With multiple arguments</h3>
-<pre class="hljs"><code class="language-bash">mip pe my<span class="hljs-punctuation">-</span>plugin my<span class="hljs-punctuation">-</span>command arg1 arg2 arg3
-</code></pre>
-<hr>
-<h2 id="mip-pe-how-it-works" class="docmd-heading"><a href="#mip-pe-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
-<ol>
-<li>MIP checks whether the specified plugin is activated</li>
-<li>Checks whether the command exists in the plugin</li>
-<li>Executes the command with the passed arguments</li>
-</ol>
-<hr>
-<h2 id="mip-pe-errors" class="docmd-heading"><a href="#mip-pe-errors" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Errors</h2>
-<h3 id="mip-pe-errors-plugin-not-found" class="docmd-heading"><a href="#mip-pe-errors-plugin-not-found" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Plugin not found</h3>
-<pre class="hljs"><code class="language-bash">mip pe unknown<span class="hljs-punctuation">-</span>plugin hello
-</code></pre>
-<p>Output:</p>
-<pre class="hljs"><code>[ERROR] Plugin <span class="hljs-string">&quot;unknown-plugin&quot;</span> not found or not activated
-[INFO] Available plugins<span class="hljs-punctuation">:</span> hello, my<span class="hljs-punctuation">-</span>plugin
-</code></pre>
-<h3 id="mip-pe-errors-command-not-found" class="docmd-heading"><a href="#mip-pe-errors-command-not-found" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Command not found</h3>
-<pre class="hljs"><code class="language-bash">mip pe hello unknown<span class="hljs-punctuation">-</span>command
-</code></pre>
-<p>Output:</p>
-<pre class="hljs"><code>[ERROR] Command <span class="hljs-string">&quot;unknown-command&quot;</span> not found <span class="hljs-keyword">in</span> plugin <span class="hljs-string">&quot;hello&quot;</span>
-[INFO] Available commands<span class="hljs-punctuation">:</span> hello, help
-</code></pre>
-<hr>
-<h2 id="mip-pe-related-commands" class="docmd-heading"><a href="#mip-pe-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
+</div><h2 id="mip-shell-mip-commands" class="docmd-heading"><a href="#mip-shell-mip-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>MIP Commands</h2>
+<p>All standard MIP commands work inside the shell without the <code>mip</code> prefix:</p>
+<p><strong>Core:</strong></p>
 <ul>
-<li><a href="/commands/plugin/">mip plugin</a> - manage plugins</li>
+<li><code>install</code> / <code>i &lt;pkg&gt;</code> — install packages</li>
+<li><code>uninstall</code> / <code>rm &lt;pkg&gt;</code> — remove packages</li>
+<li><code>list</code> / <code>ls</code> — show installed packages</li>
+<li><code>update</code> / <code>up</code> — update packages</li>
+<li><code>search &lt;q&gt;</code> — search the registry</li>
+<li><code>info &lt;pkg&gt;</code> — package details</li>
+<li><code>init</code> — initialize a new project</li>
+<li><code>run &lt;script&gt;</code> — run a script</li>
+<li><code>exec &lt;cmd&gt;</code> — execute a binary</li>
+</ul>
+<p><strong>Info &amp; Security:</strong></p>
+<ul>
+<li><code>outdated</code> — show outdated packages</li>
+<li><code>audit</code> — security audit</li>
+<li><code>doctor</code> — system diagnostics</li>
+<li><code>why &lt;pkg&gt;</code> — why is this package installed?</li>
+<li><code>feel</code> — project vibe check</li>
+<li><code>hello</code> — system information</li>
+</ul>
+<p><strong>Management:</strong></p>
+<ul>
+<li><code>cache</code> — cache commands</li>
+<li><code>config</code> — manage configuration</li>
+<li><code>alias</code> — manage aliases</li>
+<li><code>registry</code> — manage registries</li>
+<li><code>dedupe</code> — deduplicate dependencies</li>
+<li><code>ci</code> — CI installation</li>
+<li><code>genlock</code> — generate lockfile</li>
+<li><code>workspaces</code> — workspace commands</li>
+<li><code>bundle</code> — bundle packages</li>
+<li><code>clone</code> — clone a project</li>
+<li><code>publish</code> — publish a package</li>
+<li><code>plugin</code> — manage plugins</li>
+<li><code>exports</code> — export packages</li>
+<li><code>language</code> — change interface language</li>
+<li><code>global</code> — manage global packages</li>
+</ul>
+<h2 id="mip-shell-features" class="docmd-heading"><a href="#mip-shell-features" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Features</h2>
+<h3 id="mip-shell-features-tab-autocompletion" class="docmd-heading"><a href="#mip-shell-features-tab-autocompletion" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Tab Autocompletion</h3>
+<p>Press <code>Tab</code> to autocomplete:</p>
+<ul>
+<li><strong>Command names</strong> — type <code>in</code> + <code>Tab</code> → <code>install</code></li>
+<li><strong>Package names</strong> — when a command expects a package (e.g., <code>install</code>, <code>uninstall</code>, <code>info</code>), it autocompletes from the installed packages manifest</li>
+</ul>
+<h3 id="mip-shell-features-command-history" class="docmd-heading"><a href="#mip-shell-features-command-history" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Command History</h3>
+<ul>
+<li><strong>Up arrow (↑)</strong> — navigate to previous commands</li>
+<li><strong>Down arrow (↓)</strong> — navigate to next commands</li>
+<li>History is persisted to <code>~/.mip/shell-history.json</code> (up to 500 entries)</li>
+</ul>
+<h3 id="mip-shell-features-keyboard-shortcuts" class="docmd-heading"><a href="#mip-shell-features-keyboard-shortcuts" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Keyboard Shortcuts</h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>↑</code></td>
+<td>Previous command</td>
+</tr>
+<tr>
+<td><code>↓</code></td>
+<td>Next command</td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td>Autocomplete</td>
+</tr>
+<tr>
+<td><code>Ctrl+C</code></td>
+<td>Exit shell</td>
+</tr>
+<tr>
+<td><code>Ctrl+L</code></td>
+<td>Clear screen (keeps prompt)</td>
+</tr>
+</tbody>
+</table>
+</div><h3 id="mip-shell-features-smart-mip-prefix-handling" class="docmd-heading"><a href="#mip-shell-features-smart-mip-prefix-handling" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Smart <code>mip</code> Prefix Handling</h3>
+<p>If you type a command prefixed with <code>mip</code> (e.g., <code>mip install express</code>), the shell detects this common mistake, shows a friendly warning, and automatically executes the command without the prefix.</p>
+<h3 id="mip-shell-features-welcome-screen" class="docmd-heading"><a href="#mip-shell-features-welcome-screen" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Welcome Screen</h3>
+<p>When the shell starts, it displays:</p>
+<ul>
+<li>MIP ASCII logo</li>
+<li>Version number</li>
+<li>Current project name</li>
+<li>Number of installed packages</li>
+<li>Current language</li>
+</ul>
+<h3 id="mip-shell-features-prompt" class="docmd-heading"><a href="#mip-shell-features-prompt" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Prompt</h3>
+<p>The prompt shows:</p>
+<pre class="hljs"><code>mip project<span class="hljs-punctuation">-</span>name ❯
+</code></pre>
+<h2 id="mip-shell-history-file" class="docmd-heading"><a href="#mip-shell-history-file" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>History File</h2>
+<p>Command history is saved to <code>~/.mip/shell-history.json</code>. It stores up to 500 most recent commands and persists across shell sessions.</p>
+<h2 id="mip-shell-examples" class="docmd-heading"><a href="#mip-shell-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
+<div class="docmd-tabs">
+<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Start the shell</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip shell
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>  ╔══════════════════════════════╗
+  ║  ███╗   ███╗██╗██████╗       ║
+  ║  ████╗ ████║██║██╔══██╗      ║
+  ║  ██╔████╔██║██║██████╔╝      ║
+  ║  ██║╚██╔╝██║██║██╔═══╝       ║
+  ║  ██║ ╚═╝ ██║██║██║           ║
+  ║  ╚═╝     ╚═╝╚═╝╚═╝           ║
+  ╚══════════════════════════════╝
+
+  MIP Interactive Shell v1.<span class="hljs-number">0.0</span>
+  Type help <span class="hljs-keyword">for</span> commands, exit to quit
+
+  📁 my<span class="hljs-punctuation">-</span>project
+  📦 <span class="hljs-number">17</span> packages
+  🌐 en
+
+  mip my<span class="hljs-punctuation">-</span>project ❯
+</code></pre>
+</div></div></div><p>== tab “Working in the shell”</p>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Inside the shell, without &#039;mip&#039; prefix:</span>
+mip my<span class="hljs-punctuation">-</span>project ❯ install express
+
+mip my<span class="hljs-punctuation">-</span>project ❯ list
+<span class="hljs-comment"># Shows installed packages</span>
+
+mip my<span class="hljs-punctuation">-</span>project ❯ <span class="hljs-keyword">cd</span> ..<span class="hljs-punctuation">/</span>other<span class="hljs-punctuation">-</span>project
+
+mip other<span class="hljs-punctuation">-</span>project ❯ pwd
+<span class="hljs-comment"># /home/user/other-project</span>
+
+mip other<span class="hljs-punctuation">-</span>project ❯ help
+<span class="hljs-comment"># Shows full help menu</span>
+
+mip other<span class="hljs-punctuation">-</span>project ❯ exit
+<span class="hljs-comment"># ⚓ Fair winds!</span>
+</code></pre>
+<p>:::</p>
+<p>== tab “Tab completion”</p>
+<pre class="hljs"><code class="language-bash">mip my<span class="hljs-punctuation">-</span>project ❯ <span class="hljs-keyword">in</span>[Tab] → install
+mip my<span class="hljs-punctuation">-</span>project ❯ install lo[Tab] → lodash
+</code></pre>
+<p>:::</p>
+<p>== tab “Command history”</p>
+<pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Press ↑ to recall previous commands</span>
+mip my<span class="hljs-punctuation">-</span>project ❯ ↑
+mip my<span class="hljs-punctuation">-</span>project ❯ install express
+</code></pre>
+<p>:::</p>
+<p>== tab “mip prefix handling”</p>
+<pre class="hljs"><code class="language-bash">mip my<span class="hljs-punctuation">-</span>project ❯ mip install express
+<span class="hljs-comment"># ⚠️ You are in shell, there is no need to write mip &lt;command&gt;</span>
+<span class="hljs-comment">#    Try: install express</span>
+<span class="hljs-comment"># (automatically executes install express)</span>
+</code></pre>
+<p>:::</p>
+<p>== tab “Clear screen”</p>
+<pre class="hljs"><code class="language-bash">mip my<span class="hljs-punctuation">-</span>project ❯ clear
+<span class="hljs-comment"># Clears the screen and shows the logo again</span>
+</code></pre>
+<p>:::</p>
+<p>== tab “Exit the shell”</p>
+<pre class="hljs"><code class="language-bash">mip my<span class="hljs-punctuation">-</span>project ❯ exit
+<span class="hljs-comment"># ⚓ Fair winds!</span>
+</code></pre>
+<p>Or press <code>Ctrl+C</code>:</p>
+<pre class="hljs"><code class="language-bash">mip my<span class="hljs-punctuation">-</span>project ❯ <span class="hljs-punctuation">^</span>C
+<span class="hljs-comment"># Bye!</span>
+</code></pre>
+<p>:::<br>
+:::</p>
+<h2 id="mip-shell-common-mistakes" class="docmd-heading"><a href="#mip-shell-common-mistakes" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common Mistakes</h2>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-triangle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+❌ You are in shell, not in CLI</div><div class="callout-content">
+<p><strong>Problem:</strong> Typing <code>mip &lt;command&gt;</code> inside the shell (e.g., <code>mip install lodash</code>).</p>
+<p><strong>What happens:</strong> The shell detects this common mistake, displays a warning, and automatically strips the <code>mip</code> prefix and executes the command.</p>
+<p><strong>Tip:</strong> Inside the shell, just type the command directly: <code>install lodash</code>.</p>
+</div></div>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+❌ Already in shell</div><div class="callout-content">
+<p><strong>Problem:</strong> Typing <code>mip shell</code> when already inside the shell.</p>
+<p><strong>What happens:</strong> The shell responds with “⚠️ Already in shell!” and remains in shell mode.</p>
+</div></div>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+❌ Unknown command</div><div class="callout-content">
+<p><strong>Problem:</strong> Typing a command that doesn’t exist.</p>
+<p><strong>What happens:</strong> The shell shows “❌ Unknown command: <cmd>” and suggests using <code>help</code> to see available commands.</p>
+</div></div>
+<div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-triangle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" />
+  <path d="M12 9v4" />
+  <path d="M12 17h.01" />
+</svg>
+❌ cd to invalid directory</div><div class="callout-content">
+<p><strong>Problem:</strong> Trying to <code>cd</code> to a directory that doesn’t exist or is inaccessible.</p>
+<p><strong>What happens:</strong> The shell shows “❌ cd: <error message>” and stays in the current directory.</p>
+</div></div>
+<div class="docmd-container callout callout-tip"><div class="callout-title">
+<svg class="lucide-icon icon-lightbulb callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-lightbulb"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+  <path d="M9 18h6" />
+  <path d="M10 22h4" />
+</svg>
+💡 Tip</div><div class="callout-content">
+<ul>
+<li>The shell is great for batch operations — you can run multiple commands in sequence without typing <code>mip</code> each time.</li>
+<li>Use <code>cd</code> to navigate between different MIP projects while staying in the same shell session.</li>
+<li>The command history persists across sessions, so your most-used commands are always available.</li>
+<li>If you have many packages installed, tab completion for package names saves a lot of typing.</li>
+</ul>
+</div></div>
+<h2 id="mip-shell-related-commands" class="docmd-heading"><a href="#mip-shell-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
+<ul>
+<li><a href="/commands/hello/">mip hello</a> — system information TUI</li>
+<li><a href="/commands/list/">mip list</a> — list installed packages</li>
+<li><a href="/commands/install/">mip install</a> — install packages</li>
+<li><a href="/commands/exec/">mip exec</a> — execute binaries</li>
 </ul>
 
                 
                   <div class="page-navigation">
                     
-                      <a href="../../commands/workspaces/" class="prev-page">
+                      <a href="../../commands/hello/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -1949,15 +2230,15 @@
 </svg>
 
                         <span><small>previous</small><strong>
-                            workspaces
+                            hello
                           </strong></span>
                       </a>
                     
                     
-                      <a href="../../commands/plugin/" class="next-page">
+                      <a href="../../setup/" class="next-page">
                         <span><small>next</small>
                           <strong>
-                            plugin
+                            Creating a Project
                           </strong></span>
                         
 <svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -2005,51 +2286,67 @@
     <ul class="toc-list">
       
         <li class="toc-item toc-level-1">
-          <a href="#mip-pe" class="toc-link">mip pe</a>
+          <a href="#mip-shell" class="toc-link">mip shell</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-syntax" class="toc-link">Syntax</a>
+          <a href="#mip-shell-syntax" class="toc-link">Syntax</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-arguments" class="toc-link">Arguments</a>
+          <a href="#mip-shell-options" class="toc-link">Options</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-examples" class="toc-link">Examples</a>
+          <a href="#mip-shell-built-in-shell-commands" class="toc-link">Built-in Shell Commands</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-shell-mip-commands" class="toc-link">MIP Commands</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-shell-features" class="toc-link">Features</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-pe-examples-basic-execution" class="toc-link">Basic execution</a>
+          <a href="#mip-shell-features-tab-autocompletion" class="toc-link">Tab Autocompletion</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-pe-examples-with-arguments" class="toc-link">With arguments</a>
+          <a href="#mip-shell-features-command-history" class="toc-link">Command History</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-pe-examples-with-multiple-arguments" class="toc-link">With multiple arguments</a>
+          <a href="#mip-shell-features-keyboard-shortcuts" class="toc-link">Keyboard Shortcuts</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-shell-features-smart-mip-prefix-handling" class="toc-link">Smart mip Prefix Handling</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-shell-features-welcome-screen" class="toc-link">Welcome Screen</a>
+        </li>
+      
+        <li class="toc-item toc-level-3">
+          <a href="#mip-shell-features-prompt" class="toc-link">Prompt</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-how-it-works" class="toc-link">How it works</a>
+          <a href="#mip-shell-history-file" class="toc-link">History File</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-errors" class="toc-link">Errors</a>
-        </li>
-      
-        <li class="toc-item toc-level-3">
-          <a href="#mip-pe-errors-plugin-not-found" class="toc-link">Plugin not found</a>
-        </li>
-      
-        <li class="toc-item toc-level-3">
-          <a href="#mip-pe-errors-command-not-found" class="toc-link">Command not found</a>
+          <a href="#mip-shell-examples" class="toc-link">Examples</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-pe-related-commands" class="toc-link">Related commands</a>
+          <a href="#mip-shell-common-mistakes" class="toc-link">Common Mistakes</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-shell-related-commands" class="toc-link">Related commands</a>
         </li>
       
     </ul>

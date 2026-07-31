@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip plugin - manage plugins : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Plugin management in MIP: creation, compilation, activation, command execution.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/plugin/">
 <link rel="alternate" hreflang="en" href="/commands/plugin/">
 <link rel="alternate" hreflang="x-default" href="/commands/plugin/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20plugin%20%E2%80%94%20manage%20plugins%22%0Adescription%3A%20%22Plugin%20management%20in%20MIP%3A%20creation%2C%20compilation%2C%20activation%2C%20command%20execution.%22%0A---%0A%0A%23%20mip%20plugin%0A%0AMIP%20has%20a%20built-in%20plugin%20system.%20Plugins%20allow%20you%20to%20extend%20MIP&#039;s%20functionality%20without%20modifying%20the%20core%20code.%0A%0A---%0A%0A%23%23%20Plugin%20structure%0A%0AA%20minimal%20plugin%20looks%20like%20this%3A%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;my-plugin&#039;%2C%0A%20%20version%3A%20&#039;1.0.0&#039;%2C%0A%20%20description%3A%20&#039;My%20plugin&#039;%2C%0A%0A%20%20%2F%2F%20Plugin%20commands%0A%20%20commands%3A%20%7B%0A%20%20%20%20hello%3A%20async%20(args)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(&#039;Hello%2C%20world!&#039;)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Hooks%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bmy-plugin%5D%20Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Initialization%0A%20%20init%3A%20async%20(%7B%20api%20%7D)%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bmy-plugin%5D%20Initialized&#039;)%3B%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Destruction%0A%20%20destroy%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bmy-plugin%5D%20Destroyed&#039;)%3B%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A---%0A%0A%23%23%20Commands%0A%0A%23%23%23%20%60mip%20plugin%20create%20%3Cname%3E%60%0A%0ACreates%20a%20new%20plugin%20in%20the%20%60plugins%2F%60%20folder%3A%0A%0A%60%60%60bash%0Amip%20plugin%20create%20my-plugin%0A%60%60%60%0A%0A**Structure%3A**%0A%60%60%60%0Aplugins%2Fmy-plugin%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20index.js%20%20%20%20%20%20%20%23%20Plugin%20code%0A%E2%94%9C%E2%94%80%E2%94%80%20package.json%20%20%20%23%20Dependencies%0A%E2%94%9C%E2%94%80%E2%94%80%20README.md%20%20%20%20%20%20%23%20Documentation%0A%E2%94%94%E2%94%80%E2%94%80%20.gitignore%20%20%20%20%20%23%20Ignored%20files%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20compile%20%3Cname%3E%60%0A%0ACompiles%20the%20plugin%20and%20saves%20it%20to%20the%20MIP%20cache%3A%0A%0A%60%60%60bash%0Amip%20plugin%20compile%20my-plugin%0A%60%60%60%0A%0AThe%20plugin%20is%20saved%20to%20%60~%2F.mip_cache%2Fplugins%2Fmy-plugin%2F%60.%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20activate%20%3Cname%3E%60%0A%0AActivates%20the%20plugin.%20The%20plugin%20is%20loaded%20and%20becomes%20available%3A%0A%0A%60%60%60bash%0Amip%20plugin%20activate%20my-plugin%0A%60%60%60%0A%0AActivated%20plugins%20are%20loaded%20on%20every%20MIP%20startup.%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20deactivate%20%3Cname%3E%60%0A%0ADeactivates%20the%20plugin%3A%0A%0A%60%60%60bash%0Amip%20plugin%20deactivate%20my-plugin%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20list%60%0A%0AShows%20all%20installed%20plugins%20and%20their%20status%3A%0A%0A%60%60%60bash%0Amip%20plugin%20list%0A%60%60%60%0A%0AExample%20output%3A%0A%60%60%60%0A%5BINFO%5D%20Installed%20plugins%20(2)%3A%0A---%0A%20%20ACTIVE%20%20hello%401.0.0%0A%20%20%20%20%20%20%20%20%20%2Fhome%2Fuser%2F.mip_cache%2Fplugins%2Fhello%0A%20%20inactive%20%20my-plugin%401.0.0%0A%20%20%20%20%20%20%20%20%20%2Fhome%2Fuser%2F.mip_cache%2Fplugins%2Fmy-plugin%0A---%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20remove%20%3Cname%3E%60%0A%0ARemoves%20the%20plugin%20(from%20cache%20and%20project)%3A%0A%0A%60%60%60bash%0Amip%20plugin%20remove%20my-plugin%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20cleanall%60%0A%0ACompletely%20cleans%20everything%3A%20cache%2C%20registry%2C%20%60plugins%2F%60%20folder%3A%0A%0A%60%60%60bash%0Amip%20plugin%20cleanall%0A%60%60%60%0A%0A---%0A%0A%23%23%20Executing%20plugin%20commands%0A%0A%23%23%23%20%60mip%20pe%20%3Cplugin%3E%20%3Ccommand%3E%20%5Bargs...%5D%60%0A%0AExecutes%20a%20plugin%20command%3A%0A%0A%60%60%60bash%0A%23%20Execute%20the%20hello%20command%20from%20the%20hello%20plugin%0Amip%20pe%20hello%20hello%0A%0A%23%20With%20arguments%0Amip%20pe%20hello%20hello%20world%0A%60%60%60%0A%0A---%0A%0A%23%23%20Creating%20a%20plugin%20from%20scratch%0A%0A%23%23%23%201.%20Create%20the%20plugin%0A%0A%60%60%60bash%0Amip%20plugin%20create%20hello%0A%60%60%60%0A%0A%23%23%23%202.%20Edit%20%60plugins%2Fhello%2Findex.js%60%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;hello&#039;%2C%0A%20%20version%3A%20&#039;1.0.0&#039;%2C%0A%0A%20%20commands%3A%20%7B%0A%20%20%20%20hello%3A%20async%20(args)%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20name%20%3D%20args%5B0%5D%20%7C%7C%20&#039;world&#039;%3B%0A%20%20%20%20%20%20console.log(%60Hello%2C%20%24%7Bname%7D!%20%F0%9F%91%8B%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20help%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%0Ahello%20commands%3A%0A%20%20hello%20%3Cname%3E%20%20-%20Say%20hello%0A%20%20help%20%20%20%20%20%20%20%20%20%20-%20Show%20this%20help%0A%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bhello%5D%20Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20afterInstall%3A%20async%20(pkgInfo)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bhello%5D%20Installed%20%24%7BpkgInfo.name%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20onError%3A%20async%20(err)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.error(%60%5Bhello%5D%20Error%3A%20%24%7Berr.message%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20init%3A%20async%20(%7B%20api%20%7D)%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bhello%5D%20Initialized&#039;)%3B%0A%20%20%7D%2C%0A%0A%20%20destroy%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bhello%5D%20Destroyed&#039;)%3B%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A%23%23%23%203.%20Compile%20and%20activate%0A%0A%60%60%60bash%0Amip%20plugin%20compile%20hello%0Amip%20plugin%20activate%20hello%0A%60%60%60%0A%0A%23%23%23%204.%20Test%20it%0A%0A%60%60%60bash%0Amip%20pe%20hello%20hello%0A%23%20Hello%2C%20world!%20%F0%9F%91%8B%0A%0Amip%20pe%20hello%20hello%20zshx%0A%23%20Hello%2C%20zshx!%20%F0%9F%91%8B%0A%0Amip%20pe%20hello%20help%0A%23%20Shows%20help%0A%60%60%60%0A%0A---%0A%0A%23%23%20Hooks%0A%0APlugins%20can%20subscribe%20to%20MIP%20events%3A%0A%0A%7C%20Hook%20%7C%20When%20called%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60beforeInstall%60%20%7C%20Before%20package%20installation%20%7C%0A%7C%20%60afterInstall%60%20%7C%20After%20package%20installation%20%7C%0A%7C%20%60beforeUninstall%60%20%7C%20Before%20package%20removal%20%7C%0A%7C%20%60afterUninstall%60%20%7C%20After%20package%20removal%20%7C%0A%7C%20%60beforeUpdate%60%20%7C%20Before%20package%20update%20%7C%0A%7C%20%60afterUpdate%60%20%7C%20After%20package%20update%20%7C%0A%7C%20%60beforeResolve%60%20%7C%20Before%20dependency%20resolution%20%7C%0A%7C%20%60afterResolve%60%20%7C%20After%20resolution%20%7C%0A%7C%20%60beforeDownload%60%20%7C%20Before%20tarball%20download%20%7C%0A%7C%20%60afterDownload%60%20%7C%20After%20download%20%7C%0A%7C%20%60beforeExtract%60%20%7C%20Before%20extraction%20%7C%0A%7C%20%60afterExtract%60%20%7C%20After%20extraction%20%7C%0A%7C%20%60beforeCacheRead%60%20%7C%20Before%20cache%20read%20%7C%0A%7C%20%60afterCacheRead%60%20%7C%20After%20cache%20read%20%7C%0A%7C%20%60beforeCacheWrite%60%20%7C%20Before%20cache%20write%20%7C%0A%7C%20%60afterCacheWrite%60%20%7C%20After%20cache%20write%20%7C%0A%7C%20%60beforeAudit%60%20%7C%20Before%20audit%20%7C%0A%7C%20%60afterAudit%60%20%7C%20After%20audit%20%7C%0A%7C%20%60beforeCi%60%20%7C%20Before%20CI%20installation%20%7C%0A%7C%20%60afterCi%60%20%7C%20After%20CI%20installation%20%7C%0A%7C%20%60onError%60%20%7C%20On%20error%20%7C%0A%0A---%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20plugin%5D(%2Fcommands%2Fplugin)%20%E2%80%94%20manage%20plugins%0A-%20%5Bmip%20pe%5D(%2Fcommands%2Fpe)%20%E2%80%94%20execute%20plugin%20commands%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20plugin%20-%20manage%20plugins%22%0Adescription%3A%20%22Plugin%20management%20in%20MIP%3A%20creation%2C%20compilation%2C%20activation%2C%20command%20execution.%22%0A---%0A%0A%23%20mip%20plugin%0A%0AMIP%20has%20a%20built-in%20plugin%20system.%20Plugins%20allow%20you%20to%20extend%20MIP&#039;s%20functionality%20without%20modifying%20the%20core%20code.%0A%0A---%0A%0A%23%23%20Plugin%20structure%0A%0AA%20minimal%20plugin%20looks%20like%20this%3A%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;my-plugin&#039;%2C%0A%20%20version%3A%20&#039;1.0.0&#039;%2C%0A%20%20description%3A%20&#039;My%20plugin&#039;%2C%0A%0A%20%20%2F%2F%20Plugin%20commands%0A%20%20commands%3A%20%7B%0A%20%20%20%20hello%3A%20async%20(args)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(&#039;Hello%2C%20world!&#039;)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Hooks%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bmy-plugin%5D%20Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Initialization%0A%20%20init%3A%20async%20(%7B%20api%20%7D)%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bmy-plugin%5D%20Initialized&#039;)%3B%0A%20%20%7D%2C%0A%0A%20%20%2F%2F%20Destruction%0A%20%20destroy%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bmy-plugin%5D%20Destroyed&#039;)%3B%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A---%0A%0A%23%23%20Commands%0A%0A%23%23%23%20%60mip%20plugin%20create%20%3Cname%3E%60%0A%0ACreates%20a%20new%20plugin%20in%20the%20%60plugins%2F%60%20folder%3A%0A%0A%60%60%60bash%0Amip%20plugin%20create%20my-plugin%0A%60%60%60%0A%0A**Structure%3A**%0A%60%60%60%0Aplugins%2Fmy-plugin%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20index.js%20%20%20%20%20%20%20%23%20Plugin%20code%0A%E2%94%9C%E2%94%80%E2%94%80%20package.json%20%20%20%23%20Dependencies%0A%E2%94%9C%E2%94%80%E2%94%80%20README.md%20%20%20%20%20%20%23%20Documentation%0A%E2%94%94%E2%94%80%E2%94%80%20.gitignore%20%20%20%20%20%23%20Ignored%20files%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20compile%20%3Cname%3E%60%0A%0ACompiles%20the%20plugin%20and%20saves%20it%20to%20the%20MIP%20cache%3A%0A%0A%60%60%60bash%0Amip%20plugin%20compile%20my-plugin%0A%60%60%60%0A%0AThe%20plugin%20is%20saved%20to%20%60~%2F.mip_cache%2Fplugins%2Fmy-plugin%2F%60.%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20activate%20%3Cname%3E%60%0A%0AActivates%20the%20plugin.%20The%20plugin%20is%20loaded%20and%20becomes%20available%3A%0A%0A%60%60%60bash%0Amip%20plugin%20activate%20my-plugin%0A%60%60%60%0A%0AActivated%20plugins%20are%20loaded%20on%20every%20MIP%20startup.%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20deactivate%20%3Cname%3E%60%0A%0ADeactivates%20the%20plugin%3A%0A%0A%60%60%60bash%0Amip%20plugin%20deactivate%20my-plugin%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20list%60%0A%0AShows%20all%20installed%20plugins%20and%20their%20status%3A%0A%0A%60%60%60bash%0Amip%20plugin%20list%0A%60%60%60%0A%0AExample%20output%3A%0A%60%60%60%0A%5BINFO%5D%20Installed%20plugins%20(2)%3A%0A---%0A%20%20ACTIVE%20%20hello%401.0.0%0A%20%20%20%20%20%20%20%20%20%2Fhome%2Fuser%2F.mip_cache%2Fplugins%2Fhello%0A%20%20inactive%20%20my-plugin%401.0.0%0A%20%20%20%20%20%20%20%20%20%2Fhome%2Fuser%2F.mip_cache%2Fplugins%2Fmy-plugin%0A---%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20remove%20%3Cname%3E%60%0A%0ARemoves%20the%20plugin%20(from%20cache%20and%20project)%3A%0A%0A%60%60%60bash%0Amip%20plugin%20remove%20my-plugin%0A%60%60%60%0A%0A---%0A%0A%23%23%23%20%60mip%20plugin%20cleanall%60%0A%0ACompletely%20cleans%20everything%3A%20cache%2C%20registry%2C%20%60plugins%2F%60%20folder%3A%0A%0A%60%60%60bash%0Amip%20plugin%20cleanall%0A%60%60%60%0A%0A---%0A%0A%23%23%20Executing%20plugin%20commands%0A%0A%23%23%23%20%60mip%20pe%20%3Cplugin%3E%20%3Ccommand%3E%20%5Bargs...%5D%60%0A%0AExecutes%20a%20plugin%20command%3A%0A%0A%60%60%60bash%0A%23%20Execute%20the%20hello%20command%20from%20the%20hello%20plugin%0Amip%20pe%20hello%20hello%0A%0A%23%20With%20arguments%0Amip%20pe%20hello%20hello%20world%0A%60%60%60%0A%0A---%0A%0A%23%23%20Creating%20a%20plugin%20from%20scratch%0A%0A%23%23%23%201.%20Create%20the%20plugin%0A%0A%60%60%60bash%0Amip%20plugin%20create%20hello%0A%60%60%60%0A%0A%23%23%23%202.%20Edit%20%60plugins%2Fhello%2Findex.js%60%0A%0A%60%60%60javascript%0Amodule.exports%20%3D%20%7B%0A%20%20name%3A%20&#039;hello&#039;%2C%0A%20%20version%3A%20&#039;1.0.0&#039;%2C%0A%0A%20%20commands%3A%20%7B%0A%20%20%20%20hello%3A%20async%20(args)%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20name%20%3D%20args%5B0%5D%20%7C%7C%20&#039;world&#039;%3B%0A%20%20%20%20%20%20console.log(%60Hello%2C%20%24%7Bname%7D!%20%F0%9F%91%8B%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20help%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%0Ahello%20commands%3A%0A%20%20hello%20%3Cname%3E%20%20-%20Say%20hello%0A%20%20help%20%20%20%20%20%20%20%20%20%20-%20Show%20this%20help%0A%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20hooks%3A%20%7B%0A%20%20%20%20beforeInstall%3A%20async%20(pkg%2C%20version)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bhello%5D%20Installing%20%24%7Bpkg%7D%40%24%7Bversion%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20afterInstall%3A%20async%20(pkgInfo)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.log(%60%5Bhello%5D%20Installed%20%24%7BpkgInfo.name%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20onError%3A%20async%20(err)%20%3D%3E%20%7B%0A%20%20%20%20%20%20console.error(%60%5Bhello%5D%20Error%3A%20%24%7Berr.message%7D%60)%3B%0A%20%20%20%20%7D%2C%0A%20%20%7D%2C%0A%0A%20%20init%3A%20async%20(%7B%20api%20%7D)%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bhello%5D%20Initialized&#039;)%3B%0A%20%20%7D%2C%0A%0A%20%20destroy%3A%20async%20()%20%3D%3E%20%7B%0A%20%20%20%20console.log(&#039;%5Bhello%5D%20Destroyed&#039;)%3B%0A%20%20%7D%2C%0A%7D%3B%0A%60%60%60%0A%0A%23%23%23%203.%20Compile%20and%20activate%0A%0A%60%60%60bash%0Amip%20plugin%20compile%20hello%0Amip%20plugin%20activate%20hello%0A%60%60%60%0A%0A%23%23%23%204.%20Test%20it%0A%0A%60%60%60bash%0Amip%20pe%20hello%20hello%0A%23%20Hello%2C%20world!%20%F0%9F%91%8B%0A%0Amip%20pe%20hello%20hello%20zshx%0A%23%20Hello%2C%20zshx!%20%F0%9F%91%8B%0A%0Amip%20pe%20hello%20help%0A%23%20Shows%20help%0A%60%60%60%0A%0A---%0A%0A%23%23%20Hooks%0A%0APlugins%20can%20subscribe%20to%20MIP%20events%3A%0A%0A%7C%20Hook%20%7C%20When%20called%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60beforeInstall%60%20%7C%20Before%20package%20installation%20%7C%0A%7C%20%60afterInstall%60%20%7C%20After%20package%20installation%20%7C%0A%7C%20%60beforeUninstall%60%20%7C%20Before%20package%20removal%20%7C%0A%7C%20%60afterUninstall%60%20%7C%20After%20package%20removal%20%7C%0A%7C%20%60beforeUpdate%60%20%7C%20Before%20package%20update%20%7C%0A%7C%20%60afterUpdate%60%20%7C%20After%20package%20update%20%7C%0A%7C%20%60beforeResolve%60%20%7C%20Before%20dependency%20resolution%20%7C%0A%7C%20%60afterResolve%60%20%7C%20After%20resolution%20%7C%0A%7C%20%60beforeDownload%60%20%7C%20Before%20tarball%20download%20%7C%0A%7C%20%60afterDownload%60%20%7C%20After%20download%20%7C%0A%7C%20%60beforeExtract%60%20%7C%20Before%20extraction%20%7C%0A%7C%20%60afterExtract%60%20%7C%20After%20extraction%20%7C%0A%7C%20%60beforeCacheRead%60%20%7C%20Before%20cache%20read%20%7C%0A%7C%20%60afterCacheRead%60%20%7C%20After%20cache%20read%20%7C%0A%7C%20%60beforeCacheWrite%60%20%7C%20Before%20cache%20write%20%7C%0A%7C%20%60afterCacheWrite%60%20%7C%20After%20cache%20write%20%7C%0A%7C%20%60beforeAudit%60%20%7C%20Before%20audit%20%7C%0A%7C%20%60afterAudit%60%20%7C%20After%20audit%20%7C%0A%7C%20%60beforeCi%60%20%7C%20Before%20CI%20installation%20%7C%0A%7C%20%60afterCi%60%20%7C%20After%20CI%20installation%20%7C%0A%7C%20%60onError%60%20%7C%20On%20error%20%7C%0A%0A---%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20plugin%5D(%2Fcommands%2Fplugin)%20-%20manage%20plugins%0A-%20%5Bmip%20pe%5D(%2Fcommands%2Fpe)%20-%20execute%20plugin%20commands%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2272,15 +2288,15 @@ mip pe hello help
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

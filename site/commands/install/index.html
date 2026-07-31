@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip install - install dependencies : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The install command installs packages from the npm registry into your project, saves them to mip.yml, and creates a lockfile with pinned versions.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/install/">
 <link rel="alternate" hreflang="en" href="/commands/install/">
 <link rel="alternate" hreflang="x-default" href="/commands/install/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20install%20%E2%80%94%20install%20dependencies%22%0Adescription%3A%20%22The%20install%20command%20installs%20packages%20from%20the%20npm%20registry%20into%20your%20project%2C%20saves%20them%20to%20mip.yml%2C%20and%20creates%20a%20lockfile%20with%20pinned%20versions.%22%0A---%0A%0A%23%20mip%20install%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Apackage%0A%60mip%20install%60%20is%20the%20main%20command%20for%20installing%20dependencies.%20It%20downloads%20packages%20from%20the%20npm%20registry%2C%20saves%20them%20to%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60%2C%20creates%20symlinks%20in%20%60node_modules%2F%60%2C%20and%20updates%20the%20manifest%20and%20lockfile.%20Supports%20installing%20multiple%20packages%2C%20global%20installation%2C%20and%20non-interactive%20mode%20for%20CI.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20install%20%5Bpackages...%5D%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60packages%60%20%7C%20array%20%7C%20%E2%9D%8C%20%7C%20List%20of%20packages%20to%20install.%20If%20not%20specified%20%E2%80%94%20installs%20all%20dependencies%20from%20%60mip.yml%60.%20%7C%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--save-dev%60%20%2F%20%60-D%60%20%7C%20Saves%20the%20package%20to%20%60devDependencies%60%20%7C%0A%7C%20%60--force%60%20%2F%20%60-f%60%20%7C%20Forces%20reinstallation%20of%20packages%20(overwrites%20cache)%20%7C%0A%7C%20%60--global%60%20%2F%20%60-g%60%20%7C%20Installs%20the%20package%20globally%20%7C%0A%7C%20%60--no-save%60%20%7C%20Installs%20the%20package%20without%20saving%20to%20%60mip.yml%60%20%7C%0A%7C%20%60--ci%60%20%7C%20Non-interactive%20mode%20(automatically%20skips%20peer%20dependencies)%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A%23%23%23%20%60mip%20install%60%20(no%20arguments)%0A1.%20**Read%20%60mip.yml%60**%20%E2%80%94%20loads%20dependencies%20from%20%60dependencies%60%20and%20%60devDependencies%60.%0A2.%20**Check%20lockfile**%20%E2%80%94%20if%20%60mip-lock.yml%60%20is%20missing%2C%20it%20will%20be%20created.%0A3.%20**Install%20all%20packages**%20%E2%80%94%20sequentially%20installs%20all%20dependencies.%0A4.%20**Progress%20bar**%20%E2%80%94%20displays%20installation%20progress.%0A5.%20**Peer%20dependency%20resolution**%20%E2%80%94%20in%20interactive%20mode%2C%20asks%20for%20confirmation%3B%20in%20%60--ci%60%20mode%2C%20automatically%20skips.%0A%0A%23%23%23%20%60mip%20install%20%3Cpackage%3E%60%0A1.%20**Version%20resolution**%20%E2%80%94%20if%20%60package%40version%60%20is%20specified%2C%20installs%20that%20specific%20version%3B%20otherwise%20%E2%80%94%20%60latest%60.%0A2.%20**Dependency%20resolution**%20%E2%80%94%20fetches%20package%20information%20from%20the%20registry.%0A3.%20**Download%20and%20extract**%20%E2%80%94%20downloads%20the%20tarball%20and%20extracts%20it%20to%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60.%0A4.%20**Create%20symlink**%20%E2%80%94%20creates%20a%20symbolic%20link%20in%20%60node_modules%2F%60%20pointing%20to%20the%20global%20cache.%0A5.%20**Install%20package%20dependencies**%20%E2%80%94%20recursively%20installs%20nested%20dependencies.%0A6.%20**Update%20lockfile**%20%E2%80%94%20pins%20exact%20versions%20in%20%60mip-lock.yml%60.%0A7.%20**Save%20to%20%60mip.yml%60**%20%E2%80%94%20adds%20the%20package%20to%20%60dependencies%60%20(unless%20%60--no-save%60%20is%20specified).%0A8.%20**Update%20manifest**%20%E2%80%94%20writes%20information%20to%20%60.mip%2Fmanifest.json%60.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Install%20all%20dependencies%22%0A%60%60%60bash%0Amip%20install%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Installing%20all%20dependencies%20(42%20packages)...%0A%0A%20%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%20100%25%2042%2F42%0A%0A%E2%9C%85%20Installed%2042%20packages%20in%2012.3s%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20multiple%20packages%22%0A%60%60%60bash%0Amip%20install%20react%20electron%0A%60%60%60%0A%0AInstalls%20both%20packages%20in%20parallel.%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20a%20specific%20package%22%0A%60%60%60bash%0Amip%20install%20express%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20a%20specific%20version%22%0A%60%60%60bash%0Amip%20install%20lodash%404.17.21%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20and%20save%20to%20devDependencies%22%0A%60%60%60bash%0Amip%20install%20jest%20--save-dev%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22CI%20mode%20(non-interactive)%22%0A%60%60%60bash%0Amip%20install%20--ci%0A%60%60%60%0A%0AAutomatically%20skips%20all%20peer%20dependency%20prompts.%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Global%20installation%22%0A%60%60%60bash%0Amip%20install%20--global%20typescript%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Global%20cache%0A%0AMIP%20uses%20a%20**global%20cache**%20at%20%60~%2F.mip%2Fstore%2F%60.%20All%20packages%20are%20stored%20once%20and%20used%20across%20all%20projects%3A%0A%0A%60%60%60%0A~%2F.mip%2Fstore%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20lodash%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.17.21%2F%0A%E2%94%82%20%20%20%20%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20package.json%0A%E2%94%82%20%20%20%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20index.js%0A%E2%94%94%E2%94%80%E2%94%80%20express%2F%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.18.2%2F%0A%20%20%20%20%20%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20package.json%0A%20%20%20%20%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20lib%2F%0A%60%60%60%0A%0AThis%20saves%20up%20to%2090%25%20of%20disk%20space.%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20does%20not%20exist%20in%20the%20npm%20registry.%0A%0A**Solution%3A**%0A1.%20Check%20the%20package%20name%20spelling.%0A2.%20Use%20%60mip%20search%60%20to%20find%20the%20package.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Version%20not%20found%22%20icon%3Aalert-circle%0A**Cause%3A**%20The%20specified%20package%20version%20does%20not%20exist.%0A%0A**Solution%3A**%0A1.%20Check%20available%20versions%3A%20%60mip%20info%20%3Cpackage%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9A%A0%EF%B8%8F%20Peer%20dependency%20conflicts%22%20icon%3Askull%0A**Cause%3A**%20The%20package%20requires%20a%20version%20of%20another%20package%20that%20conflicts%20with%20an%20already%20installed%20one.%0A%0A**Solution%3A**%0A-%20In%20interactive%20mode%2C%20MIP%20will%20offer%20options.%0A-%20In%20CI%2C%20use%20%60--ci%60%20to%20automatically%20skip.%0A-%20Manually%20install%20the%20required%20version.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A-%20For%20clean%20installs%20in%20CI%2C%20use%20%60mip%20ci%60%20%E2%80%94%20it&#039;s%20faster%20and%20more%20reliable.%0A-%20Use%20%60--force%60%20only%20if%20you&#039;re%20sure%20the%20cache%20is%20corrupted.%0A-%20For%20global%20packages%2C%20use%20%60mip%20global%20install%60%20(more%20convenient%20interface).%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20%E2%80%94%20installation%20for%20CI%2FCD%0A-%20%5Bmip%20update%5D(%2Fcommands%2Fupdate)%20%E2%80%94%20update%20packages%0A-%20%5Bmip%20uninstall%5D(%2Fcommands%2Funinstall)%20%E2%80%94%20remove%20packages%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20view%20installed%20packages%0A-%20%5Bmip%20global%5D(%2Fcommands%2Fglobal)%20%E2%80%94%20manage%20global%20packages%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20install%20-%20install%20dependencies%22%0Adescription%3A%20%22The%20install%20command%20installs%20packages%20from%20the%20npm%20registry%20into%20your%20project%2C%20saves%20them%20to%20mip.yml%2C%20and%20creates%20a%20lockfile%20with%20pinned%20versions.%22%0A---%0A%0A%23%20mip%20install%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Apackage%0A%60mip%20install%60%20is%20the%20main%20command%20for%20installing%20dependencies.%20It%20downloads%20packages%20from%20the%20npm%20registry%2C%20saves%20them%20to%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60%2C%20creates%20symlinks%20in%20%60node_modules%2F%60%2C%20and%20updates%20the%20manifest%20and%20lockfile.%20Supports%20installing%20multiple%20packages%2C%20global%20installation%2C%20and%20non-interactive%20mode%20for%20CI.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20install%20%5Bpackages...%5D%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60packages%60%20%7C%20array%20%7C%20%E2%9D%8C%20%7C%20List%20of%20packages%20to%20install.%20If%20not%20specified%20-%20installs%20all%20dependencies%20from%20%60mip.yml%60.%20%7C%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--save-dev%60%20%2F%20%60-D%60%20%7C%20Saves%20the%20package%20to%20%60devDependencies%60%20%7C%0A%7C%20%60--force%60%20%2F%20%60-f%60%20%7C%20Forces%20reinstallation%20of%20packages%20(overwrites%20cache)%20%7C%0A%7C%20%60--global%60%20%2F%20%60-g%60%20%7C%20Installs%20the%20package%20globally%20%7C%0A%7C%20%60--no-save%60%20%7C%20Installs%20the%20package%20without%20saving%20to%20%60mip.yml%60%20%7C%0A%7C%20%60--ci%60%20%7C%20Non-interactive%20mode%20(automatically%20skips%20peer%20dependencies)%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A%23%23%23%20%60mip%20install%60%20(no%20arguments)%0A1.%20**Read%20%60mip.yml%60**%20-%20loads%20dependencies%20from%20%60dependencies%60%20and%20%60devDependencies%60.%0A2.%20**Check%20lockfile**%20-%20if%20%60mip-lock.yml%60%20is%20missing%2C%20it%20will%20be%20created.%0A3.%20**Install%20all%20packages**%20-%20sequentially%20installs%20all%20dependencies.%0A4.%20**Progress%20bar**%20-%20displays%20installation%20progress.%0A5.%20**Peer%20dependency%20resolution**%20-%20in%20interactive%20mode%2C%20asks%20for%20confirmation%3B%20in%20%60--ci%60%20mode%2C%20automatically%20skips.%0A%0A%23%23%23%20%60mip%20install%20%3Cpackage%3E%60%0A1.%20**Version%20resolution**%20-%20if%20%60package%40version%60%20is%20specified%2C%20installs%20that%20specific%20version%3B%20otherwise%20-%20%60latest%60.%0A2.%20**Dependency%20resolution**%20-%20fetches%20package%20information%20from%20the%20registry.%0A3.%20**Download%20and%20extract**%20-%20downloads%20the%20tarball%20and%20extracts%20it%20to%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60.%0A4.%20**Create%20symlink**%20-%20creates%20a%20symbolic%20link%20in%20%60node_modules%2F%60%20pointing%20to%20the%20global%20cache.%0A5.%20**Install%20package%20dependencies**%20-%20recursively%20installs%20nested%20dependencies.%0A6.%20**Update%20lockfile**%20-%20pins%20exact%20versions%20in%20%60mip-lock.yml%60.%0A7.%20**Save%20to%20%60mip.yml%60**%20-%20adds%20the%20package%20to%20%60dependencies%60%20(unless%20%60--no-save%60%20is%20specified).%0A8.%20**Update%20manifest**%20-%20writes%20information%20to%20%60.mip%2Fmanifest.json%60.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Install%20all%20dependencies%22%0A%60%60%60bash%0Amip%20install%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Installing%20all%20dependencies%20(42%20packages)...%0A%0A%20%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%20100%25%2042%2F42%0A%0A%E2%9C%85%20Installed%2042%20packages%20in%2012.3s%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20multiple%20packages%22%0A%60%60%60bash%0Amip%20install%20react%20electron%0A%60%60%60%0A%0AInstalls%20both%20packages%20in%20parallel.%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20a%20specific%20package%22%0A%60%60%60bash%0Amip%20install%20express%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20a%20specific%20version%22%0A%60%60%60bash%0Amip%20install%20lodash%404.17.21%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Install%20and%20save%20to%20devDependencies%22%0A%60%60%60bash%0Amip%20install%20jest%20--save-dev%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22CI%20mode%20(non-interactive)%22%0A%60%60%60bash%0Amip%20install%20--ci%0A%60%60%60%0A%0AAutomatically%20skips%20all%20peer%20dependency%20prompts.%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Global%20installation%22%0A%60%60%60bash%0Amip%20install%20--global%20typescript%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Global%20cache%0A%0AMIP%20uses%20a%20**global%20cache**%20at%20%60~%2F.mip%2Fstore%2F%60.%20All%20packages%20are%20stored%20once%20and%20used%20across%20all%20projects%3A%0A%0A%60%60%60%0A~%2F.mip%2Fstore%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20lodash%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.17.21%2F%0A%E2%94%82%20%20%20%20%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20package.json%0A%E2%94%82%20%20%20%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20index.js%0A%E2%94%94%E2%94%80%E2%94%80%20express%2F%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.18.2%2F%0A%20%20%20%20%20%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20package.json%0A%20%20%20%20%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20lib%2F%0A%60%60%60%0A%0AThis%20saves%20up%20to%2090%25%20of%20disk%20space.%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20does%20not%20exist%20in%20the%20npm%20registry.%0A%0A**Solution%3A**%0A1.%20Check%20the%20package%20name%20spelling.%0A2.%20Use%20%60mip%20search%60%20to%20find%20the%20package.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Version%20not%20found%22%20icon%3Aalert-circle%0A**Cause%3A**%20The%20specified%20package%20version%20does%20not%20exist.%0A%0A**Solution%3A**%0A1.%20Check%20available%20versions%3A%20%60mip%20info%20%3Cpackage%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9A%A0%EF%B8%8F%20Peer%20dependency%20conflicts%22%20icon%3Askull%0A**Cause%3A**%20The%20package%20requires%20a%20version%20of%20another%20package%20that%20conflicts%20with%20an%20already%20installed%20one.%0A%0A**Solution%3A**%0A-%20In%20interactive%20mode%2C%20MIP%20will%20offer%20options.%0A-%20In%20CI%2C%20use%20%60--ci%60%20to%20automatically%20skip.%0A-%20Manually%20install%20the%20required%20version.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A-%20For%20clean%20installs%20in%20CI%2C%20use%20%60mip%20ci%60%20-%20it&#039;s%20faster%20and%20more%20reliable.%0A-%20Use%20%60--force%60%20only%20if%20you&#039;re%20sure%20the%20cache%20is%20corrupted.%0A-%20For%20global%20packages%2C%20use%20%60mip%20global%20install%60%20(more%20convenient%20interface).%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20-%20installation%20for%20CI%2FCD%0A-%20%5Bmip%20update%5D(%2Fcommands%2Fupdate)%20-%20update%20packages%0A-%20%5Bmip%20uninstall%5D(%2Fcommands%2Funinstall)%20-%20remove%20packages%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20-%20view%20installed%20packages%0A-%20%5Bmip%20global%5D(%2Fcommands%2Fglobal)%20-%20manage%20global%20packages%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2233,15 +2249,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

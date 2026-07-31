@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip exec - execute binaries from dependencies : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The exec command runs executables from installed packages, without installing them globally. It looks up binaries in the manifest and inserts the correct path automatically.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/exec/">
 <link rel="alternate" hreflang="en" href="/commands/exec/">
 <link rel="alternate" hreflang="x-default" href="/commands/exec/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20exec%20%E2%80%94%20execute%20binaries%20from%20dependencies%22%0Adescription%3A%20%22The%20exec%20command%20runs%20executables%20from%20installed%20packages%2C%20without%20installing%20them%20globally.%20It%20looks%20up%20binaries%20in%20the%20manifest%20and%20inserts%20the%20correct%20path%20automatically.%22%0A---%0A%0A%23%20mip%20exec%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Aterminal%0A%60mip%20exec%60%20runs%20executable%20files%20shipped%20by%20your%20dependencies.%20It%20does%20not%20require%20you%20to%20install%20those%20binaries%20globally%E2%80%94MIP%20finds%20them%20in%20the%20installed%20packages%20and%20executes%20them.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20exec%20%3Ccommand%3E%20%5B--%20%3Cargs%3E...%5D%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A-%20%60%3Ccommand%3E%60%20%E2%80%94%20the%20binary%20name%20to%20run%20(for%20example%3A%20%60jest%60%2C%20%60eslint%60%2C%20%60ts-node%60).%0A-%20%60%5B--%20%3Cargs%3E...%5D%60%20%E2%80%94%20optional%20arguments%20passed%20to%20the%20binary.%0A%0A%23%23%20How%20it%20works%0A%0A1.%20MIP%20reads%20the%20installed%20package%20manifests%20to%20find%20where%20the%20requested%20binary%20lives.%0A2.%20It%20resolves%20the%20correct%20path%20for%20the%20current%20project.%0A3.%20Then%20it%20executes%20the%20binary%20with%20the%20provided%20arguments.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20a%20binary%22%0A%60%60%60bash%0Amip%20exec%20jest%0A%60%60%60%0A%0ARuns%20Jest%20from%20the%20project%20dependencies.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Pass%20arguments%22%0A%60%60%60bash%0Amip%20exec%20eslint%20--%20.%0A%60%60%60%0A%0AExecutes%20%60eslint%60%20and%20passes%20%60--%20.%60%20as-is.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Run%20with%20a%20specific%20package%20version%20(if%20applicable)%22%0A%60%60%60bash%0Amip%20exec%20%3Cbinary%3E%0A%60%60%60%0A%0AMIP%20resolves%20the%20binary%20based%20on%20the%20installed%20packages%20for%20the%20current%20project.%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20run%5D(%2Fcommands%2Frun)%20%E2%80%94%20run%20scripts%20defined%20in%20%60mip.yml%60.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20install%20dependencies%20and%20update%20%60mip.yml%60%2Flockfile.%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20exec%20-%20execute%20binaries%20from%20dependencies%22%0Adescription%3A%20%22The%20exec%20command%20runs%20executables%20from%20installed%20packages%2C%20without%20installing%20them%20globally.%20It%20looks%20up%20binaries%20in%20the%20manifest%20and%20inserts%20the%20correct%20path%20automatically.%22%0A---%0A%0A%23%20mip%20exec%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Aterminal%0A%60mip%20exec%60%20runs%20executable%20files%20shipped%20by%20your%20dependencies.%20It%20does%20not%20require%20you%20to%20install%20those%20binaries%20globally-MIP%20finds%20them%20in%20the%20installed%20packages%20and%20executes%20them.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20exec%20%3Ccommand%3E%20%5B--%20%3Cargs%3E...%5D%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A-%20%60%3Ccommand%3E%60%20-%20the%20binary%20name%20to%20run%20(for%20example%3A%20%60jest%60%2C%20%60eslint%60%2C%20%60ts-node%60).%0A-%20%60%5B--%20%3Cargs%3E...%5D%60%20-%20optional%20arguments%20passed%20to%20the%20binary.%0A%0A%23%23%20How%20it%20works%0A%0A1.%20MIP%20reads%20the%20installed%20package%20manifests%20to%20find%20where%20the%20requested%20binary%20lives.%0A2.%20It%20resolves%20the%20correct%20path%20for%20the%20current%20project.%0A3.%20Then%20it%20executes%20the%20binary%20with%20the%20provided%20arguments.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20a%20binary%22%0A%60%60%60bash%0Amip%20exec%20jest%0A%60%60%60%0A%0ARuns%20Jest%20from%20the%20project%20dependencies.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Pass%20arguments%22%0A%60%60%60bash%0Amip%20exec%20eslint%20--%20.%0A%60%60%60%0A%0AExecutes%20%60eslint%60%20and%20passes%20%60--%20.%60%20as-is.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Run%20with%20a%20specific%20package%20version%20(if%20applicable)%22%0A%60%60%60bash%0Amip%20exec%20%3Cbinary%3E%0A%60%60%60%0A%0AMIP%20resolves%20the%20binary%20based%20on%20the%20installed%20packages%20for%20the%20current%20project.%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20run%5D(%2Fcommands%2Frun)%20-%20run%20scripts%20defined%20in%20%60mip.yml%60.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20install%20dependencies%20and%20update%20%60mip.yml%60%2Flockfile.%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2014,15 +2030,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

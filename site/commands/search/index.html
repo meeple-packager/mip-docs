@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip search - search for packages in the registry : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The search command searches the npm registry for packages matching a keyword, showing the name, version, and description.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/search/">
 <link rel="alternate" hreflang="en" href="/commands/search/">
 <link rel="alternate" hreflang="x-default" href="/commands/search/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20search%20%E2%80%94%20search%20for%20packages%20in%20the%20registry%22%0Adescription%3A%20%22The%20search%20command%20searches%20the%20npm%20registry%20for%20packages%20matching%20a%20keyword%2C%20showing%20the%20name%2C%20version%2C%20and%20description.%22%0A---%0A%0A%23%20mip%20search%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Asearch%0A%60mip%20search%60%20is%20a%20command%20for%20searching%20packages%20in%20the%20npm%20registry.%20It%20takes%20a%20keyword%20and%20returns%20a%20list%20of%20matching%20packages%2C%20with%20their%20version%20and%20a%20brief%20description.%20This%20is%20useful%20when%20you%20are%20looking%20for%20a%20library%20for%20your%20project%20but%20don&#039;t%20know%20the%20exact%20name.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20search%20%3Cquery%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60query%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Keyword%20or%20phrase%20to%20search%20for%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20arguments**%20%E2%80%94%20if%20no%20query%20is%20provided%2C%20usage%20help%20is%20displayed.%0A%0A2.%20**Send%20request%20to%20registry**%20%E2%80%94%20the%20command%20performs%20a%20search%20via%20the%20npm%20registry%20API.%0A%0A3.%20**Get%20results**%20%E2%80%94%20returns%20up%20to%2020%20packages%20matching%20the%20query.%0A%0A4.%20**Format%20output**%20%E2%80%94%20for%20each%20package%2C%20shows%3A%0A%20%20%20-%20Name%20and%20version.%0A%20%20%20-%20Description%20(truncated%20to%2070%20characters).%0A%0A5.%20**Report%20count**%20%E2%80%94%20shows%20the%20total%20number%20of%20packages%20found.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Search%20by%20keyword%22%0A%60%60%60bash%0Amip%20search%20express%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20express...%0A%0AFound%2015%20packages%3A%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express%404.18.2%0A%20%20%20%20%F0%9F%93%9D%20Fast%2C%20unopinionated%2C%20minimalist%20web%20framework%20for%20Node.js%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express-graphql%400.12.0%0A%20%20%20%20%F0%9F%93%9D%20GraphQL%20HTTP%20server%20middleware%20for%20Express%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express-session%401.17.3%0A%20%20%20%20%F0%9F%93%9D%20Session%20middleware%20for%20Express.js%0A%0A%E2%94%94%E2%94%80%E2%94%80%20express-validator%407.0.1%0A%20%20%20%20%F0%9F%93%9D%20Express.js%20middleware%20for%20request%20validation%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Search%20with%20scope%20prefix%22%0A%60%60%60bash%0Amip%20search%20%40docmd%2Fcore%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20%40docmd%2Fcore...%0A%0AFound%203%20packages%3A%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20%40docmd%2Fcore%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20Documentation%20engine%20from%20Markdown%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20%40docmd%2Fplugin-openapi%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20OpenAPI%20plugin%20for%20docmd%0A%0A%E2%94%94%E2%94%80%E2%94%80%20%40docmd%2Fplugin-mermaid%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20Mermaid%20plugin%20for%20docmd%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Nothing%20found%22%0A%60%60%60bash%0Amip%20search%20some-very-rare-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20some-very-rare-package...%0A%0A%E2%9D%8C%20No%20packages%20found%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Empty%20query%22%0A%60%60%60bash%0Amip%20search%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%8B%20Usage%3A%20mip%20search%20%3Cquery%3E%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20packages%20found%22%20icon%3Ainfo%0A**Cause%3A**%20Nothing%20was%20found%20for%20your%20query.%0A%0A**Solution%3A**%0A1.%20Check%20the%20spelling.%0A2.%20Try%20a%20different%20keyword.%0A3.%20The%20package%20may%20have%20been%20removed%20or%20be%20unavailable.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Failed%20to%20search%22%20icon%3Aalert-circle%0A**Cause%3A**%20Network%20issues%20or%20the%20npm%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20registry%20availability%3A%20%60mip%20doctor%60%0A3.%20Try%20again%20later.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20search%60%20is%20the%20first%20step%20before%20installing%20a%20package%3A%0A1.%20Use%20%60mip%20search%60%20to%20find%20the%20package%20you%20need.%0A2.%20Check%20the%20description%20and%20version.%0A3.%20Install%20the%20package%3A%20%60mip%20install%20%3Cpackage%3E%60.%0A%0A**Search%20tips%3A**%0A-%20Use%20general%20keywords%20(e.g.%2C%20%60http%60%20instead%20of%20%60http-client%60).%0A-%20For%20frameworks%2C%20use%20their%20name%20(e.g.%2C%20%60react%60%2C%20%60vue%60).%0A-%20For%20scoped%20packages%2C%20specify%20the%20full%20name%3A%20%60%40namespace%2Fpackage%60.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20info%5D(%2Fcommands%2Finfo)%20%E2%80%94%20detailed%20information%20about%20a%20package.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20install%20the%20found%20package.%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20view%20already%20installed%20packages.%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20search%20-%20search%20for%20packages%20in%20the%20registry%22%0Adescription%3A%20%22The%20search%20command%20searches%20the%20npm%20registry%20for%20packages%20matching%20a%20keyword%2C%20showing%20the%20name%2C%20version%2C%20and%20description.%22%0A---%0A%0A%23%20mip%20search%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Asearch%0A%60mip%20search%60%20is%20a%20command%20for%20searching%20packages%20in%20the%20npm%20registry.%20It%20takes%20a%20keyword%20and%20returns%20a%20list%20of%20matching%20packages%2C%20with%20their%20version%20and%20a%20brief%20description.%20This%20is%20useful%20when%20you%20are%20looking%20for%20a%20library%20for%20your%20project%20but%20don&#039;t%20know%20the%20exact%20name.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20search%20%3Cquery%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60query%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Keyword%20or%20phrase%20to%20search%20for%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20arguments**%20-%20if%20no%20query%20is%20provided%2C%20usage%20help%20is%20displayed.%0A%0A2.%20**Send%20request%20to%20registry**%20-%20the%20command%20performs%20a%20search%20via%20the%20npm%20registry%20API.%0A%0A3.%20**Get%20results**%20-%20returns%20up%20to%2020%20packages%20matching%20the%20query.%0A%0A4.%20**Format%20output**%20-%20for%20each%20package%2C%20shows%3A%0A%20%20%20-%20Name%20and%20version.%0A%20%20%20-%20Description%20(truncated%20to%2070%20characters).%0A%0A5.%20**Report%20count**%20-%20shows%20the%20total%20number%20of%20packages%20found.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Search%20by%20keyword%22%0A%60%60%60bash%0Amip%20search%20express%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20express...%0A%0AFound%2015%20packages%3A%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express%404.18.2%0A%20%20%20%20%F0%9F%93%9D%20Fast%2C%20unopinionated%2C%20minimalist%20web%20framework%20for%20Node.js%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express-graphql%400.12.0%0A%20%20%20%20%F0%9F%93%9D%20GraphQL%20HTTP%20server%20middleware%20for%20Express%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20express-session%401.17.3%0A%20%20%20%20%F0%9F%93%9D%20Session%20middleware%20for%20Express.js%0A%0A%E2%94%94%E2%94%80%E2%94%80%20express-validator%407.0.1%0A%20%20%20%20%F0%9F%93%9D%20Express.js%20middleware%20for%20request%20validation%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Search%20with%20scope%20prefix%22%0A%60%60%60bash%0Amip%20search%20%40docmd%2Fcore%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20%40docmd%2Fcore...%0A%0AFound%203%20packages%3A%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20%40docmd%2Fcore%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20Documentation%20engine%20from%20Markdown%0A%0A%E2%94%9C%E2%94%80%E2%94%80%20%40docmd%2Fplugin-openapi%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20OpenAPI%20plugin%20for%20docmd%0A%0A%E2%94%94%E2%94%80%E2%94%80%20%40docmd%2Fplugin-mermaid%400.8.7%0A%20%20%20%20%F0%9F%93%9D%20Mermaid%20plugin%20for%20docmd%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Nothing%20found%22%0A%60%60%60bash%0Amip%20search%20some-very-rare-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Searching%20for%20packages%20matching%3A%20some-very-rare-package...%0A%0A%E2%9D%8C%20No%20packages%20found%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Empty%20query%22%0A%60%60%60bash%0Amip%20search%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%93%8B%20Usage%3A%20mip%20search%20%3Cquery%3E%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20packages%20found%22%20icon%3Ainfo%0A**Cause%3A**%20Nothing%20was%20found%20for%20your%20query.%0A%0A**Solution%3A**%0A1.%20Check%20the%20spelling.%0A2.%20Try%20a%20different%20keyword.%0A3.%20The%20package%20may%20have%20been%20removed%20or%20be%20unavailable.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Failed%20to%20search%22%20icon%3Aalert-circle%0A**Cause%3A**%20Network%20issues%20or%20the%20npm%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20registry%20availability%3A%20%60mip%20doctor%60%0A3.%20Try%20again%20later.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20search%60%20is%20the%20first%20step%20before%20installing%20a%20package%3A%0A1.%20Use%20%60mip%20search%60%20to%20find%20the%20package%20you%20need.%0A2.%20Check%20the%20description%20and%20version.%0A3.%20Install%20the%20package%3A%20%60mip%20install%20%3Cpackage%3E%60.%0A%0A**Search%20tips%3A**%0A-%20Use%20general%20keywords%20(e.g.%2C%20%60http%60%20instead%20of%20%60http-client%60).%0A-%20For%20frameworks%2C%20use%20their%20name%20(e.g.%2C%20%60react%60%2C%20%60vue%60).%0A-%20For%20scoped%20packages%2C%20specify%20the%20full%20name%3A%20%60%40namespace%2Fpackage%60.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20info%5D(%2Fcommands%2Finfo)%20-%20detailed%20information%20about%20a%20package.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20install%20the%20found%20package.%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20-%20view%20already%20installed%20packages.%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2167,15 +2183,15 @@ Found <span class="hljs-number">3</span> packages<span class="hljs-punctuation">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

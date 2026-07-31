@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -102,29 +102,29 @@
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip server - web dashboard for MIP : MIP - Modern Package Manager
+      mip page - web dashboard for MIP : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.">
 <link rel="canonical" href="https://mip.fwh.is/commands/server/">
-<meta property="og:title" content="mip server - web dashboard for MIP - MIP - Modern Package Manager">
+<meta property="og:title" content="mip page - web dashboard for MIP - MIP - Modern Package Manager">
 <meta property="og:description" content="The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.">
 <meta property="og:url" content="https://mip.fwh.is/commands/server/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip server - web dashboard for MIP - MIP - Modern Package Manager">
+<meta name="twitter:title" content="mip page - web dashboard for MIP - MIP - Modern Package Manager">
 <meta name="twitter:description" content="The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.">
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/server/">
 <link rel="alternate" hreflang="en" href="/commands/server/">
 <link rel="alternate" hreflang="x-default" href="/commands/server/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1725,7 +1741,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip server - web dashboard for MIP
+                  mip page - web dashboard for MIP
                 </span>
               </div>
             </div>
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20server%20%E2%80%94%20web%20dashboard%20for%20MIP%22%0Adescription%3A%20%22The%20server%20command%20starts%20a%20local%20web%20dashboard%20that%20displays%20real-time%20information%20about%20your%20project%2C%20packages%2C%20global%20store%2C%20registries%2C%20scripts%2C%20and%20system%20health.%22%0A---%0A%0A%23%20mip%20server%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3A%F0%9F%8C%90%0A%60mip%20server%60%20launches%20a%20beautiful%2C%20real-time%20web%20dashboard%20for%20your%20MIP%20project.%20It%20provides%20a%20visual%20overview%20of%20your%20project&#039;s%20dependencies%2C%20global%20storage%2C%20configured%20registries%2C%20available%20scripts%2C%20and%20system%20information%20%E2%80%94%20all%20in%20one%20place%20with%20auto-refresh.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20server%20%3Csubcommand%3E%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Subcommands%0A%0A%7C%20Subcommand%20%7C%20Description%20%7C%0A%7C------------%7C-------------%7C%0A%7C%20%60start%20%5Bport%5D%60%20%7C%20Start%20the%20web%20server%20(default%20port%3A%203000)%20%7C%0A%7C%20%60stop%60%20%7C%20Stop%20the%20running%20server%20%7C%0A%7C%20%60status%60%20%7C%20Show%20server%20status%20(running%2Fstopped)%20%7C%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--open%60%2C%20%60-o%60%20%7C%20Automatically%20open%20the%20dashboard%20in%20your%20browser%20%7C%0A%7C%20%60--host%60%20%7C%20Listen%20on%20all%20network%20interfaces%20(0.0.0.0)%20instead%20of%20just%20localhost%20%7C%0A%0A%23%23%20Dashboard%20Features%0A%0A%23%23%23%20%F0%9F%93%8A%20Overview%20Tab%0A-%20**Package%20statistics**%20%E2%80%94%20total%20installed%20packages%0A-%20**Store%20size**%20%E2%80%94%20global%20storage%20usage%0A-%20**Dependency%20breakdown**%20%E2%80%94%20production%20vs%20development%0A-%20**Script%20count**%20%E2%80%94%20available%20npm%20scripts%0A-%20**Registry%20count**%20%E2%80%94%20configured%20registries%0A-%20**Workspace%20count**%20%E2%80%94%20monorepo%20workspaces%0A-%20**Top%205%20packages**%20%E2%80%94%20largest%20packages%20by%20size%0A-%20**Registry%20quick%20view**%20%E2%80%94%20all%20configured%20registries%20with%20status%0A%0A%23%23%23%20%F0%9F%93%A6%20Packages%20Tab%0A-%20Complete%20list%20of%20all%20installed%20packages%0A-%20Package%20name%2C%20version%2C%20size%2C%20and%20path%0A-%20Status%20indicator%20(exists%2Fmissing%20in%20global%20store)%0A-%20Sortable%20by%20size%20(largest%20first)%0A%0A%23%23%23%20%F0%9F%92%BE%20Store%20Tab%0A-%20Global%20store%20total%20size%0A-%20Number%20of%20packages%20in%20the%20store%0A-%20Store%20path%20location%0A-%20Top%2050%20packages%20by%20size%20in%20the%20global%20cache%0A%0A%23%23%23%20%F0%9F%94%97%20Registries%20Tab%0A-%20All%20configured%20registries%20with%20URLs%0A-%20Token%20status%20(set%2Fmissing)%0A-%20Default%20registry%20indicator%0A-%20Built-in%20registry%20(npm)%20always%20shown%0A%0A%23%23%23%20%F0%9F%93%9C%20Scripts%20Tab%0A-%20All%20npm%20scripts%20defined%20in%20%60mip.yml%60%20or%20%60mip.json%60%0A-%20Script%20names%20and%20commands%0A-%20Quick%20reference%20for%20available%20automation%0A%0A%23%23%23%20%E2%9A%99%EF%B8%8F%20System%20Tab%0A-%20Node.js%20version%0A-%20MIP%20version%0A-%20Platform%20and%20architecture%0A-%20Memory%20usage%20(free%2Ftotal)%0A-%20CPU%20cores%20count%0A-%20System%20uptime%0A-%20Load%20average%0A-%20Current%20working%20directory%0A-%20Home%20directory%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Server%20process**%20%E2%80%94%20MIP%20starts%20a%20lightweight%20HTTP%20server%20using%20Node.js%20%60http%60%20module.%0A%0A2.%20**API%20endpoints**%20%E2%80%94%20the%20server%20exposes%20RESTful%20endpoints%3A%0A%20%20%20-%20%60%2Fapi%2Fproject%60%20%E2%80%94%20project%20configuration%0A%20%20%20-%20%60%2Fapi%2Fpackages%60%20%E2%80%94%20installed%20packages%0A%20%20%20-%20%60%2Fapi%2Fstore%60%20%E2%80%94%20global%20storage%20info%0A%20%20%20-%20%60%2Fapi%2Fregistries%60%20%E2%80%94%20registry%20configuration%0A%20%20%20-%20%60%2Fapi%2Fsystem%60%20%E2%80%94%20system%20information%0A%20%20%20-%20%60%2Fapi%2Fhealth%60%20%E2%80%94%20health%20check%0A%0A3.%20**Dashboard%20UI**%20%E2%80%94%20a%20single-page%20application%20with%20tabs%20that%20fetches%20data%20from%20the%20API%20every%203%20seconds.%0A%0A4.%20**Process%20management**%20%E2%80%94%20server%20PID%20is%20stored%20in%20%60~%2F.mip%2Fserver.pid%60%20for%20process%20control.%0A%0A5.%20**Auto-refresh**%20%E2%80%94%20the%20dashboard%20automatically%20updates%20every%203%20seconds%2C%20keeping%20information%20current.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Start%20server%22%0A%60%60%60bash%0Amip%20server%20start%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%8C%90%20MIP%20Server%20running%20at%20http%3A%2F%2Flocalhost%3A3000%0A%F0%9F%93%8A%20Dashboard%3A%20http%3A%2F%2Flocalhost%3A3000%2F%0A%F0%9F%93%81%20Project%3A%20%2Fhome%2Fuser%2Fmy-project%0A%F0%9F%94%A7%20Press%20Ctrl%2BC%20to%20stop%0A%60%60%60%0A%0AOpen%20your%20browser%20and%20visit%20%60http%3A%2F%2Flocalhost%3A3000%60%20to%20see%20the%20dashboard.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20on%20custom%20port%22%0A%60%60%60bash%0Amip%20server%20start%208080%0A%60%60%60%0AStarts%20the%20server%20on%20port%208080%20instead%20of%20the%20default%203000.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20with%20browser%22%0A%60%60%60bash%0Amip%20server%20start%20--open%0A%60%60%60%0AStarts%20the%20server%20and%20automatically%20opens%20the%20dashboard%20in%20your%20default%20browser.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20on%20all%20interfaces%22%0A%60%60%60bash%0Amip%20server%20start%20--host%0A%60%60%60%0AAllows%20access%20from%20other%20devices%20on%20the%20network%20(useful%20for%20sharing%20the%20dashboard%20with%20team%20members).%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Stop%20server%22%0A%60%60%60bash%0Amip%20server%20stop%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20stopped%20(PID%3A%2012345)%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Check%20status%22%0A%60%60%60bash%0Amip%20server%20status%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20is%20running%20(PID%3A%2012345)%0A%20%20%20To%20stop%3A%20mip%20server%20stop%0A%60%60%60%0A%0AOr%20if%20not%20running%3A%0A%60%60%60%0A%E2%84%B9%EF%B8%8F%20Server%20is%20not%20running%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Dashboard%20Preview%0A%0A%60%60%60%0A%F0%9F%93%8A%20MIP%20Dashboard%0A%0A%F0%9F%93%A6%20Packages%3A%2017%0A%F0%9F%92%BE%20Store%20Size%3A%20273%20MB%0A%F0%9F%93%8B%20Dependencies%3A%2017%20(6%20prod%20%C2%B7%2011%20dev)%0A%F0%9F%93%9C%20Scripts%3A%2013%0A%F0%9F%94%97%20Registries%3A%202%0A%F0%9F%93%81%20Workspaces%3A%200%0A%0A%E2%94%8C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%90%0A%E2%94%82%20%20Overview%20%20%E2%94%82%20%20Packages%20%20%E2%94%82%20%20Store%20%20%E2%94%82%20%20Registries%20%20%E2%94%82%20%20Scripts%20%E2%94%82%0A%E2%94%9C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%A4%0A%E2%94%82%20%20Top%205%20Packages%3A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%20%20Registries%3A%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20lodash%20%20%20%204.17.21%20%202.3%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%9C%E2%94%80%20npm%20(built-in)%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20express%20%20%204.18.2%20%20%201.8%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%94%E2%94%80%20github%20(custom)%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20axios%20%20%20%20%201.6.0%20%20%20%201.2%20MB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20react%20%20%20%20%2018.2.0%20%20%20850%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%94%E2%94%80%20vue%20%20%20%20%20%20%203.3.0%20%20%20%20720%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%94%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%98%0A%60%60%60%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_PORT_IN_USE%22%20icon%3Aalert-triangle%0A**Cause%3A**%20Port%203000%20(or%20the%20specified%20port)%20is%20already%20in%20use.%0A%0A**Resolution%3A**%0A1.%20Use%20a%20different%20port%3A%20%60mip%20server%20start%208080%60%0A2.%20Stop%20the%20existing%20server%3A%20%60mip%20server%20stop%60%0A3.%20Or%20kill%20the%20process%20manually%20using%20the%20PID%20shown%20in%20the%20error%20message.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_SERVER_ALREADY_RUNNING%22%20icon%3Askull%0A**Cause%3A**%20The%20server%20is%20already%20running.%0A%0A**Resolution%3A**%0A1.%20Check%20the%20status%3A%20%60mip%20server%20status%60%0A2.%20Stop%20it%20first%3A%20%60mip%20server%20stop%60%0A3.%20Then%20start%20again%3A%20%60mip%20server%20start%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_NO_CONFIG%22%20icon%3Aalert-circle%0A**Cause%3A**%20No%20%60mip.yml%60%20or%20%60mip.json%60%20found%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%0A1.%20Make%20sure%20you&#039;re%20in%20a%20MIP%20project%20directory.%0A2.%20Run%20%60mip%20init%60%20to%20create%20a%20new%20project.%0A3.%20Or%20navigate%20to%20a%20project%20directory%20with%20a%20config%20file.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20system%20diagnostics%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20list%20installed%20packages%20(CLI)%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20%E2%80%94%20manage%20configuration%0A-%20%5Bmip%20registry%5D(%2Fcommands%2Fregistry)%20%E2%80%94%20manage%20registries%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20How%20the%20server%20works%20under%20the%20hood%22%0AThe%20server%20is%20a%20single-file%20implementation%20using%20Node.js&#039;s%20built-in%20%60http%60%20module%20(no%20external%20dependencies).%0A%0A**Process%20flow%3A**%0A1.%20When%20%60mip%20server%20start%60%20is%20called%2C%20MIP%3A%0A%20%20%20-%20Checks%20if%20the%20server%20is%20already%20running%20(using%20%60~%2F.mip%2Fserver.pid%60)%0A%20%20%20-%20Creates%20an%20HTTP%20server%0A%20%20%20-%20Listens%20on%20the%20specified%20port%0A%20%20%20-%20Writes%20the%20PID%20to%20%60~%2F.mip%2Fserver.pid%60%0A%20%20%20-%20Optional%3A%20opens%20the%20browser%0A%0A2.%20**API%20responses**%20are%20generated%20on-demand%20by%20reading%3A%0A%20%20%20-%20Project%20configuration%20from%20%60mip.yml%60%20or%20%60mip.json%60%0A%20%20%20-%20Package%20manifest%20from%20%60.mip%2Fmanifest.json%60%0A%20%20%20-%20Global%20store%20from%20%60~%2F.mip%2Fstore%2F%60%0A%20%20%20-%20System%20information%20from%20Node.js%20%60os%60%20module%0A%0A3.%20**Dashboard**%20is%20served%20as%20a%20single%20HTML%20file%20with%20embedded%20CSS%20and%20JavaScript.%20The%20JavaScript%3A%0A%20%20%20-%20Fetches%20data%20from%20API%20endpoints%20every%203%20seconds%0A%20%20%20-%20Renders%20the%20data%20in%20tabbed%20interface%0A%20%20%20-%20Provides%20keyboard%20shortcuts%20(Ctrl%2BR%20to%20refresh)%0A%0A4.%20**Graceful%20shutdown**%20%E2%80%94%20the%20server%20handles%20SIGINT%20and%20SIGTERM%20signals%20to%20clean%20up%20the%20PID%20file.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Pro%20tip%3A%20Share%20with%20your%20team%22%20icon%3Alightbulb%0AUse%20%60mip%20server%20start%20--host%60%20to%20allow%20other%20devices%20on%20your%20network%20to%20access%20the%20dashboard.%20The%20server%20will%20listen%20on%20all%20interfaces%2C%20and%20you%20can%20share%20your%20local%20IP%20address%20with%20team%20members%3A%0A%0A%60%60%60bash%0A%23%20Start%20on%20all%20interfaces%0Amip%20server%20start%20--host%0A%0A%23%20Your%20team%20can%20access%20at%3A%0A%23%20http%3A%2F%2F192.168.1.100%3A3000%20%20(replace%20with%20your%20IP)%0A%60%60%60%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20page%20-%20web%20dashboard%20for%20MIP%22%0Adescription%3A%20%22The%20server%20command%20starts%20a%20local%20web%20dashboard%20that%20displays%20real-time%20information%20about%20your%20project%2C%20packages%2C%20global%20store%2C%20registries%2C%20scripts%2C%20and%20system%20health.%22%0A---%0A%0A%23%20mip%20page%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3A%F0%9F%8C%90%0A%60mip%20page%60%20launches%20a%20beautiful%2C%20real-time%20web%20dashboard%20for%20your%20MIP%20project.%20It%20provides%20a%20visual%20overview%20of%20your%20project&#039;s%20dependencies%2C%20global%20storage%2C%20configured%20registries%2C%20available%20scripts%2C%20and%20system%20information%20-%20all%20in%20one%20place%20with%20auto-refresh.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20page%20%3Csubcommand%3E%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Subcommands%0A%0A%7C%20Subcommand%20%7C%20Description%20%7C%0A%7C------------%7C-------------%7C%0A%7C%20%60start%20%5Bport%5D%60%20%7C%20Start%20the%20web%20server%20(default%20port%3A%203000)%20%7C%0A%7C%20%60stop%60%20%7C%20Stop%20the%20running%20server%20%7C%0A%7C%20%60status%60%20%7C%20Show%20server%20status%20(running%2Fstopped)%20%7C%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--open%60%2C%20%60-o%60%20%7C%20Automatically%20open%20the%20dashboard%20in%20your%20browser%20%7C%0A%7C%20%60--host%60%20%7C%20Listen%20on%20all%20network%20interfaces%20(0.0.0.0)%20instead%20of%20just%20localhost%20%7C%0A%0A%23%23%20Dashboard%20Features%0A%0A%23%23%23%20%F0%9F%93%8A%20Overview%20Tab%0A-%20**Package%20statistics**%20-%20total%20installed%20packages%0A-%20**Store%20size**%20-%20global%20storage%20usage%0A-%20**Dependency%20breakdown**%20-%20production%20vs%20development%0A-%20**Script%20count**%20-%20available%20npm%20scripts%0A-%20**Registry%20count**%20-%20configured%20registries%0A-%20**Workspace%20count**%20-%20monorepo%20workspaces%0A-%20**Top%205%20packages**%20-%20largest%20packages%20by%20size%0A-%20**Registry%20quick%20view**%20-%20all%20configured%20registries%20with%20status%0A-%20**Blog**%20-%20view%20all%20latest%20mip%20news%0A%0A%23%23%23%20%F0%9F%93%A6%20Packages%20Tab%0A-%20Complete%20list%20of%20all%20installed%20packages%0A-%20Package%20name%2C%20version%2C%20size%2C%20and%20path%0A-%20Status%20indicator%20(exists%2Fmissing%20in%20global%20store)%0A-%20Sortable%20by%20size%20(largest%20first)%0A%0A%23%23%23%20%F0%9F%92%BE%20Store%20Tab%0A-%20Global%20store%20total%20size%0A-%20Number%20of%20packages%20in%20the%20store%0A-%20Store%20path%20location%0A-%20Top%2050%20packages%20by%20size%20in%20the%20global%20cache%0A%0A%23%23%23%20%F0%9F%94%97%20Registries%20Tab%0A-%20All%20configured%20registries%20with%20URLs%0A-%20Token%20status%20(set%2Fmissing)%0A-%20Default%20registry%20indicator%0A-%20Built-in%20registry%20(npm)%20always%20shown%0A%0A%23%23%23%20%F0%9F%93%9C%20Scripts%20Tab%0A-%20All%20npm%20scripts%20defined%20in%20%60mip.yml%60%20or%20%60mip.json%60%0A-%20Script%20names%20and%20commands%0A-%20Quick%20reference%20for%20available%20automation%0A%0A%23%23%23%20%E2%9A%99%EF%B8%8F%20System%20Tab%0A-%20Node.js%20version%0A-%20MIP%20version%0A-%20Platform%20and%20architecture%0A-%20Memory%20usage%20(free%2Ftotal)%0A-%20CPU%20cores%20count%0A-%20System%20uptime%0A-%20Load%20average%0A-%20Current%20working%20directory%0A-%20Home%20directory%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Server%20process**%20-%20MIP%20starts%20a%20lightweight%20HTTP%20server%20using%20Node.js%20%60http%60%20module.%0A%0A2.%20**API%20endpoints**%20-%20the%20server%20exposes%20RESTful%20endpoints%3A%0A%20%20%20-%20%60%2Fapi%2Fproject%60%20-%20project%20configuration%0A%20%20%20-%20%60%2Fapi%2Fpackages%60%20-%20installed%20packages%0A%20%20%20-%20%60%2Fapi%2Fstore%60%20-%20global%20storage%20info%0A%20%20%20-%20%60%2Fapi%2Fregistries%60%20-%20registry%20configuration%0A%20%20%20-%20%60%2Fapi%2Fsystem%60%20-%20system%20information%0A%20%20%20-%20%60%2Fapi%2Fhealth%60%20-%20health%20check%0A%0A3.%20**Dashboard%20UI**%20-%20a%20single-page%20application%20with%20tabs%20that%20fetches%20data%20from%20the%20API%20every%203%20seconds.%0A%0A4.%20**Process%20management**%20-%20server%20PID%20is%20stored%20in%20%60~%2F.mip%2Fserver.pid%60%20for%20process%20control.%0A%0A5.%20**Auto-refresh**%20-%20the%20dashboard%20automatically%20updates%20every%203%20seconds%2C%20keeping%20information%20current.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Start%20server%22%0A%60%60%60bash%0Amip%20page%20start%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%8C%90%20mip%20page%20running%20at%20http%3A%2F%2Flocalhost%3A3000%0A%F0%9F%93%8A%20Dashboard%3A%20http%3A%2F%2Flocalhost%3A3000%2F%0A%F0%9F%93%81%20Project%3A%20%2Fhome%2Fuser%2Fmy-project%0A%F0%9F%94%A7%20Press%20Ctrl%2BC%20to%20stop%0A%60%60%60%0A%0AOpen%20your%20browser%20and%20visit%20%60http%3A%2F%2Flocalhost%3A3000%60%20to%20see%20the%20dashboard.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20on%20custom%20port%22%0A%60%60%60bash%0Amip%20page%20start%208080%0A%60%60%60%0AStarts%20the%20server%20on%20port%208080%20instead%20of%20the%20default%203000.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20with%20browser%22%0A%60%60%60bash%0Amip%20page%20start%20--open%0A%60%60%60%0AStarts%20the%20server%20and%20automatically%20opens%20the%20dashboard%20in%20your%20default%20browser.%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Start%20on%20all%20interfaces%22%0A%60%60%60bash%0Amip%20page%20start%20--host%0A%60%60%60%0AAllows%20access%20from%20other%20devices%20on%20the%20network%20(useful%20for%20sharing%20the%20dashboard%20with%20team%20members).%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Stop%20server%22%0A%60%60%60bash%0Amip%20page%20stop%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20stopped%20(PID%3A%2012345)%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Check%20status%22%0A%60%60%60bash%0Amip%20page%20status%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Server%20is%20running%20(PID%3A%2012345)%0A%20%20%20To%20stop%3A%20mip%20page%20stop%0A%60%60%60%0A%0AOr%20if%20not%20running%3A%0A%60%60%60%0A%E2%84%B9%EF%B8%8F%20Server%20is%20not%20running%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Dashboard%20Preview%0A%0A%60%60%60%0A%F0%9F%93%8A%20MIP%20Dashboard%0A%0A%F0%9F%93%A6%20Packages%3A%2017%0A%F0%9F%92%BE%20Store%20Size%3A%20273%20MB%0A%F0%9F%93%8B%20Dependencies%3A%2017%20(6%20prod%20%C2%B7%2011%20dev)%0A%F0%9F%93%9C%20Scripts%3A%2013%0A%F0%9F%94%97%20Registries%3A%202%0A%F0%9F%93%81%20Workspaces%3A%200%0A%0A%E2%94%8C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%90%0A%E2%94%82%20%20Overview%20%20%E2%94%82%20%20Packages%20%20%E2%94%82%20%20Store%20%20%E2%94%82%20%20Registries%20%20%E2%94%82%20%20Scripts%20%E2%94%82%0A%E2%94%9C%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%A4%0A%E2%94%82%20%20Top%205%20Packages%3A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%20%20Registries%3A%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20lodash%20%20%20%204.17.21%20%202.3%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%9C%E2%94%80%20npm%20(built-in)%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20express%20%20%204.18.2%20%20%201.8%20MB%20%20%20%20%20%20%E2%94%82%20%20%E2%94%94%E2%94%80%20github%20(custom)%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20axios%20%20%20%20%201.6.0%20%20%20%201.2%20MB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%9C%E2%94%80%20react%20%20%20%20%2018.2.0%20%20%20850%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%82%20%20%E2%94%94%E2%94%80%20vue%20%20%20%20%20%20%203.3.0%20%20%20%20720%20KB%20%20%20%20%20%20%E2%94%82%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%E2%94%82%0A%E2%94%94%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%80%E2%94%98%0A%60%60%60%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_PORT_IN_USE%22%20icon%3Aalert-triangle%0A**Cause%3A**%20Port%203000%20(or%20the%20specified%20port)%20is%20already%20in%20use.%0A%0A**Resolution%3A**%0A1.%20Use%20a%20different%20port%3A%20%60mip%20page%20start%208080%60%0A2.%20Stop%20the%20existing%20server%3A%20%60mip%20page%20stop%60%0A3.%20Or%20kill%20the%20process%20manually%20using%20the%20PID%20shown%20in%20the%20error%20message.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_SERVER_ALREADY_RUNNING%22%20icon%3Askull%0A**Cause%3A**%20The%20server%20is%20already%20running.%0A%0A**Resolution%3A**%0A1.%20Check%20the%20status%3A%20%60mip%20page%20status%60%0A2.%20Stop%20it%20first%3A%20%60mip%20page%20stop%60%0A3.%20Then%20start%20again%3A%20%60mip%20page%20start%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_NO_CONFIG%22%20icon%3Aalert-circle%0A**Cause%3A**%20No%20%60mip.yml%60%20or%20%60mip.json%60%20found%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%0A1.%20Make%20sure%20you&#039;re%20in%20a%20MIP%20project%20directory.%0A2.%20Run%20%60mip%20init%60%20to%20create%20a%20new%20project.%0A3.%20Or%20navigate%20to%20a%20project%20directory%20with%20a%20config%20file.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20system%20diagnostics%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20-%20list%20installed%20packages%20(CLI)%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20-%20manage%20configuration%0A-%20%5Bmip%20registry%5D(%2Fcommands%2Fregistry)%20-%20manage%20registries%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20How%20the%20server%20works%20under%20the%20hood%22%0AThe%20server%20is%20a%20single-file%20implementation%20using%20Node.js&#039;s%20built-in%20%60http%60%20module%20(no%20external%20dependencies).%0A%0A**Process%20flow%3A**%0A1.%20When%20%60mip%20page%20start%60%20is%20called%2C%20MIP%3A%0A%20%20%20-%20Checks%20if%20the%20server%20is%20already%20running%20(using%20%60~%2F.mip%2Fserver.pid%60)%0A%20%20%20-%20Creates%20an%20HTTP%20server%0A%20%20%20-%20Listens%20on%20the%20specified%20port%0A%20%20%20-%20Writes%20the%20PID%20to%20%60~%2F.mip%2Fserver.pid%60%0A%20%20%20-%20Optional%3A%20opens%20the%20browser%0A%0A2.%20**API%20responses**%20are%20generated%20on-demand%20by%20reading%3A%0A%20%20%20-%20Project%20configuration%20from%20%60mip.yml%60%20or%20%60mip.json%60%0A%20%20%20-%20Package%20manifest%20from%20%60.mip%2Fmanifest.json%60%0A%20%20%20-%20Global%20store%20from%20%60~%2F.mip%2Fstore%2F%60%0A%20%20%20-%20System%20information%20from%20Node.js%20%60os%60%20module%0A%0A3.%20**Dashboard**%20is%20served%20as%20a%20single%20HTML%20file%20with%20embedded%20CSS%20and%20JavaScript.%20The%20JavaScript%3A%0A%20%20%20-%20Fetches%20data%20from%20API%20endpoints%20every%203%20seconds%0A%20%20%20-%20Renders%20the%20data%20in%20tabbed%20interface%0A%20%20%20-%20Provides%20keyboard%20shortcuts%20(Ctrl%2BR%20to%20refresh)%0A%0A4.%20**Graceful%20shutdown**%20-%20the%20server%20handles%20SIGINT%20and%20SIGTERM%20signals%20to%20clean%20up%20the%20PID%20file.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Pro%20tip%3A%20Share%20with%20your%20team%22%20icon%3Alightbulb%0AUse%20%60mip%20page%20start%20--host%60%20to%20allow%20other%20devices%20on%20your%20network%20to%20access%20the%20dashboard.%20The%20server%20will%20listen%20on%20all%20interfaces%2C%20and%20you%20can%20share%20your%20local%20IP%20address%20with%20team%20members%3A%0A%0A%60%60%60bash%0A%23%20Start%20on%20all%20interfaces%0Amip%20page%20start%20--host%0A%0A%23%20Your%20team%20can%20access%20at%3A%0A%23%20http%3A%2F%2F192.168.1.100%3A3000%20%20(replace%20with%20your%20IP)%0A%60%60%60%0A%3A%3A%3A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1771,7 +1787,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>server</span>
+                              <span>page</span>
                             
                             
                           </li>
@@ -1828,14 +1844,14 @@
                   
                 </div>
                 
-                <h1 id="mip-server" class="docmd-heading"><a href="#mip-server" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip server</h1>
+                <h1 id="mip-page" class="docmd-heading"><a href="#mip-page" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip page</h1>
 <div class="docmd-container callout callout-info"><div class="callout-title">What is this?</div><div class="callout-content">
-<p><code>mip server</code> launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project’s dependencies, global storage, configured registries, available scripts, and system information - all in one place with auto-refresh.</p>
+<p><code>mip page</code> launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project’s dependencies, global storage, configured registries, available scripts, and system information - all in one place with auto-refresh.</p>
 </div></div>
-<h2 id="mip-server-syntax" class="docmd-heading"><a href="#mip-server-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
-<pre class="hljs"><code class="language-bash">mip server <span class="hljs-punctuation">&lt;</span>subcommand<span class="hljs-punctuation">&gt;</span> [options]
+<h2 id="mip-page-syntax" class="docmd-heading"><a href="#mip-page-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
+<pre class="hljs"><code class="language-bash">mip page <span class="hljs-punctuation">&lt;</span>subcommand<span class="hljs-punctuation">&gt;</span> [options]
 </code></pre>
-<h2 id="mip-server-subcommands" class="docmd-heading"><a href="#mip-server-subcommands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Subcommands</h2>
+<h2 id="mip-page-subcommands" class="docmd-heading"><a href="#mip-page-subcommands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Subcommands</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -1858,7 +1874,7 @@
 </tr>
 </tbody>
 </table>
-</div><h2 id="mip-server-options" class="docmd-heading"><a href="#mip-server-options" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Options</h2>
+</div><h2 id="mip-page-options" class="docmd-heading"><a href="#mip-page-options" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Options</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -1877,8 +1893,8 @@
 </tr>
 </tbody>
 </table>
-</div><h2 id="mip-server-dashboard-features" class="docmd-heading"><a href="#mip-server-dashboard-features" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Dashboard Features</h2>
-<h3 id="mip-server-dashboard-features-overview-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-overview-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📊 Overview Tab</h3>
+</div><h2 id="mip-page-dashboard-features" class="docmd-heading"><a href="#mip-page-dashboard-features" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Dashboard Features</h2>
+<h3 id="mip-page-dashboard-features-overview-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-overview-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📊 Overview Tab</h3>
 <ul>
 <li><strong>Package statistics</strong> - total installed packages</li>
 <li><strong>Store size</strong> - global storage usage</li>
@@ -1888,35 +1904,36 @@
 <li><strong>Workspace count</strong> - monorepo workspaces</li>
 <li><strong>Top 5 packages</strong> - largest packages by size</li>
 <li><strong>Registry quick view</strong> - all configured registries with status</li>
+<li><strong>Blog</strong> - view all latest mip news</li>
 </ul>
-<h3 id="mip-server-dashboard-features-packages-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-packages-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📦 Packages Tab</h3>
+<h3 id="mip-page-dashboard-features-packages-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-packages-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📦 Packages Tab</h3>
 <ul>
 <li>Complete list of all installed packages</li>
 <li>Package name, version, size, and path</li>
 <li>Status indicator (exists/missing in global store)</li>
 <li>Sortable by size (largest first)</li>
 </ul>
-<h3 id="mip-server-dashboard-features-store-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-store-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>💾 Store Tab</h3>
+<h3 id="mip-page-dashboard-features-store-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-store-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>💾 Store Tab</h3>
 <ul>
 <li>Global store total size</li>
 <li>Number of packages in the store</li>
 <li>Store path location</li>
 <li>Top 50 packages by size in the global cache</li>
 </ul>
-<h3 id="mip-server-dashboard-features-registries-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-registries-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>🔗 Registries Tab</h3>
+<h3 id="mip-page-dashboard-features-registries-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-registries-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>🔗 Registries Tab</h3>
 <ul>
 <li>All configured registries with URLs</li>
 <li>Token status (set/missing)</li>
 <li>Default registry indicator</li>
 <li>Built-in registry (npm) always shown</li>
 </ul>
-<h3 id="mip-server-dashboard-features-scripts-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-scripts-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📜 Scripts Tab</h3>
+<h3 id="mip-page-dashboard-features-scripts-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-scripts-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>📜 Scripts Tab</h3>
 <ul>
 <li>All npm scripts defined in <code>mip.yml</code> or <code>mip.json</code></li>
 <li>Script names and commands</li>
 <li>Quick reference for available automation</li>
 </ul>
-<h3 id="mip-server-dashboard-features-system-tab" class="docmd-heading"><a href="#mip-server-dashboard-features-system-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>⚙️ System Tab</h3>
+<h3 id="mip-page-dashboard-features-system-tab" class="docmd-heading"><a href="#mip-page-dashboard-features-system-tab" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>⚙️ System Tab</h3>
 <ul>
 <li>Node.js version</li>
 <li>MIP version</li>
@@ -1928,7 +1945,7 @@
 <li>Current working directory</li>
 <li>Home directory</li>
 </ul>
-<h2 id="mip-server-how-it-works" class="docmd-heading"><a href="#mip-server-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
+<h2 id="mip-page-how-it-works" class="docmd-heading"><a href="#mip-page-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
 <li><p><strong>Server process</strong> - MIP starts a lightweight HTTP server using Node.js <code>http</code> module.</p>
 </li>
@@ -1949,52 +1966,52 @@
 <li><p><strong>Auto-refresh</strong> - the dashboard automatically updates every 3 seconds, keeping information current.</p>
 </li>
 </ol>
-<h2 id="mip-server-examples" class="docmd-heading"><a href="#mip-server-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
+<h2 id="mip-page-examples" class="docmd-heading"><a href="#mip-page-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
 <div class="docmd-tabs">
-<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Start server</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip server start
+<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Start server</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip page start
 </code></pre>
 <p><strong>Output:</strong></p>
-<pre class="hljs"><code>🌐 MIP Server running at http<span class="hljs-punctuation">://</span>localhost<span class="hljs-punctuation">:</span><span class="hljs-number">3000</span>
+<pre class="hljs"><code>🌐 mip page running at http<span class="hljs-punctuation">://</span>localhost<span class="hljs-punctuation">:</span><span class="hljs-number">3000</span>
 📊 Dashboard<span class="hljs-punctuation">:</span> http<span class="hljs-punctuation">://</span>localhost<span class="hljs-punctuation">:</span><span class="hljs-number">3000</span><span class="hljs-punctuation">/</span>
 📁 Project<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">/</span>home<span class="hljs-punctuation">/</span>user<span class="hljs-punctuation">/</span>my<span class="hljs-punctuation">-</span>project
 🔧 Press Ctrl<span class="hljs-punctuation">+</span>C to stop
 </code></pre>
 <p>Open your browser and visit <code>http://localhost:3000</code> to see the dashboard.</p>
 </div></div></div><p>== tab “Start on custom port”</p>
-<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-number">8080</span>
+<pre class="hljs"><code class="language-bash">mip page start <span class="hljs-number">8080</span>
 </code></pre>
 <p>Starts the server on port 8080 instead of the default 3000.<br>
 :::</p>
 <p>== tab “Start with browser”</p>
-<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-punctuation">--</span>open
+<pre class="hljs"><code class="language-bash">mip page start <span class="hljs-punctuation">--</span>open
 </code></pre>
 <p>Starts the server and automatically opens the dashboard in your default browser.<br>
 :::</p>
 <p>== tab “Start on all interfaces”</p>
-<pre class="hljs"><code class="language-bash">mip server start <span class="hljs-punctuation">--</span>host
+<pre class="hljs"><code class="language-bash">mip page start <span class="hljs-punctuation">--</span>host
 </code></pre>
 <p>Allows access from other devices on the network (useful for sharing the dashboard with team members).<br>
 :::</p>
 <p>== tab “Stop server”</p>
-<pre class="hljs"><code class="language-bash">mip server stop
+<pre class="hljs"><code class="language-bash">mip page stop
 </code></pre>
 <p><strong>Output:</strong></p>
 <pre class="hljs"><code>✅ Server <span class="hljs-title function_">stopped</span> (PID<span class="hljs-punctuation">:</span> <span class="hljs-number">12345</span>)
 </code></pre>
 <p>:::</p>
 <p>== tab “Check status”</p>
-<pre class="hljs"><code class="language-bash">mip server status
+<pre class="hljs"><code class="language-bash">mip page status
 </code></pre>
 <p><strong>Output:</strong></p>
 <pre class="hljs"><code>✅ Server is <span class="hljs-title function_">running</span> (PID<span class="hljs-punctuation">:</span> <span class="hljs-number">12345</span>)
-   To stop<span class="hljs-punctuation">:</span> mip server stop
+   To stop<span class="hljs-punctuation">:</span> mip page stop
 </code></pre>
 <p>Or if not running:</p>
 <pre class="hljs"><code>ℹ️ Server is not running
 </code></pre>
 <p>:::<br>
 :::</p>
-<h2 id="mip-server-dashboard-preview" class="docmd-heading"><a href="#mip-server-dashboard-preview" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Dashboard Preview</h2>
+<h2 id="mip-page-dashboard-preview" class="docmd-heading"><a href="#mip-page-dashboard-preview" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Dashboard Preview</h2>
 <pre class="hljs"><code>📊 MIP Dashboard
 
 📦 Packages<span class="hljs-punctuation">:</span> <span class="hljs-number">17</span>
@@ -2015,7 +2032,7 @@
 │  └─ vue       <span class="hljs-number">3.3</span>.<span class="hljs-number">0</span>    <span class="hljs-number">720</span> KB      │                       │
 └─────────────────────────────────────────────────────────────┘
 </code></pre>
-<h2 id="mip-server-common-errors" class="docmd-heading"><a href="#mip-server-common-errors" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common errors</h2>
+<h2 id="mip-page-common-errors" class="docmd-heading"><a href="#mip-page-common-errors" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common errors</h2>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
 <svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-triangle-alert"
@@ -2037,8 +2054,8 @@
 <p><strong>Cause:</strong> Port 3000 (or the specified port) is already in use.</p>
 <p><strong>Resolution:</strong></p>
 <ol>
-<li>Use a different port: <code>mip server start 8080</code></li>
-<li>Stop the existing server: <code>mip server stop</code></li>
+<li>Use a different port: <code>mip page start 8080</code></li>
+<li>Stop the existing server: <code>mip page stop</code></li>
 <li>Or kill the process manually using the PID shown in the error message.</li>
 </ol>
 </div></div>
@@ -2064,9 +2081,9 @@
 <p><strong>Cause:</strong> The server is already running.</p>
 <p><strong>Resolution:</strong></p>
 <ol>
-<li>Check the status: <code>mip server status</code></li>
-<li>Stop it first: <code>mip server stop</code></li>
-<li>Then start again: <code>mip server start</code></li>
+<li>Check the status: <code>mip page status</code></li>
+<li>Stop it first: <code>mip page stop</code></li>
+<li>Then start again: <code>mip page start</code></li>
 </ol>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
@@ -2095,7 +2112,7 @@
 <li>Or navigate to a project directory with a config file.</li>
 </ol>
 </div></div>
-<h2 id="mip-server-related-commands" class="docmd-heading"><a href="#mip-server-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
+<h2 id="mip-page-related-commands" class="docmd-heading"><a href="#mip-page-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
 <li><a href="/commands/doctor/">mip doctor</a> - system diagnostics</li>
 <li><a href="/commands/list/">mip list</a> - list installed packages (CLI)</li>
@@ -2111,7 +2128,7 @@
 <p>The server is a single-file implementation using Node.js’s built-in <code>http</code> module (no external dependencies).</p>
 <p><strong>Process flow:</strong></p>
 <ol>
-<li><p>When <code>mip server start</code> is called, MIP:</p>
+<li><p>When <code>mip page start</code> is called, MIP:</p>
 <ul>
 <li>Checks if the server is already running (using <code>~/.mip/server.pid</code>)</li>
 <li>Creates an HTTP server</li>
@@ -2157,9 +2174,9 @@
   <path d="M10 22h4" />
 </svg>
 💡 Pro tip: Share with your team</div><div class="callout-content">
-<p>Use <code>mip server start --host</code> to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:</p>
+<p>Use <code>mip page start --host</code> to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:</p>
 <pre class="hljs"><code class="language-bash"><span class="hljs-comment"># Start on all interfaces</span>
-mip server start <span class="hljs-punctuation">--</span>host
+mip page start <span class="hljs-punctuation">--</span>host
 
 <span class="hljs-comment"># Your team can access at:</span>
 <span class="hljs-comment"># http://192.168.1.100:3000  (replace with your IP)</span>
@@ -2244,67 +2261,67 @@ mip server start <span class="hljs-punctuation">--</span>host
     <ul class="toc-list">
       
         <li class="toc-item toc-level-1">
-          <a href="#mip-server" class="toc-link">mip server</a>
+          <a href="#mip-page" class="toc-link">mip page</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-syntax" class="toc-link">Syntax</a>
+          <a href="#mip-page-syntax" class="toc-link">Syntax</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-subcommands" class="toc-link">Subcommands</a>
+          <a href="#mip-page-subcommands" class="toc-link">Subcommands</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-options" class="toc-link">Options</a>
+          <a href="#mip-page-options" class="toc-link">Options</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-dashboard-features" class="toc-link">Dashboard Features</a>
+          <a href="#mip-page-dashboard-features" class="toc-link">Dashboard Features</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-overview-tab" class="toc-link">📊 Overview Tab</a>
+          <a href="#mip-page-dashboard-features-overview-tab" class="toc-link">📊 Overview Tab</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-packages-tab" class="toc-link">📦 Packages Tab</a>
+          <a href="#mip-page-dashboard-features-packages-tab" class="toc-link">📦 Packages Tab</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-store-tab" class="toc-link">💾 Store Tab</a>
+          <a href="#mip-page-dashboard-features-store-tab" class="toc-link">💾 Store Tab</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-registries-tab" class="toc-link">🔗 Registries Tab</a>
+          <a href="#mip-page-dashboard-features-registries-tab" class="toc-link">🔗 Registries Tab</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-scripts-tab" class="toc-link">📜 Scripts Tab</a>
+          <a href="#mip-page-dashboard-features-scripts-tab" class="toc-link">📜 Scripts Tab</a>
         </li>
       
         <li class="toc-item toc-level-3">
-          <a href="#mip-server-dashboard-features-system-tab" class="toc-link">⚙️ System Tab</a>
+          <a href="#mip-page-dashboard-features-system-tab" class="toc-link">⚙️ System Tab</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-how-it-works" class="toc-link">How it works</a>
+          <a href="#mip-page-how-it-works" class="toc-link">How it works</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-examples" class="toc-link">Examples</a>
+          <a href="#mip-page-examples" class="toc-link">Examples</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-dashboard-preview" class="toc-link">Dashboard Preview</a>
+          <a href="#mip-page-dashboard-preview" class="toc-link">Dashboard Preview</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-common-errors" class="toc-link">Common errors</a>
+          <a href="#mip-page-common-errors" class="toc-link">Common errors</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-server-related-commands" class="toc-link">Related commands</a>
+          <a href="#mip-page-related-commands" class="toc-link">Related commands</a>
         </li>
       
     </ul>
@@ -2336,15 +2353,15 @@ mip server start <span class="hljs-punctuation">--</span>host
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

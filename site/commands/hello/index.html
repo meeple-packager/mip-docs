@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip hello - system info : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrr036v">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrr036v" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrr036v" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The hello command starts an interactive TUI that displays system/project information and shows quick access to some MIP commands.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrr036v" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrr036v" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/hello/">
 <link rel="alternate" hreflang="en" href="/commands/hello/">
 <link rel="alternate" hreflang="x-default" href="/commands/hello/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20hello%20%E2%80%94%20system%20info%22%0Adescription%3A%20%22The%20hello%20command%20starts%20an%20interactive%20TUI%20that%20displays%20system%2Fproject%20information%20and%20shows%20quick%20access%20to%20some%20MIP%20commands.%22%0A---%0A%0A%23%20mip%20hello%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Acpu%0A%60mip%20hello%60%20starts%20an%20interactive%20terminal%20UI%20(TUI)%20that%20shows%3A%0A-%20**System**%20info%20(Node%20version%2C%20OS%2C%20kernel%2C%20architecture)%0A-%20**Hardware**%20info%20(CPU%20model%2C%20cores%2C%20RAM%2C%20uptime)%0A-%20**Project**%20info%20(detected%20config%20file%2C%20number%20of%20deps%2C%20whether%20workspaces%20exist)%0A-%20**Quick%20Commands**%20(a%20small%20helper%20list%3B%20can%20be%20extended%20via%20features)%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20hello%0A%60%60%60%0A%0AAlias%3A%0A%0A%60%60%60bash%0Amip%20h%0A%60%60%60%0A%0A%23%23%20What%20you%20see%0A%0AThe%20TUI%20refreshes%20periodically%20(see%20features%20below)%20and%20can%20also%20include%20a%20list%20of%20quick%2Fcustom%20commands%20depending%20on%20feature%20flags.%0A%0A%23%23%20How%20to%20exit%0A%0APress%3A%0A-%20%60Ctrl%2BC%60%0A-%20%60Esc%60%0A-%20%60q%60%0A%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20hello%22%0A%60%60%60bash%0Amip%20hello%0A%60%60%60%0A%3A%3A%3A%0A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20--help%5D(%2Fcommands%2Fwhy)%20%E2%80%94%20full%20CLI%20help%20entry%20point%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20system%20health%20checks%0A-%20%5Bmip%20feel%5D(%2Fcommands%2Ffeel)%20%E2%80%94%20project%20status%20overview%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20hello%20-%20system%20info%22%0Adescription%3A%20%22The%20hello%20command%20starts%20an%20interactive%20TUI%20that%20displays%20system%2Fproject%20information%20and%20shows%20quick%20access%20to%20some%20MIP%20commands.%22%0A---%0A%0A%23%20mip%20hello%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Acpu%0A%60mip%20hello%60%20starts%20an%20interactive%20terminal%20UI%20(TUI)%20that%20shows%3A%0A-%20**System**%20info%20(Node%20version%2C%20OS%2C%20kernel%2C%20architecture)%0A-%20**Hardware**%20info%20(CPU%20model%2C%20cores%2C%20RAM%2C%20uptime)%0A-%20**Project**%20info%20(detected%20config%20file%2C%20number%20of%20deps%2C%20whether%20workspaces%20exist)%0A-%20**Quick%20Commands**%20(a%20small%20helper%20list%3B%20can%20be%20extended%20via%20features)%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20hello%0A%60%60%60%0A%0AAlias%3A%0A%0A%60%60%60bash%0Amip%20h%0A%60%60%60%0A%0A%23%23%20What%20you%20see%0A%0AThe%20TUI%20refreshes%20periodically%20(see%20features%20below)%20and%20can%20also%20include%20a%20list%20of%20quick%2Fcustom%20commands%20depending%20on%20feature%20flags.%0A%0A%23%23%20How%20to%20exit%0A%0APress%3A%0A-%20%60Ctrl%2BC%60%0A-%20%60Esc%60%0A-%20%60q%60%0A%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20hello%22%0A%60%60%60bash%0Amip%20hello%0A%60%60%60%0A%3A%3A%3A%0A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20--help%5D(%2Fcommands%2Fwhy)%20-%20full%20CLI%20help%20entry%20point%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20system%20health%20checks%0A-%20%5Bmip%20feel%5D(%2Fcommands%2Ffeel)%20-%20project%20status%20overview%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1919,10 +1935,10 @@ What is this?</div><div class="callout-content">
                       </a>
                     
                     
-                      <a href="../../setup/" class="next-page">
+                      <a href="../../commands/shell/" class="next-page">
                         <span><small>next</small>
                           <strong>
-                            Creating a Project
+                            shell
                           </strong></span>
                         
 <svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -2001,38 +2017,6 @@ What is this?</div><div class="callout-content">
             <div class="page-footer-actions">
               
               
-                <span class="git-last-updated" data-timestamp="1784447604000">
-                  <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1784447604000"></span>
-                  
-                  <div class="git-commit-tooltip" role="tooltip">
-                    <div class="git-tooltip-title">Recent commits</div>
-                    <ul class="git-commit-list">
-                      
-                        <li class="git-commit-item">
-                          <div class="git-commit-avatar" title="kiwinatra">
-                            
-                              <img src="https://www.gravatar.com/avatar/f845c810c2b6b1e48a071167704b05b3?d=mp&amp;s=64" alt="kiwinatra">
-                            
-                          </div>
-                          <div class="git-commit-details">
-                            <div class="git-commit-message" title="UPDATEEE">UPDATEEE</div>
-                            <div class="git-commit-meta">
-                              <span class="git-commit-author">kiwinatra</span>
-                              <span class="git-commit-date" data-timestamp="1784447604000"></span>
-                            </div>
-                          </div>
-                        </li>
-                      
-                    </ul>
-                  </div>
-                  
-                </span>
-              
               <span class="git-spacer"></span>
               
             </div>
@@ -2054,15 +2038,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrr036v"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrr036v"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrr036v"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrr036v" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrr036v" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrr036v" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

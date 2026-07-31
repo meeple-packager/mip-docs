@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip doctor - diagnose the environment and the project : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The doctor command checks your environment: Node.js and MIP versions, Git availability, access to the registry, write permissions, and PATH correctness.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/doctor/">
 <link rel="alternate" hreflang="en" href="/commands/doctor/">
 <link rel="alternate" hreflang="x-default" href="/commands/doctor/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20doctor%20%E2%80%94%20diagnose%20the%20environment%20and%20the%20project%22%0Adescription%3A%20%22The%20doctor%20command%20checks%20your%20environment%3A%20Node.js%20and%20MIP%20versions%2C%20Git%20availability%2C%20access%20to%20the%20registry%2C%20write%20permissions%2C%20and%20PATH%20correctness.%22%0A---%0A%0A%23%20mip%20doctor%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Astethoscope%0A%60mip%20doctor%60%20is%20a%20diagnostic%20utility%20that%20checks%20your%20environment%20for%20potential%20problems.%20It%20analyzes%20tool%20versions%2C%20network%20availability%2C%20access%20permissions%2C%20and%20PATH%20configuration%E2%80%94helping%20you%20quickly%20identify%20and%20fix%20common%20issues%20before%20installing%20packages.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20Node.js**%20%E2%80%94%20analyzes%20the%20current%20Node.js%20version.%20Recommended%20version%20is%20**v18%20or%20higher**.%0A%0A2.%20**Check%20MIP**%20%E2%80%94%20displays%20the%20currently%20installed%20MIP%20version.%0A%0A3.%20**Check%20the%20global%20cache**%20(%60~%2F.mip%2F%60)%20%E2%80%94%20verifies%20that%20the%20global%20storage%20exists%20and%20checks%20its%20size.%0A%0A4.%20**Check%20configuration**%20%E2%80%94%20verifies%20that%20%60mip.yml%60%20exists%20and%20outputs%20the%20number%20of%20dependencies%2C%20scripts%2C%20and%20workspaces.%0A%0A5.%20**Check%20the%20manifest**%20%E2%80%94%20checks%20%60.mip%2Fmanifest.json%60%20and%20validates%20that%20package%20paths%20are%20intact.%0A%0A6.%20**Check%20the%20local%20%60.mip%2F%60%20directory**%20%E2%80%94%20checks%20that%20the%20local%20cache%20exists.%0A%0A7.%20**Check%20PATH**%20%E2%80%94%20ensures%20that%20MIP%20global%20binaries%20(%60~%2F.mip%2Fglobal%2Fnode_modules%2F.bin%60)%20are%20present%20in%20%60PATH%60.%0A%0A8.%20**Check%20Git**%20%E2%80%94%20verifies%20that%20Git%20is%20available%20(required%20for%20GitHub%20packages).%0A%0A9.%20**Check%20network**%20%E2%80%94%20tries%20to%20reach%20the%20npm%20registry%20(%60registry.npmjs.org%60).%0A%0A10.%20**Check%20disk**%20%E2%80%94%20verifies%20write%20permissions%20in%20a%20temporary%20directory.%0A%0A11.%20**Report%20results**%20%E2%80%94%20shows%20all%20found%20issues%20and%20suggests%20how%20to%20fix%20them.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Healthy%20environment%22%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A**Sample%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Running%20diagnostics...%0A%0A%E2%9C%85%20Node.js%20v20.11.0%0A%E2%9C%85%20mip%20v2.0%0A%E2%9C%85%20~%2F.mip%20exists%0A%E2%9C%85%20Global%20store%3A%2042.50%20MB%0A%E2%9C%85%20Config%3A%20mip.yml%0A%20%20%20%F0%9F%93%A6%203%20dependencies%0A%20%20%20%F0%9F%93%9C%202%20scripts%0A%20%20%20%F0%9F%93%81%201%20workspace(s)%0A%E2%9C%85%20Manifest%3A%203%20package(s)%20installed%0A%20%20%20%E2%9C%85%20All%20package%20paths%20exist%0A%E2%9C%85%20Local%20.mip%20exists%0A%E2%9C%85%20Global%20bin%20in%20PATH%0A%E2%9C%85%20Git%20installed%0A%E2%9C%85%20Network%3A%20npm%20registry%20reachable%0A%E2%9C%85%20Disk%20writeable%0A%0A%F0%9F%93%8A%20Summary%3A%200%20warning(s)%0A%0A%E2%9C%A8%20System%20is%20healthy!%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Problematic%20environment%22%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A**Sample%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Running%20diagnostics...%0A%0A%E2%9A%A0%EF%B8%8F%20Node.js%20v12.22.0%20(recommended%3A%20v18%2B)%0A%E2%9C%85%20mip%20v2.0%0A%E2%9A%A0%EF%B8%8F%20~%2F.mip%20directory%20missing%20(will%20be%20created%20on%20first%20install)%0A%E2%84%B9%EF%B8%8F%20No%20config%20file%20found%20(mip.yml%2C%20mip.json%2C%20or%20package.json)%0A%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%3A%20%2Fhome%2Fuser%2F.mip%2Fglobal%2Fnode_modules%2F.bin%0A%E2%9A%A0%EF%B8%8F%20Git%20not%20found%20(required%20for%20GitHub%20packages)%0A%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%20(check%20network)%0A%E2%9C%85%20Disk%20writeable%0A%0A%F0%9F%93%8A%20Summary%3A%205%20warning(s)%0A%0AIssues%20found%3A%0A%0A%20%20%E2%9A%A0%EF%B8%8F%20Node.js%20v12.22.0%20(recommended%3A%20v18%2B)%0A%20%20%E2%9A%A0%EF%B8%8F%20~%2F.mip%20directory%20missing%0A%20%20%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%0A%20%20%E2%9A%A0%EF%B8%8F%20Git%20not%20found%0A%20%20%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%0A%0A%F0%9F%92%A1%20Fix%20suggestions%3A%0A%20%20%E2%80%A2%20Add%20to%20~%2F.zshrc%20or%20~%2F.bashrc%3A%0A%20%20%20%20export%20PATH%3D%22%24PATH%3A%2Fhome%2Fuser%2F.mip%2Fglobal%2Fnode_modules%2F.bin%22%0A%20%20%E2%80%A2%20Install%20git%3A%20https%3A%2F%2Fgit-scm.com%2F%0A%20%20%E2%80%A2%20Run%20%22mip%20init%22%20to%20create%20a%20config%20file%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Node.js%20version%20too%20old%22%20icon%3Aalert-triangle%0A**Cause%3A**%20An%20outdated%20Node.js%20version%20is%20installed%20(below%20v14).%0A%0A**Resolution%3A**%0A1.%20Use%20%5Bnvm%5D(https%3A%2F%2Fgithub.com%2Fnvm-sh%2Fnvm)%20to%20install%20a%20current%20version%3A%0A%20%20%20%60%60%60bash%0A%20%20%20nvm%20install%2020%0A%20%20%20nvm%20use%2020%0A%20%20%20%60%60%60%0A2.%20Or%20download%20the%20latest%20version%20from%20%5Bnodejs.org%5D(https%3A%2F%2Fnodejs.org%2F).%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%22%20icon%3Aalert-circle%0A**Cause%3A**%20MIP%20global%20binaries%20are%20not%20added%20to%20the%20environment%20variable%20%60PATH%60.%0A%0A**Resolution%3A**%20Add%20to%20your%20%60~%2F.zshrc%60%20or%20%60~%2F.bashrc%60%3A%0A%60%60%60bash%0Aexport%20PATH%3D%22%24PATH%3A~%2F.mip%2Fglobal%2Fnode_modules%2F.bin%22%0A%60%60%60%0AThen%20restart%20your%20shell%3A%20%60source%20~%2F.zshrc%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%22%20icon%3Askull%0A**Cause%3A**%20Network%20problems%20or%20the%20npm%20registry%20is%20unreachable.%0A%0A**Resolution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20your%20proxy%20settings.%0A3.%20Temporarily%20disable%20VPN%2Ffirewall.%0A4.%20Make%20sure%20DNS%20works%20correctly.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Git%20not%20found%22%20icon%3Agit-branch%0A**Cause%3A**%20Git%20is%20not%20installed%20or%20is%20missing%20from%20%60PATH%60.%0A%0A**Resolution%3A**%0A-%20**Linux%2FMac%3A**%20%60sudo%20apt%20install%20git%60%20or%20%60brew%20install%20git%60%0A-%20**Windows%3A**%20Download%20from%20%5Bgit-scm.com%5D(https%3A%2F%2Fgit-scm.com%2F)%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20installs%20dependencies%20(after%20running%20doctor).%0A-%20%5Bmip%20cache%20clean%5D(%2Fcommands%2Fcache)%20%E2%80%94%20clears%20the%20cache%20if%20you%20run%20into%20disk-related%20issues.%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20%E2%80%94%20CI%2FCD%20installation%20(doctor%20helps%20you%20pre-check%20the%20environment).%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20Why%20is%20doctor%20important%3F%22%0A%60mip%20doctor%60%20is%20a%20**first%20line%20of%20defense**%20against%20common%20problems%3A%0A%0A1.%20**Saves%20time**%20%E2%80%94%20instead%20of%20guessing%20why%20installation%20fails%2C%20you%20get%20a%20clear%20diagnosis.%0A2.%20**Prevents%20mistakes**%20%E2%80%94%20many%20issues%20(e.g.%2C%20outdated%20Node.js)%20lead%20to%20confusing%20errors%20that%20are%20hard%20to%20interpret.%0A3.%20**Improves%20onboarding**%20%E2%80%94%20new%20developers%20only%20need%20to%20run%20%60mip%20doctor%60%20to%20understand%20what%20must%20be%20configured%20in%20their%20environment.%0A%0A**Tip%3A**%20Add%20%60mip%20doctor%60%20to%20your%20%60README.md%60%20as%20the%20very%20first%20step%20after%20cloning%20the%20repository.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20doctor%20-%20diagnose%20the%20environment%20and%20the%20project%22%0Adescription%3A%20%22The%20doctor%20command%20checks%20your%20environment%3A%20Node.js%20and%20MIP%20versions%2C%20Git%20availability%2C%20access%20to%20the%20registry%2C%20write%20permissions%2C%20and%20PATH%20correctness.%22%0A---%0A%0A%23%20mip%20doctor%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Astethoscope%0A%60mip%20doctor%60%20is%20a%20diagnostic%20utility%20that%20checks%20your%20environment%20for%20potential%20problems.%20It%20analyzes%20tool%20versions%2C%20network%20availability%2C%20access%20permissions%2C%20and%20PATH%20configuration-helping%20you%20quickly%20identify%20and%20fix%20common%20issues%20before%20installing%20packages.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20Node.js**%20-%20analyzes%20the%20current%20Node.js%20version.%20Recommended%20version%20is%20**v18%20or%20higher**.%0A%0A2.%20**Check%20MIP**%20-%20displays%20the%20currently%20installed%20MIP%20version.%0A%0A3.%20**Check%20the%20global%20cache**%20(%60~%2F.mip%2F%60)%20-%20verifies%20that%20the%20global%20storage%20exists%20and%20checks%20its%20size.%0A%0A4.%20**Check%20configuration**%20-%20verifies%20that%20%60mip.yml%60%20exists%20and%20outputs%20the%20number%20of%20dependencies%2C%20scripts%2C%20and%20workspaces.%0A%0A5.%20**Check%20the%20manifest**%20-%20checks%20%60.mip%2Fmanifest.json%60%20and%20validates%20that%20package%20paths%20are%20intact.%0A%0A6.%20**Check%20the%20local%20%60.mip%2F%60%20directory**%20-%20checks%20that%20the%20local%20cache%20exists.%0A%0A7.%20**Check%20PATH**%20-%20ensures%20that%20MIP%20global%20binaries%20(%60~%2F.mip%2Fglobal%2Fnode_modules%2F.bin%60)%20are%20present%20in%20%60PATH%60.%0A%0A8.%20**Check%20Git**%20-%20verifies%20that%20Git%20is%20available%20(required%20for%20GitHub%20packages).%0A%0A9.%20**Check%20network**%20-%20tries%20to%20reach%20the%20npm%20registry%20(%60registry.npmjs.org%60).%0A%0A10.%20**Check%20disk**%20-%20verifies%20write%20permissions%20in%20a%20temporary%20directory.%0A%0A11.%20**Report%20results**%20-%20shows%20all%20found%20issues%20and%20suggests%20how%20to%20fix%20them.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Healthy%20environment%22%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A**Sample%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Running%20diagnostics...%0A%0A%E2%9C%85%20Node.js%20v20.11.0%0A%E2%9C%85%20mip%20v2.0%0A%E2%9C%85%20~%2F.mip%20exists%0A%E2%9C%85%20Global%20store%3A%2042.50%20MB%0A%E2%9C%85%20Config%3A%20mip.yml%0A%20%20%20%F0%9F%93%A6%203%20dependencies%0A%20%20%20%F0%9F%93%9C%202%20scripts%0A%20%20%20%F0%9F%93%81%201%20workspace(s)%0A%E2%9C%85%20Manifest%3A%203%20package(s)%20installed%0A%20%20%20%E2%9C%85%20All%20package%20paths%20exist%0A%E2%9C%85%20Local%20.mip%20exists%0A%E2%9C%85%20Global%20bin%20in%20PATH%0A%E2%9C%85%20Git%20installed%0A%E2%9C%85%20Network%3A%20npm%20registry%20reachable%0A%E2%9C%85%20Disk%20writeable%0A%0A%F0%9F%93%8A%20Summary%3A%200%20warning(s)%0A%0A%E2%9C%A8%20System%20is%20healthy!%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Problematic%20environment%22%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A**Sample%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Running%20diagnostics...%0A%0A%E2%9A%A0%EF%B8%8F%20Node.js%20v12.22.0%20(recommended%3A%20v18%2B)%0A%E2%9C%85%20mip%20v2.0%0A%E2%9A%A0%EF%B8%8F%20~%2F.mip%20directory%20missing%20(will%20be%20created%20on%20first%20install)%0A%E2%84%B9%EF%B8%8F%20No%20config%20file%20found%20(mip.yml%2C%20mip.json%2C%20or%20package.json)%0A%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%3A%20%2Fhome%2Fuser%2F.mip%2Fglobal%2Fnode_modules%2F.bin%0A%E2%9A%A0%EF%B8%8F%20Git%20not%20found%20(required%20for%20GitHub%20packages)%0A%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%20(check%20network)%0A%E2%9C%85%20Disk%20writeable%0A%0A%F0%9F%93%8A%20Summary%3A%205%20warning(s)%0A%0AIssues%20found%3A%0A%0A%20%20%E2%9A%A0%EF%B8%8F%20Node.js%20v12.22.0%20(recommended%3A%20v18%2B)%0A%20%20%E2%9A%A0%EF%B8%8F%20~%2F.mip%20directory%20missing%0A%20%20%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%0A%20%20%E2%9A%A0%EF%B8%8F%20Git%20not%20found%0A%20%20%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%0A%0A%F0%9F%92%A1%20Fix%20suggestions%3A%0A%20%20%E2%80%A2%20Add%20to%20~%2F.zshrc%20or%20~%2F.bashrc%3A%0A%20%20%20%20export%20PATH%3D%22%24PATH%3A%2Fhome%2Fuser%2F.mip%2Fglobal%2Fnode_modules%2F.bin%22%0A%20%20%E2%80%A2%20Install%20git%3A%20https%3A%2F%2Fgit-scm.com%2F%0A%20%20%E2%80%A2%20Run%20%22mip%20init%22%20to%20create%20a%20config%20file%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Node.js%20version%20too%20old%22%20icon%3Aalert-triangle%0A**Cause%3A**%20An%20outdated%20Node.js%20version%20is%20installed%20(below%20v14).%0A%0A**Resolution%3A**%0A1.%20Use%20%5Bnvm%5D(https%3A%2F%2Fgithub.com%2Fnvm-sh%2Fnvm)%20to%20install%20a%20current%20version%3A%0A%20%20%20%60%60%60bash%0A%20%20%20nvm%20install%2020%0A%20%20%20nvm%20use%2020%0A%20%20%20%60%60%60%0A2.%20Or%20download%20the%20latest%20version%20from%20%5Bnodejs.org%5D(https%3A%2F%2Fnodejs.org%2F).%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Global%20bin%20not%20in%20PATH%22%20icon%3Aalert-circle%0A**Cause%3A**%20MIP%20global%20binaries%20are%20not%20added%20to%20the%20environment%20variable%20%60PATH%60.%0A%0A**Resolution%3A**%20Add%20to%20your%20%60~%2F.zshrc%60%20or%20%60~%2F.bashrc%60%3A%0A%60%60%60bash%0Aexport%20PATH%3D%22%24PATH%3A~%2F.mip%2Fglobal%2Fnode_modules%2F.bin%22%0A%60%60%60%0AThen%20restart%20your%20shell%3A%20%60source%20~%2F.zshrc%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9A%A0%EF%B8%8F%20Cannot%20reach%20npm%20registry%22%20icon%3Askull%0A**Cause%3A**%20Network%20problems%20or%20the%20npm%20registry%20is%20unreachable.%0A%0A**Resolution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20your%20proxy%20settings.%0A3.%20Temporarily%20disable%20VPN%2Ffirewall.%0A4.%20Make%20sure%20DNS%20works%20correctly.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Git%20not%20found%22%20icon%3Agit-branch%0A**Cause%3A**%20Git%20is%20not%20installed%20or%20is%20missing%20from%20%60PATH%60.%0A%0A**Resolution%3A**%0A-%20**Linux%2FMac%3A**%20%60sudo%20apt%20install%20git%60%20or%20%60brew%20install%20git%60%0A-%20**Windows%3A**%20Download%20from%20%5Bgit-scm.com%5D(https%3A%2F%2Fgit-scm.com%2F)%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20installs%20dependencies%20(after%20running%20doctor).%0A-%20%5Bmip%20cache%20clean%5D(%2Fcommands%2Fcache)%20-%20clears%20the%20cache%20if%20you%20run%20into%20disk-related%20issues.%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20-%20CI%2FCD%20installation%20(doctor%20helps%20you%20pre-check%20the%20environment).%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20Why%20is%20doctor%20important%3F%22%0A%60mip%20doctor%60%20is%20a%20**first%20line%20of%20defense**%20against%20common%20problems%3A%0A%0A1.%20**Saves%20time**%20-%20instead%20of%20guessing%20why%20installation%20fails%2C%20you%20get%20a%20clear%20diagnosis.%0A2.%20**Prevents%20mistakes**%20-%20many%20issues%20(e.g.%2C%20outdated%20Node.js)%20lead%20to%20confusing%20errors%20that%20are%20hard%20to%20interpret.%0A3.%20**Improves%20onboarding**%20-%20new%20developers%20only%20need%20to%20run%20%60mip%20doctor%60%20to%20understand%20what%20must%20be%20configured%20in%20their%20environment.%0A%0A**Tip%3A**%20Add%20%60mip%20doctor%60%20to%20your%20%60README.md%60%20as%20the%20very%20first%20step%20after%20cloning%20the%20repository.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2195,15 +2211,15 @@ nvm <span class="hljs-keyword">use</span> <span class="hljs-number">20</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

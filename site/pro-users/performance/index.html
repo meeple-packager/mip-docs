@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       MIP Performance : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="How MIP achieves high speed: caching, parallel loading, HTTP/2, and global cache.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/pro-users/performance/">
 <link rel="alternate" hreflang="en" href="/pro-users/performance/">
 <link rel="alternate" hreflang="x-default" href="/pro-users/performance/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20Performance%22%0Adescription%3A%20%22How%20MIP%20achieves%20high%20speed%3A%20caching%2C%20parallel%20loading%2C%20HTTP%2F2%2C%20and%20global%20cache.%22%0A---%0A%0A%23%20MIP%20Performance%20%E2%9A%A1%0A%0AMIP%20is%20designed%20for%20maximum%20speed.%20Here&#039;s%20how%20it%20achieves%20it.%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Key%20technologies%0A%0A%23%23%23%201.%20Global%20cache%0A%0AAll%20packages%20are%20stored%20**once**%20in%20%60~%2F.mip%2Fstore%2F%60%20and%20used%20across%20all%20projects.%0A%0A%60%60%60%0A~%2F.mip%2Fstore%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20lodash%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.17.21%2F%20%20%20%20%20%23%20%E2%86%90%20one%20copy%20for%20all%20projects%0A%E2%94%94%E2%94%80%E2%94%80%20express%2F%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.18.2%2F%20%20%20%20%20%20%23%20%E2%86%90%20one%20copy%20for%20all%20projects%0A%60%60%60%0A%0A**Benefits%3A**%0A-%20Space%20savings%3A%20100%20MB%20instead%20of%201%20GB%20(10%20projects)%0A-%20Faster%20installation%3A%20no%20need%20to%20re-download%0A%0A%23%23%23%202.%20Parallel%20loading%0A%0AMIP%20downloads%20up%20to%2010%20packages%20simultaneously%2C%20using%20all%20CPU%20cores.%0A%0A%60%60%60javascript%0A%2F%2F%20lib%2Fcore%2Fparallel-download.js%0Aconst%20maxWorkers%20%3D%20os.cpus().length%3B%0Aconst%20chunks%20%3D%20this.chunkArray(packages%2C%20maxWorkers)%3B%0Aconst%20results%20%3D%20await%20Promise.all(chunks.map(downloadChunk))%3B%0A%60%60%60%0A%0A%23%23%23%203.%20HTTP%2F2%0A%0AUses%20HTTP%2F2%20for%20request%20multiplexing.%20One%20connection%20%E2%86%92%20many%20requests.%0A%0A%23%23%23%204.%20Three-level%20cache%20(SuperCache)%0A%0A%7C%20Level%20%7C%20Storage%20%7C%20Speed%20%7C%0A%7C-------%7C---------%7C-------%7C%0A%7C%20L1%20%7C%20Memory%20(LRU)%20%7C%20Nanoseconds%20%7C%0A%7C%20L2%20%7C%20Disk%20(%60.mip%2Fcache%2F%60)%20%7C%20Milliseconds%20%7C%0A%7C%20L3%20%7C%20In-flight%20(dedup)%20%7C%20Microseconds%20%7C%0A%0A%23%23%23%205.%20No%20duplication%0A%0AUnlike%20npm%2C%20MIP%20stores%20each%20package%20version%20**once**%20in%20%60~%2F.mip%2Fstore%2F%60.%0A%0A%23%23%23%206.%20Streaming%20extraction%0A%0AExtracts%20tarballs%20without%20saving%20to%20disk%20(saves%20I%2FO).%0A%0A---%0A%0A%23%23%20%F0%9F%93%8A%20Benchmarks%0A%0ATest%3A%20install%20%60express%20lodash%20axios%60%20(cold%20cache)%0A%0A%7C%20Manager%20%7C%20Time%20%7C%20Disk%20usage%20%7C%0A%7C---------%7C------%7C------------%7C%0A%7C%20npm%20%7C%204.2s%20%7C%2042%20MB%20%7C%0A%7C%20pnpm%20%7C%203.1s%20%7C%2021%20MB%20(with%20symlinks)%20%7C%0A%7C%20**mip**%20%7C%20**2.8s**%20%7C%20**0%20MB**%20(symlinks)%20%7C%0A%0ATest%3A%20install%20%60express%20lodash%20axios%60%20(warm%20cache)%0A%0A%7C%20Manager%20%7C%20Time%20%7C%0A%7C---------%7C------%7C%0A%7C%20npm%20%7C%201.8s%20%7C%0A%7C%20pnpm%20%7C%200.9s%20%7C%0A%7C%20**mip**%20%7C%20**0.4s**%20%E2%86%90%2010x%20faster%20than%20npm%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%A7%AA%20How%20to%20test%20it%20yourself%0A%0A%23%23%23%20Time%20measurement%0A%0A%60%60%60bash%0Atime%20mip%20install%20express%20lodash%20axios%0Atime%20npm%20install%20express%20lodash%20axios%0A%60%60%60%0A%0A%23%23%23%20Size%20measurement%0A%0A%60%60%60bash%0Adu%20-sh%20node_modules%2F%20%20%20%23%20npm%0Adu%20-sh%20~%2F.mip%2Fstore%2F%20%20%20%23%20mip%0A%60%60%60%0A%0A%23%23%23%20Cache%20monitoring%0A%0A%60%60%60bash%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0Amip%20cache%20usage%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Performance%20tuning%0A%0A%23%23%23%20Increase%20parallel%20downloads%0A%0ADefault%20is%20the%20number%20of%20CPU%20cores.%20Can%20be%20changed%20in%20code%3A%0A%0A%60%60%60javascript%0A%2F%2F%20lib%2Fcore%2Fparallel-download.js%0Athis.maxWorkers%20%3D%20options.maxWorkers%20%7C%7C%20os.cpus().length%3B%0A%60%60%60%0A%0A%23%23%23%20Clear%20cache%20for%20testing%0A%0A%60%60%60bash%0Amip%20cache%20clean%0Amip%20install%20express%0A%60%60%60%0A%0A%23%23%23%20Speed%20monitoring%0A%0AEnable%20debug%3A%0A%0A%60%60%60bash%0ADEBUG%3D1%20mip%20install%20express%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%88%20Comparison%20with%20other%20managers%0A%0A%23%23%23%20npm%0A-%20Duplicates%20packages%20in%20every%20project%0A-%20No%20parallel%20loading%20(by%20default)%0A-%20Slow%20on%20repeated%20installations%0A%0A%23%23%23%20pnpm%0A-%20Fast%2C%20uses%20global%20store%0A-%20Uses%20symlinks%20(can%20cause%20issues)%0A-%20Complex%20structure%0A%0A%23%23%23%20MIP%0A-%20Simple%20structure%20%E2%80%94%20symlinks%20to%20%60~%2F.mip%2Fstore%2F%60%0A-%20Parallel%20loading%20%2B%20HTTP%2F2%0A-%20Three-level%20cache%0A-%20Works%20offline%0A%0A---%0A%0A%23%23%20%F0%9F%92%A1%20Optimization%20tips%0A%0A1.%20**Use%20%60mip%20ci%60%20in%20CI**%20%E2%80%94%20faster%20than%20%60mip%20install%60%0A2.%20**Cache%20%60~%2F.mip%2Fstore%2F%60%20in%20CI**%20%E2%80%94%20speeds%20up%20rebuilds%0A3.%20**Clear%20cache**%20when%20it%20gets%20too%20large%0A4.%20**Use%20%60--ci%60**%20for%20non-interactive%20installation%0A5.%20**Update%20MIP**%20%E2%80%94%20each%20version%20is%20faster%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Performance%20debugging%0A%0A%23%23%23%20Enable%20timings%0A%0A%60%60%60bash%0ATIME%3D1%20mip%20install%20express%0A%60%60%60%0A%0A%23%23%23%20View%20cache%20statistics%0A%0A%60%60%60javascript%0Aconst%20cache%20%3D%20new%20SuperCache()%3B%0Aconsole.log(cache.getStats())%3B%0A%2F%2F%20%7B%20hits%3A%2042%2C%20misses%3A%205%2C%20hitRate%3A%20&#039;89.4%25&#039;%2C%20memorySize%3A%20100%20%7D%0A%60%60%60%0A%0A%23%23%23%20Profile%20Node.js%0A%0A%60%60%60bash%0Anode%20--prof%20bin%2Fmip.js%20install%20express%0Anode%20--prof-process%20isolate-0x*.log%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%A0%20Why%20is%20MIP%20so%20fast%3F%0A%0A1.%20**Global%20cache**%20%E2%80%94%20doesn&#039;t%20duplicate%20packages%20across%20projects%0A2.%20**Parallelism**%20%E2%80%94%20downloads%20packages%20simultaneously%0A3.%20**Caching**%20%E2%80%94%20avoids%20redundant%20requests%0A4.%20**HTTP%2F2**%20%E2%80%94%20lower%20overhead%0A5.%20**Streaming%20extraction**%20%E2%80%94%20no%20temporary%20files%0A6.%20**Deduplication**%20%E2%80%94%20removes%20duplicate%20versions%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20package%20installation%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20%E2%80%94%20CI%20installation%0A-%20%5Bmip%20cache%5D(%2Fcommands%2Fcache)%20%E2%80%94%20cache%20management%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20diagnostics%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20Performance%22%0Adescription%3A%20%22How%20MIP%20achieves%20high%20speed%3A%20caching%2C%20parallel%20loading%2C%20HTTP%2F2%2C%20and%20global%20cache.%22%0A---%0A%0A%23%20MIP%20Performance%20%E2%9A%A1%0A%0AMIP%20is%20designed%20for%20maximum%20speed.%20Here&#039;s%20how%20it%20achieves%20it.%0A%0A---%0A%0A%23%23%20%F0%9F%9A%80%20Key%20technologies%0A%0A%23%23%23%201.%20Global%20cache%0A%0AAll%20packages%20are%20stored%20**once**%20in%20%60~%2F.mip%2Fstore%2F%60%20and%20used%20across%20all%20projects.%0A%0A%60%60%60%0A~%2F.mip%2Fstore%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20lodash%2F%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.17.21%2F%20%20%20%20%20%23%20%E2%86%90%20one%20copy%20for%20all%20projects%0A%E2%94%94%E2%94%80%E2%94%80%20express%2F%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%204.18.2%2F%20%20%20%20%20%20%23%20%E2%86%90%20one%20copy%20for%20all%20projects%0A%60%60%60%0A%0A**Benefits%3A**%0A-%20Space%20savings%3A%20100%20MB%20instead%20of%201%20GB%20(10%20projects)%0A-%20Faster%20installation%3A%20no%20need%20to%20re-download%0A%0A%23%23%23%202.%20Parallel%20loading%0A%0AMIP%20downloads%20up%20to%2010%20packages%20simultaneously%2C%20using%20all%20CPU%20cores.%0A%0A%60%60%60javascript%0A%2F%2F%20lib%2Fcore%2Fparallel-download.js%0Aconst%20maxWorkers%20%3D%20os.cpus().length%3B%0Aconst%20chunks%20%3D%20this.chunkArray(packages%2C%20maxWorkers)%3B%0Aconst%20results%20%3D%20await%20Promise.all(chunks.map(downloadChunk))%3B%0A%60%60%60%0A%0A%23%23%23%203.%20HTTP%2F2%0A%0AUses%20HTTP%2F2%20for%20request%20multiplexing.%20One%20connection%20%E2%86%92%20many%20requests.%0A%0A%23%23%23%204.%20Three-level%20cache%20(SuperCache)%0A%0A%7C%20Level%20%7C%20Storage%20%7C%20Speed%20%7C%0A%7C-------%7C---------%7C-------%7C%0A%7C%20L1%20%7C%20Memory%20(LRU)%20%7C%20Nanoseconds%20%7C%0A%7C%20L2%20%7C%20Disk%20(%60.mip%2Fcache%2F%60)%20%7C%20Milliseconds%20%7C%0A%7C%20L3%20%7C%20In-flight%20(dedup)%20%7C%20Microseconds%20%7C%0A%0A%23%23%23%205.%20No%20duplication%0A%0AUnlike%20npm%2C%20MIP%20stores%20each%20package%20version%20**once**%20in%20%60~%2F.mip%2Fstore%2F%60.%0A%0A%23%23%23%206.%20Streaming%20extraction%0A%0AExtracts%20tarballs%20without%20saving%20to%20disk%20(saves%20I%2FO).%0A%0A---%0A%0A%23%23%20%F0%9F%93%8A%20Benchmarks%0A%0ATest%3A%20install%20%60express%20lodash%20axios%60%20(cold%20cache)%0A%0A%7C%20Manager%20%7C%20Time%20%7C%20Disk%20usage%20%7C%0A%7C---------%7C------%7C------------%7C%0A%7C%20npm%20%7C%204.2s%20%7C%2042%20MB%20%7C%0A%7C%20pnpm%20%7C%203.1s%20%7C%2021%20MB%20(with%20symlinks)%20%7C%0A%7C%20**mip**%20%7C%20**2.8s**%20%7C%20**0%20MB**%20(symlinks)%20%7C%0A%0ATest%3A%20install%20%60express%20lodash%20axios%60%20(warm%20cache)%0A%0A%7C%20Manager%20%7C%20Time%20%7C%0A%7C---------%7C------%7C%0A%7C%20npm%20%7C%201.8s%20%7C%0A%7C%20pnpm%20%7C%200.9s%20%7C%0A%7C%20**mip**%20%7C%20**0.4s**%20%E2%86%90%2010x%20faster%20than%20npm%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%A7%AA%20How%20to%20test%20it%20yourself%0A%0A%23%23%23%20Time%20measurement%0A%0A%60%60%60bash%0Atime%20mip%20install%20express%20lodash%20axios%0Atime%20npm%20install%20express%20lodash%20axios%0A%60%60%60%0A%0A%23%23%23%20Size%20measurement%0A%0A%60%60%60bash%0Adu%20-sh%20node_modules%2F%20%20%20%23%20npm%0Adu%20-sh%20~%2F.mip%2Fstore%2F%20%20%20%23%20mip%0A%60%60%60%0A%0A%23%23%23%20Cache%20monitoring%0A%0A%60%60%60bash%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0Amip%20cache%20usage%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Performance%20tuning%0A%0A%23%23%23%20Increase%20parallel%20downloads%0A%0ADefault%20is%20the%20number%20of%20CPU%20cores.%20Can%20be%20changed%20in%20code%3A%0A%0A%60%60%60javascript%0A%2F%2F%20lib%2Fcore%2Fparallel-download.js%0Athis.maxWorkers%20%3D%20options.maxWorkers%20%7C%7C%20os.cpus().length%3B%0A%60%60%60%0A%0A%23%23%23%20Clear%20cache%20for%20testing%0A%0A%60%60%60bash%0Amip%20cache%20clean%0Amip%20install%20express%0A%60%60%60%0A%0A%23%23%23%20Speed%20monitoring%0A%0AEnable%20debug%3A%0A%0A%60%60%60bash%0ADEBUG%3D1%20mip%20install%20express%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%93%88%20Comparison%20with%20other%20managers%0A%0A%23%23%23%20npm%0A-%20Duplicates%20packages%20in%20every%20project%0A-%20No%20parallel%20loading%20(by%20default)%0A-%20Slow%20on%20repeated%20installations%0A%0A%23%23%23%20pnpm%0A-%20Fast%2C%20uses%20global%20store%0A-%20Uses%20symlinks%20(can%20cause%20issues)%0A-%20Complex%20structure%0A%0A%23%23%23%20MIP%0A-%20Simple%20structure%20-%20symlinks%20to%20%60~%2F.mip%2Fstore%2F%60%0A-%20Parallel%20loading%20%2B%20HTTP%2F2%0A-%20Three-level%20cache%0A-%20Works%20offline%0A%0A---%0A%0A%23%23%20%F0%9F%92%A1%20Optimization%20tips%0A%0A1.%20**Use%20%60mip%20ci%60%20in%20CI**%20-%20faster%20than%20%60mip%20install%60%0A2.%20**Cache%20%60~%2F.mip%2Fstore%2F%60%20in%20CI**%20-%20speeds%20up%20rebuilds%0A3.%20**Clear%20cache**%20when%20it%20gets%20too%20large%0A4.%20**Use%20%60--ci%60**%20for%20non-interactive%20installation%0A5.%20**Update%20MIP**%20-%20each%20version%20is%20faster%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Performance%20debugging%0A%0A%23%23%23%20Enable%20timings%0A%0A%60%60%60bash%0ATIME%3D1%20mip%20install%20express%0A%60%60%60%0A%0A%23%23%23%20View%20cache%20statistics%0A%0A%60%60%60javascript%0Aconst%20cache%20%3D%20new%20SuperCache()%3B%0Aconsole.log(cache.getStats())%3B%0A%2F%2F%20%7B%20hits%3A%2042%2C%20misses%3A%205%2C%20hitRate%3A%20&#039;89.4%25&#039;%2C%20memorySize%3A%20100%20%7D%0A%60%60%60%0A%0A%23%23%23%20Profile%20Node.js%0A%0A%60%60%60bash%0Anode%20--prof%20bin%2Fmip.js%20install%20express%0Anode%20--prof-process%20isolate-0x*.log%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%A0%20Why%20is%20MIP%20so%20fast%3F%0A%0A1.%20**Global%20cache**%20-%20doesn&#039;t%20duplicate%20packages%20across%20projects%0A2.%20**Parallelism**%20-%20downloads%20packages%20simultaneously%0A3.%20**Caching**%20-%20avoids%20redundant%20requests%0A4.%20**HTTP%2F2**%20-%20lower%20overhead%0A5.%20**Streaming%20extraction**%20-%20no%20temporary%20files%0A6.%20**Deduplication**%20-%20removes%20duplicate%20versions%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20package%20installation%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20-%20CI%20installation%0A-%20%5Bmip%20cache%5D(%2Fcommands%2Fcache)%20-%20cache%20management%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20diagnostics%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2248,15 +2264,15 @@ console.<span class="hljs-title function_">log</span>(cache.<span class="hljs-ti
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip info - get package information : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The info command shows detailed information about a package from the registry: description, author, versions, homepage, repository, and publication date.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/info/">
 <link rel="alternate" hreflang="en" href="/commands/info/">
 <link rel="alternate" hreflang="x-default" href="/commands/info/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20info%20%E2%80%94%20get%20package%20information%22%0Adescription%3A%20%22The%20info%20command%20shows%20detailed%20information%20about%20a%20package%20from%20the%20registry%3A%20description%2C%20author%2C%20versions%2C%20homepage%2C%20repository%2C%20and%20publication%20date.%22%0A---%0A%0A%23%20mip%20info%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ainfo%0A%60mip%20info%60%20is%20a%20utility%20for%20quickly%20retrieving%20information%20about%20any%20package%20from%20the%20npm%20registry.%20It%20shows%20the%20description%2C%20author%2C%20versions%2C%20links%20to%20the%20homepage%20and%20repository%2C%20as%20well%20as%20the%20publication%20date.%20This%20is%20useful%20for%20exploring%20a%20new%20package%20before%20installation%2C%20checking%20version%20currency%2C%20or%20finding%20a%20link%20to%20the%20documentation.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20info%20%3Cpackage-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60package-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20The%20name%20of%20the%20package%20to%20get%20information%20about%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Argument%20check**%20%E2%80%94%20if%20no%20package%20name%20is%20provided%2C%20usage%20help%20is%20displayed.%0A%0A2.%20**Parallel%20request**%20%E2%80%94%20two%20requests%20are%20made%20to%20the%20registry%20simultaneously%3A%0A%20%20%20-%20Fetching%20information%20about%20the%20latest%20version%20of%20the%20package.%0A%20%20%20-%20Fetching%20a%20list%20of%20all%20available%20versions.%0A%0A3.%20**Report%20generation**%20%E2%80%94%20from%20the%20retrieved%20data%2C%20an%20information%20card%20is%20assembled%3A%0A%20%20%20-%20Package%20name%20and%20latest%20version.%0A%20%20%20-%20Description.%0A%20%20%20-%20Author.%0A%20%20%20-%20Homepage.%0A%20%20%20-%20Number%20of%20available%20versions.%0A%20%20%20-%20Publication%20date.%0A%20%20%20-%20Repository%20link.%0A%0A4.%20**Recent%20versions%20list**%20%E2%80%94%20shows%20the%20last%205%20versions%20with%20a%20marker%20for%20the%20current%20one.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Information%20about%20a%20popular%20package%22%0A%60%60%60bash%0Amip%20info%20lodash%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20lodash...%0A%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%E2%95%91%20lodash%404.17.21%0A%E2%95%A0%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%A3%0A%F0%9F%93%9D%20Description%0A%20%20Lodash%20modular%20utilities.%0A%0A%F0%9F%91%A4%20Author%0A%20%20John-David%20Dalton%20%3Cjohn.david.dalton%40gmail.com%3E%0A%0A%F0%9F%8F%A0%20Homepage%0A%20%20https%3A%2F%2Flodash.com%2F%0A%0A%F0%9F%93%A6%20Versions%0A%20%20Latest%3A%204.17.21%0A%20%20Total%3A%20154%0A%0A%F0%9F%93%85%20Published%0A%20%202023-01-01%0A%0A%F0%9F%93%A6%20Repository%0A%20%20git%2Bhttps%3A%2F%2Fgithub.com%2Flodash%2Flodash.git%0A%0ARecent%20versions%3A%0A%20%20%E2%80%A2%204.17.21%20(latest)%0A%20%20%E2%80%A2%204.17.20%0A%20%20%E2%80%A2%204.17.19%0A%20%20%E2%80%A2%204.17.18%0A%20%20%E2%80%A2%204.17.17%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Information%20about%20a%20newer%20package%22%0A%60%60%60bash%0Amip%20info%20%40docmd%2Fcore%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20%40docmd%2Fcore...%0A%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%E2%95%91%20%40docmd%2Fcore%400.8.7%0A%E2%95%A0%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%A3%0A%F0%9F%93%9D%20Description%0A%20%20Documentation%20engine%20from%20Markdown.%0A%0A%F0%9F%91%A4%20Author%0A%20%20docmd.io%0A%0A%F0%9F%8F%A0%20Homepage%0A%20%20https%3A%2F%2Fdocmd.io%0A%0A%F0%9F%93%A6%20Versions%0A%20%20Latest%3A%200.8.7%0A%20%20Total%3A%2042%0A%0A%F0%9F%93%85%20Published%0A%20%202026-01-15%0A%0A%F0%9F%93%A6%20Repository%0A%20%20git%2Bhttps%3A%2F%2Fgithub.com%2Fdocmd-io%2Fdocmd.git%0A%0ARecent%20versions%3A%0A%20%20%E2%80%A2%200.8.7%20(latest)%0A%20%20%E2%80%A2%200.8.6%0A%20%20%E2%80%A2%200.8.5%0A%20%20%E2%80%A2%200.8.4%0A%20%20%E2%80%A2%200.8.3%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Package%20not%20found%22%0A%60%60%60bash%0Amip%20info%20unknown-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20unknown-package...%0A%E2%9D%8C%20Failed%20to%20fetch%20info%3A%20Not%20found%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20does%20not%20exist%20in%20the%20npm%20registry.%0A%0A**Solution%3A**%0A1.%20Check%20the%20spelling%20of%20the%20package%20name.%0A2.%20The%20package%20may%20be%20private%20and%20require%20authentication.%0A3.%20Try%20searching%20for%20the%20package%3A%20%60mip%20search%20%3Cpartial-name%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Failed%20to%20fetch%20info%22%20icon%3Aalert-circle%0A**Cause%3A**%20Network%20issues%20or%20the%20npm%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20registry%20availability%3A%20%60mip%20doctor%60%0A3.%20Try%20again%20later.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20info%60%20shows%20information%20**from%20the%20registry**%2C%20not%20from%20a%20locally%20installed%20package.%20To%20find%20the%20version%20of%20a%20locally%20installed%20package%2C%20use%20%60mip%20list%60%20or%20check%20%60mip-lock.yml%60.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20search%5D(%2Fcommands%2Fsearch)%20%E2%80%94%20searches%20for%20packages%20in%20the%20registry.%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20%E2%80%94%20shows%20locally%20installed%20packages.%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20%E2%80%94%20checks%20for%20outdated%20packages%20in%20the%20project.%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20info%20-%20get%20package%20information%22%0Adescription%3A%20%22The%20info%20command%20shows%20detailed%20information%20about%20a%20package%20from%20the%20registry%3A%20description%2C%20author%2C%20versions%2C%20homepage%2C%20repository%2C%20and%20publication%20date.%22%0A---%0A%0A%23%20mip%20info%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ainfo%0A%60mip%20info%60%20is%20a%20utility%20for%20quickly%20retrieving%20information%20about%20any%20package%20from%20the%20npm%20registry.%20It%20shows%20the%20description%2C%20author%2C%20versions%2C%20links%20to%20the%20homepage%20and%20repository%2C%20as%20well%20as%20the%20publication%20date.%20This%20is%20useful%20for%20exploring%20a%20new%20package%20before%20installation%2C%20checking%20version%20currency%2C%20or%20finding%20a%20link%20to%20the%20documentation.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20info%20%3Cpackage-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60package-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20The%20name%20of%20the%20package%20to%20get%20information%20about%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Argument%20check**%20-%20if%20no%20package%20name%20is%20provided%2C%20usage%20help%20is%20displayed.%0A%0A2.%20**Parallel%20request**%20-%20two%20requests%20are%20made%20to%20the%20registry%20simultaneously%3A%0A%20%20%20-%20Fetching%20information%20about%20the%20latest%20version%20of%20the%20package.%0A%20%20%20-%20Fetching%20a%20list%20of%20all%20available%20versions.%0A%0A3.%20**Report%20generation**%20-%20from%20the%20retrieved%20data%2C%20an%20information%20card%20is%20assembled%3A%0A%20%20%20-%20Package%20name%20and%20latest%20version.%0A%20%20%20-%20Description.%0A%20%20%20-%20Author.%0A%20%20%20-%20Homepage.%0A%20%20%20-%20Number%20of%20available%20versions.%0A%20%20%20-%20Publication%20date.%0A%20%20%20-%20Repository%20link.%0A%0A4.%20**Recent%20versions%20list**%20-%20shows%20the%20last%205%20versions%20with%20a%20marker%20for%20the%20current%20one.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Information%20about%20a%20popular%20package%22%0A%60%60%60bash%0Amip%20info%20lodash%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20lodash...%0A%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%E2%95%91%20lodash%404.17.21%0A%E2%95%A0%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%A3%0A%F0%9F%93%9D%20Description%0A%20%20Lodash%20modular%20utilities.%0A%0A%F0%9F%91%A4%20Author%0A%20%20John-David%20Dalton%20%3Cjohn.david.dalton%40gmail.com%3E%0A%0A%F0%9F%8F%A0%20Homepage%0A%20%20https%3A%2F%2Flodash.com%2F%0A%0A%F0%9F%93%A6%20Versions%0A%20%20Latest%3A%204.17.21%0A%20%20Total%3A%20154%0A%0A%F0%9F%93%85%20Published%0A%20%202023-01-01%0A%0A%F0%9F%93%A6%20Repository%0A%20%20git%2Bhttps%3A%2F%2Fgithub.com%2Flodash%2Flodash.git%0A%0ARecent%20versions%3A%0A%20%20%E2%80%A2%204.17.21%20(latest)%0A%20%20%E2%80%A2%204.17.20%0A%20%20%E2%80%A2%204.17.19%0A%20%20%E2%80%A2%204.17.18%0A%20%20%E2%80%A2%204.17.17%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Information%20about%20a%20newer%20package%22%0A%60%60%60bash%0Amip%20info%20%40docmd%2Fcore%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20%40docmd%2Fcore...%0A%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97%0A%E2%95%91%20%40docmd%2Fcore%400.8.7%0A%E2%95%A0%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%A3%0A%F0%9F%93%9D%20Description%0A%20%20Documentation%20engine%20from%20Markdown.%0A%0A%F0%9F%91%A4%20Author%0A%20%20docmd.io%0A%0A%F0%9F%8F%A0%20Homepage%0A%20%20https%3A%2F%2Fdocmd.io%0A%0A%F0%9F%93%A6%20Versions%0A%20%20Latest%3A%200.8.7%0A%20%20Total%3A%2042%0A%0A%F0%9F%93%85%20Published%0A%20%202026-01-15%0A%0A%F0%9F%93%A6%20Repository%0A%20%20git%2Bhttps%3A%2F%2Fgithub.com%2Fdocmd-io%2Fdocmd.git%0A%0ARecent%20versions%3A%0A%20%20%E2%80%A2%200.8.7%20(latest)%0A%20%20%E2%80%A2%200.8.6%0A%20%20%E2%80%A2%200.8.5%0A%20%20%E2%80%A2%200.8.4%0A%20%20%E2%80%A2%200.8.3%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Package%20not%20found%22%0A%60%60%60bash%0Amip%20info%20unknown-package%0A%60%60%60%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%94%8D%20Fetching%20info%20for%20unknown-package...%0A%E2%9D%8C%20Failed%20to%20fetch%20info%3A%20Not%20found%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20package%20does%20not%20exist%20in%20the%20npm%20registry.%0A%0A**Solution%3A**%0A1.%20Check%20the%20spelling%20of%20the%20package%20name.%0A2.%20The%20package%20may%20be%20private%20and%20require%20authentication.%0A3.%20Try%20searching%20for%20the%20package%3A%20%60mip%20search%20%3Cpartial-name%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Failed%20to%20fetch%20info%22%20icon%3Aalert-circle%0A**Cause%3A**%20Network%20issues%20or%20the%20npm%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A1.%20Check%20your%20internet%20connection.%0A2.%20Check%20registry%20availability%3A%20%60mip%20doctor%60%0A3.%20Try%20again%20later.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20info%60%20shows%20information%20**from%20the%20registry**%2C%20not%20from%20a%20locally%20installed%20package.%20To%20find%20the%20version%20of%20a%20locally%20installed%20package%2C%20use%20%60mip%20list%60%20or%20check%20%60mip-lock.yml%60.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20search%5D(%2Fcommands%2Fsearch)%20-%20searches%20for%20packages%20in%20the%20registry.%0A-%20%5Bmip%20list%5D(%2Fcommands%2Flist)%20-%20shows%20locally%20installed%20packages.%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20-%20checks%20for%20outdated%20packages%20in%20the%20project.%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2187,15 +2203,15 @@ Recent versions<span class="hljs-punctuation">:</span>
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

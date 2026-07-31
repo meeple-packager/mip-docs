@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip dedupe - remove duplicate dependencies : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The dedupe command analyzes the dependency tree and removes duplicate packages to optimize structure and reduce the project size.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/dedupe/">
 <link rel="alternate" hreflang="en" href="/commands/dedupe/">
 <link rel="alternate" hreflang="x-default" href="/commands/dedupe/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20dedupe%20%E2%80%94%20remove%20duplicate%20dependencies%22%0Adescription%3A%20%22The%20dedupe%20command%20analyzes%20the%20dependency%20tree%20and%20removes%20duplicate%20packages%20to%20optimize%20structure%20and%20reduce%20the%20project%20size.%22%0A---%0A%0A%23%20mip%20dedupe%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ascissors%0A%60mip%20dedupe%60%20finds%20and%20removes%20duplicate%20package%20versions%20in%20your%20project.%20This%20helps%20reduce%20size%2C%20speed%20up%20installation%2C%20and%20avoid%20version%20conflicts.%20The%20command%20has%20two%20modes%3A%20**quick**%20(default)%20and%20**full**%20%E2%80%94%20for%20maximum%20optimization.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20dedupe%20%5B--full%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--full%60%20%7C%20Enables%20**full%20deduplication**%20mode%20%E2%80%94%20more%20aggressively%20rebuilds%20the%20dependency%20graph%2C%20removing%20all%20possible%20duplicates.%20Can%20take%20longer.%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Analyze%20the%20lockfile**%20%E2%80%94%20reads%20%60mip-lock.yml%60%20and%20builds%20a%20dependency%20graph.%0A%0A2.%20**Find%20duplicates**%20%E2%80%94%20identifies%20packages%20where%3A%0A%20%20%20-%20The%20package%20name%20is%20the%20same.%0A%20%20%20-%20Versions%20are%20different.%0A%20%20%20-%20Both%20versions%20satisfy%20requirements%20of%20all%20parent%20packages.%0A%0A3.%20**Check%20compatibility**%20%E2%80%94%20determines%20whether%20the%20old%20version%20can%20be%20replaced%20with%20the%20new%20one%20without%20breaking%20compatibility%20(it%20checks%20the%20major%20version).%0A%0A4.%20**Report%20results**%20%E2%80%94%20shows%20the%20list%20of%20found%20duplicates%2C%20including%3A%0A%20%20%20-%20Package%20name%20and%20versions.%0A%20%20%20-%20Which%20versions%20can%20be%20deleted%20(compatible).%0A%20%20%20-%20Which%20versions%20must%20be%20kept%20(incompatible).%0A%0A5.%20**Ask%20for%20confirmation**%20%E2%80%94%20before%20making%20changes%2C%20the%20command%20asks%3A%20*%22Do%20you%20want%20to%20deduplicate%3F%20(y%2FN)%22*.%0A%0A6.%20**Run%20deduplication**%3A%0A%20%20%20-%20**Quick%20mode**%20%E2%80%94%20removes%20only%20compatible%20duplicates%20(within%20the%20same%20major%20version).%0A%20%20%20-%20**Full%20mode**%20(%60--full%60)%20%E2%80%94%20removes%20all%20duplicates%2C%20even%20if%20major%20versions%20differ%20(may%20cause%20breaking%20changes).%0A%0A7.%20**Update%20the%20lockfile**%20%E2%80%94%20after%20deletion%2C%20updates%20%60mip-lock.yml%60.%0A%0A8.%20**Show%20the%20result**%20%E2%80%94%20reports%20how%20many%20packages%20were%20removed%20and%20how%20many%20remain.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Quick%20deduplication%22%0A%60%60%60bash%0Amip%20dedupe%0A%60%60%60%0A%0A**Example%20report%3A**%0A%60%60%60%0A%F0%9F%93%8A%20Duplicate%20packages%20found%3A%0A%0A%20%20%F0%9F%93%A6%20lodash%0A%20%20%20%20%20%E2%9C%85%20Keeping%3A%204.17.21%0A%20%20%20%20%20%F0%9F%94%84%20Compatible%20(can%20dedupe)%3A%0A%20%20%20%20%20%20%20%20-%204.17.19%0A%0A%20%20%F0%9F%93%A6%20axios%0A%20%20%20%20%20%E2%9C%85%20Keeping%3A%200.21.4%0A%20%20%20%20%20%F0%9F%94%84%20Compatible%20(can%20dedupe)%3A%0A%20%20%20%20%20%20%20%20-%200.21.1%0A%20%20%20%20%20%E2%9A%A0%EF%B8%8F%20%20Incompatible%20(keep%20both)%3A%0A%20%20%20%20%20%20%20%20-%200.19.2%0A%0ADo%20you%20want%20to%20deduplicate%3F%20(y%2FN)%20y%0A%0A%F0%9F%A7%B9%20Running%20deduplication...%0A%E2%9C%85%20Deduplication%20complete!%0A%20%20%20Removed%3A%203%20packages%0A%20%20%20Remaining%3A%2042%20packages%0A%0ARemoved%20packages%3A%0A%20%20%E2%80%A2%20lodash%404.17.19%20%E2%86%92%20kept%204.17.21%0A%20%20%E2%80%A2%20axios%400.21.1%20%E2%86%92%20kept%200.21.4%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Full%20deduplication%22%0A%60%60%60bash%0Amip%20dedupe%20--full%0A%60%60%60%0A%0AAnalyzes%20all%20possible%20version%20combinations%20and%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20compacts%20the%20dependency%20graph.%20Recommended%20after%20large%20updates.%0A%0A**Example%20report%3A**%0A%60%60%60%0A%F0%9F%93%8A%20Duplicate%20packages%20found%3A%0A%20%20...%0ADo%20you%20want%20to%20deduplicate%3F%20(y%2FN)%20y%0A%0A%F0%9F%A7%B9%20Running%20full%20deduplication...%0A%E2%9C%85%20Full%20deduplication%20complete!%0A%20%20%20Removed%3A%208%20packages%0A%20%20%20Remaining%3A%2056%20packages%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20duplicates%20found%22%20icon%3Ainfo%0A**Cause%3A**%20Your%20dependency%20tree%20is%20already%20optimized.%0A%0A**Resolution%3A**%20This%20is%20not%20an%20error%20%E2%80%94%20everything%20is%20fine.%20Continue%20your%20work.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Lockfile%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing.%0A%0A**Resolution%3A**%0A1.%20Run%20%60mip%20install%60%20to%20create%20the%20lockfile.%0A2.%20Then%20run%20%60mip%20dedupe%60%20again.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20When%20to%20use%20dedupe%22%20icon%3Alightbulb%0A-%20**After%20updating%20many%20packages**.%0A-%20**Before%20building%20a%20production%20image**%20(to%20reduce%20its%20size).%0A-%20**When%20you%20suspect%20version%20conflicts%20at%20runtime**.%0A%0AIt%E2%80%99s%20recommended%20to%20run%20%60mip%20dedupe%60%20before%20committing%2C%20to%20keep%20the%20project%20clean%20and%20reduce%20CI%2FCD%20time.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20installs%20dependencies%20and%20creates%20the%20lockfile.%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20%E2%80%94%20shows%20outdated%20packages%20(often%20duplicates%20appear%20due%20to%20outdated%20versions).%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20checks%20overall%20project%20health.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20What%20is%20deduplication%3F%22%0AIn%20package%20managers%2C%20duplication%20happens%20when%20multiple%20packages%20require%20different%20versions%20of%20the%20same%20dependency.%20For%20example%2C%20if%20package%20%60A%60%20requires%20%60lodash%404.17.19%60%20and%20package%20%60B%60%20requires%20%60lodash%404.17.21%60%2C%20MIP%20will%20install%20both%20versions.%0A%0A**Quick%20mode**%20(%60dedupe%60%20without%20flags)%3A%0A-%20Checks%20only%20compatible%20versions%20(within%20the%20same%20major).%0A-%20Removes%20duplicates%20that%20can%20be%20safely%20replaced%20with%20one%20shared%20version.%0A-%20Works%20fast.%0A%0A**Full%20mode**%20(%60dedupe%20--full%60)%3A%0A-%20Scans%20the%20whole%20dependency%20tree.%0A-%20Rebuilds%20it%20to%20maximize%20shared%20versions.%0A-%20May%20take%20longer%2C%20but%20gives%20a%20better%20result.%0A%0A**Important%3A**%20deduplication%20never%20violates%20package%20requirements%20%E2%80%94%20a%20version%20is%20replaced%20only%20if%20it%E2%80%99s%20compatible%20with%20all%20parent%20packages.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20dedupe%20-%20remove%20duplicate%20dependencies%22%0Adescription%3A%20%22The%20dedupe%20command%20analyzes%20the%20dependency%20tree%20and%20removes%20duplicate%20packages%20to%20optimize%20structure%20and%20reduce%20the%20project%20size.%22%0A---%0A%0A%23%20mip%20dedupe%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Ascissors%0A%60mip%20dedupe%60%20finds%20and%20removes%20duplicate%20package%20versions%20in%20your%20project.%20This%20helps%20reduce%20size%2C%20speed%20up%20installation%2C%20and%20avoid%20version%20conflicts.%20The%20command%20has%20two%20modes%3A%20**quick**%20(default)%20and%20**full**%20-%20for%20maximum%20optimization.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20dedupe%20%5B--full%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--full%60%20%7C%20Enables%20**full%20deduplication**%20mode%20-%20more%20aggressively%20rebuilds%20the%20dependency%20graph%2C%20removing%20all%20possible%20duplicates.%20Can%20take%20longer.%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Analyze%20the%20lockfile**%20-%20reads%20%60mip-lock.yml%60%20and%20builds%20a%20dependency%20graph.%0A%0A2.%20**Find%20duplicates**%20-%20identifies%20packages%20where%3A%0A%20%20%20-%20The%20package%20name%20is%20the%20same.%0A%20%20%20-%20Versions%20are%20different.%0A%20%20%20-%20Both%20versions%20satisfy%20requirements%20of%20all%20parent%20packages.%0A%0A3.%20**Check%20compatibility**%20-%20determines%20whether%20the%20old%20version%20can%20be%20replaced%20with%20the%20new%20one%20without%20breaking%20compatibility%20(it%20checks%20the%20major%20version).%0A%0A4.%20**Report%20results**%20-%20shows%20the%20list%20of%20found%20duplicates%2C%20including%3A%0A%20%20%20-%20Package%20name%20and%20versions.%0A%20%20%20-%20Which%20versions%20can%20be%20deleted%20(compatible).%0A%20%20%20-%20Which%20versions%20must%20be%20kept%20(incompatible).%0A%0A5.%20**Ask%20for%20confirmation**%20-%20before%20making%20changes%2C%20the%20command%20asks%3A%20*%22Do%20you%20want%20to%20deduplicate%3F%20(y%2FN)%22*.%0A%0A6.%20**Run%20deduplication**%3A%0A%20%20%20-%20**Quick%20mode**%20-%20removes%20only%20compatible%20duplicates%20(within%20the%20same%20major%20version).%0A%20%20%20-%20**Full%20mode**%20(%60--full%60)%20-%20removes%20all%20duplicates%2C%20even%20if%20major%20versions%20differ%20(may%20cause%20breaking%20changes).%0A%0A7.%20**Update%20the%20lockfile**%20-%20after%20deletion%2C%20updates%20%60mip-lock.yml%60.%0A%0A8.%20**Show%20the%20result**%20-%20reports%20how%20many%20packages%20were%20removed%20and%20how%20many%20remain.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Quick%20deduplication%22%0A%60%60%60bash%0Amip%20dedupe%0A%60%60%60%0A%0A**Example%20report%3A**%0A%60%60%60%0A%F0%9F%93%8A%20Duplicate%20packages%20found%3A%0A%0A%20%20%F0%9F%93%A6%20lodash%0A%20%20%20%20%20%E2%9C%85%20Keeping%3A%204.17.21%0A%20%20%20%20%20%F0%9F%94%84%20Compatible%20(can%20dedupe)%3A%0A%20%20%20%20%20%20%20%20-%204.17.19%0A%0A%20%20%F0%9F%93%A6%20axios%0A%20%20%20%20%20%E2%9C%85%20Keeping%3A%200.21.4%0A%20%20%20%20%20%F0%9F%94%84%20Compatible%20(can%20dedupe)%3A%0A%20%20%20%20%20%20%20%20-%200.21.1%0A%20%20%20%20%20%E2%9A%A0%EF%B8%8F%20%20Incompatible%20(keep%20both)%3A%0A%20%20%20%20%20%20%20%20-%200.19.2%0A%0ADo%20you%20want%20to%20deduplicate%3F%20(y%2FN)%20y%0A%0A%F0%9F%A7%B9%20Running%20deduplication...%0A%E2%9C%85%20Deduplication%20complete!%0A%20%20%20Removed%3A%203%20packages%0A%20%20%20Remaining%3A%2042%20packages%0A%0ARemoved%20packages%3A%0A%20%20%E2%80%A2%20lodash%404.17.19%20%E2%86%92%20kept%204.17.21%0A%20%20%E2%80%A2%20axios%400.21.1%20%E2%86%92%20kept%200.21.4%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Full%20deduplication%22%0A%60%60%60bash%0Amip%20dedupe%20--full%0A%60%60%60%0A%0AAnalyzes%20all%20possible%20version%20combinations%20and%20%D0%BC%D0%B0%D0%BA%D1%81%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%20compacts%20the%20dependency%20graph.%20Recommended%20after%20large%20updates.%0A%0A**Example%20report%3A**%0A%60%60%60%0A%F0%9F%93%8A%20Duplicate%20packages%20found%3A%0A%20%20...%0ADo%20you%20want%20to%20deduplicate%3F%20(y%2FN)%20y%0A%0A%F0%9F%A7%B9%20Running%20full%20deduplication...%0A%E2%9C%85%20Full%20deduplication%20complete!%0A%20%20%20Removed%3A%208%20packages%0A%20%20%20Remaining%3A%2056%20packages%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20duplicates%20found%22%20icon%3Ainfo%0A**Cause%3A**%20Your%20dependency%20tree%20is%20already%20optimized.%0A%0A**Resolution%3A**%20This%20is%20not%20an%20error%20-%20everything%20is%20fine.%20Continue%20your%20work.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Lockfile%20not%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing.%0A%0A**Resolution%3A**%0A1.%20Run%20%60mip%20install%60%20to%20create%20the%20lockfile.%0A2.%20Then%20run%20%60mip%20dedupe%60%20again.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20When%20to%20use%20dedupe%22%20icon%3Alightbulb%0A-%20**After%20updating%20many%20packages**.%0A-%20**Before%20building%20a%20production%20image**%20(to%20reduce%20its%20size).%0A-%20**When%20you%20suspect%20version%20conflicts%20at%20runtime**.%0A%0AIt%E2%80%99s%20recommended%20to%20run%20%60mip%20dedupe%60%20before%20committing%2C%20to%20keep%20the%20project%20clean%20and%20reduce%20CI%2FCD%20time.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20installs%20dependencies%20and%20creates%20the%20lockfile.%0A-%20%5Bmip%20outdated%5D(%2Fcommands%2Foutdated)%20-%20shows%20outdated%20packages%20(often%20duplicates%20appear%20due%20to%20outdated%20versions).%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20checks%20overall%20project%20health.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20What%20is%20deduplication%3F%22%0AIn%20package%20managers%2C%20duplication%20happens%20when%20multiple%20packages%20require%20different%20versions%20of%20the%20same%20dependency.%20For%20example%2C%20if%20package%20%60A%60%20requires%20%60lodash%404.17.19%60%20and%20package%20%60B%60%20requires%20%60lodash%404.17.21%60%2C%20MIP%20will%20install%20both%20versions.%0A%0A**Quick%20mode**%20(%60dedupe%60%20without%20flags)%3A%0A-%20Checks%20only%20compatible%20versions%20(within%20the%20same%20major).%0A-%20Removes%20duplicates%20that%20can%20be%20safely%20replaced%20with%20one%20shared%20version.%0A-%20Works%20fast.%0A%0A**Full%20mode**%20(%60dedupe%20--full%60)%3A%0A-%20Scans%20the%20whole%20dependency%20tree.%0A-%20Rebuilds%20it%20to%20maximize%20shared%20versions.%0A-%20May%20take%20longer%2C%20but%20gives%20a%20better%20result.%0A%0A**Important%3A**%20deduplication%20never%20violates%20package%20requirements%20-%20a%20version%20is%20replaced%20only%20if%20it%E2%80%99s%20compatible%20with%20all%20parent%20packages.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2181,15 +2197,15 @@ Do you want to deduplicate<span class="hljs-punctuation">?</span> (y<span class=
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

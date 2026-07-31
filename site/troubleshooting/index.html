@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       Installation Errors : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Problems encountered when installing packages and how to solve them.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/troubleshooting/">
 <link rel="alternate" hreflang="en" href="/troubleshooting/">
 <link rel="alternate" hreflang="x-default" href="/troubleshooting/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Installation%20Errors%22%0Adescription%3A%20%22Problems%20encountered%20when%20installing%20packages%20and%20how%20to%20solve%20them.%22%0A---%0A%0A%23%20Installation%20Errors%20%F0%9F%93%A6%0A%0AThe%20most%20common%20issues%20that%20occur%20when%20installing%20packages%20and%20how%20to%20solve%20them.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20General%20diagnostics%0A%0A%23%23%23%20Check%20the%20environment%0A%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A%23%23%23%20Check%20the%20lockfile%0A%0A%60%60%60bash%0Acat%20mip-lock.yml%0A%60%60%60%0A%0A%23%23%23%20Check%20the%20cache%0A%0A%60%60%60bash%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%90%9B%20Common%20errors%0A%0A%23%23%23%201.%20%60mip-lock.yml%60%20not%20found%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Lockfile%20not%20found.%20Run%20mip%20install%20first%0A%60%60%60%0A%0A**Cause%3A**%20The%20lockfile%20is%20missing%20or%20was%20deleted.%0A%0A**Solution%3A**%0A%60%60%60bash%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%23%202.%20Package%20not%20found%20in%20registry%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Package%20not%20found%3A%20some-package%0A%60%60%60%0A%0A**Cause%3A**%20The%20package%20does%20not%20exist%20in%20the%20registry.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Check%20the%20name%0Amip%20search%20some-package%0A%0A%23%20Verify%20the%20package%20exists%0Amip%20info%20some-package%0A%60%60%60%0A%0A---%0A%0A%23%23%23%203.%20Version%20not%20found%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Version%20not%20found%3A%20some-package%4099.99.99%0A%60%60%60%0A%0A**Cause%3A**%20A%20non-existent%20version%20was%20specified.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20View%20available%20versions%0Amip%20info%20some-package%0A%60%60%60%0A%0A---%0A%0A%23%23%23%204.%20Permission%20denied%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20EACCES%3A%20permission%20denied%0A%60%60%60%0A%0A**Cause%3A**%20No%20write%20permissions%20for%20%60.mip%2F%60%20or%20%60node_modules%2F%60.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Fix%20permissions%0Asudo%20chown%20-R%20%24(whoami)%20.%0A%0A%23%20Or%20delete%20and%20recreate%0Arm%20-rf%20node_modules%20.mip%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%23%205.%20SSL%20error%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20UNABLE_TO_VERIFY_LEAF_SIGNATURE%0A%60%60%60%0A%0A**Cause%3A**%20SSL%20certificate%20issues.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Temporarily%20disable%20strict%20verification%0ANODE_TLS_REJECT_UNAUTHORIZED%3D0%20mip%20install%0A%0A%23%20Or%20update%20Node.js%0A%60%60%60%0A%0A---%0A%0A%23%23%23%206.%20Package%20already%20installed%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9C%85%20Package%20already%20installed%0A%60%60%60%0A%0A**This%20is%20not%20an%20error.**%20The%20package%20is%20already%20there.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Force%20reinstall%0Amip%20install%20lodash%20--force%0A%60%60%60%0A%0A---%0A%0A%23%23%23%207.%20No%20free%20space%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20ENOSPC%3A%20no%20space%20left%20on%20device%0A%60%60%60%0A%0A**Cause%3A**%20Disk%20space%20is%20full.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Clear%20cache%0Amip%20cache%20clean%0Amip%20cache%20clean%20--global%0A%0A%23%20Remove%20old%20packages%0Amip%20uninstall%20%3Cpackage%3E%0A%0A%23%20Check%20size%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%23%208.%20Dependency%20conflict%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Peer%20dependency%20conflict%0A%60%60%60%0A%0A**Cause%3A**%20The%20package%20requires%20a%20different%20version%20of%20a%20dependency.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Install%20the%20required%20version%0Amip%20install%20lodash%404.17.20%0A%0A%23%20Or%20update%20all%20packages%0Amip%20update%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%B9%20Cleaning%20and%20reinstalling%0A%0A%23%23%23%20Full%20reinstall%0A%0A%60%60%60bash%0A%23%20Clean%20everything%0Arm%20-rf%20node_modules%20.mip%0Arm%20-f%20mip-lock.yml%0Amip%20cache%20clean%0A%0A%23%20Install%20again%0Amip%20install%0A%60%60%60%0A%0A%23%23%23%20Cache%20only%0A%0A%60%60%60bash%0Amip%20cache%20clean%0Amip%20install%0A%60%60%60%0A%0A%23%23%23%20Lockfile%20only%0A%0A%60%60%60bash%0Arm%20-f%20mip-lock.yml%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Debugging%0A%0A%23%23%23%20Enable%20debug%20mode%0A%0A%60%60%60bash%0ADEBUG%3D1%20mip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20Check%20logs%0A%0A%60%60%60bash%0A%23%20Logs%20are%20printed%20to%20the%20console%0A%23%20For%20logger%20plugins%3A%0Acat%20mip.log%0A%60%60%60%0A%0A%23%23%23%20Check%20versions%0A%0A%60%60%60bash%0Amip%20--version%0Anode%20--version%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BNetwork%20%26%20Registries%5D(%2Ftroubleshooting%2Fnetwork)%20%E2%80%94%20network%20issues%0A-%20%5BLock%20Files%5D(%2Ftroubleshooting%2Flockfile)%20%E2%80%94%20lockfile%20issues%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20environment%20diagnostics%0A-%20%5Bmip%20cache%5D(%2Fcommands%2Fcache)%20%E2%80%94%20cache%20management%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Installation%20Errors%22%0Adescription%3A%20%22Problems%20encountered%20when%20installing%20packages%20and%20how%20to%20solve%20them.%22%0A---%0A%0A%23%20Installation%20Errors%20%F0%9F%93%A6%0A%0AThe%20most%20common%20issues%20that%20occur%20when%20installing%20packages%20and%20how%20to%20solve%20them.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20General%20diagnostics%0A%0A%23%23%23%20Check%20the%20environment%0A%0A%60%60%60bash%0Amip%20doctor%0A%60%60%60%0A%0A%23%23%23%20Check%20the%20lockfile%0A%0A%60%60%60bash%0Acat%20mip-lock.yml%0A%60%60%60%0A%0A%23%23%23%20Check%20the%20cache%0A%0A%60%60%60bash%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%90%9B%20Common%20errors%0A%0A%23%23%23%201.%20%60mip-lock.yml%60%20not%20found%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Lockfile%20not%20found.%20Run%20mip%20install%20first%0A%60%60%60%0A%0A**Cause%3A**%20The%20lockfile%20is%20missing%20or%20was%20deleted.%0A%0A**Solution%3A**%0A%60%60%60bash%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%23%202.%20Package%20not%20found%20in%20registry%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Package%20not%20found%3A%20some-package%0A%60%60%60%0A%0A**Cause%3A**%20The%20package%20does%20not%20exist%20in%20the%20registry.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Check%20the%20name%0Amip%20search%20some-package%0A%0A%23%20Verify%20the%20package%20exists%0Amip%20info%20some-package%0A%60%60%60%0A%0A---%0A%0A%23%23%23%203.%20Version%20not%20found%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Version%20not%20found%3A%20some-package%4099.99.99%0A%60%60%60%0A%0A**Cause%3A**%20A%20non-existent%20version%20was%20specified.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20View%20available%20versions%0Amip%20info%20some-package%0A%60%60%60%0A%0A---%0A%0A%23%23%23%204.%20Permission%20denied%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20EACCES%3A%20permission%20denied%0A%60%60%60%0A%0A**Cause%3A**%20No%20write%20permissions%20for%20%60.mip%2F%60%20or%20%60node_modules%2F%60.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Fix%20permissions%0Asudo%20chown%20-R%20%24(whoami)%20.%0A%0A%23%20Or%20delete%20and%20recreate%0Arm%20-rf%20node_modules%20.mip%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%23%205.%20SSL%20error%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20UNABLE_TO_VERIFY_LEAF_SIGNATURE%0A%60%60%60%0A%0A**Cause%3A**%20SSL%20certificate%20issues.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Temporarily%20disable%20strict%20verification%0ANODE_TLS_REJECT_UNAUTHORIZED%3D0%20mip%20install%0A%0A%23%20Or%20update%20Node.js%0A%60%60%60%0A%0A---%0A%0A%23%23%23%206.%20Package%20already%20installed%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9C%85%20Package%20already%20installed%0A%60%60%60%0A%0A**This%20is%20not%20an%20error.**%20The%20package%20is%20already%20there.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Force%20reinstall%0Amip%20install%20lodash%20--force%0A%60%60%60%0A%0A---%0A%0A%23%23%23%207.%20No%20free%20space%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20ENOSPC%3A%20no%20space%20left%20on%20device%0A%60%60%60%0A%0A**Cause%3A**%20Disk%20space%20is%20full.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Clear%20cache%0Amip%20cache%20clean%0Amip%20cache%20clean%20--global%0A%0A%23%20Remove%20old%20packages%0Amip%20uninstall%20%3Cpackage%3E%0A%0A%23%20Check%20size%0Amip%20cache%20size%0Amip%20cache%20size%20--global%0A%60%60%60%0A%0A---%0A%0A%23%23%23%208.%20Dependency%20conflict%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Peer%20dependency%20conflict%0A%60%60%60%0A%0A**Cause%3A**%20The%20package%20requires%20a%20different%20version%20of%20a%20dependency.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Install%20the%20required%20version%0Amip%20install%20lodash%404.17.20%0A%0A%23%20Or%20update%20all%20packages%0Amip%20update%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%A7%B9%20Cleaning%20and%20reinstalling%0A%0A%23%23%23%20Full%20reinstall%0A%0A%60%60%60bash%0A%23%20Clean%20everything%0Arm%20-rf%20node_modules%20.mip%0Arm%20-f%20mip-lock.yml%0Amip%20cache%20clean%0A%0A%23%20Install%20again%0Amip%20install%0A%60%60%60%0A%0A%23%23%23%20Cache%20only%0A%0A%60%60%60bash%0Amip%20cache%20clean%0Amip%20install%0A%60%60%60%0A%0A%23%23%23%20Lockfile%20only%0A%0A%60%60%60bash%0Arm%20-f%20mip-lock.yml%0Amip%20install%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Debugging%0A%0A%23%23%23%20Enable%20debug%20mode%0A%0A%60%60%60bash%0ADEBUG%3D1%20mip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20Check%20logs%0A%0A%60%60%60bash%0A%23%20Logs%20are%20printed%20to%20the%20console%0A%23%20For%20logger%20plugins%3A%0Acat%20mip.log%0A%60%60%60%0A%0A%23%23%23%20Check%20versions%0A%0A%60%60%60bash%0Amip%20--version%0Anode%20--version%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BNetwork%20%26%20Registries%5D(%2Ftroubleshooting%2Fnetwork)%20-%20network%20issues%0A-%20%5BLock%20Files%5D(%2Ftroubleshooting%2Flockfile)%20-%20lockfile%20issues%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20environment%20diagnostics%0A-%20%5Bmip%20cache%5D(%2Fcommands%2Fcache)%20-%20cache%20management%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2182,15 +2198,15 @@ mip install
         </div>
       </div>
       
-      <script src="../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

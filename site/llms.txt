@@ -60,8 +60,10 @@
   The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH.
 - [mip search - search for packages in the registry](https://mip.fwh.is/commands/search/)
   The search command searches the npm registry for packages matching a keyword, showing the name, version, and description.
-- [mip server - web dashboard for MIP](https://mip.fwh.is/commands/server/)
+- [mip page - web dashboard for MIP](https://mip.fwh.is/commands/server/)
   The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health.
+- [mip shell - interactive package manager shell](https://mip.fwh.is/commands/shell/)
+  The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation.
 - [mip super-install - super-fast package installation](https://mip.fwh.is/commands/super-install/)
   The super-install command uses multi-threaded downloading, HTTP/2, parallel extraction, and super-cache for the fastest possible dependency installation.
 - [mip uninstall - remove packages](https://mip.fwh.is/commands/uninstall/)
@@ -159,6 +161,8 @@
   Команда search ищет пакеты в реестре npm по ключевому слову, показывая название, версию и описание.
 - [mip server - веб-дашборд для MIP](https://mip.fwh.is/ru/commands/server/)
   Команда server запускает локальный веб-дашборд, который показывает в реальном времени информацию о вашем проекте, пакетах, глобальном хранилище, реестрах, скриптах и состоянии системы.
+- [mip shell - интерактивная оболочка менеджера пакетов](https://mip.fwh.is/ru/commands/shell/)
+  Команда shell запускает интерактивную REPL-оболочку MIP, позволяя выполнять команды менеджера пакетов без префикса 'mip', с автодополнением, историей команд и встроенной навигацией.
 - [mip super-install - супер-быстрая установка пакетов](https://mip.fwh.is/ru/commands/super-install/)
   Команда super-install использует многопоточную загрузку, HTTP/2, параллельную распаковку и супер-кэш для максимально быстрой установки зависимостей.
 - [mip uninstall - удаление пакетов](https://mip.fwh.is/ru/commands/uninstall/)

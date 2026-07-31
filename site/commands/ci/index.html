@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip ci - install for CI/CD environments : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The ci command is designed for fast and reliable dependency installation in CI/CD environments using a lockfile and verifying its integrity.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/ci/">
 <link rel="alternate" hreflang="en" href="/commands/ci/">
 <link rel="alternate" hreflang="x-default" href="/commands/ci/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20ci%20%E2%80%94%20install%20for%20CI%2FCD%20environments%22%0Adescription%3A%20%22The%20ci%20command%20is%20designed%20for%20fast%20and%20reliable%20dependency%20installation%20in%20CI%2FCD%20environments%20using%20a%20lockfile%20and%20verifying%20its%20integrity.%22%0A---%0A%0A%23%20mip%20ci%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Arocket%0A%60mip%20ci%60%20is%20a%20special%20command%20for%20**non-interactive%20environments**%20(CI%2FCD%2C%20Docker%2C%20testing%20servers).%20It%20installs%20dependencies%20strictly%20according%20to%20%60mip-lock.yml%60%2C%20ignoring%20%60mip.yml%60%2C%20which%20guarantees%20a%20reproducible%20installation.%20Unlike%20%60mip%20install%60%2C%20this%20command%20does%20not%20update%20the%20lockfile%20and%20does%20not%20check%20for%20updates%20%E2%80%94%20it%20only%20installs%20what%20is%20already%20locked.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20ci%20%5B--frozen-lockfile%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--frozen-lockfile%60%20%7C%20Checks%20that%20%60mip-lock.yml%60%20is%20in%20sync%20with%20%60mip.yml%60.%20If%20there%20are%20discrepancies%2C%20installation%20stops%20with%20an%20error.%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20that%20required%20files%20exist**%20%E2%80%94%20the%20command%20verifies%20%60mip.yml%60%20and%20%60mip-lock.yml%60%20are%20present.%20If%20any%20are%20missing%2C%20it%20exits%20with%20error%20code%20%601%60.%0A%0A2.%20**Frozen%20lockfile%20check%20(if%20the%20flag%20is%20set)**%20%E2%80%94%20compares%20dependencies%20from%20%60mip.yml%60%20and%20%60mip-lock.yml%60%3A%0A%20%20%20-%20All%20dependencies%20from%20%60mip.yml%60%20must%20be%20present%20in%20the%20lockfile.%0A%20%20%20-%20The%20lockfile%20must%20not%20contain%20extra%20packages%20that%20are%20not%20in%20%60mip.yml%60.%0A%20%20%20-%20If%20discrepancies%20are%20found%2C%20it%20prints%20the%20problems%20and%20instructions%20on%20how%20to%20fix%20them.%0A%0A3.%20**Install%20from%20the%20lockfile**%20%E2%80%94%20for%20each%20package%20from%20%60mip-lock.yml%60%3A%0A%20%20%20-%20Checks%20whether%20it%20exists%20in%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60.%0A%20%20%20-%20If%20it%E2%80%99s%20missing%2C%20it%E2%80%99s%20downloaded%20and%20extracted.%0A%20%20%20-%20A%20symlink%20is%20created%20in%20%60node_modules%2F%60.%0A%0A4.%20**Progress%20indication**%20%E2%80%94%20shows%20a%20progress%20bar%20with%20the%20completion%20percentage.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Standard%20CI%20installation%22%0A%60%60%60bash%0Amip%20ci%0A%60%60%60%0A%0AInstalls%20all%20dependencies%20from%20%60mip-lock.yml%60.%20If%20the%20lockfile%20is%20missing%2C%20it%20prints%20an%20error.%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%9A%80%20Running%20CI%20installation...%0A%F0%9F%93%A6%20Installing%20from%20lockfile%20(42%20packages)%0A%E2%AC%87%EF%B8%8F%20%20Downloading%20lodash%404.17.21...%0A%20%20%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%20100%25%2042%2F42%0A%E2%9C%85%20Installed%2042%20packages%0A%F0%9F%94%92%20Lockfile%20integrity%20verified%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Strict%20frozen%20lockfile%20check%22%0A%60%60%60bash%0Amip%20ci%20--frozen-lockfile%0A%60%60%60%0A%0ABefore%20installation%2C%20it%20checks%20that%20the%20lockfile%20matches%20%60mip.yml%60.%20If%20there%E2%80%99s%20a%20mismatch%2C%20it%20prints%20an%20error%20and%20a%20hint.%0A%0A**Example%20error%3A**%0A%60%60%60%0A%E2%9D%8C%20Frozen%20lockfile%20check%20failed%3A%0A%20%20%E2%80%A2%20lodash%3A%20missing%20from%20lockfile%0A%20%20%E2%80%A2%20axios%3A%20extra%20in%20lockfile%0A%F0%9F%92%A1%20Run%20&#039;mip%20install&#039;%20to%20update%20lockfile%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20Lockfile%20not%20found%22%20icon%3Askull%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing%20in%20the%20project.%0A%0A**Resolution%3A**%20CI%20must%20run%20only%20with%20a%20**committed**%20lockfile.%20Run%20%60mip%20install%60%20locally%20and%20commit%20%60mip-lock.yml%60%20to%20your%20repository.%20Never%20ignore%20the%20lockfile%20in%20%60.gitignore%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20mip.yml%20not%20found%22%20icon%3Askull%0A**Cause%3A**%20%60mip.yml%60%20does%20not%20exist%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%20Make%20sure%20you%E2%80%99re%20in%20the%20project%20root.%20If%20this%20is%20a%20new%20project%2C%20create%20%60mip.yml%60%20with%20%60mip%20init%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%F0%9F%94%92%20Frozen%20lockfile%20mismatch%22%20icon%3Aalert-triangle%0A**Cause%3A**%20%60mip.yml%60%20was%20changed%2C%20but%20%60mip-lock.yml%60%20wasn%E2%80%99t%20updated.%0A%0A**Resolution%3A**%0A1.%20Run%20%60mip%20install%60%20locally%20to%20sync%20the%20lockfile.%0A2.%20Commit%20the%20updated%20%60mip-lock.yml%60.%0A3.%20Restart%20CI.%0A%0ATo%20automate%20this%2C%20add%20%60mip%20ci%20--frozen-lockfile%60%20to%20your%20CI%20pipeline%20%E2%80%94%20this%20prevents%20people%20from%20forgetting%20to%20update%20the%20lockfile.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0AAlways%20use%20%60mip%20ci%60%20instead%20of%20%60mip%20install%60%20in%20CI%2FCD.%20It%E2%80%99s%3A%0A-%20**Faster**%20%E2%80%94%20it%20doesn%E2%80%99t%20check%20for%20updates%2C%20it%20only%20installs.%0A-%20**More%20reliable**%20%E2%80%94%20guarantees%20reproducible%20builds.%0A-%20**Safer**%20%E2%80%94%20prevents%20accidental%20dependency%20updates.%0A%0AThe%20command%20also%20uses%20a%20progress%20bar%20to%20make%20the%20process%20visible.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20interactive%20install%20that%20updates%20the%20lockfile.%0A-%20%5Bmip%20genlock%5D(%2Fcommands%2Fgenlock)%20%E2%80%94%20generates%20the%20lockfile.%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20checks%20overall%20project%20health.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20Why%20ci%20and%20install%20are%20different%3F%22%0AMIP%20splits%20these%20commands%20to%20prevent%20common%20CI%20mistakes%3A%0A%0A%7C%20Command%20%7C%20Purpose%20%7C%20Updates%20lockfile%20%7C%20Checks%20updates%20%7C%0A%7C---------%7C----------%7C-------------------%7C------------------%7C%0A%7C%20%60mip%20install%60%20%7C%20**Interactive%20install**%20(for%20development)%20%7C%20%E2%9C%85%20Yes%20%7C%20%E2%9C%85%20Yes%20%7C%0A%7C%20%60mip%20ci%60%20%7C%20**CI%2FCD%20install**%20(for%20automation)%20%7C%20%E2%9D%8C%20No%20%7C%20%E2%9D%8C%20No%20%7C%0A%0AIn%20CI%20you%20**always**%20want%20to%20install%20exactly%20the%20versions%20that%20are%20locked%20in%20the%20lockfile.%20Using%20%60mip%20install%60%20in%20CI%20can%20lead%20to%20nondeterministic%20builds%20if%20someone%20publishes%20a%20newer%20package%20version.%0A%0AAdditionally%2C%20%60--frozen-lockfile%60%20acts%20as%20a%20**human%20error%20protection**%3A%20if%20a%20developer%20forgot%20to%20update%20the%20lockfile%20after%20changing%20%60mip.yml%60%2C%20CI%20will%20fail%20with%20a%20clear%20error%20and%20a%20hint%20about%20what%20to%20do.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20ci%20-%20install%20for%20CI%2FCD%20environments%22%0Adescription%3A%20%22The%20ci%20command%20is%20designed%20for%20fast%20and%20reliable%20dependency%20installation%20in%20CI%2FCD%20environments%20using%20a%20lockfile%20and%20verifying%20its%20integrity.%22%0A---%0A%0A%23%20mip%20ci%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Arocket%0A%60mip%20ci%60%20is%20a%20special%20command%20for%20**non-interactive%20environments**%20(CI%2FCD%2C%20Docker%2C%20testing%20servers).%20It%20installs%20dependencies%20strictly%20according%20to%20%60mip-lock.yml%60%2C%20ignoring%20%60mip.yml%60%2C%20which%20guarantees%20a%20reproducible%20installation.%20Unlike%20%60mip%20install%60%2C%20this%20command%20does%20not%20update%20the%20lockfile%20and%20does%20not%20check%20for%20updates%20-%20it%20only%20installs%20what%20is%20already%20locked.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20ci%20%5B--frozen-lockfile%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--frozen-lockfile%60%20%7C%20Checks%20that%20%60mip-lock.yml%60%20is%20in%20sync%20with%20%60mip.yml%60.%20If%20there%20are%20discrepancies%2C%20installation%20stops%20with%20an%20error.%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Check%20that%20required%20files%20exist**%20-%20the%20command%20verifies%20%60mip.yml%60%20and%20%60mip-lock.yml%60%20are%20present.%20If%20any%20are%20missing%2C%20it%20exits%20with%20error%20code%20%601%60.%0A%0A2.%20**Frozen%20lockfile%20check%20(if%20the%20flag%20is%20set)**%20-%20compares%20dependencies%20from%20%60mip.yml%60%20and%20%60mip-lock.yml%60%3A%0A%20%20%20-%20All%20dependencies%20from%20%60mip.yml%60%20must%20be%20present%20in%20the%20lockfile.%0A%20%20%20-%20The%20lockfile%20must%20not%20contain%20extra%20packages%20that%20are%20not%20in%20%60mip.yml%60.%0A%20%20%20-%20If%20discrepancies%20are%20found%2C%20it%20prints%20the%20problems%20and%20instructions%20on%20how%20to%20fix%20them.%0A%0A3.%20**Install%20from%20the%20lockfile**%20-%20for%20each%20package%20from%20%60mip-lock.yml%60%3A%0A%20%20%20-%20Checks%20whether%20it%20exists%20in%20the%20global%20cache%20%60~%2F.mip%2Fstore%2F%60.%0A%20%20%20-%20If%20it%E2%80%99s%20missing%2C%20it%E2%80%99s%20downloaded%20and%20extracted.%0A%20%20%20-%20A%20symlink%20is%20created%20in%20%60node_modules%2F%60.%0A%0A4.%20**Progress%20indication**%20-%20shows%20a%20progress%20bar%20with%20the%20completion%20percentage.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Standard%20CI%20installation%22%0A%60%60%60bash%0Amip%20ci%0A%60%60%60%0A%0AInstalls%20all%20dependencies%20from%20%60mip-lock.yml%60.%20If%20the%20lockfile%20is%20missing%2C%20it%20prints%20an%20error.%0A%0A**Example%20output%3A**%0A%60%60%60%0A%F0%9F%9A%80%20Running%20CI%20installation...%0A%F0%9F%93%A6%20Installing%20from%20lockfile%20(42%20packages)%0A%E2%AC%87%EF%B8%8F%20%20Downloading%20lodash%404.17.21...%0A%20%20%20%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%E2%96%88%20100%25%2042%2F42%0A%E2%9C%85%20Installed%2042%20packages%0A%F0%9F%94%92%20Lockfile%20integrity%20verified%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Strict%20frozen%20lockfile%20check%22%0A%60%60%60bash%0Amip%20ci%20--frozen-lockfile%0A%60%60%60%0A%0ABefore%20installation%2C%20it%20checks%20that%20the%20lockfile%20matches%20%60mip.yml%60.%20If%20there%E2%80%99s%20a%20mismatch%2C%20it%20prints%20an%20error%20and%20a%20hint.%0A%0A**Example%20error%3A**%0A%60%60%60%0A%E2%9D%8C%20Frozen%20lockfile%20check%20failed%3A%0A%20%20%E2%80%A2%20lodash%3A%20missing%20from%20lockfile%0A%20%20%E2%80%A2%20axios%3A%20extra%20in%20lockfile%0A%F0%9F%92%A1%20Run%20&#039;mip%20install&#039;%20to%20update%20lockfile%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20Lockfile%20not%20found%22%20icon%3Askull%0A**Cause%3A**%20%60mip-lock.yml%60%20is%20missing%20in%20the%20project.%0A%0A**Resolution%3A**%20CI%20must%20run%20only%20with%20a%20**committed**%20lockfile.%20Run%20%60mip%20install%60%20locally%20and%20commit%20%60mip-lock.yml%60%20to%20your%20repository.%20Never%20ignore%20the%20lockfile%20in%20%60.gitignore%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20mip.yml%20not%20found%22%20icon%3Askull%0A**Cause%3A**%20%60mip.yml%60%20does%20not%20exist%20in%20the%20current%20directory.%0A%0A**Resolution%3A**%20Make%20sure%20you%E2%80%99re%20in%20the%20project%20root.%20If%20this%20is%20a%20new%20project%2C%20create%20%60mip.yml%60%20with%20%60mip%20init%60.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%F0%9F%94%92%20Frozen%20lockfile%20mismatch%22%20icon%3Aalert-triangle%0A**Cause%3A**%20%60mip.yml%60%20was%20changed%2C%20but%20%60mip-lock.yml%60%20wasn%E2%80%99t%20updated.%0A%0A**Resolution%3A**%0A1.%20Run%20%60mip%20install%60%20locally%20to%20sync%20the%20lockfile.%0A2.%20Commit%20the%20updated%20%60mip-lock.yml%60.%0A3.%20Restart%20CI.%0A%0ATo%20automate%20this%2C%20add%20%60mip%20ci%20--frozen-lockfile%60%20to%20your%20CI%20pipeline%20-%20this%20prevents%20people%20from%20forgetting%20to%20update%20the%20lockfile.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0AAlways%20use%20%60mip%20ci%60%20instead%20of%20%60mip%20install%60%20in%20CI%2FCD.%20It%E2%80%99s%3A%0A-%20**Faster**%20-%20it%20doesn%E2%80%99t%20check%20for%20updates%2C%20it%20only%20installs.%0A-%20**More%20reliable**%20-%20guarantees%20reproducible%20builds.%0A-%20**Safer**%20-%20prevents%20accidental%20dependency%20updates.%0A%0AThe%20command%20also%20uses%20a%20progress%20bar%20to%20make%20the%20process%20visible.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20interactive%20install%20that%20updates%20the%20lockfile.%0A-%20%5Bmip%20genlock%5D(%2Fcommands%2Fgenlock)%20-%20generates%20the%20lockfile.%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20checks%20overall%20project%20health.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20Why%20ci%20and%20install%20are%20different%3F%22%0AMIP%20splits%20these%20commands%20to%20prevent%20common%20CI%20mistakes%3A%0A%0A%7C%20Command%20%7C%20Purpose%20%7C%20Updates%20lockfile%20%7C%20Checks%20updates%20%7C%0A%7C---------%7C----------%7C-------------------%7C------------------%7C%0A%7C%20%60mip%20install%60%20%7C%20**Interactive%20install**%20(for%20development)%20%7C%20%E2%9C%85%20Yes%20%7C%20%E2%9C%85%20Yes%20%7C%0A%7C%20%60mip%20ci%60%20%7C%20**CI%2FCD%20install**%20(for%20automation)%20%7C%20%E2%9D%8C%20No%20%7C%20%E2%9D%8C%20No%20%7C%0A%0AIn%20CI%20you%20**always**%20want%20to%20install%20exactly%20the%20versions%20that%20are%20locked%20in%20the%20lockfile.%20Using%20%60mip%20install%60%20in%20CI%20can%20lead%20to%20nondeterministic%20builds%20if%20someone%20publishes%20a%20newer%20package%20version.%0A%0AAdditionally%2C%20%60--frozen-lockfile%60%20acts%20as%20a%20**human%20error%20protection**%3A%20if%20a%20developer%20forgot%20to%20update%20the%20lockfile%20after%20changing%20%60mip.yml%60%2C%20CI%20will%20fail%20with%20a%20clear%20error%20and%20a%20hint%20about%20what%20to%20do.%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2186,15 +2202,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

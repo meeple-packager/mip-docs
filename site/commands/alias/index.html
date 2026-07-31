@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip alias - command shortcuts : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The alias command allows you to create, list, and remove custom shortcuts for frequently used MIP commands.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/alias/">
 <link rel="alternate" hreflang="en" href="/commands/alias/">
 <link rel="alternate" hreflang="x-default" href="/commands/alias/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20alias%20%E2%80%94%20command%20shortcuts%22%0Adescription%3A%20%22The%20alias%20command%20allows%20you%20to%20create%2C%20list%2C%20and%20remove%20custom%20shortcuts%20for%20frequently%20used%20MIP%20commands.%22%0A---%0A%0A%23%20mip%20alias%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3A%E2%9A%A1%0A%60mip%20alias%60%20allows%20you%20to%20create%20custom%20shortcuts%20for%20MIP%20commands.%20Stop%20typing%20long%20commands%20%E2%80%94%20use%20your%20own%20abbreviations%20and%20speed%20up%20your%20workflow.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20alias%20%3Csubcommand%3E%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Subcommands%0A%0A%7C%20Subcommand%20%7C%20Description%20%7C%0A%7C------------%7C-------------%7C%0A%7C%20%60set%20%3Cname%3E%20%3Ccommand%3E%60%20%7C%20Create%20or%20update%20an%20alias%20%7C%0A%7C%20%60remove%20%3Cname%3E%60%20%7C%20Remove%20an%20alias%20%7C%0A%7C%20%60list%60%20%7C%20Show%20all%20configured%20aliases%20%7C%0A%7C%20%60clear%60%20%7C%20Remove%20all%20aliases%20%7C%0A%7C%20%60help%60%20%7C%20Show%20this%20help%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Aliases%20are%20stored**%20in%20%60~%2F.mip%2Faliases.yml%60%20(global%2C%20not%20project-specific)%0A2.%20**Resolution**%20happens%20before%20command%20execution%20%E2%80%94%20MIP%20checks%20if%20the%20command%20matches%20any%20alias%0A3.%20**Supports%20spaces**%20in%20alias%20names%20(use%20quotes)%0A4.%20**Supports%20arguments**%20%E2%80%94%20everything%20after%20the%20alias%20is%20passed%20to%20the%20target%20command%0A5.%20**Longest%20match**%20%E2%80%94%20if%20multiple%20aliases%20match%2C%20the%20longest%20one%20is%20used%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Basic%20alias%22%0A%60%60%60bash%0A%23%20Create%20shortcut%20for%20install%0Amip%20alias%20set%20i%20install%0A%0A%23%20Use%20it%0Amip%20i%20lodash%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Alias%20set%3A%20i%20%E2%86%92%20install%0A%20%20%20Stored%20in%3A%20~%2F.mip%2Faliases.yml%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Alias%20with%20spaces%22%0A%60%60%60bash%0A%23%20Create%20alias%20with%20spaces%20in%20name%0Amip%20alias%20set%20%22mip%20pe%20calc%22%20%22mip%20run%20calc%22%0A%0A%23%20Use%20it%0Amip%20pe%20calc%202%20plus%202%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%A7%AE%202%20%2B%202%20%3D%204%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Alias%20with%20arguments%22%0A%60%60%60bash%0A%23%20Create%20alias%20for%20build%20with%20flags%0Amip%20alias%20set%20%22mip%20build%20fast%22%20%22mip%20run%20build%20--mode%20production%22%0A%0A%23%20Use%20it%0Amip%20build%20fast%0A%23%20%E2%86%92%20mip%20run%20build%20--mode%20production%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22List%20all%20aliases%22%0A%60%60%60bash%0Amip%20alias%20list%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%8B%20MIP%20Aliases%3A%0A%0A%20%20i%20%20%20%20%20%20%20%20%20%20%E2%86%92%20%20install%0A%20%20up%20%20%20%20%20%20%20%20%20%E2%86%92%20%20update%0A%20%20%22mip%20pe%20calc%22%20%20%E2%86%92%20%20mip%20run%20calc%0A%0A%F0%9F%92%A1%20Total%3A%203%20aliases%0A%F0%9F%93%81%20File%3A%20~%2F.mip%2Faliases.yml%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Remove%20alias%22%0A%60%60%60bash%0A%23%20Remove%20by%20name%0Amip%20alias%20remove%20i%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Alias%20removed%3A%20i%20(was%20%E2%86%92%20install)%0A%60%60%60%0A%0ARemove%20alias%20with%20spaces%3A%0A%60%60%60bash%0Amip%20alias%20remove%20%22mip%20pe%20calc%22%0A%23%20or%0Amip%20alias%20remove%20mip%20pe%20calc%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Clear%20all%20aliases%22%0A%60%60%60bash%0Amip%20alias%20clear%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9A%A0%EF%B8%8F%20This%20will%20remove%20all%203%20aliases%0A%20%20%20Are%20you%20sure%3F%20(y%2FN)%20y%0A%E2%9C%85%20Cleared%20all%203%20aliases%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Aliases%20file%20format%0A%0AAliases%20are%20stored%20in%20%60~%2F.mip%2Faliases.yml%60%3A%0A%0A%60%60%60yaml%0Ai%3A%20install%0Aup%3A%20update%0A%22mip%20pe%20calc%22%3A%20%22mip%20run%20calc%22%0A%22mip%20build%20fast%22%3A%20%22mip%20run%20build%20--mode%20production%22%0A%60%60%60%0A%0AYou%20can%20edit%20this%20file%20directly%20%E2%80%94%20MIP%20will%20load%20changes%20on%20the%20next%20run.%0A%0A%23%23%20Common%20use%20cases%0A%0A%23%23%23%20Shorten%20everyday%20commands%0A%60%60%60bash%0Amip%20alias%20set%20i%20install%0Amip%20alias%20set%20up%20update%0Amip%20alias%20set%20ls%20list%0Amip%20alias%20set%20rm%20uninstall%0Amip%20alias%20set%20s%20search%0Amip%20alias%20set%20st%20status%0Amip%20alias%20set%20ci%20%22mip%20ci%20--frozen-lockfile%22%0A%60%60%60%0A%0A%23%23%23%20Shortcuts%20for%20plugin%20commands%0A%60%60%60bash%0Amip%20alias%20set%20%22build%22%20%22mip%20pe%20mip-webpack%20build%22%0Amip%20alias%20set%20%22dev%22%20%22mip%20pe%20mip-webpack%20dev%22%0A%60%60%60%0A%0A%23%23%23%20Complex%20commands%0A%60%60%60bash%0A%23%20Deploy%20with%20multiple%20steps%0Amip%20alias%20set%20%22deploy%22%20%22mip%20run%20build%20%26%26%20mip%20run%20test%20%26%26%20mip%20run%20deploy%22%0A%0A%23%20Clean%20install%0Amip%20alias%20set%20%22fresh%22%20%22mip%20cache%20clean%20%26%26%20mip%20install%22%0A%60%60%60%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_ALIAS_NOT_FOUND%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20alias%20doesn&#039;t%20exist.%0A%0A**Resolution%3A**%0A1.%20Check%20the%20exact%20name%3A%20%60mip%20alias%20list%60%0A2.%20Aliases%20with%20spaces%20need%20quotes%3A%20%60mip%20alias%20remove%20%22my%20alias%22%60%0A3.%20Make%20sure%20you%20typed%20the%20name%20correctly%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_RESERVED_NAME%22%20icon%3Askull%0A**Cause%3A**%20The%20alias%20name%20conflicts%20with%20a%20reserved%20MIP%20command.%0A%0A**Resolution%3A**%0A1.%20Reserved%20names%20cannot%20be%20aliased%3A%20%60alias%60%2C%20%60config%60%2C%20%60registry%60%2C%20%60server%60%2C%20%60publish%60%2C%20%60help%60%0A2.%20Choose%20a%20different%20name%20for%20your%20alias%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_ALIAS_OVERWRITE%22%20icon%3Aalert-circle%0A**Cause%3A**%20An%20alias%20with%20the%20same%20name%20already%20exists.%0A%0A**Resolution%3A**%0A1.%20You&#039;ll%20be%20prompted%20to%20confirm%20overwrite%0A2.%20Type%20%60y%60%20to%20overwrite%2C%20%60n%60%20to%20cancel%0A3.%20Or%20use%20%60mip%20alias%20remove%20%3Cname%3E%60%20first%2C%20then%20set%20it%20again%0A%3A%3A%3A%0A%0A%23%23%20How%20alias%20resolution%20works%0A%0AWhen%20you%20run%20a%20command%2C%20MIP%20checks%3A%0A%0A1.%20**Exact%20match**%20%E2%80%94%20if%20the%20entire%20command%20matches%20an%20alias%20name%0A2.%20**Longest%20match**%20%E2%80%94%20if%20multiple%20aliases%20match%2C%20the%20longest%20one%20wins%0A3.%20**Argument%20passing**%20%E2%80%94%20remaining%20arguments%20are%20passed%20to%20the%20target%20command%0A%0A**Example%3A**%0A%60%60%60%0AAliases%3A%0A%20%20%22build%22%20%E2%86%92%20%22mip%20run%20build%22%0A%20%20%22build%20fast%22%20%E2%86%92%20%22mip%20run%20build%20--production%22%0A%0AInput%3A%20mip%20build%20fast%20--force%0AMatch%3A%20%22build%20fast%22%20(longest%20match)%0AResult%3A%20mip%20run%20build%20--production%20--force%0A%60%60%60%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20%E2%80%94%20manage%20MIP%20configuration%0A-%20%5Bmip%20plugin%5D(%2Fcommands%2Fplugin)%20%E2%80%94%20manage%20plugins%20(which%20often%20provide%20additional%20commands)%0A-%20%5Bmip%20pe%5D(%2Fcommands%2Fpe)%20%E2%80%94%20execute%20plugin%20commands%20(often%20used%20in%20aliases)%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20Aliases%20vs%20Shell%20Aliases%22%0A**MIP%20aliases**%20work%20inside%20MIP%20commands%20and%20are%20portable%20across%20any%20shell.%0A%0A**Shell%20aliases**%20(in%20%60.bashrc%60%20or%20%60.zshrc%60)%20work%20at%20the%20shell%20level%3A%0A%60%60%60bash%0A%23%20Shell%20alias%20(in%20.zshrc)%0Aalias%20mip%3D&#039;mip%20--super&#039;%0A%0A%23%20MIP%20alias%20(stored%20in%20~%2F.mip%2Faliases.yml)%0Amip%20alias%20set%20i%20install%0A%60%60%60%0A%0A**When%20to%20use%20each%3A**%0A-%20Shell%20aliases%20%E2%80%94%20for%20global%20MIP%20flags%20(%60--super%60%2C%20%60--debug%60)%0A-%20MIP%20aliases%20%E2%80%94%20for%20command%20substitutions%20(%60i%60%20%E2%86%92%20%60install%60)%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Pro%20tip%3A%20Share%20aliases%22%20icon%3Alightbulb%0ACopy%20your%20%60~%2F.mip%2Faliases.yml%60%20file%20to%20other%20machines%20to%20keep%20your%20shortcuts%20consistent%20across%20all%20your%20development%20environments.%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20alias%20-%20command%20shortcuts%22%0Adescription%3A%20%22The%20alias%20command%20allows%20you%20to%20create%2C%20list%2C%20and%20remove%20custom%20shortcuts%20for%20frequently%20used%20MIP%20commands.%22%0A---%0A%0A%23%20mip%20alias%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3A%E2%9A%A1%0A%60mip%20alias%60%20allows%20you%20to%20create%20custom%20shortcuts%20for%20MIP%20commands.%20Stop%20typing%20long%20commands%20-%20use%20your%20own%20abbreviations%20and%20speed%20up%20your%20workflow.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20alias%20%3Csubcommand%3E%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Subcommands%0A%0A%7C%20Subcommand%20%7C%20Description%20%7C%0A%7C------------%7C-------------%7C%0A%7C%20%60set%20%3Cname%3E%20%3Ccommand%3E%60%20%7C%20Create%20or%20update%20an%20alias%20%7C%0A%7C%20%60remove%20%3Cname%3E%60%20%7C%20Remove%20an%20alias%20%7C%0A%7C%20%60list%60%20%7C%20Show%20all%20configured%20aliases%20%7C%0A%7C%20%60clear%60%20%7C%20Remove%20all%20aliases%20%7C%0A%7C%20%60help%60%20%7C%20Show%20this%20help%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Aliases%20are%20stored**%20in%20%60~%2F.mip%2Faliases.yml%60%20(global%2C%20not%20project-specific)%0A2.%20**Resolution**%20happens%20before%20command%20execution%20-%20MIP%20checks%20if%20the%20command%20matches%20any%20alias%0A3.%20**Supports%20spaces**%20in%20alias%20names%20(use%20quotes)%0A4.%20**Supports%20arguments**%20-%20everything%20after%20the%20alias%20is%20passed%20to%20the%20target%20command%0A5.%20**Longest%20match**%20-%20if%20multiple%20aliases%20match%2C%20the%20longest%20one%20is%20used%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Basic%20alias%22%0A%60%60%60bash%0A%23%20Create%20shortcut%20for%20install%0Amip%20alias%20set%20i%20install%0A%0A%23%20Use%20it%0Amip%20i%20lodash%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Alias%20set%3A%20i%20%E2%86%92%20install%0A%20%20%20Stored%20in%3A%20~%2F.mip%2Faliases.yml%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Alias%20with%20spaces%22%0A%60%60%60bash%0A%23%20Create%20alias%20with%20spaces%20in%20name%0Amip%20alias%20set%20%22mip%20pe%20calc%22%20%22mip%20run%20calc%22%0A%0A%23%20Use%20it%0Amip%20pe%20calc%202%20plus%202%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%A7%AE%202%20%2B%202%20%3D%204%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Alias%20with%20arguments%22%0A%60%60%60bash%0A%23%20Create%20alias%20for%20build%20with%20flags%0Amip%20alias%20set%20%22mip%20build%20fast%22%20%22mip%20run%20build%20--mode%20production%22%0A%0A%23%20Use%20it%0Amip%20build%20fast%0A%23%20%E2%86%92%20mip%20run%20build%20--mode%20production%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22List%20all%20aliases%22%0A%60%60%60bash%0Amip%20alias%20list%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%93%8B%20MIP%20Aliases%3A%0A%0A%20%20i%20%20%20%20%20%20%20%20%20%20%E2%86%92%20%20install%0A%20%20up%20%20%20%20%20%20%20%20%20%E2%86%92%20%20update%0A%20%20%22mip%20pe%20calc%22%20%20%E2%86%92%20%20mip%20run%20calc%0A%0A%F0%9F%92%A1%20Total%3A%203%20aliases%0A%F0%9F%93%81%20File%3A%20~%2F.mip%2Faliases.yml%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Remove%20alias%22%0A%60%60%60bash%0A%23%20Remove%20by%20name%0Amip%20alias%20remove%20i%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Alias%20removed%3A%20i%20(was%20%E2%86%92%20install)%0A%60%60%60%0A%0ARemove%20alias%20with%20spaces%3A%0A%60%60%60bash%0Amip%20alias%20remove%20%22mip%20pe%20calc%22%0A%23%20or%0Amip%20alias%20remove%20mip%20pe%20calc%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Clear%20all%20aliases%22%0A%60%60%60bash%0Amip%20alias%20clear%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9A%A0%EF%B8%8F%20This%20will%20remove%20all%203%20aliases%0A%20%20%20Are%20you%20sure%3F%20(y%2FN)%20y%0A%E2%9C%85%20Cleared%20all%203%20aliases%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20Aliases%20file%20format%0A%0AAliases%20are%20stored%20in%20%60~%2F.mip%2Faliases.yml%60%3A%0A%0A%60%60%60yaml%0Ai%3A%20install%0Aup%3A%20update%0A%22mip%20pe%20calc%22%3A%20%22mip%20run%20calc%22%0A%22mip%20build%20fast%22%3A%20%22mip%20run%20build%20--mode%20production%22%0A%60%60%60%0A%0AYou%20can%20edit%20this%20file%20directly%20-%20MIP%20will%20load%20changes%20on%20the%20next%20run.%0A%0A%23%23%20Common%20use%20cases%0A%0A%23%23%23%20Shorten%20everyday%20commands%0A%60%60%60bash%0Amip%20alias%20set%20i%20install%0Amip%20alias%20set%20up%20update%0Amip%20alias%20set%20ls%20list%0Amip%20alias%20set%20rm%20uninstall%0Amip%20alias%20set%20s%20search%0Amip%20alias%20set%20st%20status%0Amip%20alias%20set%20ci%20%22mip%20ci%20--frozen-lockfile%22%0A%60%60%60%0A%0A%23%23%23%20Shortcuts%20for%20plugin%20commands%0A%60%60%60bash%0Amip%20alias%20set%20%22build%22%20%22mip%20pe%20mip-webpack%20build%22%0Amip%20alias%20set%20%22dev%22%20%22mip%20pe%20mip-webpack%20dev%22%0A%60%60%60%0A%0A%23%23%23%20Complex%20commands%0A%60%60%60bash%0A%23%20Deploy%20with%20multiple%20steps%0Amip%20alias%20set%20%22deploy%22%20%22mip%20run%20build%20%26%26%20mip%20run%20test%20%26%26%20mip%20run%20deploy%22%0A%0A%23%20Clean%20install%0Amip%20alias%20set%20%22fresh%22%20%22mip%20cache%20clean%20%26%26%20mip%20install%22%0A%60%60%60%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20ERR_ALIAS_NOT_FOUND%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20specified%20alias%20doesn&#039;t%20exist.%0A%0A**Resolution%3A**%0A1.%20Check%20the%20exact%20name%3A%20%60mip%20alias%20list%60%0A2.%20Aliases%20with%20spaces%20need%20quotes%3A%20%60mip%20alias%20remove%20%22my%20alias%22%60%0A3.%20Make%20sure%20you%20typed%20the%20name%20correctly%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20ERR_RESERVED_NAME%22%20icon%3Askull%0A**Cause%3A**%20The%20alias%20name%20conflicts%20with%20a%20reserved%20MIP%20command.%0A%0A**Resolution%3A**%0A1.%20Reserved%20names%20cannot%20be%20aliased%3A%20%60alias%60%2C%20%60config%60%2C%20%60registry%60%2C%20%60server%60%2C%20%60publish%60%2C%20%60help%60%0A2.%20Choose%20a%20different%20name%20for%20your%20alias%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20ERR_ALIAS_OVERWRITE%22%20icon%3Aalert-circle%0A**Cause%3A**%20An%20alias%20with%20the%20same%20name%20already%20exists.%0A%0A**Resolution%3A**%0A1.%20You&#039;ll%20be%20prompted%20to%20confirm%20overwrite%0A2.%20Type%20%60y%60%20to%20overwrite%2C%20%60n%60%20to%20cancel%0A3.%20Or%20use%20%60mip%20alias%20remove%20%3Cname%3E%60%20first%2C%20then%20set%20it%20again%0A%3A%3A%3A%0A%0A%23%23%20How%20alias%20resolution%20works%0A%0AWhen%20you%20run%20a%20command%2C%20MIP%20checks%3A%0A%0A1.%20**Exact%20match**%20-%20if%20the%20entire%20command%20matches%20an%20alias%20name%0A2.%20**Longest%20match**%20-%20if%20multiple%20aliases%20match%2C%20the%20longest%20one%20wins%0A3.%20**Argument%20passing**%20-%20remaining%20arguments%20are%20passed%20to%20the%20target%20command%0A%0A**Example%3A**%0A%60%60%60%0AAliases%3A%0A%20%20%22build%22%20%E2%86%92%20%22mip%20run%20build%22%0A%20%20%22build%20fast%22%20%E2%86%92%20%22mip%20run%20build%20--production%22%0A%0AInput%3A%20mip%20build%20fast%20--force%0AMatch%3A%20%22build%20fast%22%20(longest%20match)%0AResult%3A%20mip%20run%20build%20--production%20--force%0A%60%60%60%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20config%5D(%2Fcommands%2Fconfig)%20-%20manage%20MIP%20configuration%0A-%20%5Bmip%20plugin%5D(%2Fcommands%2Fplugin)%20-%20manage%20plugins%20(which%20often%20provide%20additional%20commands)%0A-%20%5Bmip%20pe%5D(%2Fcommands%2Fpe)%20-%20execute%20plugin%20commands%20(often%20used%20in%20aliases)%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%94%A7%20Aliases%20vs%20Shell%20Aliases%22%0A**MIP%20aliases**%20work%20inside%20MIP%20commands%20and%20are%20portable%20across%20any%20shell.%0A%0A**Shell%20aliases**%20(in%20%60.bashrc%60%20or%20%60.zshrc%60)%20work%20at%20the%20shell%20level%3A%0A%60%60%60bash%0A%23%20Shell%20alias%20(in%20.zshrc)%0Aalias%20mip%3D&#039;mip%20--super&#039;%0A%0A%23%20MIP%20alias%20(stored%20in%20~%2F.mip%2Faliases.yml)%0Amip%20alias%20set%20i%20install%0A%60%60%60%0A%0A**When%20to%20use%20each%3A**%0A-%20Shell%20aliases%20-%20for%20global%20MIP%20flags%20(%60--super%60%2C%20%60--debug%60)%0A-%20MIP%20aliases%20-%20for%20command%20substitutions%20(%60i%60%20%E2%86%92%20%60install%60)%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Pro%20tip%3A%20Share%20aliases%22%20icon%3Alightbulb%0ACopy%20your%20%60~%2F.mip%2Faliases.yml%60%20file%20to%20other%20machines%20to%20keep%20your%20shortcuts%20consistent%20across%20all%20your%20development%20environments.%0A%3A%3A%3A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2136,7 +2152,7 @@ mip <span class="hljs-keyword">alias</span> <span class="hljs-keyword">set</span
 </svg>
 
                         <span><small>previous</small><strong>
-                            server
+                            page
                           </strong></span>
                       </a>
                     
@@ -2272,15 +2288,15 @@ mip <span class="hljs-keyword">alias</span> <span class="hljs-keyword">set</span
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

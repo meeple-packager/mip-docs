@@ -146,6 +146,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mip.fwh.is/ru/commands/shell/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mip.fwh.is/ru/commands/super-install/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -432,6 +437,11 @@
   </url>
   <url>
     <loc>https://mip.fwh.is/commands/server/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mip.fwh.is/commands/shell/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

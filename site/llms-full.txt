@@ -2219,17 +2219,6 @@ Press:
 - `Esc`
 - `q`
 
-## Feature flags (configurable via mip-features)
-
-This command is controlled by feature flags loaded from the current project context.
-
-| Flag | Meaning |
-|------|---------|
-| `hello.enabled` | Disable the command (when `false`) |
-| `hello.darkTheme` | Use dark theme (when not `false`) |
-| `hello.showCommands` | Show the "Quick Commands" block (when not `false`) |
-| `hello.customCommands` | Extra commands to display in the "Custom Commands" block (array of strings) |
-| `hello.refreshInterval` | Refresh interval in ms (default: `5000`) |
 
 ## Examples
 
@@ -2239,12 +2228,7 @@ This command is controlled by feature flags loaded from the current project cont
 mip hello
 ```
 :::
-== tab "Run via alias"
-```bash
-mip h
-```
-:::
-:::
+
 
 ## Related commands
 
@@ -4967,23 +4951,23 @@ mip search
 
 ---
 
-## [mip server - web dashboard for MIP](https://mip.fwh.is/commands/server/)
+## [mip page - web dashboard for MIP](https://mip.fwh.is/commands/server/)
 
 ---
-title: "mip server - web dashboard for MIP"
+title: "mip page - web dashboard for MIP"
 description: "The server command starts a local web dashboard that displays real-time information about your project, packages, global store, registries, scripts, and system health."
 ---
 
-# mip server
+# mip page
 
 ::: callout info "What is this?" icon:🌐
-`mip server` launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project's dependencies, global storage, configured registries, available scripts, and system information - all in one place with auto-refresh.
+`mip page` launches a beautiful, real-time web dashboard for your MIP project. It provides a visual overview of your project's dependencies, global storage, configured registries, available scripts, and system information - all in one place with auto-refresh.
 :::
 
 ## Syntax
 
 ```bash
-mip server <subcommand> [options]
+mip page <subcommand> [options]
 ```
 
 ## Subcommands
@@ -5012,6 +4996,7 @@ mip server <subcommand> [options]
 - **Workspace count** - monorepo workspaces
 - **Top 5 packages** - largest packages by size
 - **Registry quick view** - all configured registries with status
+- **Blog** - view all latest mip news
 
 ### 📦 Packages Tab
 - Complete list of all installed packages
@@ -5070,12 +5055,12 @@ mip server <subcommand> [options]
 ::: tabs
 == tab "Start server"
 ```bash
-mip server start
+mip page start
 ```
 
 **Output:**
 ```
-🌐 MIP Server running at http://localhost:3000
+🌐 mip page running at http://localhost:3000
 📊 Dashboard: http://localhost:3000/
 📁 Project: /home/user/my-project
 🔧 Press Ctrl+C to stop
@@ -5086,28 +5071,28 @@ Open your browser and visit `http://localhost:3000` to see the dashboard.
 
 == tab "Start on custom port"
 ```bash
-mip server start 8080
+mip page start 8080
 ```
 Starts the server on port 8080 instead of the default 3000.
 :::
 
 == tab "Start with browser"
 ```bash
-mip server start --open
+mip page start --open
 ```
 Starts the server and automatically opens the dashboard in your default browser.
 :::
 
 == tab "Start on all interfaces"
 ```bash
-mip server start --host
+mip page start --host
 ```
 Allows access from other devices on the network (useful for sharing the dashboard with team members).
 :::
 
 == tab "Stop server"
 ```bash
-mip server stop
+mip page stop
 ```
 
 **Output:**
@@ -5118,13 +5103,13 @@ mip server stop
 
 == tab "Check status"
 ```bash
-mip server status
+mip page status
 ```
 
 **Output:**
 ```
 ✅ Server is running (PID: 12345)
-   To stop: mip server stop
+   To stop: mip page stop
 ```
 
 Or if not running:
@@ -5164,8 +5149,8 @@ Or if not running:
 **Cause:** Port 3000 (or the specified port) is already in use.
 
 **Resolution:**
-1. Use a different port: `mip server start 8080`
-2. Stop the existing server: `mip server stop`
+1. Use a different port: `mip page start 8080`
+2. Stop the existing server: `mip page stop`
 3. Or kill the process manually using the PID shown in the error message.
 :::
 
@@ -5173,9 +5158,9 @@ Or if not running:
 **Cause:** The server is already running.
 
 **Resolution:**
-1. Check the status: `mip server status`
-2. Stop it first: `mip server stop`
-3. Then start again: `mip server start`
+1. Check the status: `mip page status`
+2. Stop it first: `mip page stop`
+3. Then start again: `mip page start`
 :::
 
 ::: callout warning "⚠️ ERR_NO_CONFIG" icon:alert-circle
@@ -5198,7 +5183,7 @@ Or if not running:
 The server is a single-file implementation using Node.js's built-in `http` module (no external dependencies).
 
 **Process flow:**
-1. When `mip server start` is called, MIP:
+1. When `mip page start` is called, MIP:
    - Checks if the server is already running (using `~/.mip/server.pid`)
    - Creates an HTTP server
    - Listens on the specified port
@@ -5220,16 +5205,282 @@ The server is a single-file implementation using Node.js's built-in `http` modul
 :::
 
 ::: callout tip "💡 Pro tip: Share with your team" icon:lightbulb
-Use `mip server start --host` to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:
+Use `mip page start --host` to allow other devices on your network to access the dashboard. The server will listen on all interfaces, and you can share your local IP address with team members:
 
 ```bash
 # Start on all interfaces
-mip server start --host
+mip page start --host
 
 # Your team can access at:
 # http://192.168.1.100:3000  (replace with your IP)
 ```
 :::
+
+
+---
+
+## [mip shell - interactive package manager shell](https://mip.fwh.is/commands/shell/)
+
+---
+title: "mip shell - interactive package manager shell"
+description: "The shell command starts an interactive REPL shell for MIP, allowing you to run multiple package manager commands without typing 'mip' each time, with autocomplete, command history, and built-in navigation."
+---
+
+# mip shell
+
+::: callout info "What is this?" icon:terminal
+`mip shell` launches an interactive terminal shell for MIP. Inside the shell, you can run any MIP command without the `mip` prefix, use built-in shell commands like `cd` and `pwd`, get tab autocompletion, navigate command history, and more. It's like a dedicated mini-shell for package management.
+:::
+
+## Syntax
+
+```bash
+mip shell
+```
+
+Alias:
+
+```bash
+mip sh
+```
+
+## Options
+
+The `shell` command has no command-line options. All configuration is done through the interactive session.
+
+## Built-in Shell Commands
+
+Once inside the MIP shell, the following built-in commands are available:
+
+| Command | Description |
+|---------|-------------|
+| `cd <dir>` | Change current working directory |
+| `pwd` | Print current working directory path |
+| `clear` | Clear the screen and redisplay the logo |
+| `exit` / `quit` | Exit the interactive shell |
+| `help` | Display the full help menu with all available commands |
+| `version` | Display the current MIP version |
+| `shell` | Inform that you are already in the shell |
+
+## MIP Commands
+
+All standard MIP commands work inside the shell without the `mip` prefix:
+
+**Core:**
+- `install` / `i <pkg>` — install packages
+- `uninstall` / `rm <pkg>` — remove packages
+- `list` / `ls` — show installed packages
+- `update` / `up` — update packages
+- `search <q>` — search the registry
+- `info <pkg>` — package details
+- `init` — initialize a new project
+- `run <script>` — run a script
+- `exec <cmd>` — execute a binary
+
+**Info & Security:**
+- `outdated` — show outdated packages
+- `audit` — security audit
+- `doctor` — system diagnostics
+- `why <pkg>` — why is this package installed?
+- `feel` — project vibe check
+- `hello` — system information
+
+**Management:**
+- `cache` — cache commands
+- `config` — manage configuration
+- `alias` — manage aliases
+- `registry` — manage registries
+- `dedupe` — deduplicate dependencies
+- `ci` — CI installation
+- `genlock` — generate lockfile
+- `workspaces` — workspace commands
+- `bundle` — bundle packages
+- `clone` — clone a project
+- `publish` — publish a package
+- `plugin` — manage plugins
+- `exports` — export packages
+- `language` — change interface language
+- `global` — manage global packages
+
+## Features
+
+### Tab Autocompletion
+Press `Tab` to autocomplete:
+- **Command names** — type `in` + `Tab` → `install`
+- **Package names** — when a command expects a package (e.g., `install`, `uninstall`, `info`), it autocompletes from the installed packages manifest
+
+### Command History
+- **Up arrow (↑)** — navigate to previous commands
+- **Down arrow (↓)** — navigate to next commands
+- History is persisted to `~/.mip/shell-history.json` (up to 500 entries)
+
+### Keyboard Shortcuts
+| Shortcut | Action |
+|----------|--------|
+| `↑` | Previous command |
+| `↓` | Next command |
+| `Tab` | Autocomplete |
+| `Ctrl+C` | Exit shell |
+| `Ctrl+L` | Clear screen (keeps prompt) |
+
+### Smart `mip` Prefix Handling
+If you type a command prefixed with `mip` (e.g., `mip install express`), the shell detects this common mistake, shows a friendly warning, and automatically executes the command without the prefix.
+
+### Welcome Screen
+When the shell starts, it displays:
+- MIP ASCII logo
+- Version number
+- Current project name
+- Number of installed packages
+- Current language
+
+### Prompt
+The prompt shows:
+```
+mip project-name ❯
+```
+
+## History File
+
+Command history is saved to `~/.mip/shell-history.json`. It stores up to 500 most recent commands and persists across shell sessions.
+
+## Examples
+
+::: tabs
+== tab "Start the shell"
+```bash
+mip shell
+```
+
+**Output:**
+```
+  ╔══════════════════════════════╗
+  ║  ███╗   ███╗██╗██████╗       ║
+  ║  ████╗ ████║██║██╔══██╗      ║
+  ║  ██╔████╔██║██║██████╔╝      ║
+  ║  ██║╚██╔╝██║██║██╔═══╝       ║
+  ║  ██║ ╚═╝ ██║██║██║           ║
+  ║  ╚═╝     ╚═╝╚═╝╚═╝           ║
+  ╚══════════════════════════════╝
+
+  MIP Interactive Shell v1.0.0
+  Type help for commands, exit to quit
+
+  📁 my-project
+  📦 17 packages
+  🌐 en
+
+  mip my-project ❯
+```
+:::
+
+== tab "Working in the shell"
+```bash
+# Inside the shell, without 'mip' prefix:
+mip my-project ❯ install express
+
+mip my-project ❯ list
+# Shows installed packages
+
+mip my-project ❯ cd ../other-project
+
+mip other-project ❯ pwd
+# /home/user/other-project
+
+mip other-project ❯ help
+# Shows full help menu
+
+mip other-project ❯ exit
+# ⚓ Fair winds!
+```
+:::
+
+== tab "Tab completion"
+```bash
+mip my-project ❯ in[Tab] → install
+mip my-project ❯ install lo[Tab] → lodash
+```
+:::
+
+== tab "Command history"
+```bash
+# Press ↑ to recall previous commands
+mip my-project ❯ ↑
+mip my-project ❯ install express
+```
+:::
+
+== tab "mip prefix handling"
+```bash
+mip my-project ❯ mip install express
+# ⚠️ You are in shell, there is no need to write mip <command>
+#    Try: install express
+# (automatically executes install express)
+```
+:::
+
+== tab "Clear screen"
+```bash
+mip my-project ❯ clear
+# Clears the screen and shows the logo again
+```
+:::
+
+== tab "Exit the shell"
+```bash
+mip my-project ❯ exit
+# ⚓ Fair winds!
+```
+
+Or press `Ctrl+C`:
+```bash
+mip my-project ❯ ^C
+# Bye!
+```
+:::
+:::
+
+## Common Mistakes
+
+::: callout warning "❌ You are in shell, not in CLI" icon:alert-triangle
+**Problem:** Typing `mip <command>` inside the shell (e.g., `mip install lodash`).
+
+**What happens:** The shell detects this common mistake, displays a warning, and automatically strips the `mip` prefix and executes the command.
+
+**Tip:** Inside the shell, just type the command directly: `install lodash`.
+:::
+
+::: callout warning "❌ Already in shell" icon:alert-circle
+**Problem:** Typing `mip shell` when already inside the shell.
+
+**What happens:** The shell responds with "⚠️ Already in shell!" and remains in shell mode.
+:::
+
+::: callout warning "❌ Unknown command" icon:alert-circle
+**Problem:** Typing a command that doesn't exist.
+
+**What happens:** The shell shows "❌ Unknown command: <cmd>" and suggests using `help` to see available commands.
+:::
+
+::: callout warning "❌ cd to invalid directory" icon:alert-triangle
+**Problem:** Trying to `cd` to a directory that doesn't exist or is inaccessible.
+
+**What happens:** The shell shows "❌ cd: <error message>" and stays in the current directory.
+:::
+
+::: callout tip "💡 Tip" icon:lightbulb
+- The shell is great for batch operations — you can run multiple commands in sequence without typing `mip` each time.
+- Use `cd` to navigate between different MIP projects while staying in the same shell session.
+- The command history persists across sessions, so your most-used commands are always available.
+- If you have many packages installed, tab completion for package names saves a lot of typing.
+:::
+
+## Related commands
+
+- [mip hello](/commands/hello) — system information TUI
+- [mip list](/commands/list) — list installed packages
+- [mip install](/commands/install) — install packages
+- [mip exec](/commands/exec) — execute binaries
 
 
 ---
@@ -7982,6 +8233,7 @@ npm run build
 mip init
 mip install express
 mip run start
+# Or, use the installer, which you can download from releases
 ```
 
 ::: tip "💡 Tip"
@@ -12364,17 +12616,6 @@ mip h
 - `Esc`
 - `q`
 
-## Feature flags (управление через mip-features)
-
-Эта команда управляется флагами, которые загружаются в контексте текущего проекта.
-
-| Флаг | Назначение |
-|------|------------|
-| `hello.enabled` | Отключить команду (если `false`) |
-| `hello.darkTheme` | Тёмная тема (по умолчанию включена; если не `false`) |
-| `hello.showCommands` | Показывать блок "Quick Commands" (если не `false`) |
-| `hello.customCommands` | Дополнительные команды для блока "Custom Commands" (массив строк) |
-| `hello.refreshInterval` | Интервал обновления в мс (по умолчанию: `5000`) |
 
 ## Примеры
 
@@ -12383,13 +12624,9 @@ mip h
 ```bash
 mip hello
 ```
+
 :::
-== tab "Запустить через алиас"
-```bash
-mip h
-```
-:::
-:::
+
 
 ## Связанные команды
 
@@ -15645,6 +15882,272 @@ mip server start --host
 
 ---
 
+## [mip shell - интерактивная оболочка менеджера пакетов](https://mip.fwh.is/ru/commands/shell/)
+
+---
+title: "mip shell - интерактивная оболочка менеджера пакетов"
+description: "Команда shell запускает интерактивную REPL-оболочку MIP, позволяя выполнять команды менеджера пакетов без префикса 'mip', с автодополнением, историей команд и встроенной навигацией."
+---
+
+# mip shell
+
+::: callout info "Что это?" icon:terminal
+`mip shell` запускает интерактивную терминальную оболочку MIP. Внутри оболочки вы можете выполнять любые команды MIP без префикса `mip`, использовать встроенные команды вроде `cd` и `pwd`, автодополнение по Tab, навигацию по истории команд и многое другое. Это как мини-терминал для управления пакетами.
+:::
+
+## Синтаксис
+
+```bash
+mip shell
+```
+
+Псевдоним:
+
+```bash
+mip sh
+```
+
+## Опции
+
+Команда `shell` не имеет опций командной строки. Вся настройка осуществляется через интерактивный сеанс.
+
+## Встроенные команды оболочки
+
+Внутри оболочки MIP доступны следующие встроенные команды:
+
+| Команда | Описание |
+|---------|----------|
+| `cd <dir>` | Сменить текущую рабочую директорию |
+| `pwd` | Показать путь к текущей директории |
+| `clear` | Очистить экран и показать логотип заново |
+| `exit` / `quit` | Выйти из интерактивной оболочки |
+| `help` | Показать полное меню помощи со всеми командами |
+| `version` | Показать текущую версию MIP |
+| `shell` | Сообщить, что вы уже находитесь в оболочке |
+
+## Команды MIP
+
+Все стандартные команды MIP работают внутри оболочки без префикса `mip`:
+
+**Основные:**
+- `install` / `i <pkg>` — установка пакетов
+- `uninstall` / `rm <pkg>` — удаление пакетов
+- `list` / `ls` — показать установленные пакеты
+- `update` / `up` — обновить пакеты
+- `search <q>` — поиск в реестре
+- `info <pkg>` — информация о пакете
+- `init` — инициализация нового проекта
+- `run <script>` — запуск скрипта
+- `exec <cmd>` — выполнение бинарника
+
+**Информация и безопасность:**
+- `outdated` — показать устаревшие пакеты
+- `audit` — аудит безопасности
+- `doctor` — диагностика системы
+- `why <pkg>` — почему установлен этот пакет?
+- `feel` — оценка состояния проекта
+- `hello` — информация о системе
+
+**Управление:**
+- `cache` — управление кэшем
+- `config` — управление конфигурацией
+- `alias` — управление алиасами
+- `registry` — управление реестрами
+- `dedupe` — дедупликация зависимостей
+- `ci` — установка для CI
+- `genlock` — генерация lock-файла
+- `workspaces` — управление рабочими пространствами
+- `bundle` — сборка пакетов
+- `clone` — клонирование проекта
+- `publish` — публикация пакета
+- `plugin` — управление плагинами
+- `exports` — экспорт пакетов
+- `language` — смена языка интерфейса
+- `global` — управление глобальными пакетами
+
+## Возможности
+
+### Автодополнение по Tab
+Нажмите `Tab` для автодополнения:
+- **Имена команд** — введите `in` + `Tab` → `install`
+- **Имена пакетов** — когда команда ожидает пакет (например, `install`, `uninstall`, `info`), дополнение берётся из манифеста установленных пакетов
+
+### История команд
+- **Стрелка вверх (↑)** — переход к предыдущим командам
+- **Стрелка вниз (↓)** — переход к следующим командам
+- История сохраняется в `~/.mip/shell-history.json` (до 500 записей)
+
+### Горячие клавиши
+| Сочетание | Действие |
+|-----------|----------|
+| `↑` | Предыдущая команда |
+| `↓` | Следующая команда |
+| `Tab` | Автодополнение |
+| `Ctrl+C` | Выход из оболочки |
+| `Ctrl+L` | Очистка экрана (строка ввода сохраняется) |
+
+### Умная обработка префикса `mip`
+Если вы введёте команду с префиксом `mip` (например, `mip install express`), оболочка обнаружит эту распространённую ошибку, покажет дружественное предупреждение и автоматически выполнит команду без префикса.
+
+### Экран приветствия
+При запуске оболочка показывает:
+- ASCII-логотип MIP
+- Номер версии
+- Имя текущего проекта
+- Количество установленных пакетов
+- Текущий язык интерфейса
+
+### Приглашение ввода
+Приглашение выглядит так:
+```
+mip имя-проекта ❯
+```
+
+## Файл истории
+
+История команд сохраняется в `~/.mip/shell-history.json`. В нём хранится до 500 последних команд, и оно сохраняется между сеансами оболочки.
+
+## Примеры
+
+::: tabs
+== tab "Запуск оболочки"
+```bash
+mip shell
+```
+
+**Вывод:**
+```
+  ╔══════════════════════════════╗
+  ║  ███╗   ███╗██╗██████╗       ║
+  ║  ████╗ ████║██║██╔══██╗      ║
+  ║  ██╔████╔██║██║██████╔╝      ║
+  ║  ██║╚██╔╝██║██║██╔═══╝       ║
+  ║  ██║ ╚═╝ ██║██║██║           ║
+  ║  ╚═╝     ╚═╝╚═╝╚═╝           ║
+  ╚══════════════════════════════╝
+
+  MIP Interactive Shell v1.0.0
+  Type help for commands, exit to quit
+
+  📁 my-project
+  📦 17 packages
+  🌐 ru
+
+  mip my-project ❯
+```
+:::
+
+== tab "Работа в оболочке"
+```bash
+# Внутри оболочки, без префикса 'mip':
+mip my-project ❯ install express
+
+mip my-project ❯ list
+# Показывает установленные пакеты
+
+mip my-project ❯ cd ../other-project
+
+mip other-project ❯ pwd
+# /home/user/other-project
+
+mip other-project ❯ help
+# Показывает полное меню помощи
+
+mip other-project ❯ exit
+# ⚓ Fair winds!
+```
+:::
+
+== tab "Автодополнение"
+```bash
+mip my-project ❯ in[Tab] → install
+mip my-project ❯ install lo[Tab] → lodash
+```
+:::
+
+== tab "История команд"
+```bash
+# Нажмите ↑ для вызова предыдущих команд
+mip my-project ❯ ↑
+mip my-project ❯ install express
+```
+:::
+
+== tab "Обработка префикса mip"
+```bash
+mip my-project ❯ mip install express
+# ⚠️ Вы в оболочке, не нужно писать mip <команда>
+#    Попробуйте: install express
+# (автоматически выполняется install express)
+```
+:::
+
+== tab "Очистка экрана"
+```bash
+mip my-project ❯ clear
+# Очищает экран и показывает логотип заново
+```
+:::
+
+== tab "Выход из оболочки"
+```bash
+mip my-project ❯ exit
+# ⚓ Fair winds!
+```
+
+Или нажмите `Ctrl+C`:
+```bash
+mip my-project ❯ ^C
+# Bye!
+```
+:::
+:::
+
+## Частые ошибки
+
+::: callout warning "❌ Вы в оболочке, а не в CLI" icon:alert-triangle
+**Проблема:** Ввод `mip <команда>` внутри оболочки (например, `mip install lodash`).
+
+**Что происходит:** Оболочка обнаруживает эту распространённую ошибку, показывает предупреждение и автоматически убирает префикс `mip`, выполняя команду.
+
+**Совет:** Внутри оболочки просто вводите команду напрямую: `install lodash`.
+:::
+
+::: callout warning "❌ Уже в оболочке" icon:alert-circle
+**Проблема:** Ввод `mip shell`, когда вы уже находитесь в оболочке.
+
+**Что происходит:** Оболочка отвечает "⚠️ Already in shell!" и остаётся в режиме оболочки.
+:::
+
+::: callout warning "❌ Неизвестная команда" icon:alert-circle
+**Проблема:** Ввод команды, которая не существует.
+
+**Что происходит:** Оболочка показывает "❌ Unknown command: <команда>" и предлагает использовать `help` для просмотра доступных команд.
+:::
+
+::: callout warning "❌ cd в несуществующую директорию" icon:alert-triangle
+**Проблема:** Попытка перейти в директорию, которая не существует или недоступна.
+
+**Что происходит:** Оболочка показывает "❌ cd: <сообщение об ошибке>" и остаётся в текущей директории.
+:::
+
+::: callout tip "💡 Совет" icon:lightbulb
+- Оболочка отлично подходит для пакетных операций — вы можете выполнять несколько команд подряд без ввода `mip` каждый раз.
+- Используйте `cd` для навигации между разными MIP-проектами, оставаясь в том же сеансе оболочки.
+- История команд сохраняется между сеансами, поэтому ваши часто используемые команды всегда под рукой.
+- Если у вас установлено много пакетов, автодополнение по Tab для имён пакетов сэкономит много времени.
+:::
+
+## Связанные команды
+
+- [mip hello](/ru/commands/hello) — TUI с информацией о системе
+- [mip list](/ru/commands/list) — список установленных пакетов
+- [mip install](/ru/commands/install) — установка пакетов
+- [mip exec](/ru/commands/exec) — выполнение бинарников
+
+
+---
+
 ## [mip super-install - супер-быстрая установка пакетов](https://mip.fwh.is/ru/commands/super-install/)
 
 ---
@@ -18406,6 +18909,7 @@ npm run build
 mip init
 mip install express
 mip run start
+# Ну или просто используйте установщик, его можно скачать из релизов на гитхабе :)
 ```
 
 ::: tip "💡 Совет"

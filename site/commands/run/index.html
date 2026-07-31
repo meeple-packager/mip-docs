@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       mip run - run custom scripts : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="The run command executes scripts defined in the scripts section of mip.yml, with support for all installed packages in PATH.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/commands/run/">
 <link rel="alternate" hreflang="en" href="/commands/run/">
 <link rel="alternate" hreflang="x-default" href="/commands/run/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20run%20%E2%80%94%20run%20custom%20scripts%22%0Adescription%3A%20%22The%20run%20command%20executes%20scripts%20defined%20in%20the%20scripts%20section%20of%20mip.yml%2C%20with%20support%20for%20all%20installed%20packages%20in%20PATH.%22%0A---%0A%0A%23%20mip%20run%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Aplay%0A%60mip%20run%60%20is%20a%20command%20for%20executing%20custom%20scripts%20from%20%60mip.yml%60%20(or%20%60package.json%60%20for%20compatibility).%20It%20automatically%20adds%20all%20binaries%20from%20installed%20packages%20(via%20the%20manifest)%20to%20%60PATH%60%2C%20allowing%20you%20to%20use%20them%20in%20scripts%20without%20global%20installation.%20This%20is%20useful%20for%20running%20tests%2C%20building%20projects%2C%20linters%2C%20and%20any%20other%20tasks%20related%20to%20your%20project.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20run%20%3Cscript-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60script-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Script%20name%20from%20the%20%60scripts%60%20section%20in%20%60mip.yml%60%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Read%20config**%20%E2%80%94%20the%20command%20loads%20%60mip.yml%60%20(or%20%60package.json%60%20for%20compatibility)%20from%20the%20current%20directory.%0A%0A2.%20**Find%20script**%20%E2%80%94%20looks%20for%20the%20specified%20script%20in%20the%20%60scripts%60%20section.%0A%0A3.%20**Collect%20binary%20paths**%20%E2%80%94%20scans%20the%20%60.mip%2Fmanifest.json%60%20manifest%20and%20collects%20all%20%60.bin%60%20folders%20from%20installed%20packages.%0A%0A4.%20**Update%20%60PATH%60**%20%E2%80%94%20all%20found%20binary%20folders%20are%20added%20to%20the%20%60PATH%60%20environment%20variable%20(with%20priority%20over%20system%20paths).%0A%0A5.%20**Run%20script**%20%E2%80%94%20executes%20the%20command%20through%20the%20system%20shell%3A%0A%20%20%20-%20**Windows%3A**%20%60cmd.exe%20%2Fd%20%2Fs%20%2Fc%20%3Cscript%3E%60%0A%20%20%20-%20**Unix%3A**%20%60sh%20-c%20%3Cscript%3E%60%0A%0A6.%20**Handle%20exit**%20%E2%80%94%20the%20script&#039;s%20exit%20code%20is%20passed%20as%20the%20%60mip%20run%60%20exit%20code.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20script%20from%20mip.yml%22%0A%60%60%60bash%0Amip%20run%20test%0A%60%60%60%0A%0A**Example%20%60mip.yml%60%3A**%0A%60%60%60yaml%0Ascripts%3A%0A%20%20test%3A%20jest%20--coverage%0A%20%20start%3A%20node%20index.js%0A%20%20build%3A%20webpack%20--mode%20production%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%8F%83%20Running%20%22test%22%20script...%0A%3E%20jest%20--coverage%0A%0A%20PASS%20%20src%2Futils.test.js%0A%20PASS%20%20src%2Fapi.test.js%0A...%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Script%20not%20found%22%0A%60%60%60bash%0Amip%20run%20unknown%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9D%8C%20Script%20%22unknown%22%20not%20found%0A%0A%F0%9F%93%8B%20Available%20scripts%3A%0A%20%20%E2%80%A2%20test%0A%20%20%E2%80%A2%20start%0A%20%20%E2%80%A2%20build%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22No%20scripts%20in%20mip.yml%22%0A%60%60%60bash%0Amip%20run%20start%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9D%8C%20Script%20%22start%22%20not%20found%0A%0A%F0%9F%92%A1%20Add%20scripts%20to%20mip.yml%3A%0A%20%20scripts%3A%0A%20%20%20%20start%3A%20node%20index.js%0A%20%20%20%20dev%3A%20nodemon%20index.js%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20mip.yml%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20You%20are%20not%20in%20the%20root%20of%20a%20MIP%20project.%0A%0A**Solution%3A**%0A1.%20Navigate%20to%20the%20project%20folder%3A%20%60cd%20%2Fpath%2Fto%2Fproject%60%0A2.%20Make%20sure%20%60mip.yml%60%20exists%20there.%0A3.%20If%20not%20%E2%80%94%20create%20it%3A%20%60mip%20init%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Script%20not%20found%22%20icon%3Aalert-circle%0A**Cause%3A**%20The%20specified%20script%20is%20missing%20from%20the%20%60scripts%60%20section.%0A%0A**Solution%3A**%0A1.%20Add%20the%20script%20to%20%60mip.yml%60%3A%0A%20%20%20%60%60%60yaml%0A%20%20%20scripts%3A%0A%20%20%20%20%20my-script%3A%20node%20my-script.js%0A%20%20%20%60%60%60%0A2.%20Use%20%60mip%20run%60%20with%20the%20correct%20name.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Command%20not%20found%20(even%20with%20mip%20run)%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20tool%20is%20not%20installed%20locally.%0A%0A**Solution%3A**%0A1.%20Install%20the%20required%20package%20locally%3A%20%60mip%20install%20%3Cpackage%3E%60%0A2.%20Check%20that%20the%20binary%20is%20available%3A%20%60mip%20exec%20%3Ccommand%3E%60%0A3.%20Run%20the%20script%20again.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20run%60%20is%20the%20equivalent%20of%20%60npm%20run%60%20or%20%60yarn%20run%60%2C%20but%20with%20MIP-specific%20improvements%3A%0A%0A-%20**Automatic%20%60PATH%60**%20%E2%80%94%20no%20need%20to%20install%20packages%20globally.%0A-%20**Cross-platform**%20%E2%80%94%20works%20correctly%20on%20Windows%20and%20Unix.%0A-%20**Simplicity**%20%E2%80%94%20just%20specify%20the%20script%20name.%0A%0A**Example%20scripts%3A**%0A%60%60%60yaml%0Ascripts%3A%0A%20%20start%3A%20node%20index.js%0A%20%20dev%3A%20nodemon%20index.js%0A%20%20test%3A%20jest%20--coverage%0A%20%20build%3A%20webpack%20--mode%20production%0A%20%20lint%3A%20eslint%20src%2F%0A%20%20format%3A%20prettier%20--write%20src%2F%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20exec%5D(%2Fcommands%2Fexec)%20%E2%80%94%20run%20a%20specific%20binary%20without%20a%20script.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20install%20packages%20whose%20binaries%20become%20available.%0A-%20%5Bmip%20init%5D(%2Fcommands%2Finit)%20%E2%80%94%20create%20%60mip.yml%60%20with%20a%20%60scripts%60%20section.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20How%20does%20automatic%20PATH%20work%3F%22%0AWhen%20you%20run%20%60mip%20run%60%2C%20the%20command%3A%0A%0A1.%20**Scans%20the%20manifest**%20%E2%80%94%20reads%20%60.mip%2Fmanifest.json%60%2C%20which%20stores%20paths%20to%20all%20installed%20packages.%0A2.%20**Collects%20%60.bin%60%20folders**%20%E2%80%94%20for%20each%20package%2C%20checks%3A%0A%20%20%20-%20%60node_modules%2F.bin%2F%60%0A%20%20%20-%20%60.bin%2F%60%20(in%20the%20package%20root)%0A%0A3.%20**Builds%20%60PATH%60**%3A%0A%20%20%20%60%60%60%0A%20%20%20PATH%20%3D%20%3Call%20.bin%20folders%3E%20%2B%20%3Csystem%20PATH%3E%0A%20%20%20%60%60%60%0A%0A4.%20**Runs%20the%20script**%20%E2%80%94%20all%20binaries%20from%20the%20global%20cache%20become%20available%20without%20global%20installation.%0A%0A**Advantage%3A**%20no%20need%20to%20install%20packages%20globally%20%E2%80%94%20everything%20works%20from%20the%20project.%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20run%20-%20run%20custom%20scripts%22%0Adescription%3A%20%22The%20run%20command%20executes%20scripts%20defined%20in%20the%20scripts%20section%20of%20mip.yml%2C%20with%20support%20for%20all%20installed%20packages%20in%20PATH.%22%0A---%0A%0A%23%20mip%20run%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Aplay%0A%60mip%20run%60%20is%20a%20command%20for%20executing%20custom%20scripts%20from%20%60mip.yml%60%20(or%20%60package.json%60%20for%20compatibility).%20It%20automatically%20adds%20all%20binaries%20from%20installed%20packages%20(via%20the%20manifest)%20to%20%60PATH%60%2C%20allowing%20you%20to%20use%20them%20in%20scripts%20without%20global%20installation.%20This%20is%20useful%20for%20running%20tests%2C%20building%20projects%2C%20linters%2C%20and%20any%20other%20tasks%20related%20to%20your%20project.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20run%20%3Cscript-name%3E%0A%60%60%60%0A%0A%23%23%20Arguments%0A%0A%7C%20Name%20%7C%20Type%20%7C%20Required%20%7C%20Description%20%7C%0A%7C------%7C------%7C----------%7C-------------%7C%0A%7C%20%60script-name%60%20%7C%20string%20%7C%20%E2%9C%85%20%7C%20Script%20name%20from%20the%20%60scripts%60%20section%20in%20%60mip.yml%60%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Read%20config**%20-%20the%20command%20loads%20%60mip.yml%60%20(or%20%60package.json%60%20for%20compatibility)%20from%20the%20current%20directory.%0A%0A2.%20**Find%20script**%20-%20looks%20for%20the%20specified%20script%20in%20the%20%60scripts%60%20section.%0A%0A3.%20**Collect%20binary%20paths**%20-%20scans%20the%20%60.mip%2Fmanifest.json%60%20manifest%20and%20collects%20all%20%60.bin%60%20folders%20from%20installed%20packages.%0A%0A4.%20**Update%20%60PATH%60**%20-%20all%20found%20binary%20folders%20are%20added%20to%20the%20%60PATH%60%20environment%20variable%20(with%20priority%20over%20system%20paths).%0A%0A5.%20**Run%20script**%20-%20executes%20the%20command%20through%20the%20system%20shell%3A%0A%20%20%20-%20**Windows%3A**%20%60cmd.exe%20%2Fd%20%2Fs%20%2Fc%20%3Cscript%3E%60%0A%20%20%20-%20**Unix%3A**%20%60sh%20-c%20%3Cscript%3E%60%0A%0A6.%20**Handle%20exit**%20-%20the%20script&#039;s%20exit%20code%20is%20passed%20as%20the%20%60mip%20run%60%20exit%20code.%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Run%20script%20from%20mip.yml%22%0A%60%60%60bash%0Amip%20run%20test%0A%60%60%60%0A%0A**Example%20%60mip.yml%60%3A**%0A%60%60%60yaml%0Ascripts%3A%0A%20%20test%3A%20jest%20--coverage%0A%20%20start%3A%20node%20index.js%0A%20%20build%3A%20webpack%20--mode%20production%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%8F%83%20Running%20%22test%22%20script...%0A%3E%20jest%20--coverage%0A%0A%20PASS%20%20src%2Futils.test.js%0A%20PASS%20%20src%2Fapi.test.js%0A...%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22Script%20not%20found%22%0A%60%60%60bash%0Amip%20run%20unknown%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9D%8C%20Script%20%22unknown%22%20not%20found%0A%0A%F0%9F%93%8B%20Available%20scripts%3A%0A%20%20%E2%80%A2%20test%0A%20%20%E2%80%A2%20start%0A%20%20%E2%80%A2%20build%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22No%20scripts%20in%20mip.yml%22%0A%60%60%60bash%0Amip%20run%20start%0A%60%60%60%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9D%8C%20Script%20%22start%22%20not%20found%0A%0A%F0%9F%92%A1%20Add%20scripts%20to%20mip.yml%3A%0A%20%20scripts%3A%0A%20%20%20%20start%3A%20node%20index.js%0A%20%20%20%20dev%3A%20nodemon%20index.js%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20mip.yml%20found%22%20icon%3Aalert-triangle%0A**Cause%3A**%20You%20are%20not%20in%20the%20root%20of%20a%20MIP%20project.%0A%0A**Solution%3A**%0A1.%20Navigate%20to%20the%20project%20folder%3A%20%60cd%20%2Fpath%2Fto%2Fproject%60%0A2.%20Make%20sure%20%60mip.yml%60%20exists%20there.%0A3.%20If%20not%20-%20create%20it%3A%20%60mip%20init%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Script%20not%20found%22%20icon%3Aalert-circle%0A**Cause%3A**%20The%20specified%20script%20is%20missing%20from%20the%20%60scripts%60%20section.%0A%0A**Solution%3A**%0A1.%20Add%20the%20script%20to%20%60mip.yml%60%3A%0A%20%20%20%60%60%60yaml%0A%20%20%20scripts%3A%0A%20%20%20%20%20my-script%3A%20node%20my-script.js%0A%20%20%20%60%60%60%0A2.%20Use%20%60mip%20run%60%20with%20the%20correct%20name.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Command%20not%20found%20(even%20with%20mip%20run)%22%20icon%3Aalert-triangle%0A**Cause%3A**%20The%20tool%20is%20not%20installed%20locally.%0A%0A**Solution%3A**%0A1.%20Install%20the%20required%20package%20locally%3A%20%60mip%20install%20%3Cpackage%3E%60%0A2.%20Check%20that%20the%20binary%20is%20available%3A%20%60mip%20exec%20%3Ccommand%3E%60%0A3.%20Run%20the%20script%20again.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Tip%22%20icon%3Alightbulb%0A%60mip%20run%60%20is%20the%20equivalent%20of%20%60npm%20run%60%20or%20%60yarn%20run%60%2C%20but%20with%20MIP-specific%20improvements%3A%0A%0A-%20**Automatic%20%60PATH%60**%20-%20no%20need%20to%20install%20packages%20globally.%0A-%20**Cross-platform**%20-%20works%20correctly%20on%20Windows%20and%20Unix.%0A-%20**Simplicity**%20-%20just%20specify%20the%20script%20name.%0A%0A**Example%20scripts%3A**%0A%60%60%60yaml%0Ascripts%3A%0A%20%20start%3A%20node%20index.js%0A%20%20dev%3A%20nodemon%20index.js%0A%20%20test%3A%20jest%20--coverage%0A%20%20build%3A%20webpack%20--mode%20production%0A%20%20lint%3A%20eslint%20src%2F%0A%20%20format%3A%20prettier%20--write%20src%2F%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20exec%5D(%2Fcommands%2Fexec)%20-%20run%20a%20specific%20binary%20without%20a%20script.%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20-%20install%20packages%20whose%20binaries%20become%20available.%0A-%20%5Bmip%20init%5D(%2Fcommands%2Finit)%20-%20create%20%60mip.yml%60%20with%20a%20%60scripts%60%20section.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20How%20does%20automatic%20PATH%20work%3F%22%0AWhen%20you%20run%20%60mip%20run%60%2C%20the%20command%3A%0A%0A1.%20**Scans%20the%20manifest**%20-%20reads%20%60.mip%2Fmanifest.json%60%2C%20which%20stores%20paths%20to%20all%20installed%20packages.%0A2.%20**Collects%20%60.bin%60%20folders**%20-%20for%20each%20package%2C%20checks%3A%0A%20%20%20-%20%60node_modules%2F.bin%2F%60%0A%20%20%20-%20%60.bin%2F%60%20(in%20the%20package%20root)%0A%0A3.%20**Builds%20%60PATH%60**%3A%0A%20%20%20%60%60%60%0A%20%20%20PATH%20%3D%20%3Call%20.bin%20folders%3E%20%2B%20%3Csystem%20PATH%3E%0A%20%20%20%60%60%60%0A%0A4.%20**Runs%20the%20script**%20-%20all%20binaries%20from%20the%20global%20cache%20become%20available%20without%20global%20installation.%0A%0A**Advantage%3A**%20no%20need%20to%20install%20packages%20globally%20-%20everything%20works%20from%20the%20project.%0A%3A%3A%3A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2211,15 +2227,15 @@ What is this?</div><div class="callout-content">
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

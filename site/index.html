@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       MIP - a fast and modern package manager : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="./assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="./assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="./assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="./assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="./assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="./assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="MIP is a lightweight and fast package manager for Node.js written in JavaScript. Easy to use, works without node_modules, and supports YAML configuration.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="./assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="./assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="./assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="./assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/">
 <link rel="alternate" hreflang="en" href="/">
 <link rel="alternate" hreflang="x-default" href="/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="./commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20%E2%80%94%20a%20fast%20and%20modern%20package%20manager%22%0Adescription%3A%20%22MIP%20is%20a%20lightweight%20and%20fast%20package%20manager%20for%20Node.js%20written%20in%20JavaScript.%20Easy%20to%20use%2C%20works%20without%20node_modules%2C%20and%20supports%20YAML%20configuration.%22%0A---%0A%0A%23%20Welcome%20to%20MIP!%20%F0%9F%9A%80%0A%0A**MIP**%20(MInimal%20Package%20Manager)%20is%20a%20lightweight%20and%20fast%20package%20manager%20for%20Node.js%2C%20written%20in%20clean%20JavaScript.%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20MIP%3F%22%20icon%3Ainfo%0AMIP%20is%20an%20alternative%20to%20npm%2C%20pnpm%2C%20and%20yarn.%20It%E2%80%99s%20faster%2C%20simpler%2C%20and%20requires%20fewer%20resources.%20Unlike%20other%20package%20managers%2C%20MIP%20uses%20a%20**global%20cache**%2C%20does%20not%20create%20%60node_modules%2F%60%2C%20and%20supports%20**plugins**.%0A%3A%3A%3A%0A%0A%23%23%20%F0%9F%8E%AF%20Key%20features%0A%0A-%20**%F0%9F%9A%80%20Speed**%20%E2%80%94%20installs%20packages%20several%20times%20faster%20thanks%20to%20parallel%20downloads%2C%20HTTP%2F2%2C%20and%20a%20three-level%20cache.%0A-%20**%F0%9F%93%A6%20Global%20cache**%20%E2%80%94%20packages%20are%20stored%20once%20in%20%60~%2F.mip%2Fstore%2F%60%20and%20used%20by%20all%20projects.%20Saves%20space%20and%20speeds%20up%20installs.%0A-%20**%F0%9F%94%8C%20Plugins**%20%E2%80%94%20extend%20MIP%20functionality%20with%20plugins.%20Create%20your%20own%20commands%2C%20subscribe%20to%20events%2C%20and%20integrate%20with%20external%20services.%0A-%20**%F0%9F%93%9D%20YAML%20configuration**%20%E2%80%94%20instead%20of%20%60mip.json%60%2C%20use%20%60mip.yml%60%20and%20%60mip-lock.yml%60.%20Human-readable%2C%20supports%20comments%2C%20and%20is%20pleasant%20for%20manual%20editing.%0A-%20**%F0%9F%94%92%20Security**%20%E2%80%94%20built-in%20dependency%20auditing%20and%20vulnerability%20checks.%0A-%20**%F0%9F%8C%8D%20Multilingual%20UI**%20%E2%80%94%20supports%2010%20interface%20languages.%0A-%20**%F0%9F%93%81%20Monorepos**%20%E2%80%94%20built-in%20workspaces%20support.%0A-%20**%F0%9F%94%A7%20Flexibility**%20%E2%80%94%20works%20with%20both%20global%20and%20local%20packages%2C%20supports%20%60package.json%60%20for%20npm%20compatibility.%0A-%20**%F0%9F%A7%A9%20Your%20own%20registry**%20%E2%80%94%20publish%20and%20install%20packages%20from%20your%20own%20registry.%0A%0A%23%23%20%E2%9A%A1%20Quick%20start%0A%0A%60%60%60bash%0A%23%20Install%20MIP%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0Anpm%20install%0Anpm%20run%20build%0A%0A%23%20Create%20a%20new%20project%0Amip%20init%0Amip%20install%20express%0Amip%20run%20start%0A%60%60%60%0A%0A%3A%3A%3A%20tip%20%22%F0%9F%92%A1%20Tip%22%0AAfter%20building%2C%20MIP%20will%20suggest%20adding%20itself%20to%20%60PATH%60%20so%20you%20can%20run%20it%20from%20any%20folder.%0A%3A%3A%3A%0A%0A%23%23%20%F0%9F%A7%A9%20How%20it%20works%0A%0AMIP%20uses%20a%20**global%20cache**%20(%60~%2F.mip%2Fstore%2F%60)%20where%20it%20stores%20all%20package%20versions.%20This%20enables%3A%0A-%20Installing%20packages%20without%20duplication.%0A-%20Instantly%20switching%20between%20versions.%0A-%20Working%20without%20the%20internet%20if%20the%20package%20is%20already%20in%20the%20cache.%0A-%20Saving%20up%20to%2090%25%20of%20disk%20space.%0A%0A**No%20%60node_modules%2F%60**%20%E2%80%94%20instead%2C%20MIP%20uses%20symlinks%20to%20the%20global%20cache%20and%20a%20%60.mip%2Fmanifest.json%60%20manifest%20to%20track%20installed%20packages.%0A%0AFor%20more%20details%2C%20see%20%5BArchitecture%5D(%2Fdev%2Farchitecture).%0A%0A%23%23%20%F0%9F%93%9A%20Commands%0A%0AMIP%20includes%20all%20the%20commands%20you%20need%20to%20work%20with%20packages%3A%0A%0A%7C%20Command%20%7C%20Description%20%7C%0A%7C---------%7C-------------%7C%0A%7C%20%60mip%20init%60%20%7C%20Initialize%20a%20new%20project%20%7C%0A%7C%20%60mip%20install%60%20%7C%20Install%20dependencies%20%7C%0A%7C%20%60mip%20update%60%20%7C%20Update%20packages%20%7C%0A%7C%20%60mip%20uninstall%60%20%7C%20Remove%20packages%20%7C%0A%7C%20%60mip%20list%60%20%7C%20List%20installed%20packages%20%7C%0A%7C%20%60mip%20outdated%60%20%7C%20Check%20outdated%20packages%20%7C%0A%7C%20%60mip%20audit%60%20%7C%20Security%20audit%20%7C%0A%7C%20%60mip%20run%60%20%7C%20Run%20scripts%20%7C%0A%7C%20%60mip%20exec%60%20%7C%20Execute%20binaries%20%7C%0A%7C%20%60mip%20global%60%20%7C%20Manage%20global%20packages%20%7C%0A%7C%20%60mip%20workspaces%60%20%7C%20Monorepo%20workspaces%20%7C%0A%7C%20%60mip%20plugin%60%20%7C%20Manage%20plugins%20%7C%0A%7C%20%60mip%20pe%60%20%7C%20Execute%20plugin%20commands%20%7C%0A%0AFor%20the%20full%20list%20of%20commands%20and%20descriptions%2C%20see%20%5BCommands%5D(%2Fcommands%2Finstall).%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0A%60%60%60%0Amy-project%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20mip.yml%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Project%20configuration%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20mip-lock.yml%20%20%20%20%20%20%20%23%20Locked%20package%20versions%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20.mip%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20manifest.json%20%20%23%20Installed%20packages%20manifest%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20cache%2F%20%20%20%20%20%20%20%20%20%23%20Download%20cache%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20packages%2F%20%20%20%20%20%20%23%20Local%20packages%20(if%20any)%0A%E2%94%94%E2%94%80%E2%94%80%20node_modules%2F%20%20%20%20%20%20%23%20Symlinks%20to%20the%20global%20cache%0A%60%60%60%0A%0A%23%23%20%F0%9F%8C%8D%20Multilingual%20support%0A%0AMIP%20supports%2010%20interface%20languages.%20To%20switch%20language%3A%0A%0A%60%60%60bash%0Amip%20language%20ru%20%20%20%23%20Russian%0Amip%20language%20en%20%20%20%23%20English%0Amip%20language%20de%20%20%20%23%20German%0Amip%20language%20zh%20%20%20%23%20Chinese%0A%60%60%60%0A%0A%23%23%20%F0%9F%94%8C%20Plugins%0A%0AMIP%20has%20a%20built-in%20plugin%20system.%20Plugins%20allow%20you%20to%20extend%20functionality%20without%20changing%20the%20core%20code.%0A%0A%60%60%60bash%0A%23%20Create%20a%20plugin%0Amip%20plugin%20create%20my-plugin%0A%0A%23%20Compile%20and%20activate%0Amip%20plugin%20compile%20my-plugin%0Amip%20plugin%20activate%20my-plugin%0A%0A%23%20Run%20the%20plugin%20command%0Amip%20pe%20my-plugin%20my-command%0A%60%60%60%0A%0ALearn%20more%3A%20%5BPlugins%5D(%2Fcommands%2Fplugin).%0A%0A%23%23%20%E2%9D%93%20Frequently%20asked%20questions%0A%0A**How%20is%20MIP%20different%20from%20npm%3F**%0AMIP%20is%20faster%2C%20simpler%2C%20and%20doesn%E2%80%99t%20require%20complex%20setup.%20It%20uses%20a%20global%20cache%2C%20doesn%E2%80%99t%20create%20%60node_modules%2F%60%2C%20supports%20plugins%2C%20and%20uses%20YAML%20configuration.%0A%0A**Can%20I%20use%20MIP%20in%20CI%2FCD%3F**%0AYes.%20There%20is%20a%20%60mip%20ci%60%20command%20designed%20for%20automated%20builds%20and%20supporting%20%60--frozen-lockfile%60.%0A%0A**How%20do%20I%20update%20MIP%3F**%0ARebuild%20the%20project%20from%20the%20repository%20and%20reinstall.%0A%0A**Does%20MIP%20support%20%60package.json%60%3F**%0AYes.%20MIP%20is%20fully%20compatible%20with%20%60package.json%60.%20You%20can%20use%20MIP%20in%20any%20npm-based%20project.%0A%0A**How%20do%20I%20migrate%20from%20an%20old%20%60mip.json%60%3F**%0AOn%20the%20first%20run%2C%20MIP%20automatically%20migrates%20%60mip.json%60%20to%20%60mip.yml%60%20and%20creates%20a%20backup.%0A%0A%23%23%20%F0%9F%94%97%20Useful%20links%0A%0A-%20%5BSource%20code%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip)%0A-%20%5BReport%20an%20issue%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fissues)%0A-%20%5BMIT%20License%5D(%2FLICENSE)%0A%0A---%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Ready%20to%20start%3F%22%0AGo%20to%20%5BSetup%5D(%2Fsetup)%20and%20create%20your%20first%20project%20with%20MIP!%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22MIP%20-%20a%20fast%20and%20modern%20package%20manager%22%0Adescription%3A%20%22MIP%20is%20a%20lightweight%20and%20fast%20package%20manager%20for%20Node.js%20written%20in%20JavaScript.%20Easy%20to%20use%2C%20works%20without%20node_modules%2C%20and%20supports%20YAML%20configuration.%22%0A---%0A%0A%23%20Welcome%20to%20MIP!%20%F0%9F%9A%80%0A%0A**MIP**%20(MInimal%20Package%20Manager)%20is%20a%20lightweight%20and%20fast%20package%20manager%20for%20Node.js%2C%20written%20in%20clean%20JavaScript.%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20MIP%3F%22%20icon%3Ainfo%0AMIP%20is%20an%20alternative%20to%20npm%2C%20pnpm%2C%20and%20yarn.%20It%E2%80%99s%20faster%2C%20simpler%2C%20and%20requires%20fewer%20resources.%20Unlike%20other%20package%20managers%2C%20MIP%20uses%20a%20**global%20cache**%2C%20does%20not%20create%20%60node_modules%2F%60%2C%20and%20supports%20**plugins**.%0A%3A%3A%3A%0A%0A%23%23%20%F0%9F%8E%AF%20Key%20features%0A%0A-%20**%F0%9F%9A%80%20Speed**%20-%20installs%20packages%20several%20times%20faster%20thanks%20to%20parallel%20downloads%2C%20HTTP%2F2%2C%20and%20a%20three-level%20cache.%0A-%20**%F0%9F%93%A6%20Global%20cache**%20-%20packages%20are%20stored%20once%20in%20%60~%2F.mip%2Fstore%2F%60%20and%20used%20by%20all%20projects.%20Saves%20space%20and%20speeds%20up%20installs.%0A-%20**%F0%9F%94%8C%20Plugins**%20-%20extend%20MIP%20functionality%20with%20plugins.%20Create%20your%20own%20commands%2C%20subscribe%20to%20events%2C%20and%20integrate%20with%20external%20services.%0A-%20**%F0%9F%93%9D%20YAML%20configuration**%20-%20instead%20of%20%60mip.json%60%2C%20use%20%60mip.yml%60%20and%20%60mip-lock.yml%60.%20Human-readable%2C%20supports%20comments%2C%20and%20is%20pleasant%20for%20manual%20editing.%0A-%20**%F0%9F%94%92%20Security**%20-%20built-in%20dependency%20auditing%20and%20vulnerability%20checks.%0A-%20**%F0%9F%8C%8D%20Multilingual%20UI**%20-%20supports%2010%20interface%20languages.%0A-%20**%F0%9F%93%81%20Monorepos**%20-%20built-in%20workspaces%20support.%0A-%20**%F0%9F%94%A7%20Flexibility**%20-%20works%20with%20both%20global%20and%20local%20packages%2C%20supports%20%60package.json%60%20for%20npm%20compatibility.%0A-%20**%F0%9F%A7%A9%20Your%20own%20registry**%20-%20publish%20and%20install%20packages%20from%20your%20own%20registry.%0A%0A%23%23%20%E2%9A%A1%20Quick%20start%0A%0A%60%60%60bash%0A%23%20Install%20MIP%0Agit%20clone%20https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%0Acd%20mip%0Anpm%20install%0Anpm%20run%20build%0A%0A%23%20Create%20a%20new%20project%0Amip%20init%0Amip%20install%20express%0Amip%20run%20start%0A%23%20Or%2C%20use%20the%20installer%2C%20which%20you%20can%20download%20from%20releases%0A%60%60%60%0A%0A%3A%3A%3A%20tip%20%22%F0%9F%92%A1%20Tip%22%0AAfter%20building%2C%20MIP%20will%20suggest%20adding%20itself%20to%20%60PATH%60%20so%20you%20can%20run%20it%20from%20any%20folder.%0A%3A%3A%3A%0A%0A%23%23%20%F0%9F%A7%A9%20How%20it%20works%0A%0AMIP%20uses%20a%20**global%20cache**%20(%60~%2F.mip%2Fstore%2F%60)%20where%20it%20stores%20all%20package%20versions.%20This%20enables%3A%0A-%20Installing%20packages%20without%20duplication.%0A-%20Instantly%20switching%20between%20versions.%0A-%20Working%20without%20the%20internet%20if%20the%20package%20is%20already%20in%20the%20cache.%0A-%20Saving%20up%20to%2090%25%20of%20disk%20space.%0A%0A**No%20%60node_modules%2F%60**%20-%20instead%2C%20MIP%20uses%20symlinks%20to%20the%20global%20cache%20and%20a%20%60.mip%2Fmanifest.json%60%20manifest%20to%20track%20installed%20packages.%0A%0AFor%20more%20details%2C%20see%20%5BArchitecture%5D(%2Fdev%2Farchitecture).%0A%0A%23%23%20%F0%9F%93%9A%20Commands%0A%0AMIP%20includes%20all%20the%20commands%20you%20need%20to%20work%20with%20packages%3A%0A%0A%7C%20Command%20%7C%20Description%20%7C%0A%7C---------%7C-------------%7C%0A%7C%20%60mip%20init%60%20%7C%20Initialize%20a%20new%20project%20%7C%0A%7C%20%60mip%20install%60%20%7C%20Install%20dependencies%20%7C%0A%7C%20%60mip%20update%60%20%7C%20Update%20packages%20%7C%0A%7C%20%60mip%20uninstall%60%20%7C%20Remove%20packages%20%7C%0A%7C%20%60mip%20list%60%20%7C%20List%20installed%20packages%20%7C%0A%7C%20%60mip%20outdated%60%20%7C%20Check%20outdated%20packages%20%7C%0A%7C%20%60mip%20audit%60%20%7C%20Security%20audit%20%7C%0A%7C%20%60mip%20run%60%20%7C%20Run%20scripts%20%7C%0A%7C%20%60mip%20exec%60%20%7C%20Execute%20binaries%20%7C%0A%7C%20%60mip%20global%60%20%7C%20Manage%20global%20packages%20%7C%0A%7C%20%60mip%20workspaces%60%20%7C%20Monorepo%20workspaces%20%7C%0A%7C%20%60mip%20plugin%60%20%7C%20Manage%20plugins%20%7C%0A%7C%20%60mip%20pe%60%20%7C%20Execute%20plugin%20commands%20%7C%0A%0AFor%20the%20full%20list%20of%20commands%20and%20descriptions%2C%20see%20%5BCommands%5D(%2Fcommands%2Finstall).%0A%0A%23%23%20%F0%9F%93%81%20Project%20structure%0A%0A%60%60%60%0Amy-project%2F%0A%E2%94%9C%E2%94%80%E2%94%80%20mip.yml%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Project%20configuration%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20mip-lock.yml%20%20%20%20%20%20%20%23%20Locked%20package%20versions%20(YAML)%0A%E2%94%9C%E2%94%80%E2%94%80%20.mip%2F%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20manifest.json%20%20%23%20Installed%20packages%20manifest%0A%E2%94%82%20%20%20%E2%94%9C%E2%94%80%E2%94%80%20cache%2F%20%20%20%20%20%20%20%20%20%23%20Download%20cache%0A%E2%94%82%20%20%20%E2%94%94%E2%94%80%E2%94%80%20packages%2F%20%20%20%20%20%20%23%20Local%20packages%20(if%20any)%0A%E2%94%94%E2%94%80%E2%94%80%20node_modules%2F%20%20%20%20%20%20%23%20Symlinks%20to%20the%20global%20cache%0A%60%60%60%0A%0A%23%23%20%F0%9F%8C%8D%20Multilingual%20support%0A%0AMIP%20supports%2010%20interface%20languages.%20To%20switch%20language%3A%0A%0A%60%60%60bash%0Amip%20language%20ru%20%20%20%23%20Russian%0Amip%20language%20en%20%20%20%23%20English%0Amip%20language%20de%20%20%20%23%20German%0Amip%20language%20zh%20%20%20%23%20Chinese%0A%60%60%60%0A%0A%23%23%20%F0%9F%94%8C%20Plugins%0A%0AMIP%20has%20a%20built-in%20plugin%20system.%20Plugins%20allow%20you%20to%20extend%20functionality%20without%20changing%20the%20core%20code.%0A%0A%60%60%60bash%0A%23%20Create%20a%20plugin%0Amip%20plugin%20create%20my-plugin%0A%0A%23%20Compile%20and%20activate%0Amip%20plugin%20compile%20my-plugin%0Amip%20plugin%20activate%20my-plugin%0A%0A%23%20Run%20the%20plugin%20command%0Amip%20pe%20my-plugin%20my-command%0A%60%60%60%0A%0ALearn%20more%3A%20%5BPlugins%5D(%2Fcommands%2Fplugin).%0A%0A%23%23%20%E2%9D%93%20Frequently%20asked%20questions%0A%0A**How%20is%20MIP%20different%20from%20npm%3F**%0AMIP%20is%20faster%2C%20simpler%2C%20and%20doesn%E2%80%99t%20require%20complex%20setup.%20It%20uses%20a%20global%20cache%2C%20doesn%E2%80%99t%20create%20%60node_modules%2F%60%2C%20supports%20plugins%2C%20and%20uses%20YAML%20configuration.%0A%0A**Can%20I%20use%20MIP%20in%20CI%2FCD%3F**%0AYes.%20There%20is%20a%20%60mip%20ci%60%20command%20designed%20for%20automated%20builds%20and%20supporting%20%60--frozen-lockfile%60.%0A%0A**How%20do%20I%20update%20MIP%3F**%0ARebuild%20the%20project%20from%20the%20repository%20and%20reinstall.%0A%0A**Does%20MIP%20support%20%60package.json%60%3F**%0AYes.%20MIP%20is%20fully%20compatible%20with%20%60package.json%60.%20You%20can%20use%20MIP%20in%20any%20npm-based%20project.%0A%0A**How%20do%20I%20migrate%20from%20an%20old%20%60mip.json%60%3F**%0AOn%20the%20first%20run%2C%20MIP%20automatically%20migrates%20%60mip.json%60%20to%20%60mip.yml%60%20and%20creates%20a%20backup.%0A%0A%23%23%20%F0%9F%94%97%20Useful%20links%0A%0A-%20%5BSource%20code%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip)%0A-%20%5BReport%20an%20issue%5D(https%3A%2F%2Fgithub.com%2Fkiwinatra%2Fmip%2Fissues)%0A-%20%5BMIT%20License%5D(%2FLICENSE)%0A%0A---%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20Ready%20to%20start%3F%22%0AGo%20to%20%5BSetup%5D(%2Fsetup)%20and%20create%20your%20first%20project%20with%20MIP!%0A%3A%3A%3A%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1873,6 +1889,7 @@ What is MIP?</div><div class="callout-content">
 mip init
 mip install express
 mip run start
+<span class="hljs-comment"># Or, use the installer, which you can download from releases</span>
 </code></pre>
 <div class="docmd-container callout callout-tip"><div class="callout-title">💡 Tip</div><div class="callout-content">
 <p>After building, MIP will suggest adding itself to <code>PATH</code> so you can run it from any folder.</p>
@@ -2130,15 +2147,15 @@ On the first run, MIP automatically migrates <code>mip.json</code> to <code>mip.
         </div>
       </div>
       
-      <script src="./assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="./assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="./assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="./assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="./assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="./assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="./assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="./assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="./assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="./assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="./assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="./assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

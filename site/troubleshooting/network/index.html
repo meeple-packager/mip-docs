@@ -39,7 +39,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -105,10 +105,10 @@
       Network &amp; Registries : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=mrrqtpta">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms4llc2a">
     
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=mrrqtpta" id="hljs-light" >
-    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=mrrqtpta" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms4llc2a" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms4llc2a" id="hljs-dark" disabled>
     
     
 <meta name="description" content="Problems with networks, registries, and how to solve them.">
@@ -123,8 +123,8 @@
 
 
 
-<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=mrrqtpta" >
-<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=mrrqtpta" >
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms4llc2a" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms4llc2a" >
 <link rel="alternate" hreflang="ru" href="/ru/troubleshooting/network/">
 <link rel="alternate" hreflang="en" href="/troubleshooting/network/">
 <link rel="alternate" hreflang="x-default" href="/troubleshooting/network/">
@@ -156,7 +156,7 @@
     // Note: localStorage is only honoured when it holds an explicit
     // 'light' or 'dark' value. A stored 'system' value (from a prior
     // session where the user picked "follow system") must NOT win over
-    // a freshly resolved config value - the resolved value will itself
+    // a freshly resolved config value — the resolved value will itself
     // be 'system' in that case and the OS preference check below takes
     // over, so this is a no-op for the in-session behaviour but keeps
     // any future storage migration simple.
@@ -1038,7 +1038,7 @@
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1071,6 +1071,22 @@
           
           <span class="nav-item-title">
             hello
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="" >
+      
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
             </span>
           
           
@@ -1739,7 +1755,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Network%20%26%20Registries%22%0Adescription%3A%20%22Problems%20with%20networks%2C%20registries%2C%20and%20how%20to%20solve%20them.%22%0A---%0A%0A%23%20Network%20%26%20Registries%20%F0%9F%8C%90%0A%0ANetwork%20issues%20are%20among%20the%20most%20common%20problems%20when%20working%20with%20package%20managers.%20Here&#039;s%20how%20to%20fix%20them%20in%20MIP.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Diagnostics%0A%0A%23%23%23%20Check%20internet%0A%0A%60%60%60bash%0A%23%20Check%20registry%20availability%0Acurl%20-I%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%0A%23%20Check%20DNS%0Anslookup%20registry.npmjs.org%0A%0A%23%20Check%20ping%0Aping%20-c%204%20registry.npmjs.org%0A%60%60%60%0A%0A%23%23%23%20Check%20in%20MIP%0A%0A%60%60%60bash%0A%23%20Environment%20diagnostics%0Amip%20doctor%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%90%9B%20Common%20problems%0A%0A%23%23%23%201.%20Cannot%20connect%20to%20registry%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Failed%20to%20fetch%3A%20https%3A%2F%2Fregistry.npmjs.org%2F%0AError%3A%20connect%20ETIMEDOUT%0A%60%60%60%0A%0A**Cause%3A**%20Internet%20issues%20or%20the%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Check%20internet%0Aping%208.8.8.8%0A%0A%23%20Check%20registry%0Acurl%20-I%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%0A%23%20Try%20again%20later%0A%60%60%60%0A%0A---%0A%0A%23%23%23%202.%20Slow%20download%20speed%0A%0A**Symptom%3A**%20Packages%20download%20very%20slowly.%0A%0A**Cause%3A**%20Slow%20internet%2C%20DNS%20issues%2C%20or%20region.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Use%20a%20mirror%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Or%20specify%20another%20registry%20in%20config%0A%60%60%60%0A%0A---%0A%0A%23%23%23%203.%20SSL%20certificate%20error%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20UNABLE_TO_VERIFY_LEAF_SIGNATURE%0A%60%60%60%0A%0A**Cause%3A**%20SSL%20certificate%20problems.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Temporarily%20disable%20verification%20(not%20for%20production!)%0ANODE_TLS_REJECT_UNAUTHORIZED%3D0%20mip%20install%0A%0A%23%20Or%20update%20Node.js%0A%60%60%60%0A%0A---%0A%0A%23%23%23%204.%20Rate%20limit%20exceeded%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20429%20Too%20Many%20Requests%0A%60%60%60%0A%0A**Cause%3A**%20Too%20many%20requests%20to%20the%20registry.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Use%20GITHUB_TOKEN%20for%20GitHub%20API%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0A%0A%23%20Or%20use%20cache%0Amip%20install%20--offline%0A%60%60%60%0A%0A---%0A%0A%23%23%23%205.%20Cannot%20connect%20to%20GitHub%20API%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20GitHub%20API%20request%20failed%3A%20403%0A%60%60%60%0A%0A**Cause%3A**%20GitHub%20API%20rate%20limit%20exceeded.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Set%20a%20token%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0A%0A%23%20Or%20use%20a%20different%20registry%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%60%60%60%0A%0A---%0A%0A%23%23%23%206.%20Proxy%0A%0A**Symptom%3A**%20Requests%20don&#039;t%20work%20due%20to%20a%20corporate%20proxy.%0A%0A**Cause%3A**%20Proxy%20is%20not%20configured.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Configure%20proxy%0Aexport%20HTTP_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Aexport%20HTTPS_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0A%0A%23%20Now%20mip%20will%20use%20the%20proxy%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Registry%20configuration%0A%0A%23%23%23%20Use%20a%20different%20registry%0A%0A%60%60%60bash%0A%23%20Specify%20a%20registry%20for%20a%20specific%20command%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Specify%20a%20registry%20in%20config%0A%23%20In%20mip.yml%3A%0Aregistry%3A%20https%3A%2F%2Fregistry.npmmirror.com%0A%60%60%60%0A%0A%23%23%23%20Popular%20registries%0A%0A%7C%20Registry%20%7C%20URL%20%7C%20Region%20%7C%0A%7C----------%7C-----%7C--------%7C%0A%7C%20npm%20(official)%20%7C%20%60https%3A%2F%2Fregistry.npmjs.org%2F%60%20%7C%20Global%20%7C%0A%7C%20npmmirror%20%7C%20%60https%3A%2F%2Fregistry.npmmirror.com%60%20%7C%20China%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%8C%90%20Offline%20mode%0A%0A%23%23%23%20Work%20without%20internet%0A%0AAfter%20the%20first%20installation%2C%20MIP%20can%20work%20offline%3A%0A%0A%60%60%60bash%0Amip%20install%20--offline%0A%60%60%60%0A%0A%23%23%23%20Caching%0A%0AMIP%20caches%20packages%20in%20%60~%2F.mip%2Fstore%2F%60.%20If%20a%20package%20is%20already%20in%20the%20cache%2C%20it%20will%20not%20be%20downloaded%20again.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Network%20debugging%0A%0A%23%23%23%20Enable%20logs%0A%0A%60%60%60bash%0A%23%20Enable%20debug%0ADEBUG%3D1%20mip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20Check%20connection%0A%0A%60%60%60bash%0A%23%20Check%20registry%0Acurl%20-v%20https%3A%2F%2Fregistry.npmjs.org%2Flodash%0A%0A%23%20Check%20GitHub%20API%0Acurl%20-v%20https%3A%2F%2Fapi.github.com%2Frepos%2Fkiwinatra%2Fmip%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Quick%20fixes%0A%0A%23%23%23%20Everything%20broken%20due%20to%20network%0A%0A%60%60%60bash%0A%23%20Try%20again%20later%0A%23%20Or%20use%20a%20different%20registry%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Or%20use%20cache%0Amip%20install%20--offline%0A%60%60%60%0A%0A%23%23%23%20Proxy%0A%0A%60%60%60bash%0Aexport%20HTTP_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Aexport%20HTTPS_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Amip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20GitHub%20token%0A%0A%60%60%60bash%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0Amip%20repo%20kiwinatra%2Fmip%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BInstallation%20Errors%5D(%2Ftroubleshooting%2Finstallation)%20%E2%80%94%20installation%20issues%0A-%20%5BLock%20Files%5D(%2Ftroubleshooting%2Flockfile)%20%E2%80%94%20lockfile%20issues%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20%E2%80%94%20environment%20diagnostics%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22Network%20%26%20Registries%22%0Adescription%3A%20%22Problems%20with%20networks%2C%20registries%2C%20and%20how%20to%20solve%20them.%22%0A---%0A%0A%23%20Network%20%26%20Registries%20%F0%9F%8C%90%0A%0ANetwork%20issues%20are%20among%20the%20most%20common%20problems%20when%20working%20with%20package%20managers.%20Here&#039;s%20how%20to%20fix%20them%20in%20MIP.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Diagnostics%0A%0A%23%23%23%20Check%20internet%0A%0A%60%60%60bash%0A%23%20Check%20registry%20availability%0Acurl%20-I%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%0A%23%20Check%20DNS%0Anslookup%20registry.npmjs.org%0A%0A%23%20Check%20ping%0Aping%20-c%204%20registry.npmjs.org%0A%60%60%60%0A%0A%23%23%23%20Check%20in%20MIP%0A%0A%60%60%60bash%0A%23%20Environment%20diagnostics%0Amip%20doctor%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%90%9B%20Common%20problems%0A%0A%23%23%23%201.%20Cannot%20connect%20to%20registry%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20Failed%20to%20fetch%3A%20https%3A%2F%2Fregistry.npmjs.org%2F%0AError%3A%20connect%20ETIMEDOUT%0A%60%60%60%0A%0A**Cause%3A**%20Internet%20issues%20or%20the%20registry%20is%20unavailable.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Check%20internet%0Aping%208.8.8.8%0A%0A%23%20Check%20registry%0Acurl%20-I%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%0A%23%20Try%20again%20later%0A%60%60%60%0A%0A---%0A%0A%23%23%23%202.%20Slow%20download%20speed%0A%0A**Symptom%3A**%20Packages%20download%20very%20slowly.%0A%0A**Cause%3A**%20Slow%20internet%2C%20DNS%20issues%2C%20or%20region.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Use%20a%20mirror%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Or%20specify%20another%20registry%20in%20config%0A%60%60%60%0A%0A---%0A%0A%23%23%23%203.%20SSL%20certificate%20error%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20UNABLE_TO_VERIFY_LEAF_SIGNATURE%0A%60%60%60%0A%0A**Cause%3A**%20SSL%20certificate%20problems.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Temporarily%20disable%20verification%20(not%20for%20production!)%0ANODE_TLS_REJECT_UNAUTHORIZED%3D0%20mip%20install%0A%0A%23%20Or%20update%20Node.js%0A%60%60%60%0A%0A---%0A%0A%23%23%23%204.%20Rate%20limit%20exceeded%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20429%20Too%20Many%20Requests%0A%60%60%60%0A%0A**Cause%3A**%20Too%20many%20requests%20to%20the%20registry.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Use%20GITHUB_TOKEN%20for%20GitHub%20API%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0A%0A%23%20Or%20use%20cache%0Amip%20install%20--offline%0A%60%60%60%0A%0A---%0A%0A%23%23%23%205.%20Cannot%20connect%20to%20GitHub%20API%0A%0A**Error%3A**%0A%60%60%60%0A%E2%9D%8C%20GitHub%20API%20request%20failed%3A%20403%0A%60%60%60%0A%0A**Cause%3A**%20GitHub%20API%20rate%20limit%20exceeded.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Set%20a%20token%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0A%0A%23%20Or%20use%20a%20different%20registry%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmjs.org%2F%0A%60%60%60%0A%0A---%0A%0A%23%23%23%206.%20Proxy%0A%0A**Symptom%3A**%20Requests%20don&#039;t%20work%20due%20to%20a%20corporate%20proxy.%0A%0A**Cause%3A**%20Proxy%20is%20not%20configured.%0A%0A**Solution%3A**%0A%60%60%60bash%0A%23%20Configure%20proxy%0Aexport%20HTTP_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Aexport%20HTTPS_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0A%0A%23%20Now%20mip%20will%20use%20the%20proxy%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%A7%20Registry%20configuration%0A%0A%23%23%23%20Use%20a%20different%20registry%0A%0A%60%60%60bash%0A%23%20Specify%20a%20registry%20for%20a%20specific%20command%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Specify%20a%20registry%20in%20config%0A%23%20In%20mip.yml%3A%0Aregistry%3A%20https%3A%2F%2Fregistry.npmmirror.com%0A%60%60%60%0A%0A%23%23%23%20Popular%20registries%0A%0A%7C%20Registry%20%7C%20URL%20%7C%20Region%20%7C%0A%7C----------%7C-----%7C--------%7C%0A%7C%20npm%20(official)%20%7C%20%60https%3A%2F%2Fregistry.npmjs.org%2F%60%20%7C%20Global%20%7C%0A%7C%20npmmirror%20%7C%20%60https%3A%2F%2Fregistry.npmmirror.com%60%20%7C%20China%20%7C%0A%0A---%0A%0A%23%23%20%F0%9F%8C%90%20Offline%20mode%0A%0A%23%23%23%20Work%20without%20internet%0A%0AAfter%20the%20first%20installation%2C%20MIP%20can%20work%20offline%3A%0A%0A%60%60%60bash%0Amip%20install%20--offline%0A%60%60%60%0A%0A%23%23%23%20Caching%0A%0AMIP%20caches%20packages%20in%20%60~%2F.mip%2Fstore%2F%60.%20If%20a%20package%20is%20already%20in%20the%20cache%2C%20it%20will%20not%20be%20downloaded%20again.%0A%0A---%0A%0A%23%23%20%F0%9F%94%8D%20Network%20debugging%0A%0A%23%23%23%20Enable%20logs%0A%0A%60%60%60bash%0A%23%20Enable%20debug%0ADEBUG%3D1%20mip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20Check%20connection%0A%0A%60%60%60bash%0A%23%20Check%20registry%0Acurl%20-v%20https%3A%2F%2Fregistry.npmjs.org%2Flodash%0A%0A%23%20Check%20GitHub%20API%0Acurl%20-v%20https%3A%2F%2Fapi.github.com%2Frepos%2Fkiwinatra%2Fmip%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%9B%A0%EF%B8%8F%20Quick%20fixes%0A%0A%23%23%23%20Everything%20broken%20due%20to%20network%0A%0A%60%60%60bash%0A%23%20Try%20again%20later%0A%23%20Or%20use%20a%20different%20registry%0Amip%20install%20lodash%20--registry%20https%3A%2F%2Fregistry.npmmirror.com%0A%0A%23%20Or%20use%20cache%0Amip%20install%20--offline%0A%60%60%60%0A%0A%23%23%23%20Proxy%0A%0A%60%60%60bash%0Aexport%20HTTP_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Aexport%20HTTPS_PROXY%3Dhttp%3A%2F%2Fproxy.company.com%3A8080%0Amip%20install%20lodash%0A%60%60%60%0A%0A%23%23%23%20GitHub%20token%0A%0A%60%60%60bash%0Aexport%20GITHUB_TOKEN%3Dghp_xxxxx%0Amip%20repo%20kiwinatra%2Fmip%0A%60%60%60%0A%0A---%0A%0A%23%23%20%F0%9F%94%97%20Related%20pages%0A%0A-%20%5BInstallation%20Errors%5D(%2Ftroubleshooting%2Finstallation)%20-%20installation%20issues%0A-%20%5BLock%20Files%5D(%2Ftroubleshooting%2Flockfile)%20-%20lockfile%20issues%0A-%20%5Bmip%20doctor%5D(%2Fcommands%2Fdoctor)%20-%20environment%20diagnostics%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -2208,15 +2224,15 @@ mip repo kiwinatra<span class="hljs-punctuation">/</span>mip
         </div>
       </div>
       
-      <script src="../../assets/js/docmd-i18n-manifest.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-main.js?v=mrrqtpta"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms4llc2a"></script>
       
-      <script src="../../assets/js/docmd-git.js?v=mrrqtpta"></script>
-      <script src="../../assets/js/docmd-image-lightbox.js?v=mrrqtpta" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms4llc2a"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms4llc2a" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../assets/js/docmd-search.js?v=mrrqtpta" ></script>
-<script src="../../assets/js/docmd-git.js?v=mrrqtpta" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms4llc2a" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms4llc2a" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"
