@@ -7,7 +7,7 @@
 -->
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="generator" content="docmd v0.8.7">
@@ -85,49 +85,49 @@
     </style>
     
     <script>
-      var root = "../../../";
+      var root = "../../";
       if (root && !root.endsWith('/')) root += '/';
       if (root === '') root = './';
       window.DOCMD_ROOT = root;
 
-      var siteRoot = "../../../";
+      var siteRoot = "../../";
       if (siteRoot && !siteRoot.endsWith('/')) siteRoot += '/';
       if (siteRoot === '') siteRoot = './';
       window.DOCMD_SITE_ROOT = siteRoot;
 
       window.DOCMD_APPEARANCE = "system";
-      window.DOCMD_VERSION_ROOT = "/ru/";
+      window.DOCMD_VERSION_ROOT = "/";
       window.DOCMD_BASE = "/";
-      window.DOCMD_LOCALE = "ru";
+      window.DOCMD_LOCALE = "en";
       window.DOCMD_DEFAULT_LOCALE = "en";
     </script>
     <title>
-      mip why - анализ зависимостей пакета : MIP - Modern Package Manager
+      mip rebuild - rebuild installed packages : MIP - Modern Package Manager
     </title>
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-main.css?v=ms942lvl">
+    <link rel="stylesheet" href="../../assets/css/docmd-main.css?v=ms942lvl">
     
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-light.css?v=ms942lvl" id="hljs-light" >
-    <link rel="stylesheet" href="../../../assets/css/docmd-highlight-dark.css?v=ms942lvl" id="hljs-dark" disabled>
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-light.css?v=ms942lvl" id="hljs-light" >
+    <link rel="stylesheet" href="../../assets/css/docmd-highlight-dark.css?v=ms942lvl" id="hljs-dark" disabled>
     
     
-<meta name="description" content="Команда why показывает, почему конкретный пакет установлен в проекте - какие другие пакеты зависят от него и какая версия используется.">
-<link rel="canonical" href="https://mip.fwh.is/ru/commands/why/">
-<meta property="og:title" content="mip why - анализ зависимостей пакета - MIP - Modern Package Manager">
-<meta property="og:description" content="Команда why показывает, почему конкретный пакет установлен в проекте - какие другие пакеты зависят от него и какая версия используется.">
-<meta property="og:url" content="https://mip.fwh.is/ru/commands/why/">
+<meta name="description" content="The rebuild command re-runs build scripts for packages installed in the global store, useful after platform changes, Node.js upgrades, or when native modules need recompilation.">
+<link rel="canonical" href="https://mip.fwh.is/commands/rebuild/">
+<meta property="og:title" content="mip rebuild - rebuild installed packages - MIP - Modern Package Manager">
+<meta property="og:description" content="The rebuild command re-runs build scripts for packages installed in the global store, useful after platform changes, Node.js upgrades, or when native modules need recompilation.">
+<meta property="og:url" content="https://mip.fwh.is/commands/rebuild/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mip why - анализ зависимостей пакета - MIP - Modern Package Manager">
-<meta name="twitter:description" content="Команда why показывает, почему конкретный пакет установлен в проекте - какие другие пакеты зависят от него и какая версия используется.">
+<meta name="twitter:title" content="mip rebuild - rebuild installed packages - MIP - Modern Package Manager">
+<meta name="twitter:description" content="The rebuild command re-runs build scripts for packages installed in the global store, useful after platform changes, Node.js upgrades, or when native modules need recompilation.">
 
 
 
-<link rel="stylesheet" href="../../../assets/css/docmd-git.css?v=ms942lvl" >
-<link rel="stylesheet" href="../../../assets/css/docmd-openapi.css?v=ms942lvl" >
-<link rel="alternate" hreflang="ru" href="/ru/commands/why/">
-<link rel="alternate" hreflang="en" href="/commands/why/">
-<link rel="alternate" hreflang="x-default" href="/commands/why/">
+<link rel="stylesheet" href="../../assets/css/docmd-git.css?v=ms942lvl" >
+<link rel="stylesheet" href="../../assets/css/docmd-openapi.css?v=ms942lvl" >
+<link rel="alternate" hreflang="ru" href="/ru/commands/rebuild/">
+<link rel="alternate" hreflang="en" href="/commands/rebuild/">
+<link rel="alternate" hreflang="x-default" href="/commands/rebuild/">
     
     <script>/**
  * --------------------------------------------------------------------
@@ -199,7 +199,7 @@
   <body
     class="sidebar-collapsible"
     data-default-collapsed="false"
-    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/ru/commands/why.md">
+    data-copy-code-enabled="true" data-spa-enabled="true" data-source-file="docs/en/commands/rebuild.md">
 
     <a href="#main-content" class="skip-link">skipToContent</a>
 
@@ -208,7 +208,7 @@
       <aside class="sidebar">
         <div class="sidebar-header">
           
-            <h1><a href="../../../">
+            <h1><a href="../../">
                 MIP - Modern Package Manager
               </a></h1>
           
@@ -297,14 +297,28 @@
   <ul class="language-switcher-menu">
     
     <li>
-      <a href="/ru/commands/why" 
-        class="language-switcher-item active" 
+      <a href="/ru/commands/rebuild" 
+        class="language-switcher-item " 
         data-spa-ignore
         data-locale-id="ru"
         lang="ru"
         dir="ltr"
         >
         Русский
+        
+        
+      </a>
+    </li>
+    
+    <li>
+      <a href="/commands/rebuild" 
+        class="language-switcher-item active" 
+        data-spa-ignore
+        data-locale-id="en"
+        lang="en"
+        dir="ltr"
+        >
+        English
         
           
 <svg class="lucide-icon icon-check language-check" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -322,20 +336,6 @@
   <path d="M20 6 9 17l-5-5" />
 </svg>
 
-        
-        
-      </a>
-    </li>
-    
-    <li>
-      <a href="/commands/why" 
-        class="language-switcher-item " 
-        data-spa-ignore
-        data-locale-id="en"
-        lang="en"
-        dir="ltr"
-        >
-        English
         
         
       </a>
@@ -426,7 +426,7 @@
 
           
           <span class="nav-item-title">
-            Введение
+            Introduction
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -454,11 +454,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/" class=" "
+        <a href="../../" class=" "
           >
           
           <span class="nav-item-title">
-            Добро пожаловать
+            Welcome
             </span>
           
           
@@ -470,11 +470,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/qna/" class=" "
+        <a href="../../qna/" class=" "
           >
           
           <span class="nav-item-title">
-            Быстрые Q&amp;A
+            Quick Q&amp;A
             </span>
           
           
@@ -510,7 +510,7 @@
 
           
           <span class="nav-item-title">
-            Команды
+            Commands
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -538,7 +538,7 @@
             
       <li class="" >
       
-        <a href="../../../ru/commands/audit/" class=" "
+        <a href="../../commands/audit/" class=" "
           >
           
           <span class="nav-item-title">
@@ -554,7 +554,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/cache/" class=" "
+        <a href="../../commands/cache/" class=" "
           >
           
           <span class="nav-item-title">
@@ -570,7 +570,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/ci/" class=" "
+        <a href="../../commands/ci/" class=" "
           >
           
           <span class="nav-item-title">
@@ -586,7 +586,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/create/" class=" "
+        <a href="../../commands/create/" class=" "
           >
           
           <span class="nav-item-title">
@@ -602,7 +602,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/dedupe/" class=" "
+        <a href="../../commands/dedupe/" class=" "
           >
           
           <span class="nav-item-title">
@@ -618,7 +618,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/doctor/" class=" "
+        <a href="../../commands/doctor/" class=" "
           >
           
           <span class="nav-item-title">
@@ -634,7 +634,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/exec/" class=" "
+        <a href="../../commands/exec/" class=" "
           >
           
           <span class="nav-item-title">
@@ -650,7 +650,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/exports/" class=" "
+        <a href="../../commands/exports/" class=" "
           >
           
           <span class="nav-item-title">
@@ -666,7 +666,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/genlock/" class=" "
+        <a href="../../commands/genlock/" class=" "
           >
           
           <span class="nav-item-title">
@@ -682,7 +682,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/global/" class=" "
+        <a href="../../commands/global/" class=" "
           >
           
           <span class="nav-item-title">
@@ -698,7 +698,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/info/" class=" "
+        <a href="../../commands/info/" class=" "
           >
           
           <span class="nav-item-title">
@@ -714,7 +714,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/init/" class=" "
+        <a href="../../commands/init/" class=" "
           >
           
           <span class="nav-item-title">
@@ -730,7 +730,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/install/" class=" "
+        <a href="../../commands/install/" class=" "
           >
           
           <span class="nav-item-title">
@@ -746,7 +746,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/language/" class=" "
+        <a href="../../commands/language/" class=" "
           >
           
           <span class="nav-item-title">
@@ -762,7 +762,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/legacy/" class=" "
+        <a href="../../commands/legacy/" class=" "
           >
           
           <span class="nav-item-title">
@@ -778,7 +778,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/link/" class=" "
+        <a href="../../commands/link/" class=" "
           >
           
           <span class="nav-item-title">
@@ -794,7 +794,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/list/" class=" "
+        <a href="../../commands/list/" class=" "
           >
           
           <span class="nav-item-title">
@@ -810,7 +810,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/oldrepo/" class=" "
+        <a href="../../commands/oldrepo/" class=" "
           >
           
           <span class="nav-item-title">
@@ -826,7 +826,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/outdated/" class=" "
+        <a href="../../commands/outdated/" class=" "
           >
           
           <span class="nav-item-title">
@@ -842,7 +842,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/repo/" class=" "
+        <a href="../../commands/repo/" class=" "
           >
           
           <span class="nav-item-title">
@@ -858,7 +858,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commandsn/" class=" "
+        <a href="../../commands/run/" class=" "
           >
           
           <span class="nav-item-title">
@@ -874,7 +874,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/search/" class=" "
+        <a href="../../commands/search/" class=" "
           >
           
           <span class="nav-item-title">
@@ -890,7 +890,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/super-install/" class=" "
+        <a href="../../commands/super-install/" class=" "
           >
           
           <span class="nav-item-title">
@@ -906,7 +906,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/uninstall/" class=" "
+        <a href="../../commands/uninstall/" class=" "
           >
           
           <span class="nav-item-title">
@@ -922,7 +922,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/update/" class=" "
+        <a href="../../commands/update/" class=" "
           >
           
           <span class="nav-item-title">
@@ -936,9 +936,9 @@
         
       </li>
     
-      <li class="active" >
+      <li class="" >
       
-        <a href="../../../ru/commands/why/" class="active "
+        <a href="../../commands/why/" class=" "
           >
           
           <span class="nav-item-title">
@@ -954,7 +954,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/workspaces/" class=" "
+        <a href="../../commands/workspaces/" class=" "
           >
           
           <span class="nav-item-title">
@@ -970,7 +970,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/pe/" class=" "
+        <a href="../../commands/pe/" class=" "
           >
           
           <span class="nav-item-title">
@@ -986,7 +986,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/plugin/" class=" "
+        <a href="../../commands/plugin/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1002,7 +1002,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/registry/" class=" "
+        <a href="../../commands/registry/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1018,7 +1018,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/config/" class=" "
+        <a href="../../commands/config/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1034,11 +1034,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/server/" class=" "
+        <a href="../../commands/server/" class=" "
           >
           
           <span class="nav-item-title">
-            server
+            page
             </span>
           
           
@@ -1050,23 +1050,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/shell/" class=" "
-          >
-          
-          <span class="nav-item-title">
-            shell
-            </span>
-          
-          
-        </a>
-        
-
-        
-      </li>
-    
-      <li class="" >
-      
-        <a href="../../../ru/commands/alias/" class=" "
+        <a href="../../commands/alias/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1082,7 +1066,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/hello/" class=" "
+        <a href="../../commands/hello/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1098,7 +1082,23 @@
     
       <li class="" >
       
-        <a href="../../../ru/commands/rebuild/" class=" "
+        <a href="../../commands/shell/" class=" "
+          >
+          
+          <span class="nav-item-title">
+            shell
+            </span>
+          
+          
+        </a>
+        
+
+        
+      </li>
+    
+      <li class="active" >
+      
+        <a href="../../commands/rebuild/" class="active "
           >
           
           <span class="nav-item-title">
@@ -1150,7 +1150,7 @@
 
           
           <span class="nav-item-title">
-            Настройка
+            Setup
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -1178,11 +1178,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/setup/" class=" "
+        <a href="../../setup/" class=" "
           >
           
           <span class="nav-item-title">
-            Создание проекта
+            Creating a Project
             </span>
           
           
@@ -1194,11 +1194,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/setup/quick-start/" class=" "
+        <a href="../../setup/quick-start/" class=" "
           >
           
           <span class="nav-item-title">
-            Быстрый старт
+            Quick Start
             </span>
           
           
@@ -1210,11 +1210,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/setup/configuration/" class=" "
+        <a href="../../setup/configuration/" class=" "
           >
           
           <span class="nav-item-title">
-            Конфигурация
+            Configuration
             </span>
           
           
@@ -1226,11 +1226,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/setup/features/" class=" "
+        <a href="../../setup/features/" class=" "
           >
           
           <span class="nav-item-title">
-            Функции конфиг-файла
+            Config Features
             </span>
           
           
@@ -1265,7 +1265,7 @@
 
           
           <span class="nav-item-title">
-            Для профи
+            For Pros
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -1293,11 +1293,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/pro-users/" class=" "
+        <a href="../../pro-users/" class=" "
           >
           
           <span class="nav-item-title">
-            Обзор
+            Overview
             </span>
           
           
@@ -1309,11 +1309,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/pro-users/performance/" class=" "
+        <a href="../../pro-users/performance/" class=" "
           >
           
           <span class="nav-item-title">
-            Производительность
+            Performance
             </span>
           
           
@@ -1325,7 +1325,7 @@
     
       <li class="" >
       
-        <a href="../../../ru/pro-users/ci-cd/" class=" "
+        <a href="../../pro-users/ci-cd/" class=" "
           >
           
           <span class="nav-item-title">
@@ -1341,11 +1341,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/pro-users/features/" class=" "
+        <a href="../../pro-users/features/" class=" "
           >
           
           <span class="nav-item-title">
-            Настройка конфига
+            Features / Config
             </span>
           
           
@@ -1381,7 +1381,7 @@
 
           
           <span class="nav-item-title">
-            Разработчикам
+            For Developers
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -1409,11 +1409,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/dev/" class=" "
+        <a href="../../dev/" class=" "
           >
           
           <span class="nav-item-title">
-            Главное
+            Overview
             </span>
           
           
@@ -1425,11 +1425,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/dev/architecture/" class=" "
+        <a href="../../dev/architecture/" class=" "
           >
           
           <span class="nav-item-title">
-            Архитектурой
+            Architecture
             </span>
           
           
@@ -1441,11 +1441,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/dev/adding-commands/" class=" "
+        <a href="../../dev/adding-commands/" class=" "
           >
           
           <span class="nav-item-title">
-            Добавление команд
+            Adding Commands
             </span>
           
           
@@ -1457,11 +1457,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/dev/testing/" class=" "
+        <a href="../../dev/testing/" class=" "
           >
           
           <span class="nav-item-title">
-            Тестирование
+            Testing
             </span>
           
           
@@ -1473,11 +1473,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/dev/all-plugins/" class=" "
+        <a href="../../dev/all-plugins/" class=" "
           >
           
           <span class="nav-item-title">
-            Все о плагинах
+            All About Plugins
             </span>
           
           
@@ -1489,11 +1489,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/dev/hooks/" class=" "
+        <a href="../../dev/hooks/" class=" "
           >
           
           <span class="nav-item-title">
-            Хуки и плагины
+            Hooks &amp; Plugins
             </span>
           
           
@@ -1538,7 +1538,7 @@
 
           
           <span class="nav-item-title">
-            Решение проблем
+            Troubleshooting
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -1566,11 +1566,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/troubleshooting/" class=" "
+        <a href="../../troubleshooting/" class=" "
           >
           
           <span class="nav-item-title">
-            Общий список
+            General List
             </span>
           
           
@@ -1582,11 +1582,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/troubleshooting/installation/" class=" "
+        <a href="../../troubleshooting/network/" class=" "
           >
           
           <span class="nav-item-title">
-            Ошибки установки
+            Network &amp; Registries
             </span>
           
           
@@ -1598,27 +1598,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/troubleshooting/network/" class=" "
+        <a href="../../troubleshooting/lockfile/" class=" "
           >
           
           <span class="nav-item-title">
-            Сеть и регистры
-            </span>
-          
-          
-        </a>
-        
-
-        
-      </li>
-    
-      <li class="" >
-      
-        <a href="../../../ru/troubleshooting/lockfile/" class=" "
-          >
-          
-          <span class="nav-item-title">
-            Lock-файлы
+            Lock Files
             </span>
           
           
@@ -1655,7 +1639,7 @@
 
           
           <span class="nav-item-title">
-            Прочее
+            Other
           </span>
           
             <span class="collapse-icon-wrapper">
@@ -1683,11 +1667,11 @@
             
       <li class="" >
       
-        <a href="../../../ru/other/" class=" "
+        <a href="../../other/" class=" "
           >
           
           <span class="nav-item-title">
-            Обзор
+            Overview
             </span>
           
           
@@ -1699,11 +1683,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/other/glossary/" class=" "
+        <a href="../../other/glossary/" class=" "
           >
           
           <span class="nav-item-title">
-            Глоссарий
+            Glossary
             </span>
           
           
@@ -1715,11 +1699,11 @@
     
       <li class="" >
       
-        <a href="../../../ru/other/faq/" class=" "
+        <a href="../../other/faq/" class=" "
           >
           
           <span class="nav-item-title">
-            Расширенный FAQ
+            Extended FAQ
             </span>
           
           
@@ -1773,7 +1757,7 @@
               
               <div class="header-titles-wrapper">
                 <span class="header-title">
-                  mip why - анализ зависимостей пакета
+                  mip rebuild - rebuild installed packages
                 </span>
               </div>
             </div>
@@ -1787,7 +1771,7 @@
             <div class="content-layout">
               <div class="main-content">
                 <div class="docmd-breadcrumbs-row">
-                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20why%20-%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%22%0Adescription%3A%20%22%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20why%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%2C%20%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D0%BA%D0%BE%D0%BD%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%20%D0%B2%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%20-%20%D0%BA%D0%B0%D0%BA%D0%B8%D0%B5%20%D0%B4%D1%80%D1%83%D0%B3%D0%B8%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D1%8F%D1%82%20%D0%BE%D1%82%20%D0%BD%D0%B5%D0%B3%D0%BE%20%D0%B8%20%D0%BA%D0%B0%D0%BA%D0%B0%D1%8F%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F.%22%0A---%0A%0A%23%20mip%20why%0A%0A%3A%3A%3A%20callout%20info%20%22%D0%A7%D1%82%D0%BE%20%D1%8D%D1%82%D0%BE%3F%22%20icon%3Aquestion%0A%60mip%20why%60%20-%20%D1%8D%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9.%20%D0%9E%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%2C%20%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D0%BA%D0%BE%D0%BD%D0%BA%D1%80%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D0%BF%D1%80%D0%B8%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%20%D0%B2%20%D0%B2%D0%B0%D1%88%D0%B5%D0%BC%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5%3A%20%D1%8F%D0%B2%D0%BB%D1%8F%D0%B5%D1%82%D1%81%D1%8F%20%D0%BB%D0%B8%20%D0%BE%D0%BD%20%D0%BF%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%D1%8E%20(%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%20%D0%B2%20%60mip.yml%60)%20%D0%B8%D0%BB%D0%B8%20%D0%B1%D1%8B%D0%BB%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%20%D0%BA%D0%B0%D0%BA%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0.%20%D0%AD%D1%82%D0%BE%20%D0%BF%D0%BE%D0%BC%D0%BE%D0%B3%D0%B0%D0%B5%D1%82%20%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%8C%20%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%83%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%B0%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%2C%20%D0%BE%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B5%D0%B3%D0%BE%20%D0%B8%20%D0%B2%D1%8B%D1%8F%D0%B2%D0%BB%D1%8F%D1%82%D1%8C%20%D0%B4%D1%83%D0%B1%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D0%B5%D1%81%D1%8F%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B.%0A%3A%3A%3A%0A%0A%23%23%20%D0%A1%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81%0A%0A%60%60%60bash%0Amip%20why%20%3Cpackage-name%3E%0A%60%60%60%0A%0A%23%23%20%D0%90%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B%0A%0A%7C%20%D0%98%D0%BC%D1%8F%20%7C%20%D0%A2%D0%B8%D0%BF%20%7C%20%D0%9E%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%7C%20%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%7C%0A%7C-----%7C-----%7C--------------%7C----------%7C%0A%7C%20%60package-name%60%20%7C%20%D1%81%D1%82%D1%80%D0%BE%D0%BA%D0%B0%20%7C%20%E2%9C%85%20%7C%20%D0%98%D0%BC%D1%8F%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%2C%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D0%BE%D0%B3%D0%BE%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%7C%0A%0A%23%23%20%D0%9B%D0%BE%D0%B3%D0%B8%D0%BA%D0%B0%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%0A%0A1.%20**%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0%20%D0%B0%D1%80%D0%B3%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2**%20-%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%B8%D0%BC%D1%8F%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%20%D0%BD%D0%B5%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BE%2C%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D1%81%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%BE%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E.%0A%0A2.%20**%D0%A7%D1%82%D0%B5%D0%BD%D0%B8%D0%B5%20lock-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0**%20-%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D1%83%D0%B5%D1%82%20%60mip-lock.yml%60%2C%20%D1%87%D1%82%D0%BE%D0%B1%D1%8B%20%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D1%8C%20%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%83%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9.%0A%0A3.%20**%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9**%20-%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%8F%D0%B5%D1%82%20%D0%B2%D1%81%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%D0%B2%20lock-%D1%84%D0%B0%D0%B9%D0%BB%D0%B5%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D0%BB%D0%B8%D1%87%D0%B8%D0%B5%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D1%82%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0.%0A%0A4.%20**%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%BF%D1%80%D1%8F%D0%BC%D1%8B%D1%85%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9**%20-%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%20%D0%B2%20%60mip.yml%60%2C%20%D0%BE%D0%BD%20%D1%81%D1%87%D0%B8%D1%82%D0%B0%D0%B5%D1%82%D1%81%D1%8F%20%D0%BF%D1%80%D1%8F%D0%BC%D0%BE%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%D1%8E.%0A%0A5.%20**%D0%92%D1%8B%D0%B2%D0%BE%D0%B4%20%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D0%BE%D0%B2**%20-%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%3A%0A%20%20%20-%20%D0%92%D0%B5%D1%80%D1%81%D0%B8%D1%8E%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0.%0A%20%20%20-%20%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B5%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D1%8F%D1%82%20%D0%BE%D1%82%20%D0%BD%D0%B5%D0%B3%D0%BE.%0A%20%20%20-%20%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20(%D0%BF%D1%80%D1%8F%D0%BC%D0%B0%D1%8F%20%D0%B8%D0%BB%D0%B8%20%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F).%0A%0A%23%23%20%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%20lodash%22%0A%60%60%60bash%0Amip%20why%20lodash%0A%60%60%60%0A%0A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Why%20is%20lodash%20installed%3F%0A%0A%20%20Version%3A%204.17.21%0A%20%20Resolved%3A%20https%3A%2F%2Fregistry.npmjs.org%2Flodash%2F-%2Flodash-4.17.21.tgz%0A%0A%20%20Required%20by%3A%0A%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20express%404.18.2%20(requires%20%5E4.17.21)%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20webpack%405.88.2%20(requires%20%5E4.17.21)%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20jest%4029.7.0%20(requires%20%5E4.17.20)%0A%0A%E2%84%B9%EF%B8%8F%20Also%20listed%20as%20direct%20dependency%20in%20mip.yml%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8%22%0A%60%60%60bash%0Amip%20why%20braces%0A%60%60%60%0A%0A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Why%20is%20braces%20installed%3F%0A%0A%20%20Version%3A%203.0.2%0A%20%20Resolved%3A%20https%3A%2F%2Fregistry.npmjs.org%2Fbraces%2F-%2Fbraces-3.0.2.tgz%0A%0A%20%20Required%20by%3A%0A%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20eslint%408.56.0%20(requires%20%5E3.0.1)%0A%20%20%20%20%E2%94%94%E2%94%80%E2%94%80%20prettier%403.1.1%20(requires%20%5E3.0.0)%0A%0A%E2%84%B9%EF%B8%8F%20Transitive%20dependency%20(not%20listed%20in%20mip.yml)%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22%D0%9F%D1%80%D1%8F%D0%BC%D0%B0%D1%8F%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%22%0A%60%60%60bash%0Amip%20why%20express%0A%60%60%60%0A%0A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0%3A**%0A%60%60%60%0A%F0%9F%93%A6%20Why%20is%20express%20installed%3F%0A%0A%20%20Version%3A%204.18.2%0A%20%20Resolved%3A%20https%3A%2F%2Fregistry.npmjs.org%2Fexpress%2F-%2Fexpress-4.18.2.tgz%0A%0A%20%20%E2%9C%85%20Direct%20dependency%20(listed%20in%20mip.yml)%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%20%D0%BD%D0%B5%20%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%22%0A%60%60%60bash%0Amip%20why%20unknown-package%0A%60%60%60%0A%0A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0%3A**%0A%60%60%60%0A%E2%9D%8C%20Package%20unknown-package%20not%20found%20in%20lockfile%0A%60%60%60%0A%3A%3A%3A%0A%3D%3D%20tab%20%22%D0%9D%D0%B5%D1%82%20lock-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0%22%0A%60%60%60bash%0Amip%20why%20lodash%0A%60%60%60%0A%0A**%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D0%B0%3A**%0A%60%60%60%0A%E2%9D%8C%20No%20mip-lock.yml%20found%0A%F0%9F%92%A1%20Run%20%22mip%20install%22%20first%0A%60%60%60%0A%3A%3A%3A%0A%0A%23%23%20%D0%A2%D0%B8%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B5%20%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20No%20mip-lock.yml%20found%22%20icon%3Aalert-triangle%0A**%D0%9F%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0%3A**%20Lock-%D1%84%D0%B0%D0%B9%D0%BB%20%D0%BE%D1%82%D1%81%D1%83%D1%82%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82%20(%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%D0%BD%D0%B5%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D1%8B).%0A%0A**%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%3A%20%60mip%20install%60%0A2.%20%D0%9F%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%BF%D1%8B%D1%82%D0%BA%D1%83%3A%20%60mip%20why%20%3Cpackage%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%22%20icon%3Ainfo%0A**%D0%9F%D1%80%D0%B8%D1%87%D0%B8%D0%BD%D0%B0%3A**%20%D0%A3%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D0%BD%D0%B5%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%20%D0%B2%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B5.%0A%0A**%D0%A0%D0%B5%D1%88%D0%B5%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D1%8C%D1%82%D0%B5%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2%3A%20%60mip%20list%60%0A2.%20%D0%A3%D0%B1%D0%B5%D0%B4%D0%B8%D1%82%D0%B5%D1%81%D1%8C%2C%20%D1%87%D1%82%D0%BE%20%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BD%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D0%BB%D0%B8%20%D0%B8%D0%BC%D1%8F.%0A3.%20%D0%95%D1%81%D0%BB%D0%B8%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D0%BD%D1%83%D0%B6%D0%B5%D0%BD%20-%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D0%B5%20%D0%B5%D0%B3%D0%BE%3A%20%60mip%20install%20%3Cpackage%3E%60%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20tip%20%22%F0%9F%92%A1%20%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%22%20icon%3Alightbulb%0A%60mip%20why%60%20%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%B5%D0%BD%20%D0%B4%D0%BB%D1%8F%3A%0A-%20**%D0%9F%D0%BE%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F%20%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B**%20-%20%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%20%D1%82%D0%BE%D1%82%20%D0%B8%D0%BB%D0%B8%20%D0%B8%D0%BD%D0%BE%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82.%0A-%20**%D0%9E%D0%BF%D1%82%D0%B8%D0%BC%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8**%20-%20%D0%B2%D1%8B%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D1%83%D0%B1%D0%BB%D0%B8%D1%80%D1%83%D1%8E%D1%89%D0%B8%D1%85%D1%81%D1%8F%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9.%0A-%20**%D0%9E%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9**%20-%20%D0%BF%D0%BE%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D0%B5%2C%20%D0%BE%D0%B1%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%B0%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%20%D0%B7%D0%B0%D1%82%D1%80%D0%BE%D0%BD%D0%B5%D1%82%20%D0%B4%D1%80%D1%83%D0%B3%D0%B8%D0%B5.%0A%0A**%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%3A**%0A1.%20%D0%9D%D0%B0%D0%B9%D0%B4%D0%B8%D1%82%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%2C%20%D0%BA%D0%BE%D1%82%D0%BE%D1%80%D1%8B%D0%B9%20%D0%B2%D0%B0%D1%81%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%60mip%20why%20%3Cpackage%3E%60%0A2.%20%D0%9F%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B8%D1%82%D0%B5%2C%20%D0%BA%D1%82%D0%BE%20%D0%B5%D0%B3%D0%BE%20%D1%82%D1%80%D0%B5%D0%B1%D1%83%D0%B5%D1%82.%0A3.%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%8D%D1%82%D0%BE%20%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20-%20%D0%BF%D0%BE%D0%B4%D1%83%D0%BC%D0%B0%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%BB%D0%B8%20%D0%B5%D1%91%20%D1%83%D0%B1%D1%80%D0%B0%D1%82%D1%8C.%0A%3A%3A%3A%0A%0A%23%23%20%D0%A1%D0%B2%D1%8F%D0%B7%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%0A%0A-%20%5Bmip%20list%5D(%2Fru%2Fcommands%2Flist)%20-%20%D0%BF%D1%80%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%20%D0%B2%D1%81%D0%B5%D1%85%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.%0A-%20%5Bmip%20outdated%5D(%2Fru%2Fcommands%2Foutdated)%20-%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0%20%D1%83%D1%81%D1%82%D0%B0%D1%80%D0%B5%D0%B2%D1%88%D0%B8%D1%85%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.%0A-%20%5Bmip%20dedupe%5D(%2Fru%2Fcommands%2Fdedupe)%20-%20%D1%83%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D0%B2.%0A%0A%3A%3A%3A%20collapsible%20%22%F0%9F%A7%A0%20%D0%9A%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%3F%22%0A%60mip%20why%60%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%20**%D0%B4%D0%B2%D0%B0%20%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%B0**%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%B8%3A%0A%0A**1.%20%60mip-lock.yml%60%20-%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D0%BE%D0%B9%20%D0%B8%D1%81%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%3A**%0A%60%60%60yaml%0Apackages%3A%0A%20%20express%404.18.2%3A%0A%20%20%20%20version%3A%204.18.2%0A%20%20%20%20dependencies%3A%0A%20%20%20%20%20%20accepts%3A%20~1.3.8%0A%20%20%20%20%20%20array-flatten%3A%201.1.1%0A%20%20lodash%404.17.21%3A%0A%20%20%20%20version%3A%204.17.21%0A%20%20%20%20dependencies%3A%20%7B%7D%0A%60%60%60%0A%0A**2.%20%60mip.yml%60%20-%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D1%80%D1%8F%D0%BC%D1%8B%D1%85%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%3A**%0A%60%60%60yaml%0Adependencies%3A%0A%20%20express%3A%20%5E4.18.0%0A%20%20lodash%3A%20%5E4.17.21%0A%60%60%60%0A%0A**%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%3A**%0A1.%20%D0%9F%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B2%D1%81%D0%B5%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D1%8B%20%D0%B8%D0%B7%20%60mip-lock.yml%60.%0A2.%20%D0%94%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%20%D0%B5%D0%B3%D0%BE%20%60dependencies%60.%0A3.%20%D0%95%D1%81%D0%BB%D0%B8%20%D1%81%D1%80%D0%B5%D0%B4%D0%B8%20%D0%BD%D0%B8%D1%85%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%B8%D1%81%D0%BA%D0%BE%D0%BC%D1%8B%D0%B9%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20-%20%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D0%B2%20%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%60dependents%60.%0A4.%20%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%2C%20%D0%B5%D1%81%D1%82%D1%8C%20%D0%BB%D0%B8%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%20%D0%B2%20%60mip.yml%60.%0A5.%20%D0%92%D1%8B%D0%B2%D0%B5%D1%81%D1%82%D0%B8%20%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82.%0A%0A**%D0%A3%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9%3A**%0A-%20**%D0%9F%D1%80%D1%8F%D0%BC%D0%B0%D1%8F**%20-%20%D1%83%D0%BA%D0%B0%D0%B7%D0%B0%D0%BD%D0%B0%20%D0%B2%20%60mip.yml%60.%0A-%20**%D0%A2%D1%80%D0%B0%D0%BD%D0%B7%D0%B8%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F**%20-%20%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B0%20%D0%BA%D0%B0%D0%BA%20%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%B0.%0A%3A%3A%3A%0A" style="display: none;"></div>
+                  <div id="docmd-raw-markdown" data-content="---%0Atitle%3A%20%22mip%20rebuild%20-%20rebuild%20installed%20packages%22%0Adescription%3A%20%22The%20rebuild%20command%20re-runs%20build%20scripts%20for%20packages%20installed%20in%20the%20global%20store%2C%20useful%20after%20platform%20changes%2C%20Node.js%20upgrades%2C%20or%20when%20native%20modules%20need%20recompilation.%22%0A---%0A%0A%23%20mip%20rebuild%0A%0A%3A%3A%3A%20callout%20info%20%22What%20is%20this%3F%22%20icon%3Awrench%0A%60mip%20rebuild%60%20re-executes%20build%20scripts%20for%20packages%20that%20are%20already%20installed%20in%20the%20global%20store.%20This%20is%20useful%20when%20you%20upgrade%20Node.js%2C%20switch%20platforms%2C%20or%20need%20to%20recompile%20native%20(C%2B%2B)%20addons%20%E2%80%94%20without%20re-downloading%20the%20entire%20package.%0A%3A%3A%3A%0A%0A%23%23%20Syntax%0A%0A%60%60%60bash%0Amip%20rebuild%20%5Bpackages...%5D%20%5Boptions%5D%0A%60%60%60%0A%0A%23%23%20Options%0A%0A%7C%20Flag%20%7C%20Description%20%7C%0A%7C------%7C-------------%7C%0A%7C%20%60--force%60%2C%20%60-f%60%20%7C%20Force%20rebuild%20even%20if%20the%20package%20has%20no%20build%20scripts%20(uses%20%60rebuild%60%20as%20the%20default%20script)%20%7C%0A%7C%20%60--dry-run%60%20%7C%20Simulate%20the%20rebuild%20process%20without%20actually%20running%20any%20scripts%20%7C%0A%7C%20%60--quiet%60%20%7C%20Suppress%20all%20output%20except%20errors%20and%20the%20final%20summary%20%7C%0A%7C%20%60--script%20%3Cname%3E%60%20%7C%20Run%20a%20specific%20script%20instead%20of%20auto-detecting%20one%20(e.g.%2C%20%60--script%20build%60)%20%7C%0A%0A%23%23%20How%20it%20works%0A%0A1.%20**Read%20the%20lockfile**%20%E2%80%94%20the%20command%20reads%20%60mip-lock.yml%60%20(or%20%60mip-lock.json%60%20as%20a%20fallback).%20If%20neither%20exists%2C%20execution%20stops.%0A%0A2.%20**Determine%20target%20packages**%20%E2%80%94%20if%20no%20package%20names%20are%20provided%2C%20**all**%20packages%20from%20the%20lockfile%20are%20rebuilt.%20You%20can%20filter%20specific%20packages%20by%20passing%20their%20names%3A%0A%0A%20%20%20%60%60%60bash%0A%20%20%20mip%20rebuild%20lodash%20axios%0A%20%20%20%60%60%60%0A%0A3.%20**Validate%20store%20presence**%20%E2%80%94%20for%20each%20package%2C%20the%20command%20checks%20whether%20it%20actually%20exists%20in%20the%20global%20store%20(%60~%2F.mip%2Fstore%2F%3Cname%3E%2F%3Cversion%3E%2Fpackage%60).%20Missing%20packages%20are%20skipped.%0A%0A4.%20**Detect%20the%20build%20script**%20%E2%80%94%20the%20command%20reads%20%60package.json%60%20from%20the%20store%20and%20looks%20for%20scripts%20in%20this%20priority%20order%3A%0A%0A%20%20%20%7C%20Priority%20%7C%20Script%20name%20%7C%20Purpose%20%7C%0A%20%20%20%7C----------%7C-------------%7C---------%7C%0A%20%20%20%7C%201%20%7C%20%60install%60%20%7C%20Post-install%20script%20(most%20common%20for%20native%20modules)%20%7C%0A%20%20%20%7C%202%20%7C%20%60rebuild%60%20%7C%20Explicit%20rebuild%20script%20%7C%0A%20%20%20%7C%203%20%7C%20%60preinstall%60%20%7C%20Pre-install%20hook%20%7C%0A%20%20%20%7C%204%20%7C%20%60build%60%20%7C%20General%20build%20script%20%7C%0A%0A%20%20%20If%20none%20of%20these%20are%20found%20and%20%60--force%60%20is%20not%20set%2C%20the%20package%20is%20skipped.%0A%0A5.%20**Run%20the%20script**%20%E2%80%94%20the%20script%20is%20executed%20via%20%60npm%20run%20%3Cscript%3E%60%20in%20the%20package%20directory%20inside%20the%20store.%20The%20following%20environment%20variables%20are%20injected%3A%0A%0A%20%20%20%7C%20Variable%20%7C%20Value%20%7C%0A%20%20%20%7C----------%7C-------%7C%0A%20%20%20%7C%20%60MIP_REBUILD%60%20%7C%20%60true%60%20%7C%0A%20%20%20%7C%20%60MIP_PACKAGE_NAME%60%20%7C%20package%20name%20%7C%0A%20%20%20%7C%20%60MIP_PACKAGE_VERSION%60%20%7C%20package%20version%20%7C%0A%0A%20%20%20A%20local%20%60.npm-cache%60%20directory%20is%20used%20to%20avoid%20polluting%20the%20global%20npm%20cache.%0A%0A6.%20**Summary**%20%E2%80%94%20after%20processing%20all%20packages%2C%20the%20command%20prints%3A%0A%0A%20%20%20%60%60%60%0A%20%20%20%E2%9C%85%20Done.%20Rebuilt%3A%205%2C%20Skipped%3A%202%2C%20Errors%3A%200.%0A%20%20%20%60%60%60%0A%0A%23%23%20Examples%0A%0A%3A%3A%3A%20tabs%0A%3D%3D%20tab%20%22Rebuild%20all%20packages%22%0A%60%60%60bash%0Amip%20rebuild%0A%60%60%60%0A%0ARebuilds%20every%20package%20listed%20in%20%60mip-lock.yml%60%20that%20has%20a%20build%20script.%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%94%A8%20Rebuilding%208%20package(s)...%0A%0A%F0%9F%94%A7%20Rebuilding%20%22lodash%404.17.21%22%20(install)...%0A%E2%9C%85%20Rebuilt%3A%20lodash%404.17.21%0A%0A%F0%9F%94%A7%20Rebuilding%20%22node-gyp%409.3.0%22%20(install)...%0A%E2%9C%85%20Rebuilt%3A%20node-gyp%409.3.0%0A%0A%E2%9A%A0%EF%B8%8F%20Package%20%22express%404.18.2%22%20has%20no%20build%20scripts.%20Skipping.%0A%0A%E2%9C%85%20Done.%20Rebuilt%3A%202%2C%20Skipped%3A%201%2C%20Errors%3A%200.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Rebuild%20specific%20packages%22%0A%60%60%60bash%0Amip%20rebuild%20node-gyp%20bcrypt%0A%60%60%60%0A%0AOnly%20rebuilds%20the%20packages%20you%20specify.%20Unknown%20or%20missing%20packages%20are%20reported%20but%20ignored.%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%94%A8%20Rebuilding%202%20package(s)...%0A%0A%F0%9F%94%A7%20Rebuilding%20%22node-gyp%409.3.0%22%20(install)...%0A%E2%9C%85%20Rebuilt%3A%20node-gyp%409.3.0%0A%0A%F0%9F%94%A7%20Rebuilding%20%22bcrypt%405.1.0%22%20(install)...%0A%E2%9C%85%20Rebuilt%3A%20bcrypt%405.1.0%0A%0A%E2%9C%85%20Done.%20Rebuilt%3A%202%2C%20Skipped%3A%200%2C%20Errors%3A%200.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Force%20rebuild%22%0A%60%60%60bash%0Amip%20rebuild%20--force%0A%60%60%60%0A%0ARebuilds%20every%20package%2C%20even%20those%20without%20build%20scripts.%20Packages%20without%20scripts%20will%20use%20the%20%60rebuild%60%20npm%20script%20(which%20may%20be%20empty%2C%20but%20the%20attempt%20is%20still%20made).%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%94%A8%20Rebuilding%208%20package(s)...%0A%0A%F0%9F%94%A7%20Rebuilding%20%22lodash%404.17.21%22%20(install)...%0A%E2%9C%85%20Rebuilt%3A%20lodash%404.17.21%0A%0A%F0%9F%94%A7%20Rebuilding%20%22express%404.18.2%22%20(rebuild)...%0A%E2%9D%8C%20Error%3A%20express%404.18.2%3A%20command%20exited%20with%20code%201%0A%0A%E2%9C%85%20Done.%20Rebuilt%3A%201%2C%20Skipped%3A%200%2C%20Errors%3A%201.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Custom%20script%22%0A%60%60%60bash%0Amip%20rebuild%20--script%20build%0A%60%60%60%0A%0ARuns%20the%20%60build%60%20script%20for%20every%20package%20that%20has%20one%2C%20instead%20of%20auto-detecting.%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%94%A8%20Rebuilding%208%20package(s)...%0A%0A%F0%9F%94%A7%20Rebuilding%20%22lodash%404.17.21%22%20(build)...%0A%E2%9C%85%20Rebuilt%3A%20lodash%404.17.21%0A%0A%E2%9A%A0%EF%B8%8F%20Package%20%22node-gyp%409.3.0%22%20has%20no%20script%20%22build%22%0A%20%20%20(use%20--force%20to%20run%20anyway)%0A%0A%E2%9C%85%20Done.%20Rebuilt%3A%201%2C%20Skipped%3A%201%2C%20Errors%3A%200.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Dry%20run%22%0A%60%60%60bash%0Amip%20rebuild%20--dry-run%0A%60%60%60%0A%0AShows%20what%20would%20be%20rebuilt%20without%20actually%20running%20anything.%0A%0A**Output%3A**%0A%60%60%60%0A%F0%9F%94%A8%20Rebuilding%208%20package(s)...%0A%0A%F0%9F%94%A7%20Would%20rebuild%20%22lodash%404.17.21%22%20(install)%0A%F0%9F%94%A7%20Would%20rebuild%20%22node-gyp%409.3.0%22%20(install)%0A%0A%F0%9F%94%8D%20Dry-run%20complete.%20Would%20rebuild%3A%202%2C%20Skipped%3A%206.%0A%60%60%60%0A%3A%3A%3A%0A%0A%3D%3D%20tab%20%22Quiet%20mode%22%0A%60%60%60bash%0Amip%20rebuild%20--quiet%0A%60%60%60%0A%0ARebuilds%20with%20no%20per-package%20output.%20Only%20the%20final%20summary%20is%20shown.%0A%0A**Output%3A**%0A%60%60%60%0A%E2%9C%85%20Done.%20Rebuilt%3A%202%2C%20Skipped%3A%201%2C%20Errors%3A%200.%0A%60%60%60%0A%3A%3A%3A%0A%3A%3A%3A%0A%0A%23%23%20When%20to%20use%20rebuild%0A%0A%7C%20Scenario%20%7C%20Why%20%60mip%20rebuild%60%3F%20%7C%0A%7C----------%7C--------------------%7C%0A%7C%20**Node.js%20upgrade**%20%7C%20Native%20addons%20compiled%20for%20the%20old%20Node.js%20ABI%20may%20fail.%20Rebuild%20recompiles%20them.%20%7C%0A%7C%20**Platform%20switch**%20%7C%20Moving%20from%20macOS%20to%20Linux%20(or%20vice%20versa)%20%E2%80%94%20binaries%20are%20platform-specific.%20%7C%0A%7C%20**Corrupted%20store**%20%7C%20If%20a%20package%20in%20the%20global%20store%20is%20incomplete%20or%20broken%2C%20rebuild%20fixes%20it%20without%20re-downloading.%20%7C%0A%7C%20**CI%2FCD%20cache**%20%7C%20After%20restoring%20the%20store%20from%20cache%2C%20rebuild%20ensures%20native%20modules%20are%20compiled%20for%20the%20CI%20runner&#039;s%20environment.%20%7C%0A%7C%20**After%20%60mip%20dedupe%60**%20%7C%20Deduplication%20may%20change%20which%20physical%20package%20is%20used%20%E2%80%94%20rebuild%20ensures%20consistency.%20%7C%0A%0A%23%23%20Common%20errors%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9D%8C%20Package%20not%20found%20in%20global%20store%22%20icon%3Aalert-triangle%0A**Problem%3A**%20The%20package%20exists%20in%20%60mip-lock.yml%60%20but%20its%20directory%20is%20missing%20from%20%60~%2F.mip%2Fstore%2F%60.%0A%0A**What%20happens%3A**%20The%20package%20is%20skipped%20with%20a%20warning.%0A%0A**Fix%3A**%20Run%20%60mip%20install%60%20to%20re-fetch%20the%20package.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20danger%20%22%E2%9D%8C%20mip-lock.yml%20not%20found%22%20icon%3Askull%0A**Problem%3A**%20The%20current%20directory%20does%20not%20contain%20%60mip-lock.yml%60%20or%20%60mip-lock.json%60.%0A%0A**What%20happens%3A**%20The%20command%20exits%20immediately.%0A%0A**Fix%3A**%20Run%20%60mip%20install%60%20or%20%60mip%20genlock%60%20to%20generate%20the%20lockfile%2C%20then%20try%20again.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20warning%20%22%E2%9A%A0%EF%B8%8F%20Script%20execution%20failed%22%20icon%3Aalert-circle%0A**Problem%3A**%20The%20build%20script%20exited%20with%20a%20non-zero%20exit%20code.%0A%0A**What%20happens%3A**%20The%20error%20is%20reported%20in%20the%20summary%2C%20but%20the%20command%20continues%20processing%20remaining%20packages.%0A%0A**Fix%3A**%20Run%20%60mip%20rebuild%20%3Cpkg%3E%60%20(without%20%60--quiet%60)%20to%20see%20the%20full%20error%20output.%0A%3A%3A%3A%0A%0A%3A%3A%3A%20callout%20info%20%22%F0%9F%92%A1%20Build%20script%20priority%20order%22%20icon%3Ainfo%0AThe%20command%20checks%20for%20scripts%20in%20this%20order%3A%20%60install%60%20%E2%86%92%20%60rebuild%60%20%E2%86%92%20%60preinstall%60%20%E2%86%92%20%60build%60.%20It%20picks%20the%20**first**%20one%20found.%20If%20you%20need%20to%20run%20a%20specific%20script%2C%20use%20%60--script%20%3Cname%3E%60.%0A%3A%3A%3A%0A%0A%23%23%20Related%20commands%0A%0A-%20%5Bmip%20install%5D(%2Fcommands%2Finstall)%20%E2%80%94%20install%20packages%20and%20run%20their%20build%20scripts%0A-%20%5Bmip%20dedupe%5D(%2Fcommands%2Fdedupe)%20%E2%80%94%20deduplicate%20dependencies%20(may%20require%20rebuild%20after)%0A-%20%5Bmip%20ci%5D(%2Fcommands%2Fci)%20%E2%80%94%20clean%20CI%20installation%20(rebuild%20is%20often%20needed%20in%20CI)%0A-%20%5Bmip%20cache%5D(%2Fcommands%2Fcache)%20%E2%80%94%20manage%20the%20local%20cache%20(rebuild%20uses%20a%20local%20%60.npm-cache%60)%0A%0A" style="display: none;"></div>
                   
                     <nav aria-label="breadcrumb" class="docmd-breadcrumbs">
                       <ol>
@@ -1795,7 +1779,7 @@
                         
                           <li class="breadcrumb-item " >
                             
-                              <span>Команды</span>
+                              <span>Commands</span>
                             
                             
                               <span class="breadcrumb-separator">
@@ -1819,7 +1803,7 @@
                         
                           <li class="breadcrumb-item active" aria-current=&quot;page&quot;>
                             
-                              <span>why</span>
+                              <span>rebuild</span>
                             
                             
                           </li>
@@ -1876,113 +1860,249 @@
                   
                 </div>
                 
-                <h1 id="mip-why" class="docmd-heading"><a href="#mip-why" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip why</h1>
-<div class="docmd-container callout callout-info"><div class="callout-title">Что это?</div><div class="callout-content">
-<p><code>mip why</code> - это команда для анализа зависимостей. Она показывает, почему конкретный пакет присутствует в вашем проекте: является ли он прямой зависимостью (указан в <code>mip.yml</code>) или был установлен как зависимость другого пакета. Это помогает понять структуру дерева зависимостей, оптимизировать его и выявлять дублирующиеся пакеты.</p>
+                <h1 id="mip-rebuild" class="docmd-heading"><a href="#mip-rebuild" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>mip rebuild</h1>
+<div class="docmd-container callout callout-info"><div class="callout-title">
+<svg class="lucide-icon icon-wrench callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-wrench"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" />
+</svg>
+What is this?</div><div class="callout-content">
+<p><code>mip rebuild</code> re-executes build scripts for packages that are already installed in the global store. This is useful when you upgrade Node.js, switch platforms, or need to recompile native (C++) addons — without re-downloading the entire package.</p>
 </div></div>
-<h2 id="mip-why-синтаксис" class="docmd-heading"><a href="#mip-why-синтаксис" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Синтаксис</h2>
-<pre class="hljs"><code class="language-bash">mip why <span class="hljs-punctuation">&lt;</span>package<span class="hljs-punctuation">-</span>name<span class="hljs-punctuation">&gt;</span>
+<h2 id="mip-rebuild-syntax" class="docmd-heading"><a href="#mip-rebuild-syntax" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Syntax</h2>
+<pre class="hljs"><code class="language-bash">mip rebuild [packages...] [options]
 </code></pre>
-<h2 id="mip-why-аргументы" class="docmd-heading"><a href="#mip-why-аргументы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Аргументы</h2>
+<h2 id="mip-rebuild-options" class="docmd-heading"><a href="#mip-rebuild-options" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Options</h2>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
-<th>Имя</th>
-<th>Тип</th>
-<th>Обязательный</th>
-<th>Описание</th>
+<th>Flag</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>package-name</code></td>
-<td>строка</td>
-<td>✅</td>
-<td>Имя пакета, зависимости которого нужно проанализировать</td>
+<td><code>--force</code>, <code>-f</code></td>
+<td>Force rebuild even if the package has no build scripts (uses <code>rebuild</code> as the default script)</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Simulate the rebuild process without actually running any scripts</td>
+</tr>
+<tr>
+<td><code>--quiet</code></td>
+<td>Suppress all output except errors and the final summary</td>
+</tr>
+<tr>
+<td><code>--script &lt;name&gt;</code></td>
+<td>Run a specific script instead of auto-detecting one (e.g., <code>--script build</code>)</td>
 </tr>
 </tbody>
 </table>
-</div><h2 id="mip-why-логика-работы" class="docmd-heading"><a href="#mip-why-логика-работы" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Логика работы</h2>
+</div><h2 id="mip-rebuild-how-it-works" class="docmd-heading"><a href="#mip-rebuild-how-it-works" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>How it works</h2>
 <ol>
-<li><p><strong>Проверка аргументов</strong> - если имя пакета не указано, выводится справка по использованию.</p>
+<li><p><strong>Read the lockfile</strong> — the command reads <code>mip-lock.yml</code> (or <code>mip-lock.json</code> as a fallback). If neither exists, execution stops.</p>
 </li>
-<li><p><strong>Чтение lock-файла</strong> - анализирует <code>mip-lock.yml</code>, чтобы понять структуру зависимостей.</p>
+<li><p><strong>Determine target packages</strong> — if no package names are provided, <strong>all</strong> packages from the lockfile are rebuilt. You can filter specific packages by passing their names:</p>
+<pre class="hljs"><code class="language-bash">mip rebuild lodash axios
+</code></pre>
 </li>
-<li><p><strong>Поиск зависимостей</strong> - проверяет все пакеты в lock-файле на наличие зависимости от указанного пакета.</p>
+<li><p><strong>Validate store presence</strong> — for each package, the command checks whether it actually exists in the global store (<code>~/.mip/store/&lt;name&gt;/&lt;version&gt;/package</code>). Missing packages are skipped.</p>
 </li>
-<li><p><strong>Анализ прямых зависимостей</strong> - если пакет указан в <code>mip.yml</code>, он считается прямой зависимостью.</p>
+<li><p><strong>Detect the build script</strong> — the command reads <code>package.json</code> from the store and looks for scripts in this priority order:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Script name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>install</code></td>
+<td>Post-install script (most common for native modules)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>rebuild</code></td>
+<td>Explicit rebuild script</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>preinstall</code></td>
+<td>Pre-install hook</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>build</code></td>
+<td>General build script</td>
+</tr>
+</tbody>
+</table>
+</div><p>If none of these are found and <code>--force</code> is not set, the package is skipped.</p>
 </li>
-<li><p><strong>Вывод результатов</strong> - показывает:</p>
-<ul>
-<li>Версию установленного пакета.</li>
-<li>Список пакетов, которые зависят от него.</li>
-<li>Уровень зависимости (прямая или транзитивная).</li>
-</ul>
+<li><p><strong>Run the script</strong> — the script is executed via <code>npm run &lt;script&gt;</code> in the package directory inside the store. The following environment variables are injected:</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MIP_REBUILD</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>MIP_PACKAGE_NAME</code></td>
+<td>package name</td>
+</tr>
+<tr>
+<td><code>MIP_PACKAGE_VERSION</code></td>
+<td>package version</td>
+</tr>
+</tbody>
+</table>
+</div><p>A local <code>.npm-cache</code> directory is used to avoid polluting the global npm cache.</p>
+</li>
+<li><p><strong>Summary</strong> — after processing all packages, the command prints:</p>
+<pre class="hljs"><code>✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">5</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>.
+</code></pre>
 </li>
 </ol>
-<h2 id="mip-why-примеры" class="docmd-heading"><a href="#mip-why-примеры" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Примеры</h2>
+<h2 id="mip-rebuild-examples" class="docmd-heading"><a href="#mip-rebuild-examples" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Examples</h2>
 <div class="docmd-tabs">
-<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Анализ зависимости lodash</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip why lodash
+<div class="docmd-tabs-nav"><div class="docmd-tabs-nav-item active"><span>Rebuild all packages</span></div></div><div class="docmd-tabs-content"><div class="docmd-tab-pane active"><pre class="hljs"><code class="language-bash">mip rebuild
 </code></pre>
-<p><strong>Пример вывода:</strong></p>
-<pre class="hljs"><code>📦 Why is lodash installed<span class="hljs-punctuation">?</span>
+<p>Rebuilds every package listed in <code>mip-lock.yml</code> that has a build script.</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>🔨 Rebuilding <span class="hljs-number">8</span> <span class="hljs-title function_">package</span>(s)...
 
-  Version<span class="hljs-punctuation">:</span> <span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
-  Resolved<span class="hljs-punctuation">:</span> https<span class="hljs-punctuation">://</span>registry.<span class="hljs-attr">npmjs</span>.<span class="hljs-attr">org</span><span class="hljs-punctuation">/</span>lodash<span class="hljs-punctuation">/-/</span>lodash<span class="hljs-punctuation">-</span><span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>.<span class="hljs-attr">tgz</span>
+🔧 Rebuilding <span class="hljs-string">&quot;lodash@4.17.21&quot;</span> (install)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> lodash@<span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
 
-  Required by<span class="hljs-punctuation">:</span>
+🔧 Rebuilding <span class="hljs-string">&quot;node-gyp@9.3.0&quot;</span> (install)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-keyword">node</span><span class="hljs-punctuation">-</span>gyp@<span class="hljs-number">9.3</span>.<span class="hljs-number">0</span>
 
-    └── express@<span class="hljs-number">4.18</span>.<span class="hljs-number">2</span> (requires <span class="hljs-punctuation">^</span><span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>)
-    └── webpack@<span class="hljs-number">5.88</span>.<span class="hljs-number">2</span> (requires <span class="hljs-punctuation">^</span><span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>)
-    └── jest@<span class="hljs-number">29.7</span>.<span class="hljs-number">0</span> (requires <span class="hljs-punctuation">^</span><span class="hljs-number">4.17</span>.<span class="hljs-number">20</span>)
+⚠️ Package <span class="hljs-string">&quot;express@4.18.2&quot;</span> has no build scripts. Skipping.
 
-ℹ️ Also listed <span class="hljs-keyword">as</span> direct dependency <span class="hljs-keyword">in</span> mip.<span class="hljs-attr">yml</span>
+✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>.
 </code></pre>
-</div></div></div><p>== tab “Анализ транзитивной зависимости”</p>
-<pre class="hljs"><code class="language-bash">mip why braces
+</div></div></div><p>== tab “Rebuild specific packages”</p>
+<pre class="hljs"><code class="language-bash">mip rebuild <span class="hljs-keyword">node</span><span class="hljs-punctuation">-</span>gyp bcrypt
 </code></pre>
-<p><strong>Пример вывода:</strong></p>
-<pre class="hljs"><code>📦 Why is braces installed<span class="hljs-punctuation">?</span>
+<p>Only rebuilds the packages you specify. Unknown or missing packages are reported but ignored.</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>🔨 Rebuilding <span class="hljs-number">2</span> <span class="hljs-title function_">package</span>(s)...
 
-  Version<span class="hljs-punctuation">:</span> <span class="hljs-number">3.0</span>.<span class="hljs-number">2</span>
-  Resolved<span class="hljs-punctuation">:</span> https<span class="hljs-punctuation">://</span>registry.<span class="hljs-attr">npmjs</span>.<span class="hljs-attr">org</span><span class="hljs-punctuation">/</span>braces<span class="hljs-punctuation">/-/</span>braces<span class="hljs-punctuation">-</span><span class="hljs-number">3.0</span>.<span class="hljs-number">2</span>.<span class="hljs-attr">tgz</span>
+🔧 Rebuilding <span class="hljs-string">&quot;node-gyp@9.3.0&quot;</span> (install)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-keyword">node</span><span class="hljs-punctuation">-</span>gyp@<span class="hljs-number">9.3</span>.<span class="hljs-number">0</span>
 
-  Required by<span class="hljs-punctuation">:</span>
+🔧 Rebuilding <span class="hljs-string">&quot;bcrypt@5.1.0&quot;</span> (install)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> bcrypt@<span class="hljs-number">5.1</span>.<span class="hljs-number">0</span>
 
-    └── eslint@<span class="hljs-number">8.56</span>.<span class="hljs-number">0</span> (requires <span class="hljs-punctuation">^</span><span class="hljs-number">3.0</span>.<span class="hljs-number">1</span>)
-    └── prettier@<span class="hljs-number">3.1</span>.<span class="hljs-number">1</span> (requires <span class="hljs-punctuation">^</span><span class="hljs-number">3.0</span>.<span class="hljs-number">0</span>)
-
-ℹ️ Transitive <span class="hljs-title function_">dependency</span> (not listed <span class="hljs-keyword">in</span> mip.<span class="hljs-attr">yml</span>)
-</code></pre>
-<p>:::<br>
-== tab “Прямая зависимость”</p>
-<pre class="hljs"><code class="language-bash">mip why express
-</code></pre>
-<p><strong>Пример вывода:</strong></p>
-<pre class="hljs"><code>📦 Why is express installed<span class="hljs-punctuation">?</span>
-
-  Version<span class="hljs-punctuation">:</span> <span class="hljs-number">4.18</span>.<span class="hljs-number">2</span>
-  Resolved<span class="hljs-punctuation">:</span> https<span class="hljs-punctuation">://</span>registry.<span class="hljs-attr">npmjs</span>.<span class="hljs-attr">org</span><span class="hljs-punctuation">/</span>express<span class="hljs-punctuation">/-/</span>express<span class="hljs-punctuation">-</span><span class="hljs-number">4.18</span>.<span class="hljs-number">2</span>.<span class="hljs-attr">tgz</span>
-
-  ✅ Direct <span class="hljs-title function_">dependency</span> (listed <span class="hljs-keyword">in</span> mip.<span class="hljs-attr">yml</span>)
-</code></pre>
-<p>:::<br>
-== tab “Пакет не найден”</p>
-<pre class="hljs"><code class="language-bash">mip why unknown<span class="hljs-punctuation">-</span>package
-</code></pre>
-<p><strong>Пример вывода:</strong></p>
-<pre class="hljs"><code>❌ Package unknown<span class="hljs-punctuation">-</span>package not found <span class="hljs-keyword">in</span> lockfile
-</code></pre>
-<p>:::<br>
-== tab “Нет lock-файла”</p>
-<pre class="hljs"><code class="language-bash">mip why lodash
-</code></pre>
-<p><strong>Пример вывода:</strong></p>
-<pre class="hljs"><code>❌ No mip<span class="hljs-punctuation">-</span>lock.<span class="hljs-attr">yml</span> found
-💡 Run <span class="hljs-string">&quot;mip install&quot;</span> first
+✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>.
 </code></pre>
 <p>:::</p>
-<h2 id="mip-why-типичные-ошибки" class="docmd-heading"><a href="#mip-why-типичные-ошибки" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Типичные ошибки</h2>
+<p>== tab “Force rebuild”</p>
+<pre class="hljs"><code class="language-bash">mip rebuild <span class="hljs-punctuation">--</span>force
+</code></pre>
+<p>Rebuilds every package, even those without build scripts. Packages without scripts will use the <code>rebuild</code> npm script (which may be empty, but the attempt is still made).</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>🔨 Rebuilding <span class="hljs-number">8</span> <span class="hljs-title function_">package</span>(s)...
+
+🔧 Rebuilding <span class="hljs-string">&quot;lodash@4.17.21&quot;</span> (install)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> lodash@<span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
+
+🔧 Rebuilding <span class="hljs-string">&quot;express@4.18.2&quot;</span> (rebuild)...
+❌ Error<span class="hljs-punctuation">:</span> express@<span class="hljs-number">4.18</span>.<span class="hljs-number">2</span><span class="hljs-punctuation">:</span> command exited <span class="hljs-keyword">with</span> code <span class="hljs-number">1</span>
+
+✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>.
+</code></pre>
+<p>:::</p>
+<p>== tab “Custom script”</p>
+<pre class="hljs"><code class="language-bash">mip rebuild <span class="hljs-punctuation">--</span>script build
+</code></pre>
+<p>Runs the <code>build</code> script for every package that has one, instead of auto-detecting.</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>🔨 Rebuilding <span class="hljs-number">8</span> <span class="hljs-title function_">package</span>(s)...
+
+🔧 Rebuilding <span class="hljs-string">&quot;lodash@4.17.21&quot;</span> (build)...
+✅ Rebuilt<span class="hljs-punctuation">:</span> lodash@<span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
+
+⚠️ Package <span class="hljs-string">&quot;node-gyp@9.3.0&quot;</span> has no script <span class="hljs-string">&quot;build&quot;</span>
+   (<span class="hljs-keyword">use</span> <span class="hljs-punctuation">--</span>force to run anyway)
+
+✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>.
+</code></pre>
+<p>:::</p>
+<p>== tab “Dry run”</p>
+<pre class="hljs"><code class="language-bash">mip rebuild <span class="hljs-punctuation">--</span>dry<span class="hljs-punctuation">-</span>run
+</code></pre>
+<p>Shows what would be rebuilt without actually running anything.</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>🔨 Rebuilding <span class="hljs-number">8</span> <span class="hljs-title function_">package</span>(s)...
+
+🔧 Would rebuild <span class="hljs-string">&quot;lodash@4.17.21&quot;</span> (install)
+🔧 Would rebuild <span class="hljs-string">&quot;node-gyp@9.3.0&quot;</span> (install)
+
+🔍 Dry<span class="hljs-punctuation">-</span>run complete. Would rebuild<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">6</span>.
+</code></pre>
+<p>:::</p>
+<p>== tab “Quiet mode”</p>
+<pre class="hljs"><code class="language-bash">mip rebuild <span class="hljs-punctuation">--</span>quiet
+</code></pre>
+<p>Rebuilds with no per-package output. Only the final summary is shown.</p>
+<p><strong>Output:</strong></p>
+<pre class="hljs"><code>✅ Done. Rebuilt<span class="hljs-punctuation">:</span> <span class="hljs-number">2</span>, Skipped<span class="hljs-punctuation">:</span> <span class="hljs-number">1</span>, Errors<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>.
+</code></pre>
+<p>:::<br>
+:::</p>
+<h2 id="mip-rebuild-when-to-use-rebuild" class="docmd-heading"><a href="#mip-rebuild-when-to-use-rebuild" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>When to use rebuild</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Why <code>mip rebuild</code>?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Node.js upgrade</strong></td>
+<td>Native addons compiled for the old Node.js ABI may fail. Rebuild recompiles them.</td>
+</tr>
+<tr>
+<td><strong>Platform switch</strong></td>
+<td>Moving from macOS to Linux (or vice versa) — binaries are platform-specific.</td>
+</tr>
+<tr>
+<td><strong>Corrupted store</strong></td>
+<td>If a package in the global store is incomplete or broken, rebuild fixes it without re-downloading.</td>
+</tr>
+<tr>
+<td><strong>CI/CD cache</strong></td>
+<td>After restoring the store from cache, rebuild ensures native modules are compiled for the CI runner’s environment.</td>
+</tr>
+<tr>
+<td><strong>After <code>mip dedupe</code></strong></td>
+<td>Deduplication may change which physical package is used — rebuild ensures consistency.</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="mip-rebuild-common-errors" class="docmd-heading"><a href="#mip-rebuild-common-errors" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Common errors</h2>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
 <svg class="lucide-icon icon-alert-triangle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-triangle-alert"
@@ -2000,15 +2120,57 @@
   <path d="M12 9v4" />
   <path d="M12 17h.01" />
 </svg>
-❌ No mip-lock.yml found</div><div class="callout-content">
-<p><strong>Причина:</strong> Lock-файл отсутствует (пакеты не установлены).</p>
-<p><strong>Решение:</strong></p>
-<ol>
-<li>Установите пакеты: <code>mip install</code></li>
-<li>Повторите попытку: <code>mip why &lt;package&gt;</code></li>
-</ol>
+❌ Package not found in global store</div><div class="callout-content">
+<p><strong>Problem:</strong> The package exists in <code>mip-lock.yml</code> but its directory is missing from <code>~/.mip/store/</code>.</p>
+<p><strong>What happens:</strong> The package is skipped with a warning.</p>
+<p><strong>Fix:</strong> Run <code>mip install</code> to re-fetch the package.</p>
+</div></div>
+<div class="docmd-container callout callout-danger"><div class="callout-title">
+<svg class="lucide-icon icon-skull callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-skull"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path d="m12.5 17-.5-1-.5 1h1z" />
+  <path d="M15 22a1 1 0 0 0 1-1v-1a2 2 0 0 0 1.56-3.25 8 8 0 1 0-11.12 0A2 2 0 0 0 8 20v1a1 1 0 0 0 1 1z" />
+  <circle cx="15" cy="12" r="1" />
+  <circle cx="9" cy="12" r="1" />
+</svg>
+❌ mip-lock.yml not found</div><div class="callout-content">
+<p><strong>Problem:</strong> The current directory does not contain <code>mip-lock.yml</code> or <code>mip-lock.json</code>.</p>
+<p><strong>What happens:</strong> The command exits immediately.</p>
+<p><strong>Fix:</strong> Run <code>mip install</code> or <code>mip genlock</code> to generate the lockfile, then try again.</p>
 </div></div>
 <div class="docmd-container callout callout-warning"><div class="callout-title">
+<svg class="lucide-icon icon-alert-circle callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+  class="lucide lucide-circle-alert"
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" />
+</svg>
+⚠️ Script execution failed</div><div class="callout-content">
+<p><strong>Problem:</strong> The build script exited with a non-zero exit code.</p>
+<p><strong>What happens:</strong> The error is reported in the summary, but the command continues processing remaining packages.</p>
+<p><strong>Fix:</strong> Run <code>mip rebuild &lt;pkg&gt;</code> (without <code>--quiet</code>) to see the full error output.</p>
+</div></div>
+<div class="docmd-container callout callout-info"><div class="callout-title">
 <svg class="lucide-icon icon-info callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-info"
   xmlns="http://www.w3.org/2000/svg"
@@ -2025,94 +2187,21 @@
   <path d="M12 16v-4" />
   <path d="M12 8h.01" />
 </svg>
-❌ Package not found</div><div class="callout-content">
-<p><strong>Причина:</strong> Указанный пакет не установлен в проекте.</p>
-<p><strong>Решение:</strong></p>
-<ol>
-<li>Проверьте список установленных пакетов: <code>mip list</code></li>
-<li>Убедитесь, что правильно написали имя.</li>
-<li>Если пакет нужен - установите его: <code>mip install &lt;package&gt;</code></li>
-</ol>
+💡 Build script priority order</div><div class="callout-content">
+<p>The command checks for scripts in this order: <code>install</code> → <code>rebuild</code> → <code>preinstall</code> → <code>build</code>. It picks the <strong>first</strong> one found. If you need to run a specific script, use <code>--script &lt;name&gt;</code>.</p>
 </div></div>
-<div class="docmd-container callout callout-tip"><div class="callout-title">
-<svg class="lucide-icon icon-lightbulb callout-icon-heading" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-  class="lucide lucide-lightbulb"
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-  <path d="M9 18h6" />
-  <path d="M10 22h4" />
-</svg>
-💡 Совет</div><div class="callout-content">
-<p><code>mip why</code> полезен для:</p>
+<h2 id="mip-rebuild-related-commands" class="docmd-heading"><a href="#mip-rebuild-related-commands" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Related commands</h2>
 <ul>
-<li><strong>Понимания структуры</strong> - почему установлен тот или иной пакет.</li>
-<li><strong>Оптимизации</strong> - выявление дублирующихся зависимостей.</li>
-<li><strong>Обновлений</strong> - понимание, обновление какого пакета затронет другие.</li>
+<li><a href="/commands/install/">mip install</a> — install packages and run their build scripts</li>
+<li><a href="/commands/dedupe/">mip dedupe</a> — deduplicate dependencies (may require rebuild after)</li>
+<li><a href="/commands/ci/">mip ci</a> — clean CI installation (rebuild is often needed in CI)</li>
+<li><a href="/commands/cache/">mip cache</a> — manage the local cache (rebuild uses a local <code>.npm-cache</code>)</li>
 </ul>
-<p><strong>Использование:</strong></p>
-<ol>
-<li>Найдите пакет, который вас интересует: <code>mip why &lt;package&gt;</code></li>
-<li>Посмотрите, кто его требует.</li>
-<li>Если это транзитивная зависимость - подумайте, можно ли её убрать.</li>
-</ol>
-</div></div>
-<h2 id="mip-why-связанные-команды" class="docmd-heading"><a href="#mip-why-связанные-команды" class="heading-anchor" aria-label="Permalink to this section"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2-icon lucide-link-2"><path d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg></a>Связанные команды</h2>
-<ul>
-<li><a href="/ru/commands/list/">mip list</a> - просмотр всех установленных пакетов.</li>
-<li><a href="/ru/commands/outdated/">mip outdated</a> - проверка устаревших пакетов.</li>
-<li><a href="/ru/commands/dedupe/">mip dedupe</a> - устранение дубликатов.</li>
-</ul>
-<details class="docmd-container collapsible">
-        <summary class="collapsible-summary">
-            <span class="collapsible-title">🧠 Как работает анализ зависимостей?</span>
-            <span class="collapsible-arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
-        </summary>
-        <div class="collapsible-content">
-<p><code>mip why</code> использует <strong>два источника</strong> информации:</p>
-<p><strong>1. <code>mip-lock.yml</code> - основной источник:</strong></p>
-<pre class="hljs"><code class="language-yaml">packages<span class="hljs-punctuation">:</span>
-  express@<span class="hljs-number">4.18</span>.<span class="hljs-number">2</span><span class="hljs-punctuation">:</span>
-    version<span class="hljs-punctuation">:</span> <span class="hljs-number">4.18</span>.<span class="hljs-number">2</span>
-    dependencies<span class="hljs-punctuation">:</span>
-      accepts<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">~</span><span class="hljs-number">1.3</span>.<span class="hljs-number">8</span>
-      array<span class="hljs-punctuation">-</span>flatten<span class="hljs-punctuation">:</span> <span class="hljs-number">1.1</span>.<span class="hljs-number">1</span>
-  lodash@<span class="hljs-number">4.17</span>.<span class="hljs-number">21</span><span class="hljs-punctuation">:</span>
-    version<span class="hljs-punctuation">:</span> <span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
-    dependencies<span class="hljs-punctuation">:</span> {}
-</code></pre>
-<p><strong>2. <code>mip.yml</code> - для определения прямых зависимостей:</strong></p>
-<pre class="hljs"><code class="language-yaml">dependencies<span class="hljs-punctuation">:</span>
-  express<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">^</span><span class="hljs-number">4.18</span>.<span class="hljs-number">0</span>
-  lodash<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">^</span><span class="hljs-number">4.17</span>.<span class="hljs-number">21</span>
-</code></pre>
-<p><strong>Алгоритм:</strong></p>
-<ol>
-<li>Получить все пакеты из <code>mip-lock.yml</code>.</li>
-<li>Для каждого пакета проверить его <code>dependencies</code>.</li>
-<li>Если среди них есть искомый пакет - добавить в список <code>dependents</code>.</li>
-<li>Проверить, есть ли пакет в <code>mip.yml</code>.</li>
-<li>Вывести результат.</li>
-</ol>
-<p><strong>Уровни зависимостей:</strong></p>
-<ul>
-<li><strong>Прямая</strong> - указана в <code>mip.yml</code>.</li>
-<li><strong>Транзитивная</strong> - установлена как зависимость другого пакета.</li>
-</ul>
-</div></details>
 
                 
                   <div class="page-navigation">
                     
-                      <a href="../../../ru/commands/update/" class="prev-page">
+                      <a href="../../commands/shell/" class="prev-page">
                         
 <svg class="lucide-icon icon-arrow-left page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
   class="lucide lucide-arrow-left"
@@ -2131,15 +2220,15 @@
 </svg>
 
                         <span><small>previous</small><strong>
-                            update
+                            shell
                           </strong></span>
                       </a>
                     
                     
-                      <a href="../../../ru/commands/workspaces/" class="next-page">
+                      <a href="../../setup/" class="next-page">
                         <span><small>next</small>
                           <strong>
-                            workspaces
+                            Creating a Project
                           </strong></span>
                         
 <svg class="lucide-icon icon-arrow-right page-nav-icon" width="1em" height="1em" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -2187,31 +2276,35 @@
     <ul class="toc-list">
       
         <li class="toc-item toc-level-1">
-          <a href="#mip-why" class="toc-link">mip why</a>
+          <a href="#mip-rebuild" class="toc-link">mip rebuild</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-синтаксис" class="toc-link">Синтаксис</a>
+          <a href="#mip-rebuild-syntax" class="toc-link">Syntax</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-аргументы" class="toc-link">Аргументы</a>
+          <a href="#mip-rebuild-options" class="toc-link">Options</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-логика-работы" class="toc-link">Логика работы</a>
+          <a href="#mip-rebuild-how-it-works" class="toc-link">How it works</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-примеры" class="toc-link">Примеры</a>
+          <a href="#mip-rebuild-examples" class="toc-link">Examples</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-типичные-ошибки" class="toc-link">Типичные ошибки</a>
+          <a href="#mip-rebuild-when-to-use-rebuild" class="toc-link">When to use rebuild</a>
         </li>
       
         <li class="toc-item toc-level-2">
-          <a href="#mip-why-связанные-команды" class="toc-link">Связанные команды</a>
+          <a href="#mip-rebuild-common-errors" class="toc-link">Common errors</a>
+        </li>
+      
+        <li class="toc-item toc-level-2">
+          <a href="#mip-rebuild-related-commands" class="toc-link">Related commands</a>
         </li>
       
     </ul>
@@ -2221,53 +2314,6 @@
             </div>
             <div class="page-footer-actions">
               
-              
-                <span class="git-last-updated" data-timestamp="1784466901000">
-                  <svg class="git-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  <span class="git-label">Last updated:</span>
-                  <span class="git-time" data-timestamp="1784466901000"></span>
-                  
-                  <div class="git-commit-tooltip" role="tooltip">
-                    <div class="git-tooltip-title">Recent commits</div>
-                    <ul class="git-commit-list">
-                      
-                        <li class="git-commit-item">
-                          <div class="git-commit-avatar" title="kiwinatra">
-                            
-                              <img src="https://www.gravatar.com/avatar/f845c810c2b6b1e48a071167704b05b3?d=mp&amp;s=64" alt="kiwinatra">
-                            
-                          </div>
-                          <div class="git-commit-details">
-                            <div class="git-commit-message" title="little blog cleaning">little blog cleaning</div>
-                            <div class="git-commit-meta">
-                              <span class="git-commit-author">kiwinatra</span>
-                              <span class="git-commit-date" data-timestamp="1784466901000"></span>
-                            </div>
-                          </div>
-                        </li>
-                      
-                        <li class="git-commit-item">
-                          <div class="git-commit-avatar" title="kiwinatra">
-                            
-                              <img src="https://www.gravatar.com/avatar/f845c810c2b6b1e48a071167704b05b3?d=mp&amp;s=64" alt="kiwinatra">
-                            
-                          </div>
-                          <div class="git-commit-details">
-                            <div class="git-commit-message" title="feat update: docs -&gt; docs repo">feat update: docs -&gt; docs repo</div>
-                            <div class="git-commit-meta">
-                              <span class="git-commit-author">kiwinatra</span>
-                              <span class="git-commit-date" data-timestamp="1782499508000"></span>
-                            </div>
-                          </div>
-                        </li>
-                      
-                    </ul>
-                  </div>
-                  
-                </span>
               
               <span class="git-spacer"></span>
               
@@ -2290,15 +2336,15 @@
         </div>
       </div>
       
-      <script src="../../../assets/js/docmd-i18n-manifest.js?v=ms942lvl"></script>
+      <script src="../../assets/js/docmd-i18n-manifest.js?v=ms942lvl"></script>
       
-      <script src="../../../assets/js/docmd-main.js?v=ms942lvl"></script>
+      <script src="../../assets/js/docmd-main.js?v=ms942lvl"></script>
       
-      <script src="../../../assets/js/docmd-git.js?v=ms942lvl"></script>
-      <script src="../../../assets/js/docmd-image-lightbox.js?v=ms942lvl" ></script>
+      <script src="../../assets/js/docmd-git.js?v=ms942lvl"></script>
+      <script src="../../assets/js/docmd-image-lightbox.js?v=ms942lvl" ></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.2.0/dist/umd/index.min.js" ></script>
-<script src="../../../assets/js/docmd-search.js?v=ms942lvl" ></script>
-<script src="../../../assets/js/docmd-git.js?v=ms942lvl" type="module"></script>
+<script src="../../assets/js/docmd-search.js?v=ms942lvl" ></script>
+<script src="../../assets/js/docmd-git.js?v=ms942lvl" type="module"></script>
 
   <!-- Search Modal (Injected by @docmd/plugin-search) -->
   <div id="docmd-search-modal" class="docmd-search-modal" style="display: none;" data-show-confidence="false" data-show-filters="true"

@@ -121,6 +121,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mip.fwh.is/ru/commands/rebuild/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mip.fwh.is/ru/commands/registy/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -412,6 +417,11 @@
   </url>
   <url>
     <loc>https://mip.fwh.is/commands/plugin/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mip.fwh.is/commands/rebuild/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

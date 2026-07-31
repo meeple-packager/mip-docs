@@ -45,7 +45,8 @@
       { "title": "page", "path": "/commands/server.md" },
       { "title": "alias", "path": "/commands/alias.md" },
       { "title": "hello", "path": "/commands/hello.md" },
-      { "title": "shell", "path": "/commands/shell.md" }
+      { "title": "shell", "path": "/commands/shell.md" },
+      { "title": "rebuild", "path": "/commands/rebuild.md" }
     ]
   },
   {
