@@ -1,0 +1,41 @@
+name: Build & Deploy Docs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout mip-docs
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build docs
+        run: npm run build
+      
+      - name: Deploy to meeple-packager.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # Токен для доступа к другому репозиторию
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          # Куда пушим результат
+          external_repository: meeple-packager/meeple-packager.github.io
+          # Что пушим
+          publish_dir: ./site  # или ./dist, смотри куда docmd билдит
+          publish_branch: main
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: '📚 Deploy docs: ${{ github.event.head_commit.message }}'
