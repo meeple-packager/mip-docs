@@ -22040,7 +22040,7 @@ mip config set features.config.enabled false
 # MIP Features Configuration
 # Generated: 2026-07-05T10:00:00.000Z
 # ────────────────────────────────────────────────
-# Documentation: https://mipdocs.fwh.is/features
+# Documentation: https://meeple-pakager.github.io/features
 #
 # Master switch - set to false to disable ALL feature modifications
 # config.enabled: true
@@ -24080,7 +24080,7 @@ mip config set features.config.enabled false
 # MIP Features Configuration
 # Generated: 2026-07-05T10:00:00.000Z
 # ────────────────────────────────────────────────
-# Documentation: https://mipdocs.fwh.is/features
+# Documentation: https://meeple-pakager.github.io/features
 #
 # Master switch - set to false to disable ALL feature modifications
 # config.enabled: true
